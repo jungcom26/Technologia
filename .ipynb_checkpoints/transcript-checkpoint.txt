@@ -1,0 +1,1525 @@
+[0.00s → 4.56s] We are extremely excited to present something we've been working on for quite some time.
+[4.56s → 9.60s] You've asked for us to play D&D for quite a while, and we heard you, and we did the thing.
+[9.60s → 11.44s] Welcome to Sword AF!
+[14.64s → 20.64s] All right, I've been working on this campaign and making it from scratch for a few months now.
+[21.36s → 24.40s] It's been a huge collaborative effort from the Smosh Games team.
+[24.40s → 28.48s] So if you're new here, why don't we go around the table and meet all our Smosh Games players
+[28.48s → 34.16s] for our first campaign? Hi, my name's Shane. I've played D&D a couple times before,
+[34.16s → 38.24s] but I think this is going to be the real one for me. This is going to be my first like deep dive.
+[38.24s → 44.08s] I'm stoked. Hi, I'm Angela. I've played D&D before. 5-5 is my height.
+[46.08s → 50.64s] Hi, I'm Damien Haas. I've been on Smosh Games for a while, and I've been playing D&D here and
+[50.64s → 56.72s] there. I usually join friends campaigns as like a guest, and this is my first time DMing a full campaign.
+[56.72s → 64.72s] Hi guys, I'm Amanda, and I have not played D&D, and I'm so excited to discover and go on this
+[64.72s → 70.64s] journey with everybody. Hey, what's up? I'm Chance. I've played D&D before. I've been in one campaign
+[70.64s → 76.96s] for like two years now, but I'm a new class and a new race, so I'm trying new things. Let us begin
+[76.96s → 84.56s] our story. The Age of Heroes, a time when all of creation, whether mundane or magical,
+[84.56s → 90.64s] lives in constant fear of the darkness that lurks around every corner. But in this era of great
+[90.64s → 96.72s] peril, there also hangs in the air a sense of opportunity for those that are exceptionally strong,
+[97.36s → 106.96s] or wise, or clever, or brave, to seize back control of their own narratives and rise as legendary heroes
+[106.96s → 112.08s] to forever etch their names in the annals of history. Now, that age has recently passed,
+[112.16s → 117.20s] with dragons being slain, wars being won, lines being drawn in the sand, and people living in
+[117.20s → 122.64s] relative comfort now, and peace. But with everybody growing up hearing about these heroes,
+[122.64s → 128.08s] it was generally expected that you would yourselves become one one day. So mercenary groups
+[128.08s → 132.08s] roamed the land, taking on whatever job is available. Though now in this time of peace,
+[132.08s → 136.32s] they are few and far between, and there are far too many mercenary groups that going to have to
+[136.32s → 143.84s] adapt to Megan's meat. Our story begins in Seraphel, a bustling city on the western shore,
+[143.84s → 150.16s] as a huge hub of trade and culture, creatures of all shapes and sizes make their way here to find
+[150.16s → 155.84s] whatever destiny has in store. And today, a meeting of one of the most recognizable mercenary troops
+[155.84s → 160.72s] has been ordered. But instead of their normal headquarters, the members have instead been ordered to
+[160.72s → 167.84s] meet where all good adventures start at a tavern. I knew it. No, you played before. You got
+[167.84s → 176.64s] to start that way. We first see a small goblin of bluish skin, sontering up right on time,
+[176.64s → 182.00s] eager as a beaver to the front of this tavern. Tell us a little bit about this person.
+[182.00s → 188.72s] I'm Bug. I'm also a cleric of the Trickster domain, and I'm a goblin. I'm looking around. I know
+[188.72s → 193.68s] I'm going to start working with some new people. I'm really excited. And I go straight to the bar.
+[193.68s → 198.00s] I'm, you know, when people are excited and they're standing on the edge of their toes, I'm doing
+[198.00s → 203.76s] that, and I'm walking back and forth, and I keep my, I have a hammer that's really, really shiny,
+[203.76s → 209.28s] and I keep looking at it, and I keep like adjusting my gauges, and because you can adjust them, you know.
+[210.96s → 215.28s] And it's just really first day of school energy coming from Bug.
+[215.28s → 222.88s] While Bug is at the bar, right on time, never early, never late, we see an older halfling
+[222.88s → 227.76s] walk into the bar. Can you tell us a little bit about that, Amanda? I am Dolores Paradise,
+[227.76s → 234.96s] and I'm a halfling, and I'm also a warlock, and I'm really, really thrilled to be here.
+[235.92s → 241.52s] You know, I've been in my home prepping and getting ready, and I'm wearing my favorite dress.
+[241.52s → 247.84s] It has apples on it. I love apple pie. I brought slices for everybody just in case.
+[247.84s → 253.60s] I think they're smushed in my bag right now, but I'll bring them out, and everyone can enjoy them.
+[253.60s → 259.76s] And the tavern is really busy. Oh my god, I'm trying to look for my friends. Is anyone here? Oh,
+[260.48s → 266.80s] I think I see Bug. I'm gonna get a glass of meat. Oh yeah. Starting off strong there.
+[267.36s → 272.16s] Big glass. So as y'all are awkwardly standing and not quite interacting yet, we see someone
+[272.16s → 277.28s] show up only a couple minutes late. They've got like this kind of saunter to them. Tell us a
+[277.28s → 283.60s] little bit about that chance. What's up? I'm Coda. I'm an elf, like a summer elf wizard,
+[284.40s → 289.28s] and I'm a blade singer. It means I'm really good with blades. This is my blade, snake's talent.
+[289.28s → 296.16s] I'm still writing on a scroll, still finishing up a letter. I put my pen away and I scroll it back up,
+[296.16s → 302.40s] and I look around, not as busy as I want it to be. That's okay. I saunter over to the bar.
+[302.40s → 307.20s] Nice. And so y'all are waiting there a little bit awkwardly. You've worked together before,
+[308.00s → 312.72s] but you're not super, super tight quite yet. There's just a little bit of familiarity of
+[312.72s → 315.92s] somebody that could be picked for the same job in this mercenary group, so you're making a little
+[315.92s → 321.44s] bit of eye contact here and there. And five minutes late, with not a care in the world,
+[321.44s → 325.20s] you start to feel a little bit of a rumbling on the ground as though something with heavy,
+[325.20s → 330.64s] weighted feet is walking up and bursting through the door. Yeah, right through the door comes an
+[330.64s → 340.96s] eight-foot tall wooden robot. A druid war forged, named Furny. I come in, I burst through and I just
+[340.96s → 350.72s] go, alcohol. And then saunter up to the bar and just stop there. And I'm looking for who I was
+[350.72s → 356.80s] supposed to be here with, and I'm so excited. Oh my gosh. Okay. I have a book sees him. It's like
+[356.80s → 362.64s] alcohol. Nice to meet you. I must be working with you. Oh, sweet alcohol. Great. We both love alcohol.
+[362.64s → 369.84s] No, Furny. Oh, okay. Whoops. I wish it was alcohol. That'd be so cool. Don't get too drunk. We have a
+[369.84s → 376.64s] meeting. All right. Yeah, I'll take four needs. What do you guys want? Oh, I'm just going to have
+[376.64s → 385.76s] one glass of meat for four needs for the one here. I'll take a barrel of ale. Okay. You can pay for
+[385.76s → 394.80s] that big fella. I've got you. I have extra coin. Yes, we can. All right. So as you're about to pay
+[394.80s → 401.12s] for your meat and get your drinks, you hear a voice from all the way across the bar sitting in a
+[401.12s → 406.16s] corner booth that's way too big for just them waiting for a bunch of people flagging you down.
+[406.16s → 414.88s] You see this creature of large stature ripped as hell, bald head, kind of light green skin and
+[414.88s → 420.32s] beard that is a little bit salt and pepper, a little bit older, a little bit braided teeth coming
+[420.32s → 424.88s] up from the bottom of the mouth. As you know, they are an orc. And there's somebody that you've worked
+[424.88s → 428.96s] with many times before. They're the ones who give you the job in this mercenary troupe. So they flag
+[428.96s → 433.68s] you over and they're like, hey, guys, hey, hey, come on down. Hey, I got seats for all of us. Come on.
+[433.68s → 439.20s] Hey. Oh, yeah. Huge booths. Yeah. Well, I was waiting for you. Yeah, I expected more people.
+[440.48s → 444.88s] All right. So you guys thirsty? What is the freeest drink? Four waters, Garçon.
+[444.88s → 450.00s] Four waters, please. Okay. Oh. Yeah. All right. I've got to get you all hydrated. Hey. So thank
+[450.00s → 456.64s] you so much for me today. I really appreciate you all joining me again. For those of you that are
+[456.64s → 462.24s] maybe a little bit hard of memory and intelligence. I'm crung-dart, the bloodsmith.
+[463.60s → 468.16s] It's great to work with you again. So listen, big announcement. You may have noticed we're not at
+[468.16s → 473.36s] our company headquarters anymore. We're doing a little bit of downsizing, right? Okay. There's been
+[473.36s → 480.64s] some budget cuts. Yeah, you know, it's a hard time. We're doing our best to stay afloat. But
+[480.64s → 485.84s] like all good things, we've got to make a little pivot here and there. Sure. So see, this guy gets it.
+[485.84s → 493.92s] Yeah. I get it too. Kids. I've always gotten it. I pivot all the time. All right. I believe
+[493.92s → 499.04s] that all four of you get it. That's great. I have it. It's like elbows. Oh, Ferney. You're
+[499.04s → 506.32s] going to be a blast. Yeah. That's great. Yeah. You know, the thing is I know you all are used to
+[506.32s → 511.52s] combat and probably really enjoy that quite a bit. But as you can see, jobs are a little scarce.
+[511.52s → 516.24s] And he points over to a job listing board, where you see like a bunch of like hardened mercenaries
+[516.24s → 522.00s] just sort of waiting there with arms crossed. A small like, you know, hired hand at the end, walks
+[522.00s → 526.56s] up very slowly and delicately with like a piece of paper in the moment they tacked the board. They
+[526.56s → 535.36s] just jump on the line. He's just like, oh, he got trampled. Yeah, he's gone. And so we've been
+[535.36s → 540.08s] sourcing you guys some new jobs. So really exciting. Y'all are more than qualified.
+[540.88s → 546.72s] We are no longer the banner of the unkillable spirit. We're a delivery service.
+[547.84s → 556.88s] Oh, okay. So what are we delivering? Yeah. Oh, see, that's going to change all the time.
+[556.88s → 561.28s] We deliver whatever needs to deliver in. You know, because people need goods and products and all
+[561.28s → 566.00s] the roads are paved. They just don't have time to go get them themselves, right? So is the
+[566.00s → 570.48s] pay about the same though? Oh, the pay is great. If you get there quickly and you do a good job,
+[570.48s → 577.04s] you can get tipped. We of course keep our cut. Me, of course, being management. Of course.
+[577.04s → 581.52s] But you know, I know you guys have only been on a few adventures with each other, you know,
+[581.52s → 587.44s] at this point, but when I look at you for specifically, I know in my heart that you're the ones
+[587.44s → 593.76s] who didn't quit yet. So you're right for this job. Will we know what we're delivering? Just get
+[593.76s → 597.84s] a little peak. Of course. Yeah. Tell me all about it. Does that mean you're in?
+[598.48s → 604.80s] Absolutely. Yeah. Yeah. I've been. Yeah. Fantastic. What if we're delivering punches to people's faces?
+[606.16s → 608.96s] That's kind of like what we were already doing. Honestly, I'm down. Yeah?
+[609.52s → 614.64s] Oh, only if they deserve it. Sure. I don't know if this is a good time, but I've heard about you.
+[614.64s → 620.40s] You're a legend. Thank you. Bugs looking up. I have to look so up. I've heard so much about you.
+[620.40s → 626.56s] You too, Koda. Yeah, bug. You're the guy who got beat up by that bug, right? Yeah. Yeah.
+[627.04s → 631.12s] Is that other name? That's not. No, that's it was just a coincidence. Just a coincidence?
+[631.12s → 637.04s] Yeah. That's insane. That is. That is. That is. Yeah. Sure. You could say that.
+[637.04s → 642.48s] Anyway, are you sure there's not a mistake that this isn't a group meant to, you know, hunt down
+[642.48s → 648.00s] and attack evil demons? No, I'm absolutely positive. No, you're going to be doing normal deliveries.
+[648.00s → 651.76s] Okay. So great. Everybody good with making money in a difficult economy?
+[651.76s → 655.12s] Hang it on your jobs. As long as we're helping people, I mean, I think that's great.
+[655.12s → 661.28s] You will be helping things. That's for sure. All right. So first delivery up is going to take
+[661.28s → 666.08s] you to the Grandel marshes. That's right. If you head north along the shoreline and don't worry,
+[666.08s → 672.32s] we'll provide your wagon and it's okay. We've got this and he pulls out something about pancake
+[672.32s → 679.52s] size. We got this stone icon for you. There is a there's a group of people living in the forest
+[679.52s → 685.92s] and they need this stone tablet very badly. You got to make sure it gets there undamaged,
+[685.92s → 690.56s] right? Unscuffed. And I think if you make good time, you'll probably get a solid tip.
+[690.56s → 694.80s] You know, there's new for me too, right? You know, so it seems pretty easy to take the rock to the
+[694.80s → 702.56s] Grandel Galleria. Got it. Got it. I could probably. The Grandel Galleria, the Grandel Galleria.
+[702.56s → 707.04s] Easy. Yeah, just take the rock. I love the Grandel Galleria. They have great sales at Checos.
+[708.48s → 711.04s] And you're a woman so we could put it in your purse. Please.
+[712.48s → 720.48s] Bug. Yes. My purse is enormous. It's actually half the size of me and I really carry it around my
+[720.48s → 729.20s] belt and sometimes it rubs against the ground, but I don't mind. Amazing. So Krungdar hands you this
+[729.20s → 734.32s] stone tablet. It's a little heavier than it looks. But it's it's weighty. It's weighty. I've got it.
+[734.32s → 741.92s] All right. I've got it. Do you want to be sure? Yes. All right. So we got a we got a little guy named
+[741.92s → 746.72s] Gunther outside who's getting ready to take you there. Sorry, actually when I assume he say yes
+[746.80s → 750.80s] hard times, right? So unless anyone else has any more questions, I can just let you
+[750.80s → 755.84s] wonder on your way. How's it going? Pretty good. Furny. Okay, sorry. I thought it was
+[755.84s → 760.16s] you know. That's very kind of you. It is pretty good. I feel like it's important to ask that sometimes.
+[760.96s → 766.00s] You've had two barrels of meat. I have. Okay. Oh yeah, you've been sipping on that while I've
+[766.00s → 770.88s] been talking, huh? Yeah. Is that what you were doing? I was I was I was actively picking up this barrel
+[770.88s → 779.68s] and hugging it. Yeah. Yeah. I just got it. And I throw it. Falling out. And I don't worry about
+[779.68s → 785.12s] where it goes. Uh, you, uh, okay. So, uh, the ground below you. Just looks up and it's just like
+[785.76s → 789.36s] just like blocks it with one hand. Like, this is not his first day. Like dealing with a
+[789.36s → 793.60s] bar full of mercenaries. She's on cleaning his cup. Just like, Thompson puts it down. Uh,
+[793.60s → 797.92s] we're just like, all right, it's just before you. Yeah, I stand up from the booth and I fix my hair again.
+[797.92s → 803.76s] Oh, gorgeous. Oh my god. You guys ready? Yeah. Wow. Do you guys mind if I take shotgun? I get
+[803.76s → 809.92s] car sick. Oh, definitely. I don't want to throw up in the wagon. I sometimes feel weird sitting
+[809.92s → 815.20s] in a wagon because I am also made of wood. Oh, yeah. Oh, yeah. I guess it kind of feels. Yeah.
+[815.20s → 819.68s] I don't know the word for it, but it feels weird. But I'll do it. I'll do it. Yeah. I don't think
+[819.68s → 824.00s] we get to choose what kind of car we go to. That's fair. Did you say in car? I don't know what
+[824.08s → 827.36s] part. Cart. Cart. Cart. Cart. Cart. I'd love to drive
+[828.56s → 834.72s] with gumthar. You're gonna just to make sure that I have the GPS correct. What do you. What?
+[834.72s → 838.48s] The compass. Great. There you go. Um, I just want to go in the front of the cart so I don't
+[838.48s → 844.56s] bark. Do you guys mind? Coda? Don't mind it all. Thanks guys. So uh, y'all step outside of the bar. Um,
+[845.28s → 852.80s] and you see um, this, this pretty long sizable wagon that like while not perfectly comfortable
+[852.80s → 856.84s] is big enough for a huge war forage.
+[856.84s → 860.28s] A couple of little guys in a normal sized elf.
+[860.28s → 863.64s] And standing in front of it is this very stern looking
+[863.64s → 865.48s] centaur.
+[865.48s → 866.52s] Oh, shit.
+[866.52s → 867.44s] Looking around.
+[867.44s → 869.44s] So attractive.
+[869.44s → 872.76s] Yeah, he's got long black rippling hair,
+[872.76s → 876.64s] really deep voice, a little bit stubble.
+[876.64s → 877.72s] Dolores.
+[877.72s → 878.40s] Dolores.
+[878.40s → 879.68s] Clearly just a sh- I'm sorry.
+[879.68s → 881.72s] Muscular, rippling beast.
+[881.72s → 883.32s] Oh my god.
+[883.32s → 887.12s] I just need a tub and to light a bunch of candles right now.
+[887.12s → 889.32s] Hey, my equestrian-like friend.
+[889.32s → 890.72s] Are you Gunthar?
+[890.72s → 892.80s] Hey, flesh elf.
+[892.80s → 893.52s] Yeah.
+[893.52s → 895.00s] I'm Gunthar.
+[895.00s → 896.08s] For Gunthar?
+[896.08s → 896.56s] Or no?
+[896.56s → 897.28s] For Koda?
+[897.28s → 898.08s] This is Koda?
+[898.08s → 899.08s] Yeah.
+[899.08s → 900.28s] For Koda?
+[900.28s → 901.28s] For Koda?
+[903.28s → 904.56s] I'm sorry, are you Koda?
+[904.56s → 905.08s] I'm Koda.
+[905.08s → 906.72s] I'm going to need you to stop him from talking to me.
+[906.72s → 908.00s] So I'm Gunthar.
+[908.00s → 908.68s] I got it.
+[908.68s → 911.64s] Listen, I'm going to be taking you to the grandel
+[911.64s → 912.64s] marshes.
+[912.64s → 913.64s] All right.
+[913.64s → 915.00s] I don't want no funny business, OK?
+[915.00s → 917.24s] My wagon, I want to keep this thing pristine.
+[917.24s → 918.24s] Absolutely.
+[918.24s → 919.24s] All right.
+[919.24s → 920.24s] I got it.
+[920.24s → 921.24s] Absolutely.
+[921.24s → 923.12s] Can the little one sit in the front?
+[923.12s → 924.72s] He wants to sit directly in the back.
+[924.72s → 926.24s] He wants to sit on your hide.
+[926.24s → 928.24s] Yeah, if you think you can fit.
+[928.24s → 930.72s] So Gunthar does this huge whistle with his fingers
+[930.72s → 932.68s] and around the band comes a horse,
+[932.68s → 935.72s] which he then attaches to the front of the wagon.
+[935.72s → 938.36s] He then uses his hoofs to climb in the very front
+[938.36s → 940.92s] and lay like side saddle as he's about to drive.
+[940.92s → 941.52s] What?
+[941.52s → 944.00s] I am so confused right now.
+[944.00s → 945.56s] How are we going to fit with his hoofs?
+[945.56s → 947.68s] Gunthar, you took me for a ride just now, bro.
+[947.68s → 948.52s] Oh, literally.
+[948.52s → 949.52s] Literally.
+[949.52s → 950.52s] It's true.
+[950.52s → 952.20s] And I thought a wooden rope.
+[952.20s → 954.44s] I thought a wooden warforge sitting in a wooden cart
+[954.44s → 955.20s] was going to be weird.
+[955.20s → 957.16s] This is actually weird.
+[957.16s → 957.68s] I'm sorry.
+[957.68s → 959.56s] Can you just pump the brakes for me for a minute there?
+[959.56s → 961.48s] Can you look me in the eyes and explain why it's weird
+[961.48s → 962.68s] that I would be driving the carriage?
+[962.68s → 965.44s] Well, because the second half of you is a horse.
+[965.44s → 969.64s] So I thought you were about to lead the boat ahead.
+[969.68s → 970.20s] Lock in.
+[970.20s → 971.44s] I'm going to need you to give it a shot.
+[971.44s → 972.88s] Hey, hey, f**k her knee.
+[972.88s → 973.72s] Yeah.
+[973.72s → 975.28s] Let's just take a seat in the wagon.
+[975.28s → 975.80s] OK.
+[975.80s → 976.56s] What spot do you want?
+[976.56s → 977.48s] What spot do you want, for any?
+[977.48s → 978.40s] I'll take the back.
+[978.40s → 978.92s] Perfect.
+[978.92s → 979.96s] You have to take the whole back.
+[979.96s → 981.28s] Yeah, the entire back.
+[981.28s → 982.88s] So lay flat on my back.
+[982.88s → 987.04s] So for the horse at the front, the horse at the front
+[987.04s → 989.92s] is already like clearly really strong.
+[989.92s → 993.64s] It's like this, this desterier, right?
+[993.64s → 997.92s] That can handle the weight of a centaur sitting in a wagon.
+[997.92s → 1000.28s] Yours definitely makes the wagon tip back a little bit.
+[1000.28s → 1001.28s] Wow.
+[1001.28s → 1002.28s] OK.
+[1002.28s → 1005.68s] So the horse kind of looks back and says,
+[1005.68s → 1006.76s] and you all start getting going.
+[1006.76s → 1010.32s] Y'all are now embarking on this journey on the wagon.
+[1010.32s → 1012.24s] And so far, it's been a little unaventful.
+[1012.24s → 1014.76s] It's midday, so the sun is high in the sky.
+[1014.76s → 1016.56s] You're looking around these plains.
+[1016.56s → 1019.40s] And although you're not able to visibly see it,
+[1019.40s → 1021.16s] you know that the ocean is still close,
+[1021.16s → 1023.92s] because you are on the west coast of this continent.
+[1023.92s → 1025.44s] So there's a little bit of salt in the air,
+[1025.44s → 1027.48s] and the sun is hitting your face.
+[1027.48s → 1029.92s] How are y'all feeling in this wagon?
+[1029.92s → 1031.40s] Hey, good thought.
+[1031.40s → 1033.36s] Just don't want my friends, my new co-workers,
+[1033.36s → 1035.16s] to hear me back there.
+[1035.16s → 1037.12s] You're there like two feet away.
+[1037.12s → 1039.12s] It's like sitting there like this.
+[1039.12s → 1041.60s] We can hear you, bugs!
+[1041.60s → 1042.96s] But we have a private moment.
+[1042.96s → 1044.40s] Bug, we can hear you.
+[1044.40s → 1046.20s] Bernie, I believe in the first day of a job
+[1046.20s → 1047.52s] you shouldn't show any weaknesses.
+[1047.52s → 1049.08s] But I'm not just as held back here.
+[1049.08s → 1052.76s] What's your mind if I could get on your lap?
+[1052.76s → 1054.24s] So it's either you sitting on my lap
+[1054.24s → 1056.00s] and throwing up in my wagon.
+[1056.00s → 1059.84s] Go ahead and roll a D20 for me and see what your persuasions at.
+[1059.84s → 1061.44s] Can't believe this is the first roll we're gonna pay.
+[1061.44s → 1062.48s] Yeah, right?
+[1062.48s → 1064.52s] 14 plus 4, 18.
+[1064.52s → 1065.72s] 18.
+[1065.72s → 1066.72s] You know what?
+[1066.72s → 1068.76s] I think I got a little nook with your name on it.
+[1068.76s → 1070.40s] And he sort of like rubs his side,
+[1070.40s → 1073.08s] just sort of just like riffle one of his oblique muscles
+[1073.08s → 1074.56s] into this perfect little cradle for you.
+[1074.56s → 1076.36s] And I was gonna do a little filler.
+[1077.40s → 1079.52s] Bug just lands perfectly.
+[1079.52s → 1080.96s] I'm so jealous.
+[1080.96s → 1083.40s] You're nestled on in there.
+[1083.40s → 1085.68s] All right, and we're continuing on.
+[1085.68s → 1087.24s] What are you three doing in the back?
+[1087.24s → 1090.76s] I'm knitting a beautiful scarf
+[1090.76s → 1093.08s] because it might be chilly to our destination
+[1093.08s → 1094.96s] and I'm gonna make one for each of you.
+[1094.96s → 1097.00s] And I'm me and Furny are looking out the back
+[1097.00s → 1098.80s] and I'm like, Furny, what's that?
+[1098.80s → 1100.60s] That is a bird.
+[1100.60s → 1102.00s] Good, good job.
+[1102.00s → 1102.84s] Yes.
+[1102.84s → 1103.84s] Good.
+[1103.84s → 1105.00s] Good.
+[1105.00s → 1105.84s] Furny, what's that?
+[1105.84s → 1106.68s] Oh, that's a rock.
+[1106.68s → 1107.52s] Yes.
+[1107.52s → 1108.36s] Yes.
+[1108.36s → 1109.36s] You're doing great.
+[1109.36s → 1111.08s] Oh, this is the hard one, Furny, what's that?
+[1111.08s → 1111.84s] Oh my god.
+[1111.84s → 1112.68s] Oh my god.
+[1112.68s → 1113.68s] Oh my god.
+[1113.68s → 1114.52s] Oh my god.
+[1114.52s → 1115.36s] I know this.
+[1115.36s → 1116.84s] It rhymes with girl.
+[1116.84s → 1120.32s] Oh, oh, oh, girl.
+[1120.32s → 1121.32s] That's a girl.
+[1121.32s → 1123.20s] It rhymes with girl, it's a squirrel.
+[1123.20s → 1124.20s] It's squirrel.
+[1124.20s → 1125.20s] What about the bushy tail?
+[1125.20s → 1126.60s] Oh, that's totally fair.
+[1126.60s → 1127.92s] The girl in squirrel.
+[1127.92s → 1129.28s] I was looking at Dolores.
+[1131.56s → 1133.28s] Do you like the color yellow?
+[1133.28s → 1134.12s] Yeah.
+[1134.12s → 1135.16s] Yay.
+[1135.16s → 1137.40s] I'm gonna make a huge scarf for you.
+[1137.40s → 1139.00s] Oh, sick.
+[1139.00s → 1140.12s] You get cold?
+[1140.12s → 1140.96s] No.
+[1140.96s → 1141.96s] Oh.
+[1141.96s → 1144.16s] Okay.
+[1144.16s → 1144.96s] I'll take a scarf.
+[1144.96s → 1145.96s] Okay.
+[1145.96s → 1146.96s] Yes.
+[1146.96s → 1147.96s] Coda, of course.
+[1147.96s → 1148.96s] Great.
+[1148.96s → 1149.96s] You're just going to be metallic.
+[1149.96s → 1150.96s] We were all in the front.
+[1150.96s → 1151.96s] I am nestled in the gun bar.
+[1151.96s → 1153.96s] And I'm like, first impression of me don't want.
+[1153.96s → 1155.96s] I really want to make a good impression of my cohorts.
+[1155.96s → 1156.96s] I get that.
+[1156.96s → 1157.96s] And I don't want them to know.
+[1157.96s → 1159.96s] I mean, it's hard to find acceptance.
+[1159.96s → 1160.96s] It's hard to find acceptance.
+[1160.96s → 1161.96s] I know.
+[1161.96s → 1162.96s] And people are so weird talking about things that bother very much.
+[1162.96s → 1163.96s] I know.
+[1163.96s → 1164.96s] It's just the worst.
+[1164.96s → 1165.96s] I know.
+[1165.96s → 1166.96s] But we accept you.
+[1166.96s → 1167.96s] We all hear you.
+[1167.96s → 1168.96s] But we accept you.
+[1168.96s → 1169.96s] All right.
+[1169.96s → 1172.96s] So as we're walking along, it's maybe a little bit mid afternoon.
+[1172.96s → 1175.96s] And we're making a good pace.
+[1175.96s → 1178.96s] And you start to hear something from behind.
+[1178.96s → 1181.96s] And to your right pulls up another carriage.
+[1181.96s → 1186.96s] And there's another carriage of four adventurers.
+[1186.96s → 1189.96s] All of whom you've seen before in town.
+[1189.96s → 1191.96s] In glistening armor.
+[1191.96s → 1193.96s] And shining weapons.
+[1193.96s → 1196.96s] And jewels adorning their circuits.
+[1196.96s → 1198.96s] And one of them shouts over.
+[1198.96s → 1200.96s] He's like, hey.
+[1201.96s → 1203.96s] Hey, where are you guys headed?
+[1203.96s → 1205.96s] Yeah, we're on our way to go slay a cracking.
+[1205.96s → 1207.96s] What kind of job did you guys get?
+[1207.96s → 1208.96s] None of your business.
+[1208.96s → 1209.96s] Yeah.
+[1209.96s → 1210.96s] Wait.
+[1210.96s → 1211.96s] What's that?
+[1211.96s → 1212.96s] What's that bullshit out of your bag?
+[1212.96s → 1213.96s] Dolores, hide your f***ing meeting.
+[1213.96s → 1215.96s] A stone eye eye.
+[1215.96s → 1216.96s] Okay.
+[1216.96s → 1218.96s] You guys are the ones who picked up that quest.
+[1218.96s → 1219.96s] I was wondering.
+[1219.96s → 1220.96s] And I knew it to you.
+[1220.96s → 1221.96s] I was like, who's going to get this?
+[1221.96s → 1222.96s] It's the nerds.
+[1222.96s → 1223.96s] Yeah, we're.
+[1223.96s → 1224.96s] You don't like bullies here.
+[1224.96s → 1227.96s] Hey, we're not nerds because I don't read.
+[1227.96s → 1228.96s] Oh.
+[1229.96s → 1230.96s] I can't read.
+[1230.96s → 1232.96s] I can't read.
+[1232.96s → 1233.96s] I don't read.
+[1233.96s → 1235.96s] I probably could if I tried.
+[1235.96s → 1236.96s] I'll teach you.
+[1236.96s → 1237.96s] Okay.
+[1237.96s → 1238.96s] Oh, wow.
+[1238.96s → 1239.96s] I love this little moment.
+[1239.96s → 1241.96s] I'm going to watch an old lady kiss a robot.
+[1241.96s → 1243.96s] Psych, we're about to go slay a dragon.
+[1243.96s → 1244.96s] Just kidding.
+[1244.96s → 1245.96s] It's a crack and f*** you guys.
+[1245.96s → 1247.96s] And then they just high five.
+[1247.96s → 1248.96s] And right off.
+[1248.96s → 1250.96s] Dolores, this is the human.
+[1250.96s → 1251.96s] Yeah.
+[1251.96s → 1253.96s] You guys just ignore them.
+[1253.96s → 1254.96s] Honestly, they're not worth it.
+[1254.96s → 1255.96s] They're insecure.
+[1255.96s → 1256.96s] He called me old.
+[1256.96s → 1258.96s] Well, Dolores.
+[1258.96s → 1259.96s] What?
+[1259.96s → 1261.96s] The age is just a number.
+[1261.96s → 1262.96s] Thank you.
+[1262.96s → 1264.96s] I don't even know how old I am.
+[1264.96s → 1266.96s] I think you're a thousand years old.
+[1266.96s → 1267.96s] Maybe.
+[1267.96s → 1269.96s] Well, we'll have to count your rings.
+[1269.96s → 1271.96s] Oh.
+[1271.96s → 1273.96s] Ooh, that'd be cool.
+[1273.96s → 1274.96s] Yeah, one day.
+[1274.96s → 1275.96s] Yeah.
+[1275.96s → 1276.96s] You'll show me.
+[1276.96s → 1277.96s] When I'm in a museum.
+[1277.96s → 1279.96s] Oh, you know what that is?
+[1279.96s → 1280.96s] Yeah.
+[1280.96s → 1281.96s] What is it?
+[1281.96s → 1282.96s] What do you think a museum is?
+[1282.96s → 1285.96s] That's a place where they have
+[1285.96s → 1288.96s] paintings and stuff.
+[1288.96s → 1289.96s] Yeah.
+[1289.96s → 1290.96s] And other things.
+[1290.96s → 1291.96s] Crazy.
+[1291.96s → 1292.96s] You didn't know what a squirrel was.
+[1292.96s → 1294.96s] I knew what a squirrel is.
+[1294.96s → 1296.96s] I just didn't know where he was pointing.
+[1296.96s → 1298.96s] Oh, it's your vision.
+[1298.96s → 1300.96s] And I can't rhyme.
+[1300.96s → 1301.96s] No.
+[1301.96s → 1302.96s] I love that.
+[1302.96s → 1303.96s] I love that.
+[1303.96s → 1305.96s] I don't want to be fair.
+[1305.96s → 1307.96s] Squirrel and girl is a bit of a stretch.
+[1307.96s → 1308.96s] Squirrel's got the two syllables.
+[1308.96s → 1309.96s] I was going to say this thing.
+[1309.96s → 1310.96s] Yeah.
+[1310.96s → 1311.96s] Really?
+[1311.96s → 1312.96s] I say squirrel.
+[1312.96s → 1313.96s] Squirrel.
+[1313.96s → 1314.96s] Squirrel.
+[1314.96s → 1315.96s] Squirrel.
+[1315.96s → 1316.96s] Squirrel.
+[1316.96s → 1317.96s] Squirrel.
+[1317.96s → 1318.96s] Squirrel.
+[1318.96s → 1319.96s] Squirrel.
+[1319.96s → 1320.96s] Squirrel.
+[1320.96s → 1321.96s] He's working on it.
+[1321.96s → 1323.96s] See, that's tough for me because a squirrel looks nothing
+[1323.96s → 1324.96s] like a girl.
+[1324.96s → 1325.96s] But I guess there's some squirrels that aren't.
+[1325.96s → 1326.96s] So it's tough.
+[1326.96s → 1329.96s] So do you think rhyming means they look alike?
+[1329.96s → 1330.96s] Yeah.
+[1330.96s → 1331.96s] What is that?
+[1331.96s → 1333.96s] I have no idea what's going on.
+[1333.96s → 1334.96s] Yeah.
+[1334.96s → 1338.96s] And I am scared, suddenly.
+[1338.96s → 1340.96s] It's getting to be a little bit later.
+[1340.96s → 1343.96s] The sun is not quite going down yet,
+[1343.96s → 1345.96s] but you can tell you've got a couple more hours to get to your destination.
+[1345.96s → 1347.96s] But you've made fantastic time.
+[1347.96s → 1349.96s] You didn't let those jerks slow you down.
+[1349.96s → 1351.96s] There were no bumps in the road.
+[1351.96s → 1352.96s] Anything like that.
+[1352.96s → 1353.96s] And you kept it cool.
+[1353.96s → 1355.96s] So now you're making it there on time.
+[1355.96s → 1358.96s] The smell of seawater starts to get a little bit stronger.
+[1358.96s → 1360.96s] And you realize this isn't just a marsh.
+[1360.96s → 1362.96s] You had it to a maritime forest,
+[1362.96s → 1367.96s] where lush vegetation meets with ocean to make a very specifically
+[1367.96s → 1370.96s] rich environment full of life.
+[1370.96s → 1371.96s] Like a bog?
+[1371.96s → 1373.96s] Or a marsh?
+[1373.96s → 1374.96s] Yeah.
+[1374.96s → 1376.96s] Well, it's a maritime forest.
+[1376.96s → 1377.96s] That's like a marsh.
+[1377.96s → 1378.96s] Like a marine layer?
+[1378.96s → 1379.96s] Yeah, kind of.
+[1379.96s → 1381.96s] Gunther stops for a moment.
+[1381.96s → 1384.96s] He's like, hey guys, I'm going to need a couple of minutes here.
+[1384.96s → 1387.96s] I personally am fine walking in this kind of environment,
+[1387.96s → 1390.96s] but a wagon needs some specific wheels.
+[1390.96s → 1391.96s] Give me about five minutes.
+[1391.96s → 1392.96s] I'll pop those puppies off,
+[1392.96s → 1394.96s] and we'll get this thing going all right.
+[1394.96s → 1396.96s] Oh my god.
+[1396.96s → 1398.96s] You clearly?
+[1398.96s → 1401.96s] If you need help popping off anything,
+[1401.96s → 1402.96s] I will help.
+[1402.96s → 1404.96s] I have needles in my bag,
+[1404.96s → 1407.96s] and I can pop off a tire like nobody's been there.
+[1407.96s → 1408.96s] Jesus, Dolores.
+[1408.96s → 1409.96s] That's very exciting.
+[1409.96s → 1411.96s] He's like, yeah, I'm going to sit.
+[1411.96s → 1413.96s] Thank you.
+[1413.96s → 1415.96s] Furny would absolutely get distracted
+[1415.96s → 1417.96s] and start walking off into the forest.
+[1417.96s → 1418.96s] Okay.
+[1418.96s → 1420.96s] Hey, hey, sit down there.
+[1420.96s → 1423.96s] Sorry, I thought I just seeing nature.
+[1423.96s → 1424.96s] I just, I get inspired,
+[1424.96s → 1427.96s] and I just, I haven't been in a maritime forest in so long.
+[1427.96s → 1428.96s] I don't even know what it is.
+[1428.96s → 1429.96s] Green layer.
+[1429.96s → 1430.96s] Nah.
+[1430.96s → 1432.96s] Oh my goodness.
+[1432.96s → 1433.96s] Incredible.
+[1433.96s → 1434.96s] Same.
+[1434.96s → 1436.96s] So you start to walk into the forest,
+[1436.96s → 1437.96s] and the air gets a little bit,
+[1437.96s → 1438.96s] is everyone else following him, too?
+[1438.96s → 1439.96s] Yeah.
+[1439.96s → 1440.96s] Oh, of course.
+[1440.96s → 1441.96s] Okay.
+[1441.96s → 1442.96s] I want to make sure Furny doesn't fall off a cliff already.
+[1442.96s → 1443.96s] I'm not paying attention.
+[1443.96s → 1444.96s] I'm writing.
+[1444.96s → 1445.96s] Gunfire shows after he's like,
+[1445.96s → 1447.96s] yeah, I guess I'll catch up.
+[1447.96s → 1449.96s] All right, so.
+[1449.96s → 1453.96s] You all start to walk into the forest,
+[1453.96s → 1456.96s] and the air starts to get a little bit thicker
+[1456.96s → 1457.96s] and heavier.
+[1457.96s → 1458.96s] It's really humid.
+[1458.96s → 1461.96s] Even at night, you're starting to realize how warm it is here,
+[1461.96s → 1463.96s] and the vegetation is lush.
+[1463.96s → 1466.96s] But thankfully, you can tell that there's a very specific,
+[1466.96s → 1468.96s] you know, dirt path to follow.
+[1468.96s → 1470.96s] And as you're walking along,
+[1470.96s → 1471.96s] you start to notice,
+[1471.96s → 1479.96s] can everybody just give me a quick roll of the D24 perception?
+[1479.96s → 1481.96s] Four plus two is six.
+[1481.96s → 1482.96s] Not one.
+[1482.96s → 1483.96s] Holy shit.
+[1483.96s → 1484.96s] Eleven.
+[1484.96s → 1485.96s] All right, great.
+[1485.96s → 1487.96s] So that's a two.
+[1487.96s → 1488.96s] What did you get? 11?
+[1488.96s → 1489.96s] 11.
+[1489.96s → 1490.96s] Yeah, but not one is a critical fail.
+[1490.96s → 1491.96s] So usually that counts as critical fail.
+[1491.96s → 1492.96s] You're just f***ing.
+[1492.96s → 1493.96s] So Furny.
+[1493.96s → 1496.96s] So Deloris.
+[1496.96s → 1497.96s] Yes.
+[1497.96s → 1502.96s] Deloris, you walking along as someone who is a warlock.
+[1502.96s → 1505.96s] And very attuned with magic of all kinds.
+[1505.96s → 1509.96s] You start to feel a very familiar presence.
+[1509.96s → 1512.96s] You know that you're not alone here.
+[1512.96s → 1514.96s] And you start to look around,
+[1514.96s → 1516.96s] and you see a couple of eyes staring at you.
+[1516.96s → 1521.96s] And a couple of the trees are moving in a way counter to the wind.
+[1521.96s → 1523.96s] That tree just went left.
+[1523.96s → 1524.96s] What do you mean that's it?
+[1524.96s → 1525.96s] Did anyone see that?
+[1525.96s → 1526.96s] I didn't see.
+[1526.96s → 1527.96s] What do you mean anything?
+[1527.96s → 1529.96s] Furny is facing down in the mud.
+[1529.96s → 1530.96s] Furny?
+[1530.96s → 1532.96s] Just like bubbles coming up from.
+[1532.96s → 1533.96s] Furny?
+[1533.96s → 1534.96s] Oh!
+[1534.96s → 1535.96s] Furny.
+[1535.96s → 1537.96s] Bucks try so hard to help.
+[1537.96s → 1538.96s] Furny up.
+[1538.96s → 1539.96s] Oh my god.
+[1539.96s → 1541.96s] Furny, what are you doing?
+[1541.96s → 1542.96s] Oh my god.
+[1542.96s → 1543.96s] I was swimming.
+[1543.96s → 1544.96s] What?
+[1544.96s → 1546.96s] You have to be fully emerged.
+[1546.96s → 1549.96s] Oh god, we need to get a read.
+[1549.96s → 1552.96s] So in all this commotion,
+[1552.96s → 1554.96s] because Deloris is now trying to help you,
+[1554.96s → 1558.96s] you don't notice that there are several things around you.
+[1558.96s → 1560.96s] Please roll for initiative.
+[1560.96s → 1561.96s] Oh, shit.
+[1561.96s → 1562.96s] All of us?
+[1562.96s → 1563.96s] Yep.
+[1563.96s → 1565.96s] If I roll another one, I swear to god.
+[1565.96s → 1566.96s] 11.
+[1566.96s → 1567.96s] Oh, good.
+[1567.96s → 1568.96s] I got a three.
+[1568.96s → 1569.96s] Plus one.
+[1569.96s → 1570.96s] 11, 16, 14.
+[1570.96s → 1571.96s] All right, so let's see.
+[1571.96s → 1572.96s] You got 14.
+[1572.96s → 1573.96s] Yeah.
+[1573.96s → 1574.96s] Deloris is 16.
+[1574.96s → 1575.96s] 16.
+[1575.96s → 1576.96s] You got 11.
+[1576.96s → 1577.96s] Me at six.
+[1577.96s → 1578.96s] You got six.
+[1578.96s → 1580.96s] You got four.
+[1580.96s → 1581.96s] Four.
+[1581.96s → 1582.96s] Thank god I'm here.
+[1582.96s → 1583.96s] Out of roll initiative for these things.
+[1583.96s → 1584.96s] I know.
+[1584.96s → 1585.96s] The first thing is up.
+[1585.96s → 1587.96s] The tree, Deloris, that you noticed,
+[1587.96s → 1589.96s] stops moving in the way that it does,
+[1589.96s → 1594.96s] and one specific branch just sort of swings off of its lever
+[1594.96s → 1597.96s] and falls off, and it runs right up to you
+[1597.96s → 1599.96s] and tries to scratch you.
+[1599.96s → 1600.96s] What do you mean?
+[1600.96s → 1601.96s] The tree does?
+[1601.96s → 1602.96s] It looks like a twig.
+[1602.96s → 1603.96s] It looks like a twig.
+[1603.96s → 1604.96s] It's very small, but it runs up to you.
+[1604.96s → 1605.96s] It's a hand.
+[1605.96s → 1607.96s] Scorries across the ground and just scratches at you.
+[1607.96s → 1608.96s] All right.
+[1608.96s → 1610.96s] So let's see if it hits here.
+[1610.96s → 1612.96s] That is a net 20.
+[1612.96s → 1614.96s] So it definitely hits.
+[1614.96s → 1619.96s] The damage is two.
+[1619.96s → 1621.96s] So we're going to say that's a four.
+[1621.96s → 1622.96s] It does four damage to you.
+[1622.96s → 1623.96s] Okay.
+[1623.96s → 1626.96s] I don't understand why people can be so many.
+[1626.96s → 1628.96s] You're just saying that is this thing?
+[1628.96s → 1631.96s] I don't understand why people can be so mean.
+[1631.96s → 1632.96s] Ow!
+[1632.96s → 1633.96s] It's not my braids!
+[1633.96s → 1635.96s] Don't undo my braids!
+[1635.96s → 1639.96s] Next up, Deloris, you, it is your turn.
+[1639.96s → 1644.96s] I would like to take my dagger and just start stabbing it.
+[1644.96s → 1645.96s] All right.
+[1645.96s → 1647.96s] I would like to cut it off at the wrist.
+[1647.96s → 1649.96s] Motherf**k.
+[1649.96s → 1650.96s] No one f**ked with my hair.
+[1650.96s → 1651.96s] 15.
+[1651.96s → 1654.96s] So to 15, a 15 does hit.
+[1655.96s → 1656.96s] Four plus two.
+[1656.96s → 1657.96s] So that's six damage.
+[1657.96s → 1658.96s] That's fantastic.
+[1658.96s → 1659.96s] Ha!
+[1659.96s → 1662.96s] So you hit and you kill this thing.
+[1662.96s → 1663.96s] What does that look like to you?
+[1663.96s → 1667.96s] So I take this dagger and I stab it clean right at the wrist.
+[1667.96s → 1672.96s] So you hit that thing cleanly and it falls to the ground in little splinters and stays there.
+[1672.96s → 1673.96s] Fantastic.
+[1673.96s → 1676.96s] So that one is dead already.
+[1676.96s → 1677.96s] Next.
+[1677.96s → 1678.96s] Pick up one of the splinters.
+[1678.96s → 1682.96s] You have a bonus action so you could just pick it up and keep it on you if you wanted to.
+[1683.96s → 1684.96s] You have time to do that.
+[1684.96s → 1685.96s] You just want to hold on to it.
+[1685.96s → 1686.96s] I want to hold on to it.
+[1686.96s → 1687.96s] Maybe research it later.
+[1687.96s → 1688.96s] Okay.
+[1688.96s → 1689.96s] That's a great idea.
+[1689.96s → 1691.96s] So another one of these branches, seeing that this has happened,
+[1691.96s → 1695.96s] scurries down off the tree and avoids you because it knows you are trouble.
+[1695.96s → 1700.96s] And it scurries up the leg of Coda and attempts to make an attack with its claws once again.
+[1700.96s → 1702.96s] That is a, does a 16 hit?
+[1702.96s → 1703.96s] Yeah.
+[1703.96s → 1707.96s] So it is going to do,
+[1708.96s → 1711.96s] it is going to do two damage to you piercing.
+[1711.96s → 1713.96s] So it's a little twig hands.
+[1713.96s → 1716.96s] It just sort of goes E into your arm and your upper right shoulder.
+[1716.96s → 1719.96s] Thankfully Coda, it is also your turn next.
+[1719.96s → 1722.96s] I'm just going to use shocking grass on this little f***er.
+[1722.96s → 1723.96s] Amazing.
+[1723.96s → 1724.96s] Hold on.
+[1724.96s → 1725.96s] Good luck.
+[1725.96s → 1726.96s] Thanks.
+[1726.96s → 1727.96s] Your heroes work.
+[1727.96s → 1728.96s] Eight plus five.
+[1728.96s → 1729.96s] Plus five.
+[1729.96s → 1730.96s] 13.
+[1730.96s → 1731.96s] 13.
+[1731.96s → 1733.96s] 13 does hit.
+[1733.96s → 1734.96s] Hell yeah.
+[1734.96s → 1736.96s] So roll for damage.
+[1740.96s → 1741.96s] Four.
+[1741.96s → 1743.96s] Your shocking grass does kill this thing.
+[1743.96s → 1745.96s] Describe to us what shocking grass looks like to you.
+[1745.96s → 1746.96s] Yeah.
+[1746.96s → 1749.96s] I just take my f***ing hands and I grab that twig and I'm like,
+[1751.96s → 1752.96s] clear?
+[1752.96s → 1755.96s] It lets out this horrid little screen as it crumbles to the ground.
+[1755.96s → 1760.96s] The two pairs of eyes from behind the trees emerge and become a little bit more visible in view.
+[1761.96s → 1763.96s] Ooh, and I say, for my bonus action, I say,
+[1763.96s → 1765.96s] you look shocked to see me.
+[1765.96s → 1767.96s] Oh, very good.
+[1767.96s → 1772.96s] The two pairs of eyes turn to look at each other and look back to you.
+[1772.96s → 1774.96s] Does anyone here speak Sylvan?
+[1774.96s → 1775.96s] I do.
+[1775.96s → 1776.96s] All right.
+[1776.96s → 1779.96s] So one of them turns and you can tell what they're saying.
+[1779.96s → 1782.96s] They point directly at you when they're like,
+[1782.96s → 1789.96s] you, you, me, you.
+[1789.96s → 1794.96s] One of them rushes at you with an extreme fervor and anger.
+[1794.96s → 1796.96s] Does he say this in Sylvan?
+[1796.96s → 1797.96s] Does he say this in common?
+[1797.96s → 1799.96s] He's saying it in common in response to their Sylvan.
+[1799.96s → 1800.96s] So you all don't know Sylvan.
+[1800.96s → 1802.96s] So you're hearing him, hear Sylvan and go,
+[1802.96s → 1803.96s] actually, do you know Sylvan?
+[1803.96s → 1804.96s] For...
+[1804.96s → 1805.96s] You're in a live room.
+[1805.96s → 1806.96s] You should.
+[1806.96s → 1807.96s] I don't.
+[1807.96s → 1810.96s] I get to choose one of my choosing, but I'm not choosing.
+[1810.96s → 1811.96s] Okay.
+[1811.96s → 1812.96s] Got it.
+[1812.96s → 1814.96s] Is Hermione's head out of the puddle yet?
+[1814.96s → 1815.96s] Yeah.
+[1815.96s → 1816.96s] Fernie has stood up.
+[1816.96s → 1817.96s] Oh, my God.
+[1817.96s → 1819.96s] Fernie, what are you here?
+[1819.96s → 1823.96s] He's saying you to me.
+[1823.96s → 1825.96s] So he's saying you to you.
+[1825.96s → 1826.96s] Yes.
+[1826.96s → 1829.96s] Do you think by the way he's delivering it, he means...
+[1829.96s → 1830.96s] Is it a good you?
+[1830.96s → 1832.96s] He definitely means to say what he's saying.
+[1832.96s → 1834.96s] No, no, not I think he means it.
+[1834.96s → 1836.96s] But what is the emotion behind it?
+[1836.96s → 1837.96s] Yeah, what's the emotion?
+[1837.96s → 1838.96s] I know you're a wood.
+[1838.96s → 1839.96s] He's pissed.
+[1839.96s → 1840.96s] Oh, my God.
+[1840.96s → 1842.96s] Good context clues.
+[1842.96s → 1843.96s] But maybe it's self-hatred.
+[1843.96s → 1844.96s] Oh.
+[1844.96s → 1845.96s] Well, that's good.
+[1845.96s → 1848.96s] Yeah, it's made of wood and I made of wood.
+[1848.96s → 1850.96s] Maybe he sees himself in me.
+[1850.96s → 1853.96s] So while you're explaining this, this thing rushes up to you.
+[1853.96s → 1858.96s] When these eyes emerge, Fernie, you recognize these
+[1858.96s → 1861.96s] since you were a dweller of the forest as dryheads.
+[1861.96s → 1865.96s] They are these almost feminine forms that are leaf spirits
+[1865.96s → 1868.96s] and very much tied to the world of the fey,
+[1868.96s → 1870.96s] which is fairytum.
+[1870.96s → 1873.96s] They see you and they are absolutely pissed
+[1873.96s → 1875.96s] and they speak in the language of fairies.
+[1875.96s → 1878.96s] So using the wrath of the forest,
+[1878.96s → 1882.96s] they reach into their own arms and turn them into a club
+[1882.96s → 1884.96s] instead of a bunch of twigs and leaves.
+[1884.96s → 1887.96s] One of them rears back to hit you and it rolls.
+[1887.96s → 1889.96s] 20 is probably gonna hit, right?
+[1889.96s → 1890.96s] Yeah.
+[1890.96s → 1891.96s] Okay.
+[1891.96s → 1894.96s] That is going to do a fair amount of damage to you.
+[1894.96s → 1895.96s] That is going to do...
+[1895.96s → 1897.96s] You are absolutely lucky.
+[1897.96s → 1898.96s] It does five damage to you.
+[1898.96s → 1899.96s] It's okay.
+[1899.96s → 1900.96s] Good job, Fernie.
+[1900.96s → 1901.96s] Amazing.
+[1901.96s → 1904.96s] I'm just like, hi, Turk!
+[1904.96s → 1907.96s] Next up, that second dryhead emerges
+[1907.96s → 1909.96s] and starts yelling something as well.
+[1909.96s → 1911.96s] But your head is so rattled right now.
+[1911.96s → 1913.96s] You can't really understand what it's saying.
+[1913.96s → 1916.96s] It is casting a fey charm on you.
+[1916.96s → 1920.96s] So you have to give me a wisdom saving throw.
+[1920.96s → 1921.96s] Five.
+[1921.96s → 1924.96s] Okay, so unfortunately, that does not succeed for you.
+[1924.96s → 1929.96s] So you start to feel yourself feel a little bit better
+[1929.96s → 1933.96s] and you recognize this dryhead is not an enemy.
+[1933.96s → 1935.96s] But a friend.
+[1935.96s → 1938.96s] In fact, it's something you want it here.
+[1938.96s → 1940.96s] And it's here to help you.
+[1940.96s → 1941.96s] Yes.
+[1941.96s → 1945.96s] And you really want to make sure this thing is as safe as possible.
+[1945.96s → 1949.96s] So you can communicate that to your friends if you want.
+[1949.96s → 1951.96s] But this is how you are feeling.
+[1952.96s → 1955.96s] Everyone, this is my best friend.
+[1955.96s → 1958.96s] Fernie, my dude, that thing just hit you.
+[1958.96s → 1960.96s] No, no, they're my best friend.
+[1960.96s → 1961.96s] Don't befriend your bullies.
+[1961.96s → 1962.96s] They're my best friend.
+[1962.96s → 1964.96s] Fernie, look at how they're looking at you.
+[1964.96s → 1966.96s] You don't get to choose your friends.
+[1966.96s → 1967.96s] Never trust a woman.
+[1967.96s → 1968.96s] You do.
+[1968.96s → 1971.96s] You can choose your family, but you can't choose your friends.
+[1971.96s → 1974.96s] Why are you almost correct to do so?
+[1974.96s → 1977.96s] He's like, no.
+[1977.96s → 1978.96s] Oh, Fernie.
+[1978.96s → 1979.96s] No.
+[1980.96s → 1981.96s] Oh, God.
+[1981.96s → 1984.96s] Basically, you are now charmed by this creature.
+[1984.96s → 1985.96s] And not in a full sense.
+[1985.96s → 1987.96s] You're not entirely under its control.
+[1987.96s → 1990.96s] But to the best of your ability, you do need to take its requests.
+[1990.96s → 1991.96s] Okay.
+[1991.96s → 1995.96s] So it says to you in Sylvan, I need your protection.
+[1995.96s → 1996.96s] Okay.
+[1996.96s → 1998.96s] Next up, we have Bug.
+[1998.96s → 2000.96s] Did any of them come at me?
+[2000.96s → 2001.96s] None of them come at you.
+[2001.96s → 2003.96s] They've only been going for him for whatever reason.
+[2003.96s → 2004.96s] But there are two dryheads.
+[2004.96s → 2005.96s] And that's all you can see from us.
+[2005.96s → 2006.96s] Okay.
+[2006.96s → 2007.96s] You should be good.
+[2007.96s → 2009.96s] Do you need protection?
+[2009.96s → 2011.96s] She needs protection.
+[2011.96s → 2012.96s] I'm not going to protect her.
+[2012.96s → 2013.96s] She's hitting you on your right hand.
+[2013.96s → 2014.96s] I don't know.
+[2014.96s → 2015.96s] I don't know.
+[2015.96s → 2016.96s] She said she needs protection.
+[2016.96s → 2017.96s] I don't know from who.
+[2017.96s → 2018.96s] Fernie, can you ask?
+[2018.96s → 2019.96s] Who do you need protection from?
+[2019.96s → 2020.96s] What do you need protection from?
+[2020.96s → 2021.96s] What kind of protection do you need?
+[2021.96s → 2023.96s] You killed two of us.
+[2023.96s → 2025.96s] You've killed more of us.
+[2025.96s → 2026.96s] Holy shit.
+[2026.96s → 2027.96s] What did she say?
+[2027.96s → 2029.96s] She says I've killed a lot of them.
+[2029.96s → 2030.96s] Tell them.
+[2030.96s → 2031.96s] She omitted my braids.
+[2031.96s → 2033.96s] Yeah, to be fair, they attacked us first.
+[2033.96s → 2034.96s] That is true.
+[2034.96s → 2035.96s] That is true.
+[2035.96s → 2036.96s] Oh, it's by fact.
+[2036.96s → 2037.96s] What are you doing?
+[2037.96s → 2039.96s] All right, Bug is like this is the time, Bug.
+[2039.96s → 2042.96s] This is where you show everyone around you.
+[2042.96s → 2043.96s] Bug.
+[2043.96s → 2044.96s] You're stuck.
+[2044.96s → 2045.96s] You've got to get to work here.
+[2045.96s → 2051.96s] So I'm going to fucking attack this woman with my crossbro.
+[2051.96s → 2053.96s] Okay, do you want to attack the one that hit him
+[2053.96s → 2055.96s] or attack the one that was whispering to him?
+[2055.96s → 2057.96s] The one that was whispering to my friend.
+[2057.96s → 2058.96s] Great.
+[2058.96s → 2061.96s] So go ahead and roll your crossbow to see if it hits.
+[2061.96s → 2062.96s] Roll at D20.
+[2062.96s → 2063.96s] Yep.
+[2063.96s → 2064.96s] Plus two.
+[2065.96s → 2067.96s] Okay, so that is a nat one.
+[2067.96s → 2073.96s] So you lock in your crossbow bolt and come on.
+[2073.96s → 2075.96s] It's a little bit off of the track.
+[2075.96s → 2079.96s] And when you fire the string just makes it like flip and like land
+[2079.96s → 2081.96s] at the tip of your shoe, not where your toe is.
+[2081.96s → 2084.96s] Just like kind of pinning that shoe to the ground for a minute.
+[2084.96s → 2087.96s] So you're kind of you're stuck a little bit there.
+[2087.96s → 2089.96s] Oh, it gets me stuck to the ground.
+[2089.96s → 2090.96s] Yeah, you're a little bit stuck.
+[2090.96s → 2091.96s] It's a bug bug.
+[2091.96s → 2092.96s] It's okay, bug.
+[2092.96s → 2093.96s] You fucked this up.
+[2093.96s → 2095.96s] But we can hear you, honey.
+[2095.96s → 2097.96s] Okay, okay, this does this some time.
+[2097.96s → 2100.96s] No, it's nothing to do bad about one in five goblins
+[2100.96s → 2102.96s] have executionally here.
+[2102.96s → 2105.96s] Hey, Koda, it's a new crossbow.
+[2105.96s → 2107.96s] Oh, I totally get that.
+[2107.96s → 2108.96s] So don't worry.
+[2108.96s → 2112.96s] Should you keep the receipt or return it?
+[2112.96s → 2113.96s] Yeah.
+[2113.96s → 2114.96s] Return it.
+[2114.96s → 2115.96s] Pack it up.
+[2115.96s → 2116.96s] They don't even care if you use it before.
+[2116.96s → 2117.96s] Yeah, I don't care.
+[2117.96s → 2118.96s] Please be.
+[2118.96s → 2119.96s] I've returned a lot.
+[2119.96s → 2120.96s] I want to rip my foot off of it.
+[2120.96s → 2121.96s] Yeah, we can say it's your bonus action.
+[2121.96s → 2122.96s] You're able to pull it out.
+[2122.96s → 2123.96s] But then that's your whole turn.
+[2123.96s → 2124.96s] Okay.
+[2124.96s → 2127.96s] Stop looking at me, guys.
+[2127.96s → 2129.96s] Finally up is Ferny.
+[2129.96s → 2134.96s] Now, Ferny, you are still able to act under your will for the most part,
+[2134.96s → 2137.96s] but you have to follow the order of protect her.
+[2137.96s → 2139.96s] So whatever that means to you, you are charmed.
+[2139.96s → 2141.96s] You have to do that to the best of your ability.
+[2141.96s → 2142.96s] She said to protect her.
+[2142.96s → 2146.96s] I'll protect you from your friend who just hit me.
+[2146.96s → 2147.96s] She seems crazy.
+[2147.96s → 2148.96s] Nice.
+[2148.96s → 2150.96s] You're going to be a good boyfriend.
+[2150.96s → 2151.96s] You got it.
+[2151.96s → 2154.96s] We got to stop your friend.
+[2154.96s → 2157.96s] So what do you do in that moment before she can correct you with your stupidity?
+[2157.96s → 2164.96s] I just immediately, my hand goes into my forearm and then a hand axe.
+[2164.96s → 2166.96s] Thing pops out of the forearm.
+[2166.96s → 2167.96s] Hell yeah.
+[2167.96s → 2170.96s] And I'm just like, I'll protect you and then I go straight for her.
+[2170.96s → 2171.96s] Nice.
+[2171.96s → 2173.96s] Are you doing that as primal savagery or like a normal hand axe?
+[2173.96s → 2175.96s] Just normal hand axe attack.
+[2175.96s → 2177.96s] You're standard hand axe.
+[2177.96s → 2179.96s] Go ahead and roll your D20.
+[2179.96s → 2181.96s] Please for the love of God, Furny.
+[2181.96s → 2182.96s] 11.
+[2182.96s → 2183.96s] Plus 1.
+[2183.96s → 2184.96s] Plus 1.
+[2184.96s → 2185.96s] That does hit.
+[2185.96s → 2186.96s] So go ahead and roll your damage.
+[2186.96s → 2191.96s] So that's a D6, which is normal dice like that you use for that.
+[2191.96s → 2192.96s] Oh yeah, yeah, yeah.
+[2192.96s → 2193.96s] Okay, yeah.
+[2193.96s → 2194.96s] All right.
+[2194.96s → 2196.96s] That's a 4 plus 1.
+[2196.96s → 2197.96s] Amazing.
+[2197.96s → 2199.96s] So this thing takes 5 damage.
+[2199.96s → 2200.96s] Sick, Furny.
+[2200.96s → 2201.96s] Good job, Furny.
+[2201.96s → 2202.96s] Yeah.
+[2202.96s → 2203.96s] Fantastic.
+[2203.96s → 2205.96s] And so now you have your bonus action.
+[2205.96s → 2206.96s] Yeah, yeah.
+[2206.96s → 2210.96s] And I think I do the one swing and then I like my other hand also turns into a hand axe
+[2210.96s → 2212.96s] and I'm going to go for a second swing.
+[2212.96s → 2213.96s] Nice.
+[2213.96s → 2214.96s] So roll the hit.
+[2214.96s → 2216.96s] Let's see.
+[2216.96s → 2217.96s] That's a 7.
+[2217.96s → 2221.96s] So unfortunately, that one does like with entirely.
+[2221.96s → 2222.96s] Oh.
+[2222.96s → 2225.96s] Next up, Dolores, seeing that this is a miss, you've got to step in and fix this.
+[2225.96s → 2226.96s] It's your turn.
+[2226.96s → 2232.96s] Well, I'm getting very tired of these sassy women hurting my friends.
+[2232.96s → 2238.96s] So I have decided to start cooking up an eldrige blast.
+[2238.96s → 2239.96s] Love it.
+[2239.96s → 2242.96s] And are you going to be attacking the one that hit him with a stick or the one that is like still whispering?
+[2242.96s → 2246.96s] I am tired of that woman whispering nasty little things in your ear.
+[2246.96s → 2247.96s] Okay.
+[2247.96s → 2248.96s] I have to protect her.
+[2248.96s → 2249.96s] Oh, Furny.
+[2249.96s → 2250.96s] She's toxic.
+[2250.96s → 2255.96s] Oh, you're like one of those guys against like a spell when women talk to him.
+[2255.96s → 2256.96s] Yeah.
+[2256.96s → 2258.96s] So go ahead and roll to see if that eldrige blast hits.
+[2258.96s → 2259.96s] All right.
+[2259.96s → 2261.96s] Come on, baby.
+[2261.96s → 2263.96s] Protect my babies.
+[2263.96s → 2264.96s] Two.
+[2264.96s → 2265.96s] Okay.
+[2265.96s → 2266.96s] So.
+[2266.96s → 2267.96s] Plus five.
+[2267.96s → 2268.96s] That's a seven.
+[2268.96s → 2273.96s] Do you guys think this is why we're delivering stuff?
+[2273.96s → 2279.96s] Do you guys think maybe we're delivering things because none of us can hit anything?
+[2279.96s → 2280.96s] Yeah.
+[2280.96s → 2285.96s] When my foot got stapled to the ground, I remembered those bullies in the other cart.
+[2285.96s → 2287.96s] And I was like, maybe they were right.
+[2287.96s → 2288.96s] Yeah.
+[2288.96s → 2289.96s] I grabbed this fuzzy little ball.
+[2289.96s → 2290.96s] It's so cute.
+[2290.96s → 2291.96s] I don't really want to give it up.
+[2291.96s → 2293.96s] But I go, hey, honey, catch.
+[2293.96s → 2295.96s] And I toss it her way.
+[2295.96s → 2298.96s] So she just is like staring at you like while whispering.
+[2298.96s → 2299.96s] And I'm like, no, no, no, no, no.
+[2299.96s → 2303.96s] And just like it's sort of like dead eyes you as it goes and just passed her hand.
+[2303.96s → 2304.96s] Oh.
+[2304.96s → 2310.96s] So this the one that used its arm as a club turns to you, Dolores.
+[2310.96s → 2315.96s] And holds on up to you somehow gracefully but also with weight behind it.
+[2315.96s → 2318.96s] And also rears back to give you a smack.
+[2318.96s → 2321.96s] This is the first time they've attacked any of you because they are frustrated.
+[2321.96s → 2322.96s] They are frustrated here.
+[2322.96s → 2324.96s] Come at me, bitch.
+[2324.96s → 2327.96s] And it does how much damage.
+[2327.96s → 2328.96s] Oh no.
+[2328.96s → 2329.96s] Ow.
+[2329.96s → 2330.96s] It does.
+[2330.96s → 2332.96s] Oh no.
+[2332.96s → 2335.96s] Oh no, it does nine damage to you.
+[2335.96s → 2336.96s] Jesus Christ.
+[2336.96s → 2338.96s] Cause I don't have my braids in.
+[2338.96s → 2339.96s] Bitch, check out my braids.
+[2339.96s → 2343.96s] So this thing walks up to you and it took a lead from the top.
+[2343.96s → 2344.96s] Like smacks you.
+[2344.96s → 2346.96s] Where your braids would have padded you.
+[2346.96s → 2348.96s] It just conquers you right on top of you.
+[2348.96s → 2351.96s] You take nine damage, bringing you down to a total of eight health.
+[2351.96s → 2352.96s] Whoa.
+[2352.96s → 2354.96s] So Dolores is not looking so good right now.
+[2354.96s → 2355.96s] Yeah.
+[2355.96s → 2357.96s] You still got two dryads to deal with.
+[2357.96s → 2360.96s] So next up we have Coda.
+[2360.96s → 2364.96s] I see that tree knock the braid out of her hair.
+[2364.96s → 2366.96s] And I'm like, oh, this is getting serious.
+[2366.96s → 2368.96s] And I draw my sword snake's talent.
+[2368.96s → 2369.96s] Shing.
+[2369.96s → 2370.96s] Beautiful.
+[2370.96s → 2372.96s] And I cast blade song.
+[2372.96s → 2376.96s] Which for everyone happening, when I'm so good with a sword,
+[2376.96s → 2379.96s] that it's almost like I'm singing and dancing when I start fighting.
+[2379.96s → 2380.96s] A sword just.
+[2380.96s → 2387.96s] So I'm like, uh, don't, don't trust the creepy wood and tree girl.
+[2387.96s → 2391.96s] Don't trust the creepy wood and tree girl.
+[2391.96s → 2394.96s] And I go to attack it with my sword.
+[2394.96s → 2395.96s] I look at Ferny.
+[2395.96s → 2397.96s] It's crazy to see your heroes at work.
+[2398.96s → 2401.96s] That's a nine plus five.
+[2401.96s → 2402.96s] Nine plus five.
+[2402.96s → 2403.96s] So that is a 14.
+[2403.96s → 2404.96s] You do hit.
+[2404.96s → 2405.96s] Which one are you attacking?
+[2405.96s → 2406.96s] The one that's attacking Dolores.
+[2406.96s → 2407.96s] The one that's attacking Dolores.
+[2407.96s → 2408.96s] Okay.
+[2408.96s → 2409.96s] Great.
+[2409.96s → 2410.96s] So go ahead and roll for damage.
+[2410.96s → 2411.96s] 1d6.
+[2411.96s → 2412.96s] Take care of the clanking die show.
+[2412.96s → 2414.96s] There you have it.
+[2414.96s → 2415.96s] Four plus three.
+[2415.96s → 2419.96s] This dryad that was been attacking you all with a shalele arm.
+[2419.96s → 2421.96s] It is not looking so hot.
+[2421.96s → 2422.96s] Like some leaves are starting to fall off.
+[2422.96s → 2424.96s] And you can see it take a little bit more of like a tree form
+[2424.96s → 2426.96s] and then back to more of a spirit form.
+[2426.96s → 2429.96s] It seems to be on its last legs here.
+[2429.96s → 2433.96s] Which is good news because next up we have bug.
+[2433.96s → 2434.96s] Okay.
+[2434.96s → 2436.96s] He's on his last leg.
+[2436.96s → 2437.96s] That one.
+[2437.96s → 2438.96s] That one.
+[2438.96s → 2439.96s] Okay.
+[2439.96s → 2440.96s] I'm going to take her.
+[2440.96s → 2441.96s] Okay.
+[2441.96s → 2442.96s] How are you doing it?
+[2442.96s → 2446.96s] I'm going to take her and I'm going to freaking take my light hammer
+[2446.96s → 2448.96s] and knock on her like it's freaking judge Judy.
+[2448.96s → 2449.96s] Amazing.
+[2449.96s → 2450.96s] Roll the hit.
+[2450.96s → 2451.96s] Roll the hit.
+[2451.96s → 2454.96s] All right 16 plus three.
+[2454.96s → 2457.96s] That definitely hits a roll for damage.
+[2457.96s → 2458.96s] Okay.
+[2458.96s → 2459.96s] That is one.
+[2459.96s → 2461.96s] A D4.
+[2461.96s → 2463.96s] Then how do I know which one is this?
+[2463.96s → 2464.96s] That is a four.
+[2464.96s → 2465.96s] Oh yeah four.
+[2465.96s → 2466.96s] That is a four plus.
+[2466.96s → 2467.96s] Plus one.
+[2467.96s → 2468.96s] Four plus one.
+[2468.96s → 2469.96s] That's a five.
+[2469.96s → 2470.96s] So okay.
+[2470.96s → 2473.96s] So you take your hammer and it hits right smack into the middle
+[2473.96s → 2474.96s] of the core of this thing.
+[2474.96s → 2477.96s] And from the middle it starts to burn up.
+[2477.96s → 2480.96s] And you see these little wisps return to the trees in the forest.
+[2480.96s → 2482.96s] That dryad is down.
+[2482.96s → 2485.96s] The last one that's left looking at good health
+[2485.96s → 2487.96s] is the one that's whispering to Furny.
+[2487.96s → 2490.96s] And it is unfortunately it's turn.
+[2490.96s → 2491.96s] I whisper.
+[2491.96s → 2492.96s] I quote a did you see what I did?
+[2492.96s → 2493.96s] I did.
+[2493.96s → 2494.96s] Yeah.
+[2494.96s → 2495.96s] I saw it.
+[2495.96s → 2496.96s] Yeah, I know you did.
+[2496.96s → 2497.96s] But I just make sure I quote it is.
+[2497.96s → 2499.96s] I actually wanted that one.
+[2499.96s → 2500.96s] So we can talk later.
+[2500.96s → 2501.96s] What?
+[2501.96s → 2502.96s] I wanted that one.
+[2502.96s → 2504.96s] What do you mean you wanted that one?
+[2504.96s → 2505.96s] I keep track of my kills.
+[2505.96s → 2507.96s] You took it from him.
+[2507.96s → 2510.96s] So the time we're talking about right here.
+[2510.96s → 2513.96s] So this dryad that's been whispering to Furny
+[2513.96s → 2515.96s] gives him a little like rub on the shoulder
+[2515.96s → 2517.96s] and shows that like everything is fine.
+[2517.96s → 2518.96s] You know, it just whispers it.
+[2518.96s → 2519.96s] I'll be back.
+[2519.96s → 2521.96s] And it goes over to you bug.
+[2521.96s → 2522.96s] And it, uh...
+[2522.96s → 2523.96s] Furny?
+[2523.96s → 2524.96s] Or it goes up to me?
+[2524.96s → 2525.96s] It goes up to you bug.
+[2525.96s → 2528.96s] Because it just watched you kill its friend or whatever it was.
+[2528.96s → 2529.96s] And it tries.
+[2529.96s → 2532.96s] It doesn't even take the time to turn its arm into that strong stump.
+[2532.96s → 2535.96s] It just rakes at you with these flaws here.
+[2535.96s → 2539.96s] So tell me, does a ten hit you?
+[2539.96s → 2540.96s] Uh, no.
+[2540.96s → 2541.96s] Yeah.
+[2541.96s → 2542.96s] No, no.
+[2542.96s → 2543.96s] It does not.
+[2543.96s → 2544.96s] Okay.
+[2544.96s → 2545.96s] So it misses with that.
+[2545.96s → 2546.96s] And it's just sitting there in rage.
+[2546.96s → 2548.96s] And just in time, Furny, it is your turn.
+[2548.96s → 2551.96s] Now, you're able to roll that D20 again to see if you can break
+[2551.96s → 2553.96s] out of its spell.
+[2553.96s → 2554.96s] Okay.
+[2554.96s → 2556.96s] So Furny, Furny's there.
+[2556.96s → 2557.96s] Spy rolls in his eyes.
+[2557.96s → 2561.96s] But he also needs to try to kind of shake it off.
+[2561.96s → 2563.96s] He rolls a 15.
+[2563.96s → 2564.96s] Ooh.
+[2564.96s → 2565.96s] Plus...
+[2565.96s → 2567.96s] That's a wisdom.
+[2567.96s → 2568.96s] Plus five.
+[2568.96s → 2573.96s] So you snap out of it and realize that this thing is going for your friends.
+[2573.96s → 2574.96s] And no, this isn't...
+[2574.96s → 2576.96s] This isn't your buddy.
+[2576.96s → 2578.96s] This is something you actually used to kill all the time.
+[2578.96s → 2579.96s] Oh, God.
+[2579.96s → 2581.96s] It doesn't need protection from you.
+[2581.96s → 2582.96s] You need protection from it.
+[2582.96s → 2585.96s] So now you are back to normal for your turn.
+[2585.96s → 2586.96s] What would you like to do?
+[2586.96s → 2589.96s] Uh, I suddenly come to...
+[2589.96s → 2590.96s] I see my friends in trouble.
+[2590.96s → 2592.96s] And I see this fey.
+[2592.96s → 2595.96s] And it triggers something deeply innate in this thing.
+[2595.96s → 2599.96s] And my eyes go dark and then red.
+[2599.96s → 2602.96s] And then I'm going to use primal savagery.
+[2602.96s → 2605.96s] It's almost like the combat form of this.
+[2605.96s → 2610.96s] And then thorns and stuff start to grow out of his hands and everything.
+[2610.96s → 2614.96s] Everything sharpens and gets more intense and he just loses it.
+[2614.96s → 2618.96s] And it's more like more robotic sounds coming out of him.
+[2618.96s → 2623.96s] As he just starts to spin his waist, he's spinning in a helicopter.
+[2623.96s → 2625.96s] Running forward at this.
+[2625.96s → 2627.96s] So roll to hit.
+[2627.96s → 2628.96s] Okay.
+[2628.96s → 2629.96s] I look at Coda.
+[2629.96s → 2630.96s] It's crazy to see her here.
+[2630.96s → 2631.96s] 11 plus five.
+[2631.96s → 2632.96s] 11 plus five.
+[2632.96s → 2633.96s] So that's a 16.
+[2633.96s → 2634.96s] So that definitely hits.
+[2634.96s → 2636.96s] So you are whirling into this thing.
+[2636.96s → 2640.96s] And as it's like looking at bugger, it just looks up and just takes this hit to the face.
+[2640.96s → 2641.96s] Roll for damage.
+[2641.96s → 2642.96s] All right.
+[2642.96s → 2644.96s] So that's 1d10 acid.
+[2644.96s → 2646.96s] Seven.
+[2646.96s → 2647.96s] All right.
+[2647.96s → 2648.96s] Great.
+[2648.96s → 2650.96s] So you do seven damage to this thing, which is a hefty hit.
+[2650.96s → 2653.96s] And even though it is a self made of plants, the thorns that you have,
+[2653.96s → 2657.96s] something clearly seeps inside of it that just starts to burn at the skin
+[2657.96s → 2659.96s] and it's having a real hard time with this.
+[2659.96s → 2662.96s] You guys are watching in awe as Ferny just went from being completely useless
+[2662.96s → 2664.96s] to being this huge force in battle.
+[2664.96s → 2667.96s] And it really gets you revved up.
+[2667.96s → 2670.96s] I have never seen his body just turn.
+[2670.96s → 2671.96s] Right.
+[2671.96s → 2675.96s] So his core just completely switched around.
+[2675.96s → 2676.96s] I want to be honest.
+[2676.96s → 2677.96s] I've heard a lot about you.
+[2677.96s → 2680.96s] And I was so worried when you walked into the tavern and you just said alcohol
+[2680.96s → 2681.96s] that you were a dumbass.
+[2681.96s → 2682.96s] But you're not.
+[2682.96s → 2683.96s] You're my hero.
+[2683.96s → 2684.96s] You're strong.
+[2684.96s → 2685.96s] He's still in war mode.
+[2685.96s → 2686.96s] He's still in war mode.
+[2686.96s → 2687.96s] Oh.
+[2687.96s → 2689.96s] Oh.
+[2689.96s → 2691.96s] Oh.
+[2691.96s → 2692.96s] Oh, really.
+[2692.96s → 2694.96s] Bugger, you're really playing it cool.
+[2694.96s → 2695.96s] Yeah.
+[2695.96s → 2698.96s] So Dolores, seeing all this, seeing how Ferny was able to with himself in a shape,
+[2698.96s → 2701.96s] even though you've taken a few hits on the head, it is your turn.
+[2701.96s → 2702.96s] And it's time for action.
+[2702.96s → 2703.96s] What are you going to do?
+[2703.96s → 2705.96s] I'm going to use another outridge blast.
+[2705.96s → 2706.96s] Incredible.
+[2706.96s → 2709.96s] Because these women are just driving me insane.
+[2709.96s → 2712.96s] You will attack Ellie.
+[2712.96s → 2713.96s] You will attack Ellie.
+[2713.96s → 2714.96s] I cook up another one.
+[2714.96s → 2717.96s] A fuzzy cute little ball with a smiley face on it.
+[2717.96s → 2719.96s] And I start to throw it.
+[2719.96s → 2721.96s] That is an 18 plus five.
+[2721.96s → 2722.96s] Plus five.
+[2722.96s → 2724.96s] That nails right in the face.
+[2724.96s → 2727.96s] Give me a damage roll here.
+[2727.96s → 2728.96s] Nine plus three.
+[2728.96s → 2729.96s] All right.
+[2729.96s → 2735.96s] So this fuzzy ball lands extremely delicately on the dry head.
+[2735.96s → 2737.96s] The dry head looks down for a moment.
+[2737.96s → 2738.96s] Dolores.
+[2738.96s → 2742.96s] And there's just colossal blast of eldritch power.
+[2742.96s → 2744.96s] Shoot its chest through its back.
+[2744.96s → 2749.96s] And again, the whips start to disintegrate and return to the trees.
+[2749.96s → 2750.96s] Bye.
+[2750.96s → 2752.96s] Survived this encounter.
+[2752.96s → 2754.96s] Not only that, you did it with flying colors.
+[2754.96s → 2756.96s] Four things in the forest attacked you.
+[2756.96s → 2758.96s] And you survived.
+[2758.96s → 2759.96s] Can't break the power of love.
+[2759.96s → 2760.96s] That's right.
+[2760.96s → 2764.96s] So right after this gunthar starts trotting up with the,
+[2764.96s → 2768.96s] with the horse and with the revamped carriage here situation.
+[2768.96s → 2771.96s] And he's like, hey, it's not that old thing.
+[2771.96s → 2773.96s] I just kind of wanted to see what you all could do.
+[2773.96s → 2774.96s] Yeah.
+[2774.96s → 2775.96s] So it's a crossbow.
+[2775.96s → 2776.96s] It isn't me.
+[2776.96s → 2777.96s] Hey.
+[2777.96s → 2778.96s] The crossbow is new.
+[2778.96s → 2779.96s] Listen.
+[2779.96s → 2781.96s] I know you're trying to prove yourself to them today.
+[2781.96s → 2782.96s] I don't know what that even means.
+[2782.96s → 2783.96s] You don't prove yourself to me.
+[2783.96s → 2784.96s] Listen.
+[2784.96s → 2785.96s] You don't have to prove yourself to me.
+[2785.96s → 2786.96s] We had a good talk over there.
+[2786.96s → 2787.96s] All right.
+[2787.96s → 2788.96s] Yeah.
+[2788.96s → 2789.96s] You're safe.
+[2789.96s → 2790.96s] There's a safe space.
+[2790.96s → 2791.96s] Don't look at me right now.
+[2791.96s → 2792.96s] My brains are out.
+[2792.96s → 2793.96s] Look.
+[2793.96s → 2794.96s] Your brains are out.
+[2794.96s → 2796.96s] It's, uh, your hair is, uh, there's a little bit in your face.
+[2796.96s → 2798.96s] Let me just move that for you real quick.
+[2798.96s → 2800.96s] We got to get this bandaged up for you.
+[2800.96s → 2801.96s] Don't worry.
+[2801.96s → 2802.96s] I've got a, uh, here, uh, drink this.
+[2802.96s → 2804.96s] I haven't finished in a long time.
+[2804.96s → 2805.96s] Jesus.
+[2805.96s → 2806.96s] Right.
+[2806.96s → 2807.96s] Holy shit.
+[2807.96s → 2809.96s] You just eldritch blasted as someone and you're,
+[2809.96s → 2810.96s] because he touched your head.
+[2810.96s → 2812.96s] We haven't finished.
+[2812.96s → 2813.96s] We're not there yet, guys.
+[2813.96s → 2814.96s] That's right.
+[2814.96s → 2815.96s] He's right.
+[2815.96s → 2816.96s] You're right for him.
+[2816.96s → 2817.96s] Drink this health potion.
+[2817.96s → 2818.96s] I got a couple more in back there.
+[2818.96s → 2819.96s] You know what?
+[2819.96s → 2820.96s] Drink that health potion.
+[2820.96s → 2821.96s] You took a little damage to you.
+[2821.96s → 2822.96s] I did.
+[2822.96s → 2823.96s] I did.
+[2823.96s → 2824.96s] Oh, thank you.
+[2824.96s → 2825.96s] Oh, wow.
+[2825.96s → 2826.96s] Both of y'all restore, uh, four health.
+[2826.96s → 2827.96s] Nice.
+[2827.96s → 2828.96s] Thank you so much.
+[2828.96s → 2831.96s] Y'all hop in a Gunthars carriage to continue the last leg of the trip here.
+[2831.96s → 2834.96s] And although that battle did take you a minute and the sun has said,
+[2834.96s → 2836.96s] it's not quite that late.
+[2836.96s → 2838.96s] We're talking 9 p.m.
+[2838.96s → 2839.96s] So you're still right on time.
+[2839.96s → 2841.96s] The delivery has to be made by morning.
+[2841.96s → 2843.96s] So you're feeling pretty good about things.
+[2843.96s → 2844.96s] Furny.
+[2844.96s → 2846.96s] Dude, what was she saying to you back then?
+[2846.96s → 2848.96s] Oh, she was saying you.
+[2848.96s → 2849.96s] Funny.
+[2849.96s → 2850.96s] Don't do that.
+[2850.96s → 2853.96s] Furny, you have to be really careful of women like that.
+[2853.96s → 2855.96s] You can't just talk to crazy wooden trees.
+[2855.96s → 2858.96s] They'll take all your money.
+[2858.96s → 2861.96s] She didn't try to take any of my money, though.
+[2861.96s → 2863.96s] She just asked me to protect her.
+[2863.96s → 2864.96s] Oh.
+[2864.96s → 2865.96s] Oh.
+[2865.96s → 2866.96s] Yeah.
+[2866.96s → 2869.96s] From Gunthars' lap, I go, well, it felt like she knew you from somewhere.
+[2869.96s → 2870.96s] Yeah.
+[2870.96s → 2871.96s] Did y'all date?
+[2871.96s → 2872.96s] No.
+[2872.96s → 2873.96s] Oh, good, good, good.
+[2873.96s → 2875.96s] No, I never dated her.
+[2875.96s → 2876.96s] So hot.
+[2876.96s → 2878.96s] Have you dated anybody, Furny?
+[2878.96s → 2880.96s] I don't think so.
+[2880.96s → 2881.96s] Okay.
+[2881.96s → 2882.96s] Virgin.
+[2882.96s → 2883.96s] Virgin.
+[2883.96s → 2884.96s] Good.
+[2884.96s → 2885.96s] Sounds like a virgin.
+[2885.96s → 2886.96s] Keep it that way.
+[2886.96s → 2887.96s] Yeah.
+[2887.96s → 2889.96s] So, um, that was pretty awesome.
+[2889.96s → 2890.96s] Yeah.
+[2890.96s → 2892.96s] You threw that soft little softball at her.
+[2892.96s → 2893.96s] What is that?
+[2893.96s → 2894.96s] Blue or chest through her back.
+[2894.96s → 2896.96s] Well, it's a specialty that I have.
+[2896.96s → 2898.96s] That was really scary.
+[2898.96s → 2899.96s] Yeah.
+[2899.96s → 2900.96s] I blew a hole through her whole body.
+[2900.96s → 2901.96s] Yeah.
+[2901.96s → 2902.96s] It was awful.
+[2902.96s → 2905.96s] She looked like she was in severe pain and seeing hell as she was leaving.
+[2905.96s → 2906.96s] Oh, poor girl.
+[2906.96s → 2909.96s] I could hear some other worldly screams coming from her.
+[2909.96s → 2912.96s] It looked like an anti-smoking commercial.
+[2912.96s → 2915.96s] Stop watching so much TV bug.
+[2915.96s → 2917.96s] Bug, your crossbow.
+[2917.96s → 2918.96s] That really was embarrassing.
+[2918.96s → 2921.96s] Yeah, that was a little rough for all of us, actually.
+[2921.96s → 2922.96s] It's okay, sweetie.
+[2922.96s → 2925.96s] But it was kind of cool that you managed to hit your own shoe
+[2925.96s → 2926.96s] and nail it into the ground.
+[2926.96s → 2927.96s] Yeah.
+[2927.96s → 2929.96s] If that's what you were trying to do, then that's awesome.
+[2929.96s → 2931.96s] Yeah, that's what I was trying to do.
+[2931.96s → 2932.96s] The shoe was bothering me.
+[2932.96s → 2933.96s] Bad ass.
+[2933.96s → 2934.96s] Um, yeah.
+[2934.96s → 2935.96s] I had that one, though.
+[2935.96s → 2936.96s] Yeah.
+[2936.96s → 2937.96s] It's just a record.
+[2937.96s → 2938.96s] Yeah, yeah.
+[2938.96s → 2939.96s] I want to apologize.
+[2939.96s → 2942.96s] If there's any like no, like anything you think that I can do better at.
+[2942.96s → 2945.96s] Yeah, maybe shoot the target the first time.
+[2945.96s → 2946.96s] Okay, Kota.
+[2946.96s → 2948.96s] Bug's really trying.
+[2948.96s → 2949.96s] Like, he's been trying.
+[2949.96s → 2951.96s] Okay, please don't be my mom right now.
+[2951.96s → 2953.96s] You know, I don't know what else to be.
+[2953.96s → 2959.96s] That felt like a man to be like, well, that's the mic.
+[2959.96s → 2960.96s] That's my thing.
+[2960.96s → 2961.96s] Oh, my God.
+[2961.96s → 2962.96s] That's it.
+[2962.96s → 2963.96s] That's it.
+[2963.96s → 2964.96s] That's it.
+[2964.96s → 2965.96s] That's my character game.
+[2965.96s → 2967.96s] That's my character game, honey.
+[2967.96s → 2969.96s] Dog, that was the primal savagery right there.
+[2969.96s → 2970.96s] Yeah.
+[2970.96s → 2971.96s] Um, all right.
+[2971.96s → 2975.96s] So Gunther turns to you, bug, and he's just like, hey, can I make a recommendation?
+[2975.96s → 2976.96s] Take sorry out of your vocabulary.
+[2976.96s → 2978.96s] Replace it with thank you.
+[2978.96s → 2980.96s] Thank you for bearing with me while I work through some things.
+[2980.96s → 2982.96s] You know, stuff like that.
+[2982.96s → 2983.96s] Gunther, dude, that was a great advice.
+[2983.96s → 2985.96s] That is so hot and kind.
+[2985.96s → 2986.96s] Thank you.
+[2986.96s → 2987.96s] You're welcome.
+[2987.96s → 2990.96s] As the night gets a little bit later, but not too late.
+[2990.96s → 2993.96s] Start seeing the distance from tall wooden stakes.
+[2993.96s → 2998.96s] And as the mist clears in this maritime forest, and we start to smell even more salt like you're
+[2998.96s → 3002.96s] even closer to the ocean, you realize this is an entire encampment.
+[3002.96s → 3006.96s] Uh, wooden walls as far as the eye can see, but you can tell they bend in a little bit
+[3006.96s → 3007.96s] circularly.
+[3007.96s → 3010.96s] So this is definitely your destination.
+[3010.96s → 3012.96s] Gunther points out, ah, we're here.
+[3012.96s → 3014.96s] The settlement in the Gendel marshes.
+[3014.96s → 3016.96s] This is Gendel.
+[3016.96s → 3018.96s] This is where I leave you all.
+[3018.96s → 3021.96s] I've got to make your delivery in there and I'll be waiting when you're done.
+[3021.96s → 3023.96s] I thought you were going to spend the night.
+[3023.96s → 3025.96s] I've got to watch the carriage.
+[3025.96s → 3026.96s] Thank you, Gunther.
+[3026.96s → 3027.96s] I really appreciate it.
+[3027.96s → 3028.96s] Hey, bug.
+[3028.96s → 3029.96s] You know I've got you.
+[3029.96s → 3033.96s] All right, just lift up one hoof and then one hand to also hit like you know.
+[3033.96s → 3035.96s] They're gonna be like, yeah.
+[3035.96s → 3036.96s] Good luck in there, y'all.
+[3036.96s → 3039.96s] And hey, I've got any advice for you.
+[3039.96s → 3042.96s] Just beep a light around these guys, okay?
+[3042.96s → 3043.96s] Okay.
+[3043.96s → 3045.96s] I'll write you.
+[3045.96s → 3046.96s] All right.
+[3046.96s → 3047.96s] You.
+[3047.96s → 3048.96s] Oh, no.
+[3048.96s → 3049.96s] You're done.
+[3049.96s → 3050.96s] All right.
+[3050.96s → 3054.96s] After Gunther walks away, I turned everyone I go.
+[3054.96s → 3057.96s] You know, he was a really weird looking horse.
+[3057.96s → 3064.96s] Gunther is like, only a few feet from you.
+[3064.96s → 3066.96s] Just turns back around.
+[3066.96s → 3073.96s] And just says like, hey, he brought us the whole way here.
+[3073.96s → 3074.96s] All right.
+[3074.96s → 3075.96s] All right.
+[3075.96s → 3078.96s] So he just like sort of sidles up to the side of the road here.
+[3078.96s → 3081.96s] It starts like putting together a tent to like care for the horse and care for the carriage
+[3081.96s → 3083.96s] and just keep watching things.
+[3083.96s → 3084.96s] Ollie the way.
+[3084.96s → 3085.96s] Right?
+[3085.96s → 3086.96s] Good.
+[3086.96s → 3088.96s] Bug and I are.
+[3088.96s → 3092.96s] Furny and Kota can see right over us, but we are going to both.
+[3092.96s → 3093.96s] I love that marching order.
+[3093.96s → 3098.96s] Well, I feel like we should probably not like three times as normally.
+[3098.96s → 3101.96s] And there's no guards or anything out front.
+[3101.96s → 3102.96s] Give me a roll at the perception.
+[3102.96s → 3103.96s] That's a 16.
+[3103.96s → 3109.96s] And so Furny is walking up kind of like some weird gadgets and gizmos come out of his head
+[3109.96s → 3113.96s] to kind of observe and analyze the front gate area.
+[3113.96s → 3118.96s] So you can see at the very top of the gates, there's clearly a platform on the other side
+[3118.96s → 3121.96s] and there's two little guys looking over.
+[3121.96s → 3124.96s] You can't quite make out their shape quite yet, but they're aware that you're here
+[3124.96s → 3127.96s] and they look really excited and really ready.
+[3127.96s → 3130.96s] They look really ready for you to start knocking or saying something.
+[3130.96s → 3131.96s] Hello!
+[3131.96s → 3132.96s] Hi!
+[3132.96s → 3137.96s] Guys, we're here to deliver immediately before you even finish your sentence.
+[3137.96s → 3140.96s] One of them jumps down from this 15-foot tall gate,
+[3140.96s → 3145.96s] lands directly in front of you with this flourish and bows deeply.
+[3145.96s → 3146.96s] Oh.
+[3146.96s → 3147.96s] Welcome, everyone.
+[3147.96s → 3148.96s] Welcome.
+[3148.96s → 3150.96s] My name is Rumpum, the greeter of the gates.
+[3150.96s → 3153.96s] And who are all of you?
+[3153.96s → 3154.96s] The greeter of the gates.
+[3154.96s → 3155.96s] The greeter of the gates.
+[3155.96s → 3157.96s] It is my official title.
+[3157.96s → 3159.96s] I'm the one who greets those who visit our gates.
+[3160.96s → 3161.96s] Good social skills.
+[3161.96s → 3164.96s] The greeter of the gates, you have to understand that sounds like you're greeting gates.
+[3164.96s → 3166.96s] I am greeting you and I am at the gates.
+[3166.96s → 3168.96s] I will work on it, though.
+[3168.96s → 3170.96s] He bows even more deeply.
+[3170.96s → 3171.96s] Oh, my goodness.
+[3171.96s → 3173.96s] So you see in front of you, he is about three feet tall.
+[3173.96s → 3175.96s] He is like a frog.
+[3175.96s → 3178.96s] This is very much a little frog person.
+[3178.96s → 3181.96s] Hence the jumping abilities and all that good stuff.
+[3181.96s → 3185.96s] He's dressed in what you can tell used to be rags, but have been cobbled into some finery,
+[3185.96s → 3190.96s] maybe with some like found pieces of metal, and maybe with some like bones and things from the forest.
+[3190.96s → 3194.96s] But you can tell he's very dressed very proper to make a right entrance.
+[3194.96s → 3197.96s] I love when someone dresses up for guests.
+[3197.96s → 3198.96s] I'm Dolores.
+[3198.96s → 3199.96s] Hi Dolores.
+[3199.96s → 3200.96s] I'm Charmed.
+[3200.96s → 3201.96s] I'm sure.
+[3201.96s → 3203.96s] It's a crazy name.
+[3203.96s → 3206.96s] No, my name is Rumpum, the greeter of the gates.
+[3206.96s → 3207.96s] It's my title.
+[3207.96s → 3208.96s] Charmed for sure.
+[3208.96s → 3214.96s] And then you hear a voice coming from above being like, I am Crawley, the opener of the gates.
+[3214.96s → 3217.96s] Is it time for me to open the gates?
+[3217.96s → 3218.96s] It is.
+[3218.96s → 3220.96s] I need confirmation from Rumpum.
+[3220.96s → 3221.96s] Rumpum?
+[3221.96s → 3222.96s] It's time.
+[3222.96s → 3223.96s] Okay.
+[3223.96s → 3224.96s] Sorry for doubting you.
+[3224.96s → 3225.96s] It's okay.
+[3225.96s → 3232.96s] And with the sound of a crank, a large crank, the gates slowly start to open.
+[3232.96s → 3238.96s] And what were clearly just cobbled together and tied pieces of logs and wood making these gates,
+[3238.96s → 3242.96s] belie the beautiful insights?
+[3242.96s → 3250.96s] Stone pathways, clearly made by very expert mason's, lead to a beautiful city center with a fountain,
+[3250.96s → 3252.96s] and it's bustling with life.
+[3252.96s → 3256.96s] There are lights everywhere, frog people everywhere.
+[3256.96s → 3261.96s] There's children laughing and playing in the streets, performers dancing with little sparklers
+[3261.96s → 3263.96s] and even a juggler there.
+[3263.96s → 3266.96s] And there are people handing out foods that aren't quite familiar to you,
+[3266.96s → 3271.96s] but the children most of all seem excited to get these as though they're treats of some kind.
+[3271.96s → 3272.96s] Do I grab one?
+[3272.96s → 3273.96s] You grab one.
+[3273.96s → 3274.96s] Fantastic.
+[3274.96s → 3275.96s] They're like, uh, hello.
+[3275.96s → 3276.96s] I'm, I'm Jimmy.
+[3276.96s → 3278.96s] I'm Jimmy, the maker of the treats.
+[3278.96s → 3280.96s] Well, Jimmy, can you give me some treats?
+[3280.96s → 3281.96s] Coda.
+[3281.96s → 3282.96s] Sorry.
+[3282.96s → 3285.96s] That is the first, that is the first time.
+[3285.96s → 3286.96s] No, that can't be.
+[3286.96s → 3287.96s] That's cool.
+[3287.96s → 3288.96s] I'm serious.
+[3288.96s → 3292.96s] I am Jimmy, maker of the treats, and that is the first time.
+[3292.96s → 3301.96s] So, um, Rumpum begins to lead y'all into what is clearly this well-built town hidden in the middle of the forest.
+[3301.96s → 3304.96s] All occupied by frog people.
+[3304.96s → 3307.96s] Rumpum, um, says, come.
+[3307.96s → 3312.96s] Although I am greeter of the gates, I can be off duty for a moment to bring you inside.
+[3312.96s → 3314.96s] And then someone pops up from the bottom.
+[3314.96s → 3315.96s] They said, I'm Chomo.
+[3315.96s → 3316.96s] Bringer of the visitors and stuff.
+[3316.96s → 3317.96s] And I've got this.
+[3317.96s → 3318.96s] I've got this.
+[3319.96s → 3322.96s] Uh, and Rumpum takes your hand, Alores, and says, come.
+[3322.96s → 3324.96s] Let us, let us waltz inside.
+[3324.96s → 3325.96s] So cute.
+[3325.96s → 3326.96s] Thank you.
+[3326.96s → 3327.96s] So little.
+[3327.96s → 3330.96s] I'm glad I can see a woman who recognizes herself cute and little.
+[3330.96s → 3333.96s] I'm so glad your visitors have arrived in time.
+[3333.96s → 3335.96s] For you see tonight is the festival.
+[3335.96s → 3339.96s] We weren't expecting you till morning, but now you get to take part in the celebrations.
+[3339.96s → 3340.96s] Isn't this wonderful?
+[3340.96s → 3341.96s] Aren't the lights fantastic?
+[3341.96s → 3343.96s] Welcome to Grandel.
+[3343.96s → 3345.96s] You need a little lotion on your hands or a bit rough.
+[3345.96s → 3347.96s] No, I'm so embarrassed.
+[3347.96s → 3348.96s] Oh, no, no, no.
+[3348.96s → 3349.96s] He whistles real quick.
+[3349.96s → 3353.96s] And then a little guy pops up and he's like, I'm Tomo.
+[3353.96s → 3354.96s] The lotion.
+[3354.96s → 3355.96s] Yeah.
+[3355.96s → 3356.96s] I could have told you.
+[3356.96s → 3357.96s] I could know.
+[3357.96s → 3358.96s] We could have guessed.
+[3358.96s → 3360.96s] You guys are really delicate with all your jobs here.
+[3360.96s → 3361.96s] Yeah.
+[3361.96s → 3362.96s] Big on our titles.
+[3362.96s → 3363.96s] Do you need some lotion?
+[3363.96s → 3364.96s] Uh, no, that frog.
+[3364.96s → 3365.96s] No, I am.
+[3365.96s → 3366.96s] Audi.
+[3366.96s → 3367.96s] Oh, okay.
+[3367.96s → 3370.96s] And he's just like, Rumpum is like.
+[3370.96s → 3376.96s] So as you're all having this interaction, um, you see all the frogs start to turn one by one.
+[3376.96s → 3378.96s] Almost like a wave they are turning.
+[3378.96s → 3379.96s] Oh.
+[3379.96s → 3380.96s] They are turning their turning.
+[3380.96s → 3383.96s] And this shadowed presence starts to walk and make its way towards you.
+[3383.96s → 3392.96s] And as it walks into the torch light, you see that this is another frog person but much larger and must much more regally dressed.
+[3392.96s → 3393.96s] I bow.
+[3393.96s → 3396.96s] All the frogs bow even more deeply.
+[3396.96s → 3398.96s] The second coat of bow's I bow.
+[3398.96s → 3399.96s] Oh.
+[3399.96s → 3400.96s] Fantastic.
+[3400.96s → 3401.96s] All the frogs bow.
+[3401.96s → 3407.96s] For he just kind of like, like at a 90 degree angle just like turn.
+[3407.96s → 3409.96s] Thank you for your deep bows.
+[3409.96s → 3412.96s] Clearly you have studied our customs.
+[3412.96s → 3414.96s] My name is Garland.
+[3414.96s → 3415.96s] It is a name.
+[3415.96s → 3417.96s] Shaman of our civilization.
+[3417.96s → 3419.96s] Keeper of our culture.
+[3419.96s → 3421.96s] Reader of tones.
+[3421.96s → 3426.96s] And you are early.
+[3426.96s → 3428.96s] It's my crossbow.
+[3428.96s → 3431.96s] And that is where we will end the first episode.
+[3431.96s → 3432.96s] Yeah.
+[3432.96s → 3436.96s] Thank you guys so much for watching the first episode of Sword AF.
+[3436.96s → 3440.96s] We are so excited to play out the entirety of this campaign for you.
+[3440.96s → 3446.96s] So please come on back and see what these amazing heroes get up to if they earn that title.
+[3446.96s → 3447.96s] Oh.
+[3447.96s → 3449.96s] Oh, shit.
+[3449.96s → 3450.96s] We will.
