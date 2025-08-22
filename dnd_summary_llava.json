@@ -1,0 +1,45 @@
+{
+"story_progression": [
+{"event": "Group enters a new room with wooden structures and platforms.","details": "The group discovers a camp set up inside the area, and voices can be heard on one of the platforms. Thalamu scans the area, looking for traces of their neighbor, Thompson."},
+{"event": "Goblins are spotted in the room.","details": "Thalamu bangs on his drum to signal peace, but communication is not working, and the Goblins become aggressive. Zoot tries to slip around them, while Thalamu attempts to communicate through improvised sign language."},
+{"event": "Zoot gets to the door, peeking in to see an entirely golden room with a small golden rod shaped like a tree branch floating at the center.","details": "Gobble Gobble sprints back up the stairs and attempts to tackle Thalamu off the platform, but accidentally leaps over him, falling once again over the edge of the platform to his demise. Paul and Thalamu perform a clumsy team attack together and finish off the peeler."},
+{"event": "The group hurries over to Zoot and enters the golden room together, trying to figure out how to get the artifact down.","details": "Zoot suggests they all toss Lop into the air to get it down, but in the complete opposite direction. Thalamu quickly runs over and breaks his fall, and before Lop can say anything, they throw him again. This time hitting their target as they both fall to the ground."},
+{"event": "Thalamu's healing of Lop reveals that an unseen figure has been following them.","details": "Zoot approaches the wand only for it to be snatched by an invisible force, and attempts to tackle the air. The main contact, but bounce off of Mark's rock saw and beer gun, breaking the invisibility spell. Thalamu whips out their drums, slamming it with the intent to cast a thunder wave on Mark, sending him flying from the effect."},
+{"event": "Zoot follows behind and shouts to depression. Casting a command spell on him, he stops in his tracks, facing Zoot, and says, I'm so sad, having never dealt with depression before.","details": "Mark pulls out a picture of his ex-wife and kids and just stares at it, longingly. Paul and Thalamu see their chance to attack him, and once again, try to use an ultimate team attack. They grip Paul's peeled acts together and throw it in tandem at Mark."},
+{"event": "They mess up, and Thalamu is accidentally sent flying with the axe as appears as Mark's chest. Mark is unfazed, still wallowing in his depression.","details": "Zoot sees this as an opportunity, casting disguise self and visually turning themselves into Mark's ex-wife. Ella, is that you? It is Mark, Mark drops the photo and wand, sobbing and slowly walks towards Zoot, who has their arms out, ready for his embrace."},
+{"event": "He grabs Zoot and pulls them close. Tears stream down his face. It's been so hard. It's okay.","details": "Zoot pulls back just a bit, just to look into Mark's eyes, which are sparkling with tears. Paul picks up one part of his peeled acts, looks like the manager position just opened up. He throws the axe and hits Mark, but doesn't kill him. He then picks up the other peeled axe part to throw as well, but it boomerangs around and hits him in the back head. Follow me grabs the wand from the ground and points it at Mark."},
+{"event": "This is for everything.","details": "Mark turns to Paul while being his after the wand. Would you still let me be your manager even if I was in. You're fired."},
+{"event": "Finally turning him back into a human lo up, walk eyes.","details": "Hi dad, Paul Jr. Is that you?"},
+{"event": "The bomb is done.","details": "The explosions are up behind them. The group walks off together."}
+]
+
+	  ,
+"player_actions": [
+{"player_placeholder": "Zoot", "character_name": "Ella, is that you?", "action": "Casting a disguise spell on Mark to look like his ex-wife.","outcome": "The spell is cast successfully, but Paul picks up his peeled acts and throws them at Mark, accidentally hitting him in the back head with it."},
+{"player_placeholder": "Paul", "character_name": "Mark, would you still let me be your manager even if I was in.", "action": "Giving a sarcastic ultimatum to Paul while holding a peeled act part.","outcome": "Mark responds by saying he's fired, but Zoot uses the wand to turn him back into a human."},
+{"player_placeholder": "Thalamu", "character_name": "Gobble Gobble", "action": "Sprinting back up the stairs and attempting to tackle Thalamu off the platform, but accidentally leaps over him, falling once again over the edge of the platform to his demise.","outcome": "The group is unable to get Lop down from the golden tree branch, and they all fall to the ground in the process."},
+{"player_placeholder": "Paul", "character_name": "Mark", "action": "Attempting to use an ultimate team attack with Thalamu by throwing his peeled acts together at Mark.","outcome": "The attack is unsuccessful, and Paul accidentally hits himself in the back head with one of the peeled act parts."},
+{"player_placeholder": "Zoot", "character_name": "Paul Jr.", "action": "Walking off with Mark after he's turned back into a human.","outcome": "The group exits the game together, and Zoot suggests uploading highlights of the actual D&D session to their second channel eventually."}
+]
+	  ,
+"world_state_updates": [
+{"aspect": "New room with wooden structures and platforms.","change": "The group discovers a camp set up inside the area, and voices can be heard on one of the platforms."},
+{"aspect": "Encountering Goblins in the room.","change": "Thalamu bangs on his drum to signal peace, but communication is not working, and the Goblins become aggressive. Zoot tries to slip around them, while Thalamu attempts to communicate through improvised sign language."},
+{"aspect": "Golden room with a floating golden rod.","change": "Zoot suggests they all toss Lop into the air to get it down, but in the complete opposite direction. Thalamu quickly runs over and breaks his fall, and before Lop can say anything, they throw him again. This time hitting their target as they both fall to the ground."},
+{"aspect": "Unseen figure following them.","change": "Zoot's healing of Lop reveals that an unseen figure has been following them. The group hurries over to Zoot and enters the golden room together, trying to figure out how to get the artifact down."},
+{"aspect": "Mark's wallowing in his depression.","change": "Zoot casts a disguise spell on Mark to look like his ex-wife. He grabs Zoot and pulls them close, tears streaming down his face as he sobs and stares at the picture of his ex-wife and kids."},
+{"aspect": "Ultimate team attack gone wrong.","change": "Paul picks up one part of his peeled acts, looks like the manager position just opened up. He throws the axe and hits Mark, but doesn't kill him. He then picks up the other peeled act part to throw as well, but it boomerangs around and hits him in the back head."},
+{"aspect": "Mark is fired.","change": "Finally turning him back into a human lo up, walk eyes. Hi dad, Paul Jr. Is that you?"}
+]
+	  ,
+"character_tracking": [
+{"character_name": "Ella (Zoot)", "condition": "Awaiting Mark's response to his ultimatum."},
+{"character_name": "Paul", "condition": "Waiting for Mark to respond after Zoot has turned him back into a human."},
+{"character_name": "Mark", "condition": "Wallowing in his depression and sobbing over a picture of his ex-wife and kids."},
+{"character_name": "Lop", "condition": "Falling to the ground after being thrown by Thalamu and Paul."}
+]
+	  ,
+"unresolved_threads": [
+{"mystery_or_quest": "What happened to the unseen figure following the group? Will they make it out of the sanctum?", "status": "Unresolved"}
+]
+}
