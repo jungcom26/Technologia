@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inventory — Dungeon Scribe AI</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- ======= Top Navigation ======= -->
+    <header class="topbar" role="banner">
+      <div class="topbar-inner">
+        <div class="brand" aria-label="App brand">
+          <span class="gem">◆</span>
+          <span>Dungeon Scribe AI</span>
+        </div>
+
+        <nav class="main" aria-label="Primary">
+          <a href="inventory.html" aria-current="page">Inventory</a>
+          <a href="#">Quests</a>
+          <a href="#">Characters</a>
+        </nav>
+
+        <section class="tx" role="region" aria-label="Transcription controls">
+          <div class="status" aria-live="polite">
+            <span class="dot" id="tx-dot" aria-hidden="true"></span>
+            <span id="tx-state">Idle</span>
+          </div>
+          <div class="controls">
+            <button id="btn-start" title="Start recording (S)" aria-pressed="false">▶</button>
+            <button id="btn-pause" title="Pause/Resume (P)" disabled>⏸</button>
+            <button id="btn-stop" title="Stop recording (X)" disabled>⏹</button>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <!-- ======= Inventory Layout ======= -->
+    <main class="container">
+      <section class="panel" aria-label="Inventory">
+        <h2>Inventory</h2>
+        <div class="inventory-grid">
+          <article class="card">
+            <div class="top">
+              <div class="token">🗡️</div>
+              <div>
+                <strong>Shortsword</strong>
+                <div class="stats">
+                  <span class="pill">Damage: 1d6</span>
+                  <span class="pill">Type: Piercing</span>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <button>Equip</button><button>Drop</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="top">
+              <div class="token">🛡️</div>
+              <div>
+                <strong>Shield</strong>
+                <div class="stats">
+                  <span class="pill ac">+2 AC</span>
+                  <span class="pill">Weight: 6 lb</span>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <button>Equip</button><button>Drop</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="top">
+              <div class="token">🧪</div>
+              <div>
+                <strong>Healing Potion</strong>
+                <div class="stats">
+                  <span class="pill hp">+2d4+2 HP</span>
+                  <span class="pill">Consumable</span>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <button>Use</button><button>Drop</button>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="top">
+              <div class="token">📜</div>
+              <div>
+                <strong>Scroll of Firebolt</strong>
+                <div class="stats">
+                  <span class="pill">Range: 120 ft</span>
+                  <span class="pill">1d10 Fire</span>
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <button>Cast</button><button>Drop</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
