@@ -261,7 +261,7 @@ ws.onmessage = (event) => {
     wrap = document.createElement("div");
     wrap.className = "msg right";
     wrap.innerHTML = `
-      <div class="avatar dm">DM</div>
+      <div class="avatar crown"><img src="crown.png" alt="Quest" /></div>
       <div class="bubble">
         <div class="meta">${timestamp} • World State Update</div>
         <em>${msg.content}</em>

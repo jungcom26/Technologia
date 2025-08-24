@@ -436,9 +436,13 @@ section.log {
   background: linear-gradient(135deg, rgba(122, 77, 241, 0.2), rgba(120, 80, 196, 0.3));
   border: 1px solid rgba(122, 77, 241, 0.4);
   box-shadow: 0 0 10px rgba(122, 77, 241, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1);
-        
+    
 }
 
+.avatar.crown {
+  width: 50px;
+  height: 50px;
+}
 
 
 /* Bubble styling */
