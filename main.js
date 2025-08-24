@@ -81,12 +81,13 @@ function addLogMessage(messageHtml) {
   const placeholder = document.getElementById("log-placeholder");
 
   // Hide placeholder if it's still visible
-  if (placeholder) {
-    placeholder.style.display = "none";
-  }
+  if (placeholder) placeholder.style.display = "none";
 
-  // Append new log message
-  log.insertAdjacentHTML("beforeend", messageHtml);
+  // Prepend new log message at the top
+  log.insertAdjacentHTML("afterbegin", messageHtml);
+
+  // Optional: keep scroll at top
+  log.scrollTop = 0;
 }
 
 function formatMessage(charName, text) {
