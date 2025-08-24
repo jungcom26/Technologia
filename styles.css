@@ -308,6 +308,7 @@ aside.map-panel{ grid-area: map; }
   gap: .75rem; /* Increased gap */
   font-size: .95rem;
   margin-bottom: 0.75rem; /* Added bottom margin for spacing */
+  margin-top: 0.5rem;
 }
 /* Recent Quests Section */
 .quests {
@@ -318,25 +319,34 @@ aside.map-panel{ grid-area: map; }
   margin-top: 0.5rem;
   border-radius: 0 0 var(--radius) var(--radius);
   /* Fixed height with scrolling */
-  height: 250px; /* Fixed height */
+  height: 290px; /* Fixed height */
   display: flex;
   flex-direction: column;
   margin-left: -20px;
 }
 
 .quests h3 {
-  margin: 0 0 0.75rem 0;
-  font-size: 0.95rem;
-  color: var(--muted);
-  padding-bottom: 0.5rem;
+  margin: 0;               /* remove extra default margin */
+  padding: 0 1rem;         /* horizontal padding only */
+  font-size: 1rem;
+  letter-spacing: 0.2px;
   border-bottom: 1px solid var(--border);
+  color: var(--muted);
+
+  display: flex;
+  align-items: center;     /* vertically center text */
+  height: 40px;            /* fixed height for header */
+  width: calc(100% + 2rem);
+  margin-left: -1rem;      /* stretch background */
 }
 
 .quests-container {
-  overflow-y: auto; /* Enable scrolling */
-  flex: 1; /* Take remaining space */
+  flex: 1;
+  overflow-y: auto;
   padding-right: 0.25rem;
 }
+
+
 
 /* Custom scrollbar for quests container */
 .quests-container::-webkit-scrollbar {

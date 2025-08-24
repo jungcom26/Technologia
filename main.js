@@ -80,13 +80,12 @@ function addLogMessage(messageHtml) {
   const log = document.getElementById("log");
   const placeholder = document.getElementById("log-placeholder");
 
-  // Hide placeholder if it's still visible
   if (placeholder) placeholder.style.display = "none";
 
-  // Prepend new log message at the top
+  // Prepend new log messages at the top
   log.insertAdjacentHTML("afterbegin", messageHtml);
 
-  // Optional: keep scroll at top
+  // Keep scroll at the very top for newest-first layout
   log.scrollTop = 0;
 }
 
@@ -223,96 +222,62 @@ const ws = new WebSocket("ws://127.0.0.1:8000/ws");
 ws.onopen = () => {
   console.log("✅ Connected to WebSocket");
 
-  // Start new game session automatically ONCE
   const now = new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
+  
+  // Initial session event
   addTimelineEvent(now, "Session", "New adventure begins", "Game started", "⚔️");
   addLog('System', '<em>New game session started.</em>');
 };
 
 ws.onmessage = (event) => {
   const msg = JSON.parse(event.data);
-  console.log("📩 Received:", msg);
-
-  let wrap; // will hold the final message element
   const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  let wrap;
 
-  // ---------------- Quest Updates ----------------
-  if (msg.heading === "Quest Update") {    
-    wrap = document.createElement("div");
-    wrap.className = "msg right"; // right-aligned like world updates
-    wrap.innerHTML = `
-      <div class="avatar"><img src="quest.png" alt="Quest" /></div>
+  if (msg.heading === "Quest Update") {
+    wrap = `<div class="msg right">
+      <div class="avatar"><img src="quest.png" alt="Quest"/></div>
       <div class="bubble">
         <div class="meta">${timestamp} • Quest Update</div>
         <em>${msg.quest_name}: ${msg.content}</em>
       </div>
-    `;
-    addLogMessage(wrap.outerHTML);
-
-    // Also add to timeline & quest list
-    addTimelineEvent(timestamp, "Quest", msg.quest_name, "📜 Quest Updated", "");
+    </div>`;
+    addLogMessage(wrap);
+    addTimelineEvent(timestamp, "Quest", msg.quest_name, "📜 Quest Updated");
     addQuest(msg.quest_name, msg.content);
-
-    return; // stop further processing for this message
+    return;
   }
 
-  // ---------------- World State Update ----------------
   if (msg.heading === "World State Update") {
-
-    wrap = document.createElement("div");
-    wrap.className = "msg right";
-    wrap.innerHTML = `
-      <div class="avatar crown"><img src="crown.png" alt="Quest" /></div>
+    wrap = `<div class="msg right">
+      <div class="avatar crown"><img src="crown.png" alt="Crown"/></div>
       <div class="bubble">
         <div class="meta">${timestamp} • World State Update</div>
         <em>${msg.content}</em>
       </div>
-    `;
-
-    addTimelineEvent(timestamp, "Event", msg.location, "📍Location Changed", "", msg.location || "");
+    </div>`;
+    addLogMessage(wrap);
+    addTimelineEvent(timestamp, "Event", msg.location, "📍Location Changed");
+    return;
   }
 
-  // ---------------- Character Messages ----------------
-  else if (msg.heading.startsWith("Character Action") || msg.heading.startsWith("Character Outcome")) {
+  if (msg.heading.startsWith("Character Action") || msg.heading.startsWith("Character Outcome")) {
     const charName = msg.heading.split(":")[1].trim();
     const meta = msg.heading.startsWith("Character Action") ? "Action" : "Outcome";
+    const avatar = charName.charAt(0).toUpperCase();
 
-    if (charName.toLowerCase() === "narrator") {
-      // Narrator / DM messages with location
-      let locationHTML = msg.location ? `<div class="meta-location">📍 ${msg.location}</div>` : "";
+    const content = formatMessage(charName, msg.content.replace(/<br>/g, "<br>"));
+    wrap = `<div class="msg left">
+      <div class="avatar player">${avatar}</div>
+      <div class="bubble">
+        <div class="meta">${timestamp} • ${meta}</div>
+        ${content}
+      </div>
+    </div>`;
 
-      wrap = document.createElement("div");
-      wrap.className = "msg right";
-      wrap.innerHTML = `
-        <div class="avatar player">DM</div>
-        <div class="bubble">
-          <div class="meta">${timestamp} • World State Update</div>
-          ${locationHTML}
-          <em>${msg.content}</em>
-        </div>
-      `;
-    } else {
-      // Player / Character message
-      const avatar = charName.charAt(0).toUpperCase();
-      const content = formatMessage(charName, msg.content.replace(/<br>/g, "<br>"));
-
-      wrap = document.createElement("div");
-      wrap.className = "msg left"; // left-aligned
-      wrap.innerHTML = `
-        <div class="avatar player">${avatar}</div>
-        <div class="bubble">
-          <div class="meta">${timestamp} • ${meta}</div>
-          ${content}
-        </div>
-      `;
-    }
+    addLogMessage(wrap);
   }
-
-  // ---------------- Append message to log ----------------
-  if (wrap) addLogMessage(wrap.outerHTML);
 };
-
-
 
 ws.onclose = () => console.log("❌ WebSocket disconnected");
 ws.onerror = (err) => console.error("WebSocket error", err);
