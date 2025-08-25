@@ -214,7 +214,75 @@ function addTimelineEvent(time, type, title, meta, icon="🔹") {
   setTimeout(updateTimelineProgress, 100);
 }
 
-
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('log-search');
+  const dropdown = document.getElementById('search-dropdown');
+  const dropdownOptions = document.querySelectorAll('.dropdown-option');
+  
+  // Expand search on focus
+  searchInput.addEventListener('focus', function() {
+    this.parentElement.classList.add('expanded');
+  });
+  
+  searchInput.addEventListener('blur', function() {
+    // Delay hiding to allow click on dropdown
+    setTimeout(() => {
+      this.parentElement.classList.remove('expanded');
+    }, 200);
+  });
+  
+  // Handle dropdown selection
+  dropdownOptions.forEach(option => {
+    option.addEventListener('click', function() {
+      const type = this.getAttribute('data-type');
+      
+      // Update active state
+      dropdownOptions.forEach(opt => opt.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Update search placeholder based on selection
+      if (type === 'all') {
+        searchInput.placeholder = 'Search all events...';
+      } else if (type === 'character') {
+        searchInput.placeholder = 'Search character events...';
+      } else if (type === 'world') {
+        searchInput.placeholder = 'Search world updates...';
+      } else if (type === 'quest') {
+        searchInput.placeholder = 'Search quest updates...';
+      }
+      
+      // Implement your actual filtering logic here
+      filterLogs(type, searchInput.value);
+    });
+  });
+  
+  // Handle search input
+  searchInput.addEventListener('input', function() {
+    const activeOption = document.querySelector('.dropdown-option.active');
+    const type = activeOption ? activeOption.getAttribute('data-type') : 'all';
+    
+    filterLogs(type, this.value);
+  });
+  
+  // Filter function (pseudo-implementation)
+  function filterLogs(type, query) {
+    console.log(`Filtering ${type} events for: ${query}`);
+    // This is where you would implement your actual filtering logic
+    // based on your CSV data structure
+    
+    // For now, just a simple demonstration:
+    const messages = document.querySelectorAll('.msg');
+    
+    messages.forEach(msg => {
+      const text = msg.textContent.toLowerCase();
+      const shouldShow = text.includes(query.toLowerCase());
+      msg.style.display = shouldShow ? 'flex' : 'none';
+    });
+  }
+  
+  // Initialize with 'all' selected
+  document.querySelector('.dropdown-option[data-type="all"]').classList.add('active');
+});
 
 // ------------------- WebSocket Chat Integration -------------------
 const ws = new WebSocket("ws://127.0.0.1:8000/ws");
@@ -222,62 +290,96 @@ const ws = new WebSocket("ws://127.0.0.1:8000/ws");
 ws.onopen = () => {
   console.log("✅ Connected to WebSocket");
 
+  // Start new game session automatically ONCE
   const now = new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
-  
-  // Initial session event
   addTimelineEvent(now, "Session", "New adventure begins", "Game started", "⚔️");
   addLog('System', '<em>New game session started.</em>');
 };
 
 ws.onmessage = (event) => {
   const msg = JSON.parse(event.data);
-  const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-  let wrap;
+  console.log("📩 Received:", msg);
 
-  if (msg.heading === "Quest Update") {
-    wrap = `<div class="msg right">
-      <div class="avatar"><img src="quest.png" alt="Quest"/></div>
+  let wrap; // will hold the final message element
+  const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+
+  // ---------------- Quest Updates ----------------
+  if (msg.heading === "Quest Update") {    
+    wrap = document.createElement("div");
+    wrap.className = "msg right"; // right-aligned like world updates
+    wrap.innerHTML = `
+      <div class="avatar"><img src="quest.png" alt="Quest" /></div>
       <div class="bubble">
         <div class="meta">${timestamp} • Quest Update</div>
         <em>${msg.quest_name}: ${msg.content}</em>
       </div>
-    </div>`;
-    addLogMessage(wrap);
-    addTimelineEvent(timestamp, "Quest", msg.quest_name, "📜 Quest Updated");
+    `;
+    addLogMessage(wrap.outerHTML);
+
+    // Also add to timeline & quest list
+    addTimelineEvent(timestamp, "Quest", msg.quest_name, "📜 Quest Updated", "");
     addQuest(msg.quest_name, msg.content);
-    return;
+
+    return; // stop further processing for this message
   }
 
+  // ---------------- World State Update ----------------
   if (msg.heading === "World State Update") {
-    wrap = `<div class="msg right">
-      <div class="avatar crown"><img src="crown.png" alt="Crown"/></div>
+
+    wrap = document.createElement("div");
+    wrap.className = "msg right";
+    wrap.innerHTML = `
+      <div class="avatar crown"><img src="crown.png" alt="Quest" /></div>
       <div class="bubble">
         <div class="meta">${timestamp} • World State Update</div>
         <em>${msg.content}</em>
       </div>
-    </div>`;
-    addLogMessage(wrap);
-    addTimelineEvent(timestamp, "Event", msg.location, "📍Location Changed");
-    return;
+    `;
+
+    addTimelineEvent(timestamp, "Event", msg.location, "📍Location Changed", "", msg.location || "");
   }
 
-  if (msg.heading.startsWith("Character Action") || msg.heading.startsWith("Character Outcome")) {
+  // ---------------- Character Messages ----------------
+  else if (msg.heading.startsWith("Character Action") || msg.heading.startsWith("Character Outcome")) {
     const charName = msg.heading.split(":")[1].trim();
     const meta = msg.heading.startsWith("Character Action") ? "Action" : "Outcome";
-    const avatar = charName.charAt(0).toUpperCase();
 
-    const content = formatMessage(charName, msg.content.replace(/<br>/g, "<br>"));
-    wrap = `<div class="msg left">
-      <div class="avatar player">${avatar}</div>
-      <div class="bubble">
-        <div class="meta">${timestamp} • ${meta}</div>
-        ${content}
-      </div>
-    </div>`;
+    if (charName.toLowerCase() === "narrator") {
+      // Narrator / DM messages with location
+      let locationHTML = msg.location ? `<div class="meta-location">📍 ${msg.location}</div>` : "";
 
-    addLogMessage(wrap);
+      wrap = document.createElement("div");
+      wrap.className = "msg right";
+      wrap.innerHTML = `
+        <div class="avatar player">DM</div>
+        <div class="bubble">
+          <div class="meta">${timestamp} • World State Update</div>
+          ${locationHTML}
+          <em>${msg.content}</em>
+        </div>
+      `;
+    } else {
+      // Player / Character message
+      const avatar = charName.charAt(0).toUpperCase();
+      const content = formatMessage(charName, msg.content.replace(/<br>/g, "<br>"));
+
+      wrap = document.createElement("div");
+      wrap.className = "msg left"; // left-aligned
+      wrap.innerHTML = `
+        <div class="avatar player">${avatar}</div>
+        <div class="bubble">
+          <div class="meta">${timestamp} • ${meta}</div>
+          ${content}
+        </div>
+      `;
+    }
   }
+
+  // ---------------- Append message to log ----------------
+  if (wrap) addLogMessage(wrap.outerHTML);
 };
+
+
 
 ws.onclose = () => console.log("❌ WebSocket disconnected");
 ws.onerror = (err) => console.error("WebSocket error", err);

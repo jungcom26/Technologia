@@ -63,20 +63,29 @@
     <div id="quest-placeholder" class="placeholder">No recent quests</div>
   </div>
 </div>
-
         
       </aside>
       <!-- Center: Conversation Log -->
 <section class="log panel" aria-label="Conversation log">
   <div class="log-toolbar">
+  <div class="search-container">
     <input
       type="search"
+      id="log-search"
       placeholder="Search actions, rolls, or dialogue…"
       aria-label="Search log"
     />
-    <button title="Filter">Filter</button>
-    <button title="Export">Export</button>
+    <div class="search-dropdown" id="search-dropdown">
+      <div class="dropdown-header">Filter by event type</div>
+      <div class="dropdown-option" data-type="all">All events</div>
+      <div class="dropdown-option" data-type="character">Character events</div>
+      <div class="dropdown-option" data-type="world">World updates</div>
+      <div class="dropdown-option" data-type="quest">Quest updates</div>
+    </div>
   </div>
+  <button title="Filter">Filter</button>
+  <button title="Export">Export</button>
+</div>
 
   <div class="messages" id="log">
      <div id="log-placeholder" class="placeholder">No logs yet…</div>

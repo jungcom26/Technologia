@@ -146,16 +146,6 @@ aside.map-panel{ grid-area: map; }
   gap: 1rem;
 }
 
-/* Add spacing between timeline and recent quests */
-.quests {
-  border-top: 1px solid var(--border);
-  padding: 0.75rem 1rem;
-  flex-shrink: 0;
-  background: var(--panel-alt);
-  margin-top: 0.5rem;   /* ✅ adds breathing room */
-  border-radius: 0 0 var(--radius) var(--radius); /* ✅ round bottom corners */
-}
-
 .rail {
   position: relative;
   padding-left: 1.5rem;
@@ -308,7 +298,7 @@ aside.map-panel{ grid-area: map; }
   gap: .75rem; /* Increased gap */
   font-size: .95rem;
   margin-bottom: 0.75rem; /* Added bottom margin for spacing */
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 /* Recent Quests Section */
 .quests {
@@ -319,7 +309,7 @@ aside.map-panel{ grid-area: map; }
   margin-top: 0.5rem;
   border-radius: 0 0 var(--radius) var(--radius);
   /* Fixed height with scrolling */
-  height: 290px; /* Fixed height */
+  height: 300px; /* Fixed height */
   display: flex;
   flex-direction: column;
   margin-left: -20px;
@@ -345,8 +335,6 @@ aside.map-panel{ grid-area: map; }
   overflow-y: auto;
   padding-right: 0.25rem;
 }
-
-
 
 /* Custom scrollbar for quests container */
 .quests-container::-webkit-scrollbar {
@@ -530,4 +518,76 @@ footer.characters{
 @media (max-width: 930px){
   .container{ grid-template-columns: 1fr; grid-template-areas: "log"; }
   aside.timeline, aside.map-panel{ display:none }
+}
+/* Enhanced search container */
+.search-container {
+  position: relative;
+  flex: 1;
+}
+
+/* Search input */
+#log-search {
+  width: 100%;
+  padding: .6rem .8rem;
+  border-radius: 10px;
+  background: #0f0b15;
+  color: var(--text);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+#log-search:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(122, 77, 241, 0.3);
+}
+
+/* Search dropdown */
+.search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: var(--shadow);
+  z-index: 10;
+  display: none;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.search-container:focus-within .search-dropdown {
+  display: block;
+}
+
+.dropdown-header {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.dropdown-option {
+  padding: 0.6rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dropdown-option:hover {
+  background: rgba(122, 77, 241, 0.15);
+}
+
+.dropdown-option.active {
+  background: rgba(122, 77, 241, 0.25);
+  color: #e6dcff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 930px) {
+  .search-container {
+    flex: 1 1 100%;
+  }
 }
