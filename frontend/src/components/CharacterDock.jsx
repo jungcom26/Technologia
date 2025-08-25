@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function CharacterDock() {
-  const names = ["Kyra","Thorne","Seren","Mira"];
+  const names = ["Divyansh","Mukul","Adil","Com", "Akshat"];
   return (
     <footer className="dock" aria-label="Character dock">
       <div className="dock-row">

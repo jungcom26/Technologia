@@ -26,7 +26,7 @@ export default function Topbar({ txState, stateLabel, onStart, onPauseResume, on
       </div>
 
       <div className="right">
-        <span className="badge">Local Only</span>
+        <span className="badge">idk idk 123</span>
       </div>
     </header>
   );
