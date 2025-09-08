@@ -1,0 +1,25 @@
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+.env
+*.ipynb_checkpoints/
+
+# Local data / caches
+chroma_storage/
+chroma_store/
+*.sqlite*
+cache/
+logs/
+
+# Models & big binaries (optional)
+*.mp3
+*.wav
+*.png
+*.jpg
+*.jpeg
+*.mov
+*.mp4
