@@ -8,7 +8,7 @@ from datetime import datetime
 from collections import deque
 from pathlib import Path
 from typing import Dict, Any, List, Optional
-
+import base64
 import numpy as np
 import uvicorn
 import requests
@@ -508,8 +508,13 @@ async def ws_audio(websocket: WebSocket):
                 # --- Broadcast mapped to UI ---
                 for item in chunk_model.world_state_updates:
                     upd = (item.update or "").strip()
+                    loc = (item.location or "").strip()
                     if upd:
-                        await broadcast_event({"heading": "World State Update", "content": upd})
+                        await broadcast_event({
+                            "heading": "World State Update", 
+                            "content": upd,
+                            "location": loc  # ← This is the crucial addition
+        })
 
                 for item in chunk_model.character_events:
                     who = item.character or "Unknown"
@@ -562,16 +567,24 @@ async def list_models():
 async def generate_image(req: GenerateRequest):
     payload = req.dict()
 
-    # If model provided, tell A1111 to switch
     if req.model:
         try:
-            requests.post(f"{SD_API_URL}/sdapi/v1/options", json={"sd_model_checkpoint": req.model})
+            await asyncio.to_thread(
+                requests.post,
+                f"{SD_API_URL}/sdapi/v1/options",
+                json={"sd_model_checkpoint": req.model}
+            )
         except Exception as e:
             return {"error": f"Failed to set model: {str(e)}"}
 
     try:
-        response = requests.post(f"{SD_API_URL}/sdapi/v1/txt2img", json=payload)
+        response = await asyncio.to_thread(
+            requests.post,
+            f"{SD_API_URL}/sdapi/v1/txt2img",
+            json=payload
+        )
         data = response.json()
+        # return image as base64 (UI can render it with <img src="data:image/png;base64,..."/>)
         return {"image": data["images"][0]}
     except Exception as e:
         return {"error": str(e)}

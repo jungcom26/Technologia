@@ -40,9 +40,14 @@ const addLog = (meta, text) => {
       <div class="meta">${new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})} • ${meta}</div>
       ${text}
     </div>`;
+
+  const placeholder = document.getElementById('log-placeholder');
+  if (placeholder) placeholder.style.display = 'none';
+
   logEl.appendChild(wrap);
   logEl.scrollTop = logEl.scrollHeight;
 };
+
 
 btnStart.addEventListener('click', () => {
   if (txState === 'idle' || txState === 'paused'){
@@ -391,18 +396,30 @@ ws.onmessage = (event) => {
 
   // ---------------- World State Update ----------------
   if (msg.heading === "World State Update") {
-
+    // For your JSON structure: {"location": "Forest", "update": "The team is searching for a wolf."}
+    // The server should send both location and content, but if it's not, we need to handle it
+    
+    // Check if location is already in the message (if Python code was fixed)
+    const location = msg.location || "Unknown Location";
+    
     wrap = document.createElement("div");
     wrap.className = "msg right";
     wrap.innerHTML = `
-      <div class="avatar crown"><img src="crown.png" alt="Quest" /></div>
+      <div class="avatar crown"><img src="crown.png" alt="World" /></div>
       <div class="bubble">
-        <div class="meta">${timestamp} • World State Update</div>
+        <div class="meta">${timestamp} • World State Update • ${location}</div>
         <em>${msg.content}</em>
       </div>
     `;
 
-    addTimelineEvent(timestamp, "Event", msg.location, "📍Location Changed", "", msg.location || "");
+    addTimelineEvent(timestamp, "Location", location, msg.content, "📍");
+
+    // Generate map image
+    const mapPrompt = `${msg.content}, fantasy style, detailed, full color, high quality`;
+    const mapTarget = "map-viewport";
+    const mapModel = "revAnimated_v2Rebirth.safetensors"; // specific safetensor model for maps
+    generateImage(mapPrompt, mapTarget, mapModel, 512, 512); // width & height adjustable
+
   }
 
   // ---------------- Character Messages ----------------
