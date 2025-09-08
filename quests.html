@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dungeon Scribe — Quests</title>
+    <link rel="stylesheet" href="quests.css" />
+  </head>
+  <body>
+    <header class="topbar" role="banner">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="gem">◆</span>
+          <span>Dungeon Scribe AI</span>
+        </div>
+
+        <nav class="main" aria-label="Primary">
+          <a href="inventory.html">Inventory</a>
+          <a href="quests.html" aria-current="page">Quests</a>
+          <a href="characters.html">Characters</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Left: Quest list -->
+      <aside class="timeline panel" aria-label="Quest list">
+        <h2>Quests</h2>
+
+        <div style="padding:1rem">
+          <div id="quest-filter" style="display:flex;gap:.5rem">
+            <button id="q-filter-all" class="active-filter">All</button>
+            <button id="q-filter-active">Active</button>
+            <button id="q-filter-completed">Completed</button>
+            <button id="q-filter-failed">Failed</button>
+          </div>
+        </div>
+
+        <div id="quest-list-scroll" class="timeline-scroll">
+          <div id="quest-list" class="timeline-body" style="padding:1rem"></div>
+        </div>
+      </aside>
+
+      <!-- Center: Quest detail + timeline -->
+      <section class="log panel" aria-label="Quest detail">
+        <div class="log-toolbar">
+          <div style="flex:1">
+            <strong>Questline</strong><div class="meta">Create quests, add events, assign to characters.</div>
+          </div>
+          <div>
+            <button id="btn-new-quest">New Quest</button>
+            <button id="btn-export-quests">Export</button>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:1rem;padding:1rem;height:100%;flex-direction:column">
+          <div style="display:flex;gap:1rem">
+            <div style="flex:1">
+              <div id="selected-quest-placeholder" class="placeholder">Select a quest to see details</div>
+              <div id="selected-quest" style="display:none">
+                <h3 id="q-title"></h3>
+                <div class="meta" id="q-meta"></div>
+                <p id="q-desc"></p>
+
+                <div class="meta" style="margin-top:.5rem">Timeline</div>
+                <div id="q-events" style="margin-top:.5rem;max-height:280px;overflow:auto"></div>
+              </div>
+            </div>
+
+            <aside style="width:320px">
+              <div class="panel" style="padding:1rem;background:var(--panel-alt);border-radius:12px">
+                <div class="meta">Event / Note</div>
+                <form id="event-form" style="display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem">
+                  <input id="event-text" placeholder="Event note or update" />
+                  <input id="event-location" placeholder="Location (optional)" />
+                  <div style="display:flex;gap:.5rem">
+                    <select id="event-type">
+                      <option value="update">Update</option>
+                      <option value="milestone">Milestone</option>
+                      <option value="npc">NPC</option>
+                      <option value="location">Location</option>
+                    </select>
+                    <button type="submit">Add</button>
+                  </div>
+                </form>
+
+                <hr style="margin:1rem 0;border-top:1px solid var(--border)" />
+                <div class="meta">Assign</div>
+                <select id="assign-char">
+                  <option value="">— Assign to character —</option>
+                </select>
+                <div style="margin-top:.5rem;display:flex;gap:.5rem">
+                  <button id="btn-complete">Mark Complete</button>
+                  <button id="btn-abandon" style="background:var(--danger)">Abandon</button>
+                </div>
+              </div>
+            </aside>
+          </div>
+
+          <div style="margin-top:auto;display:flex;justify-content:space-between;align-items:center">
+            <div class="meta">Export or integrate the quest timeline for session notes.</div>
+            <div>
+              <button id="btn-export-timeline">Export Timeline</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: Global timeline -->
+      <aside class="map-panel panel" aria-label="Global timeline">
+        <h3 class="map-title">Session Timeline</h3>
+        <div id="global-timeline" style="padding:1rem;max-height:60vh;overflow:auto"></div>
+        <div class="legend">Timeline shows quest milestones & major events</div>
+      </aside>
+    </main>
+
+    <script src="quests.js" defer></script>
+  </body>
+</html>
