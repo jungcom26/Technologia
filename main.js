@@ -286,32 +286,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // -------------------- Generate Image -----------------------------------
 
-async function generateImage(prompt, tokenDivId) {
+async function generateImage(prompt, targetId, model = null, width = 256, height = 256) {
   try {
+    const payload = { prompt, width, height, steps: 20, cfg_scale: 7 };
+    if (model) payload.model = model;
+
     const response = await fetch("http://127.0.0.1:8000/generate-image/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ prompt: prompt })
+      body: JSON.stringify(payload)
     });
 
     const data = await response.json();
-    if(data.error){
-        console.error("API Error:", data.error);
-        return;
+    if (data.error) {
+      console.error("API Error:", data.error);
+      return;
     }
 
-    const imgEl = document.createElement("img");
-    imgEl.src = "data:image/png;base64," + data.image;
-    imgEl.alt = prompt;
+    const targetEl = document.getElementById(targetId);
+    if (!targetEl) return;
 
-    const tokenDiv = document.getElementById(tokenDivId);
-    tokenDiv.innerHTML = "";
-    tokenDiv.appendChild(imgEl);
+    if (targetEl.tagName.toLowerCase() === "img") {
+  // For <img> tags (scene generator etc.)
+  targetEl.src = `data:image/png;base64,${data.image}`;
+  targetEl.style.display = "block";
+} else {
+  // For <div> tokens (character portraits)
+  targetEl.style.backgroundImage = `url(data:image/png;base64,${data.image})`;
+  targetEl.style.backgroundSize = "cover";
+  targetEl.style.backgroundPosition = "center";
+  targetEl.innerText = ""; // remove the letter
+}
 
   } catch (err) {
     console.error("Image generation error:", err);
   }
 }
+
+
+
 
 function generatePortrait(tokenId, name, classId, speciesId = null, genderId = null) {
   const charClass = document.getElementById(classId).innerText;
@@ -328,8 +341,13 @@ function generatePortrait(tokenId, name, classId, speciesId = null, genderId = n
   }
 
   prompt += ', high quality fantasy portrait, upper body, concept art, dramatic lighting';
-  generateImage(prompt, tokenId);
+
+  // Hardcoded model for portraits
+  const model = "dreamshaper_8.safetensors";  
+
+  generateImage(prompt, tokenId, model);
 }
+
 
 
 // ------------------- WebSocket Chat Integration -------------------

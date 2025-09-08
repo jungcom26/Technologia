@@ -431,8 +431,12 @@ async def ws_audio(websocket: WebSocket):
     init_whisper()
     init_autogen()
 
-    if webrtcvad is None:
-        raise RuntimeError("webrtcvad not installed")
+    try:
+        import webrtcvad
+    except ImportError as e:
+        print(f"Import error details: {e}")
+        print(f"Python path: {sys.path}")
+        raise RuntimeError("webrtcvad not installed - check virtual environment")
     ep = EndpointASR(vad_aggr=2)
     remainder = np.zeros(0, dtype=np.int16)
 
@@ -531,6 +535,46 @@ async def ws_audio(websocket: WebSocket):
             await websocket.close()
         except Exception:
             pass
+
+# ==================== STABLE DIFFUSION PART ====================
+SD_API_URL = "http://127.0.0.1:7860"
+
+class GenerateRequest(BaseModel):
+    prompt: str
+    model: str = None   # optional: user can specify which model to use
+    steps: int = 20
+    width: int = 256
+    height: int = 256
+    cfg_scale: float = 7.0
+
+
+@app.get("/models")
+async def list_models():
+    """Fetch list of available SD models dynamically."""
+    try:
+        response = requests.get(f"{SD_API_URL}/sdapi/v1/sd-models")
+        return response.json()
+    except Exception as e:
+        return {"error": str(e)}
+
+
+@app.post("/generate-image/")
+async def generate_image(req: GenerateRequest):
+    payload = req.dict()
+
+    # If model provided, tell A1111 to switch
+    if req.model:
+        try:
+            requests.post(f"{SD_API_URL}/sdapi/v1/options", json={"sd_model_checkpoint": req.model})
+        except Exception as e:
+            return {"error": f"Failed to set model: {str(e)}"}
+
+    try:
+        response = requests.post(f"{SD_API_URL}/sdapi/v1/txt2img", json=payload)
+        data = response.json()
+        return {"image": data["images"][0]}
+    except Exception as e:
+        return {"error": str(e)}
 
 # ---------------- main ----------------
 if __name__ == "__main__":
