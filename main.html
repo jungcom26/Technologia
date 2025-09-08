@@ -98,63 +98,8 @@
       <aside class="map-panel panel" aria-label="World map">
         <h3 class="map-title">🗺️ Map</h3>
         <div class="map-viewport">
-          <!-- Minimal, stylised fantasy map (inline SVG, no external assets) -->
-          <svg
-            class="map"
-            viewBox="0 0 800 600"
-            role="img"
-            aria-label="Fantasy map with islands and pins"
-          >
-            <defs>
-              <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#1e1531" />
-                <stop offset="100%" stop-color="#120c21" />
-              </linearGradient>
-              <linearGradient id="land" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#3b2e55" />
-                <stop offset="100%" stop-color="#2c2243" />
-              </linearGradient>
-            </defs>
-            <rect x="0" y="0" width="800" height="600" fill="url(#water)" />
-            <!-- Islands -->
-            <path
-              d="M130,260 C100,200 190,190 240,210 C290,230 320,270 280,310 C240,350 170,340 130,300 Z"
-              fill="url(#land)"
-              stroke="#6c5fa3"
-              stroke-opacity=".5"
-            />
-            <path
-              d="M420,170 C380,130 520,120 560,170 C600,220 590,260 540,280 C490,300 460,230 420,170 Z"
-              fill="url(#land)"
-              stroke="#6c5fa3"
-              stroke-opacity=".5"
-            />
-            <path
-              d="M520,360 C480,330 610,330 650,380 C690,430 640,470 590,470 C540,470 560,400 520,360 Z"
-              fill="url(#land)"
-              stroke="#6c5fa3"
-              stroke-opacity=".5"
-            />
-            <!-- Pins -->
-            <g>
-              <circle cx="250" cy="260" r="6" fill="#7a4df1" />
-              <text x="260" y="255" fill="#eae0ff" font-size="12">
-                Greywatch
-              </text>
-            </g>
-            <g>
-              <circle cx="560" cy="200" r="6" fill="#7a4df1" />
-              <text x="570" y="195" fill="#eae0ff" font-size="12">
-                Whisper Reefs
-              </text>
-            </g>
-            <g>
-              <circle cx="600" cy="420" r="6" fill="#7a4df1" />
-              <text x="610" y="415" fill="#eae0ff" font-size="12">
-                Old Lighthouse
-              </text>
-            </g>
-          </svg>
+
+
         </div>
         <div class="legend"><span class="pin"></span> Points of Interest</div>
       </aside>
