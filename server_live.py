@@ -1,6 +1,6 @@
 # Live D&D session transcription and summarization
 # Install dependencies first:
-#   pip install requirements.txt
+# pip install requirements.txt
 
 from __future__ import annotations
 import os, re, json, asyncio, inspect, time, tempfile

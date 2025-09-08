@@ -38,7 +38,7 @@
     </div>
   `);
 
-  // ---------- UI WebSocket (read-only) to show summaries ----------
+  // ---------- UI WebSocket to show summaries ----------
   (function openUiWs(){
     try {
       const uiWs = new WebSocket("ws://127.0.0.1:8000/ws");
@@ -80,7 +80,7 @@
   const f32ToI16 = (f32) => {
     const i16 = new Int16Array(f32.length);
     for (let i=0;i<f32.length;i++){
-      const x = Math.max(-1, Math.min(1, f32[i]));  // no extra gain
+      const x = Math.max(-1, Math.min(1, f32[i]));  // no extra gain on the mic input
       i16[i] = x < 0 ? x * 0x8000 : x * 0x7FFF;
     }
     return i16;
