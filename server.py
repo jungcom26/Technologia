@@ -1,12 +1,18 @@
 import asyncio
 import json
-from fastapi import FastAPI, WebSocket
+from fastapi import FastAPI, Query, WebSocket
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 import os
 import hashlib
+import chromadb
+from chroma_operations import get_collection, add_json_to_chroma
+import requests
+from pydantic import BaseModel
 
 app = FastAPI()
+client = chromadb.PersistentClient(path="./chroma_storage")
+
 
 app.add_middleware(
     CORSMiddleware,
@@ -96,6 +102,22 @@ async def websocket_endpoint(websocket: WebSocket):
                     raw_text = f.read().strip()
                     all_events = parse_ai_json(raw_text)
 
+                    structured_json = {
+                        "world_state_updates": [],
+                        "player_actions": [],
+                        "quest_updates": []
+                    }
+
+                    for e in all_events:
+                        if e["type"] == "world_state_updates":
+                            structured_json["world_state_updates"].append(e)
+                        elif e["type"] == "player_actions":
+                            structured_json["player_actions"].append(e)
+                        elif e["type"] == "quest_updates":
+                            structured_json["quest_updates"].append(e)
+
+                    add_json_to_chroma(structured_json)
+
                     for event in all_events:
                         h = get_obj_hash(event)
                         if h not in sent_hashes:
@@ -110,6 +132,47 @@ async def websocket_endpoint(websocket: WebSocket):
         print("WebSocket error:", e)
     finally:
         print("Client disconnected")
+
+SD_API_URL = "http://127.0.0.1:7860/sdapi/v1/txt2img"
+
+class GenerateRequest(BaseModel):
+    prompt: str
+    steps: int = 20
+    width: int = 256
+    height: int = 256
+    cfg_scale: float = 7.0
+
+@app.post("/generate-image/")
+async def generate_image(req: GenerateRequest):
+    payload = req.dict()
+    try:
+        response = requests.post(SD_API_URL, json=payload)
+        data = response.json()
+        return {"image": data["images"][0]}  # Base64 image string
+    except Exception as e:
+        return {"error": str(e)}
+    
+@app.get("/search/")
+def search_events(query: str, event_type: str = "all", n_results: int = 5):
+    collections = {
+        "world": client.get_collection("world_state_updates"),
+        "quest": client.get_collection("quest_updates"),
+        "player": client.get_collection("player_actions"),
+    }
+
+    results = {}
+
+    if event_type == "all":
+        for name, col in collections.items():
+            res = col.query(query_texts=[query], n_results=n_results)
+            results[name] = res["documents"]
+    else:
+        col = collections.get(event_type)
+        if col:
+            res = col.query(query_texts=[query], n_results=n_results)
+            results[event_type] = res["documents"]
+
+    return results
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)

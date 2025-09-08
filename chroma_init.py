@@ -12,6 +12,7 @@ def initialize_chroma_db():
         "story_progression",
         "player_actions", 
         "world_state_updates",
+        "quest_updates",
         "character_tracking",
         "unresolved_threads"
     ]

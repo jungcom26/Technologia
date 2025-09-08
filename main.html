@@ -57,9 +57,12 @@
           </div>
           <!-- Recent quest-->
 
-          <div class="quests" id="quest-list">
-            <div id="quest-placeholder" class="placeholder">No recent quests</div>
-          </div>
+          <div class="quests">
+  <h3>Recent Quests</h3> <!-- fixed heading -->
+  <div id="quest-list">
+    <div id="quest-placeholder" class="placeholder">No recent quests</div>
+  </div>
+</div>
         
       </aside>
       <!-- Center: Conversation Log -->
@@ -159,86 +162,112 @@
 
     <!-- ======= Character Cards ======= -->
     <footer class="characters" aria-label="Character cards">
-      <div class="card-row">
-        <article class="card" aria-label="Character Kyra card">
-          <div class="top">
-            <div class="token">K</div>
-            <div>
-              <div>
-                <strong>Kyra</strong> <span class="pill">Warlock L1</span>
-              </div>
-              <div class="stats">
-                <span class="pill hp">HP 10</span>
-                <span class="pill ac">AC 12</span>
-                <span class="pill speed">30 ft</span>
-              </div>
-            </div>
-          </div>
-          <div class="actions">
-            <button>Eldritch Blast</button><button>Hex</button
-            ><button>Short Rest</button>
-          </div>
-        </article>
+  <div class="card-row">
 
-        <article class="card" aria-label="Character Thorne card">
-          <div class="top">
-            <div class="token">T</div>
-            <div>
-              <div>
-                <strong>Thorne</strong> <span class="pill">Rogue L1</span>
-              </div>
-              <div class="stats">
-                <span class="pill hp">HP 9</span>
-                <span class="pill ac">AC 14</span>
-                <span class="pill speed">30 ft</span>
-              </div>
-            </div>
+    <!-- Kyra -->
+    <article class="card" aria-label="Character Kyra card">
+      <div class="top">
+        <div class="token" id="kyra-token">K</div>
+        <div>
+          <div>
+            <strong>Kyra</strong>
+            <span class="pill" id="first-species" contenteditable="true">ORC<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
+            <span class="pill" id="first-class" contenteditable="true">Warlock L1<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
+            <span class="pill" id="first-gender" contenteditable="true">Female<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
           </div>
-          <div class="actions">
-            <button>Sneak Attack</button><button>Hide</button>
+          <div class="stats">
+            <span class="pill hp">HP 10</span>
+            <span class="pill ac">AC 12</span>
+            <span class="pill speed">30 ft</span>
           </div>
-        </article>
-
-        <article class="card" aria-label="Character Seren card">
-          <div class="top">
-            <div class="token">S</div>
-            <div>
-              <div>
-                <strong>Seren</strong> <span class="pill">Cleric L1</span>
-              </div>
-              <div class="stats">
-                <span class="pill hp">HP 11</span>
-                <span class="pill ac">AC 18</span>
-                <span class="pill speed">30 ft</span>
-              </div>
-            </div>
-          </div>
-          <div class="actions">
-            <button>Guiding Bolt</button><button>Heal</button>
-          </div>
-        </article>
-
-        <article class="card" aria-label="Character Mira card">
-          <div class="top">
-            <div class="token">M</div>
-            <div>
-              <div>
-                <strong>Mira</strong> <span class="pill">Wizard L1</span>
-              </div>
-              <div class="stats">
-                <span class="pill hp">HP 8</span>
-                <span class="pill ac">AC 13</span>
-                <span class="pill speed">30 ft</span>
-              </div>
-            </div>
-          </div>
-          <div class="actions">
-            <button>Magic Missile</button><button>Shield</button>
-          </div>
-        </article>
+        </div>
       </div>
-    </footer>
+      <button id="kyra-generate-btn" onclick="generatePortrait('kyra-token','Kyra','first-class','first-species','first-gender')">
+  🎨 Generate Portrait
+</button>
+      <div class="actions">
+        <button>Eldritch Blast</button><button>Hex</button><button>Short Rest</button>
+      </div>
+    </article>
+
+    <!-- Thorne -->
+    <article class="card" aria-label="Character Thorne card">
+      <div class="top">
+        <div class="token" id="thorne-token">T</div>
+        <div>
+          <div>
+            <strong>Thorne</strong>
+            <span class="pill" id="second-species" contenteditable="true">Human<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
+            <span class="pill" id="second-class" contenteditable="true">Hero<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
+            <span class="pill" id="second-gender" contenteditable="true">Male<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
+          </div>
+          <div class="stats">
+            <span class="pill hp">HP 9</span>
+            <span class="pill ac">AC 14</span>
+            <span class="pill speed">30 ft</span>
+          </div>
+        </div>
+      </div>
+      <button onclick="generatePortrait('thorne-token','Thorne','second-class','second-species','second-gender')">🎨 Generate Portrait</button>
+      <div class="actions">
+        <button>Sneak Attack</button><button>Hide</button>
+      </div>
+    </article>
+
+    <!-- Seren -->
+    <article class="card" aria-label="Character Seren card">
+      <div class="top">
+        <div class="token" id="seren-token">S</div>
+        <div>
+          <div>
+            <strong>Seren</strong>
+            <span class="pill" id="third-species" contenteditable="true">Elf<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
+            <span class="pill" id="third-class" contenteditable="true">Wizard<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
+            <span class="pill" id="third-gender" contenteditable="true">Female<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
+          </div>
+          <div class="stats">
+            <span class="pill hp">HP 11</span>
+            <span class="pill ac">AC 18</span>
+            <span class="pill speed">30 ft</span>
+          </div>
+        </div>
+      </div>
+      <button onclick="generatePortrait('seren-token','Seren','third-class','third-species','third-gender')">🎨 Generate Portrait</button>
+      <div class="actions">
+        <button>Guiding Bolt</button><button>Heal</button>
+      </div>
+    </article>
+
+    <!-- Mira -->
+    <article class="card" aria-label="Character Mira card">
+      <div class="top">
+        <div class="token" id="mira-token">M</div>
+        <div>
+          <div>
+            <strong>Mira</strong>
+            <span class="pill" id="fourth-species" contenteditable="true">DragonBorn<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
+            <span class="pill" id="fourth-class" contenteditable="true">Barbarian<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
+            <span class="pill" id="fourth-gender" contenteditable="true">Male<img src="edit.png" class="edit-icon" width="16" height="16" alt="edit icon"/></span>
+          </div>
+          <div class="stats">
+            <span class="pill hp">HP 8</span>
+            <span class="pill ac">AC 13</span>
+            <span class="pill speed">30 ft</span>
+          </div>
+        </div>
+      </div>
+      <button onclick="generatePortrait('mira-token','Mira','fourth-class','fourth-species','fourth-gender')">🎨 Generate Portrait</button>
+      <div class="actions">
+        <button>Magic Missile</button><button>Shield</button>
+      </div>
+    </article>
+
+  </div>
+</footer>
+
 
     <script src="main.js"></script>
+    <script src="main_live.js"></script>
+    
   </body>
 </html>

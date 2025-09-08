@@ -15,11 +15,12 @@ def add_json_to_chroma(json_data, collection_mapping=None):
     # Default collection mapping
     if collection_mapping is None:
         collection_mapping = {
-            "story_progression": "story_progression",
-            "player_actions": "player_actions",
-            "world_state_updates": "world_state_updates",
-            "character_tracking": "character_tracking",
-            "unresolved_threads": "unresolved_threads"
+        "story_progression": "story_progression",
+        "player_actions": "player_actions",
+        "world_state_updates": "world_state_updates",
+        "quest_updates": "quest_updates",
+        "character_tracking": "character_tracking",
+        "unresolved_threads": "unresolved_threads"
         }
     
     # Add data to collections
@@ -121,6 +122,23 @@ def query_chroma_db(query_text, n_results=5):
     all_results.sort(key=lambda x: x['score'], reverse=True)
     
     return all_results
+
+def get_collection(collection_name):
+    """
+    Retrieve (or create if missing) a ChromaDB collection by name.
+
+    Args:
+        collection_name (str): The name of the collection to fetch
+
+    Returns:
+        chromadb.api.models.Collection.Collection: The collection object
+    """
+    client = chromadb.PersistentClient(path="./chroma_storage")
+    try:
+        return client.get_collection(collection_name)
+    except Exception:
+        # Create collection if it doesn't exist yet
+        return client.create_collection(collection_name)
 
 def display_results(results, query_text):
     """

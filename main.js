@@ -80,13 +80,13 @@ function addLogMessage(messageHtml) {
   const log = document.getElementById("log");
   const placeholder = document.getElementById("log-placeholder");
 
-  // Hide placeholder if it's still visible
-  if (placeholder) {
-    placeholder.style.display = "none";
-  }
+  if (placeholder) placeholder.style.display = "none";
 
-  // Append new log message
-  log.insertAdjacentHTML("beforeend", messageHtml);
+  // Prepend new log messages at the top
+  log.insertAdjacentHTML("afterbegin", messageHtml);
+
+  // Keep scroll at the very top for newest-first layout
+  log.scrollTop = 0;
 }
 
 function formatMessage(charName, text) {
@@ -265,24 +265,97 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Filter function (pseudo-implementation)
-  function filterLogs(type, query) {
-    console.log(`Filtering ${type} events for: ${query}`);
-    // This is where you would implement your actual filtering logic
-    // based on your CSV data structure
-    
-    // For now, just a simple demonstration:
-    const messages = document.querySelectorAll('.msg');
-    
-    messages.forEach(msg => {
-      const text = msg.textContent.toLowerCase();
-      const shouldShow = text.includes(query.toLowerCase());
-      msg.style.display = shouldShow ? 'flex' : 'none';
-    });
+  async function filterLogs(type, query) {
+    if (!query) return;
+
+    const typeMapping = {
+      all: "all",
+      character: "player",    // maps to player_actions collection
+      world: "world",
+      quest: "quest"
+    };
+
+    const mappedType = typeMapping[type] || "all";
+
+    try {
+      const res = await fetch(`http://127.0.0.1:8000/search/?query=${encodeURIComponent(query)}&event_type=${type}`);
+      const data = await res.json();
+
+      console.log("🔍 Search results:", data);
+
+      // Clear old log
+      logEl.innerHTML = "";
+
+      // Render results
+      for (const [col, docs] of Object.entries(data)) {
+        docs.forEach(doc => {
+          const wrap = document.createElement("div");
+          wrap.className = "msg";
+          wrap.innerHTML = `
+            <div class="avatar">${col.charAt(0).toUpperCase()}</div>
+            <div class="bubble">
+              <div class="meta">From ${col}</div>
+              ${doc}
+            </div>`;
+          logEl.appendChild(wrap);
+        });
+      }
+    } catch (err) {
+      console.error("Search error", err);
+    }
   }
   
   // Initialize with 'all' selected
   document.querySelector('.dropdown-option[data-type="all"]').classList.add('active');
 });
+
+// -------------------- Generate Image -----------------------------------
+
+async function generateImage(prompt, tokenDivId) {
+  try {
+    const response = await fetch("http://127.0.0.1:8000/generate-image/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ prompt: prompt })
+    });
+
+    const data = await response.json();
+    if(data.error){
+        console.error("API Error:", data.error);
+        return;
+    }
+
+    const imgEl = document.createElement("img");
+    imgEl.src = "data:image/png;base64," + data.image;
+    imgEl.alt = prompt;
+
+    const tokenDiv = document.getElementById(tokenDivId);
+    tokenDiv.innerHTML = "";
+    tokenDiv.appendChild(imgEl);
+
+  } catch (err) {
+    console.error("Image generation error:", err);
+  }
+}
+
+function generatePortrait(tokenId, name, classId, speciesId = null, genderId = null) {
+  const charClass = document.getElementById(classId).innerText;
+  let prompt = name + ', ' + charClass;
+
+  let species = '';
+  if (speciesId) {
+    species = document.getElementById(speciesId).innerText;
+    prompt = name + ', ' + species + ', ' + charClass;
+  }
+  if (genderId) {
+    const gender = document.getElementById(genderId).innerText;
+    prompt = name + ', ' + species + ', ' + charClass + ', ' + gender;
+  }
+
+  prompt += ', high quality fantasy portrait, upper body, concept art, dramatic lighting';
+  generateImage(prompt, tokenId);
+}
+
 
 // ------------------- WebSocket Chat Integration -------------------
 const ws = new WebSocket("ws://127.0.0.1:8000/ws");
