@@ -106,7 +106,7 @@ nav.main{ display:flex; align-items:center; gap:10px; }
 
 /* ===== Columns ===== */
 aside.timeline.panel{
-  flex:0 0 300px;                  /* fixed width */
+  flex:0 0 20%;                  /* fixed width */
   display:flex; flex-direction:column;
   min-width:0; height:100%;
 }
@@ -116,7 +116,7 @@ section.log{
   min-width:0; height:100%;
 }
 aside.map-panel{
-  flex:0 0 380px;                  /* change to 40% if you prefer */
+  flex:0 0 30%;                  /* change to 40% if you prefer */
   /* alternative: flex:0 0 40%; min-width:320px; */
   display:flex; flex-direction:column;
   min-width:0; height:100%;
@@ -208,10 +208,11 @@ section.log{ grid-area:auto; }
 .messages{
   flex:1 1 auto; display:flex; flex-direction:column; gap:.75rem; padding:1rem;
   overflow-y:auto; overflow-x:hidden; min-height:0;
+  width: 100%; max-width: none;
 }
 .placeholder{ color:#aaa; font-style:italic; text-align:center; padding:1rem; }
 
-.msg{ display:flex; gap:.75rem; width:100%; max-width:700px; }
+.msg{ display:flex; gap:.75rem; width:100%; max-width:none; }
 .msg.left{ justify-content:flex-start; }
 .msg.right{ justify-content:flex-end; }
 .msg.right .bubble{ background:#2e2440; }

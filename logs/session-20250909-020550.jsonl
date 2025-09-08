@@ -1,0 +1,3 @@
+{"world_state_updates": [{"location": "Narration", "update": "Beep."}], "character_events": [], "quest_updates": []}
+{"world_state_updates": [{"location": "Tavern", "update": "An orc is present."}], "character_events": [], "quest_updates": []}
+{"world_state_updates": [{"location": "Dungeon Entrance", "update": "Rowan is present."}], "character_events": [{"character": "Rowan", "action": "Visiting the dungeon", "outcome": "Searching for a scroll."}], "quest_updates": [{"quest": "Navigate the Cave", "update": "Seeking a scroll to aid in navigation."}]}

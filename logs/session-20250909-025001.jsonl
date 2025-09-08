@@ -1,0 +1,2 @@
+{"world_state_updates": [{"location": "Unknown", "update": "The team is hunting a wolf."}], "character_events": [], "quest_updates": [{"quest": "Unknown", "update": "The team is actively pursuing the wolf."}]}
+{"world_state_updates": [{"location": "Forest", "update": "The team is actively tracking a wolf."}], "character_events": [], "quest_updates": [{"quest": "Hunt the Wolf", "update": "The team is currently engaged in the hunt."}]}

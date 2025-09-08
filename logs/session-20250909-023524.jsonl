@@ -1,0 +1,4 @@
+{"world_state_updates": [], "character_events": [], "quest_updates": []}
+{"world_state_updates": [{"location": "Forest", "update": "The party is traveling to the Forest to search for treasure."}], "character_events": [], "quest_updates": [{"quest": "Treasure Hunt", "update": "The party is actively pursuing the quest."}]}
+{"world_state_updates": [{"location": "Inner Tavern", "update": "Patrons are enjoying themselves."}], "character_events": [], "quest_updates": []}
+{"world_state_updates": [{"location": "Tavern", "update": "Patrons are present and enjoying themselves."}], "character_events": [], "quest_updates": []}
