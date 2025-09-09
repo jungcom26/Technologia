@@ -1,0 +1,9 @@
+@import 'styles.css';
+
+/* Quests page tweaks */
+.timeline.panel { display:flex; flex-direction:column; }
+#quest-list { display:flex; flex-direction:column; gap:.5rem }
+.quest-card { padding:.6rem; border-radius:10px; border:1px solid var(--border); background:var(--panel-alt) }
+#q-events .event { padding:.5rem; border-bottom:1px dashed rgba(255,255,255,.03) }
+#global-timeline .event { padding:.6rem; border-radius:8px; margin-bottom:.5rem }
+.placeholder { padding:.75rem; color:var(--muted) }

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dungeon Scribe — Inventory</title>
+    <link rel="stylesheet" href="inventory.css" />
+  </head>
+  <body>
+    <header class="topbar" role="banner">
+      <div class="topbar-inner">
+        <div class="brand" aria-label="App brand">
+          <span class="gem">◆</span>
+          <span>Dungeon Scribe AI</span>
+        </div>
+
+        <nav class="main" aria-label="Primary">
+          <a href="main.html" aria-current="page">Home</a>
+          <a href="inventory.html" aria-current="page">Inventory</a>
+          <a href="quests.html">Quests</a>
+          <a href="characters.html">Characters</a>
+        </nav>
+
+        <section class="tx" role="region" aria-label="Transcription controls">
+          <div class="status" aria-live="polite">
+            <span class="dot" aria-hidden="true"></span>
+            <span id="tx-state">Idle</span>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main class="container" role="main">
+      <!-- Left column: Filters / Categories -->
+      <aside class="timeline panel" aria-label="Inventory categories">
+        <h2>Inventory</h2>
+        <div style="padding:1rem;">
+          <label for="inv-search" class="meta">Search items</label>
+          <input id="inv-search" type="search" placeholder="Search items or tags…" />
+        </div>
+
+        <div style="padding:0 1rem 1rem;">
+          <div class="badge" style="margin-bottom:.5rem">Filters</div>
+          <div style="display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem">
+            <button id="filter-all" class="active-filter">All</button>
+            <button id="filter-weapons">Weapons</button>
+            <button id="filter-armor">Armor</button>
+            <button id="filter-consumables">Consumables</button>
+            <button id="filter-magic">Magic Items</button>
+          </div>
+        </div>
+
+        <div style="padding:1rem;border-top:1px solid var(--border);">
+          <div class="meta">Quick stats</div>
+          <div id="inv-stats" style="margin-top:.5rem">Loading…</div>
+        </div>
+      </aside>
+
+      <!-- Center column: Item list -->
+      <section class="log panel" aria-label="Item list">
+        <div class="log-toolbar">
+          <div style="flex:1">
+            <strong>Items</strong>
+            <div class="meta" style="font-size:.85rem">Click an item to view/edit.</div>
+          </div>
+          <div style="display:flex;gap:.5rem">
+            <button id="btn-import">Import</button>
+            <button id="btn-export">Export</button>
+            <button id="btn-clear">Clear</button>
+          </div>
+        </div>
+
+        <div id="items" class="messages" aria-live="polite">
+          <div id="items-placeholder" class="placeholder">No items yet — add one on the right.</div>
+        </div>
+      </section>
+
+      <!-- Right column: Item detail / add form -->
+      <aside class="map-panel panel" aria-label="Item detail">
+        <h3 class="map-title">Item Details</h3>
+        <div style="padding:1rem" id="detail-panel">
+          <div id="detail-empty" class="placeholder">Select an item to see details.</div>
+
+          <div id="detail-view" style="display:none">
+            <div class="meta" id="detail-name"></div>
+            <div style="margin:8px 0" id="detail-desc"></div>
+            <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem">
+              <div class="pill" id="detail-type"></div>
+              <div class="pill" id="detail-weight"></div>
+              <div class="pill" id="detail-qty"></div>
+            </div>
+
+            <div style="margin-top:1rem;display:flex;gap:.5rem">
+              <button id="btn-use">Use / Consume</button>
+              <button id="btn-toggle-equip">Equip / Unequip</button>
+              <button id="btn-edit">Edit</button>
+              <button id="btn-delete" style="background:var(--danger)">Delete</button>
+            </div>
+          </div>
+
+          <hr style="margin:1rem 0;border:none;border-top:1px solid var(--border)">
+
+          <div>
+            <div class="meta">Add New Item</div>
+            <form id="add-form" style="display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem">
+              <input id="new-name" required placeholder="Name" />
+              <input id="new-type" placeholder="Type (weapon, armor, consumable, magic)" />
+              <input id="new-desc" placeholder="Short description" />
+              <div style="display:flex;gap:.5rem">
+                <input id="new-weight" placeholder="Weight (lb)" type="number" step="0.1" />
+                <input id="new-qty" placeholder="Quantity" type="number" min="1" value="1" />
+              </div>
+              <div style="display:flex;gap:.5rem">
+                <button type="submit">Add item</button>
+                <button type="button" id="btn-seed">Load sample items</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="legend" style="margin-top: .5rem;">
+          <span class="pin"></span> Inventory quick actions
+        </div>
+      </aside>
+    </main>
+
+    <footer class="characters" aria-label="Character cards">
+      <div class="card-row" id="char-mini-row">
+        <!-- small character tokens are populated by JS for quick equip targeting -->
+      </div>
+    </footer>
+
+    <script src="inventory.js" defer></script>
+  </body>
+</html>
