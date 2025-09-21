@@ -270,7 +270,7 @@ def init_autogen():
             json_output=True,
             temperature=0.1,
             system_message=SYSTEM_PROMPT,
-            model_info={"json_output": True, "temperature": 0.1},
+            model_info={"json_output": True, "vision": False, "temperature": 0.1},
         )
         AUTO_READY = True
         print(f"[autogen] ready with model {OLLAMA_MODEL}")
