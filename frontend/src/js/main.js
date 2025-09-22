@@ -198,7 +198,7 @@ function initTimeline() {
   window.timelineObserver.observe(rail, { childList: true, subtree: false });
 }
 
-function addTimelineEvent(time, type, title, meta, icon="🔹") {
+function addTimelineEvent(time, type, title, meta, icon="🔹", options = {}) {
   const rail = document.getElementById('timeline-rail');
   if (!rail) return;
 
@@ -221,6 +221,18 @@ function addTimelineEvent(time, type, title, meta, icon="🔹") {
     </div>
     <div class="timeline-circle"></div>
   `;
+
+  const opts = options || {};
+  if (typeof opts.onClick === 'function') {
+    item.classList.add('interactive');
+    if (opts.tooltip) {
+      item.title = opts.tooltip;
+    }
+    item.addEventListener('click', (ev) => {
+      ev.preventDefault();
+      opts.onClick();
+    });
+  }
 
   rail.insertBefore(item, rail.firstChild);
   setTimeout(updateTimelineProgress, 100);
@@ -560,10 +572,10 @@ ws.onmessage = (event) => {
   if (msg.heading === "World State Update") {
     // For your JSON structure: {"location": "Forest", "update": "The team is searching for a wolf."}
     // The server should send both location and content, but if it's not, we need to handle it
-    
+
     // Check if location is already in the message (if Python code was fixed)
     const location = msg.location || "Unknown Location";
-    
+
     wrap = document.createElement("div");
     wrap.className = "msg right";
     wrap.innerHTML = `
@@ -574,13 +586,27 @@ ws.onmessage = (event) => {
       </div>
     `;
 
-    addTimelineEvent(timestamp, "Location", location, msg.content, "📍");
-
-    // Generate map image
     const mapPrompt = `${msg.content}, fantasy style, detailed, full color, high quality`;
     const mapTarget = "map-viewport";
     const mapModel = "revAnimated_v2Rebirth.safetensors"; // specific safetensor model for maps
-    generateImage(mapPrompt, mapTarget, mapModel, 512, 512); // width & height adjustable
+
+    const bubbleEl = wrap.querySelector('.bubble');
+    if (bubbleEl) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'generate-btn';
+      btn.textContent = 'Generate Scene Image';
+      btn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        generateImage(mapPrompt, mapTarget, mapModel, 512, 512);
+      });
+      bubbleEl.appendChild(btn);
+    }
+
+    addTimelineEvent(timestamp, "Location", location, msg.content, "📍", {
+      tooltip: 'Click to generate art for this scene',
+      onClick: () => generateImage(mapPrompt, mapTarget, mapModel, 512, 512)
+    });
 
   }
 

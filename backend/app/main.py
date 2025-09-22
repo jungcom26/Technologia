@@ -83,6 +83,10 @@ async def ws_ui(websocket: WebSocket) -> None:
 
 # ---------------- Whisper + config ----------------
 WHISPER_MODEL_SIZE = os.environ.get("WHISPER_MODEL_SIZE", "small.en")
+
+MIN_AVG_LOGPROB = float(os.environ.get("WHISPER_MIN_AVG_LOGPROB", "-2.0"))
+MAX_COMPRESSION_RATIO = float(os.environ.get("WHISPER_MAX_COMPRESSION_RATIO", "3.0"))
+
 whisper_model: Optional[WhisperModel] = None
 
 def init_whisper() -> None:
@@ -742,18 +746,36 @@ async def ws_audio(websocket: WebSocket) -> None:
                     initial_prompt=initial_prompt(),
                 )
 
-                parts = []
+                raw_parts: List[str] = []
+                parts: List[str] = []
+                dropped_segments = 0
                 for seg in segments:
                     txt = (getattr(seg, "text", "") or "").strip()
                     if not txt:
                         continue
+                    raw_parts.append(txt)
                     avg_lp = float(getattr(seg, "avg_logprob", 0.0))
                     comp   = float(getattr(seg, "compression_ratio", 0.0))
-                    if avg_lp < -1.1 or comp > 2.4:
+                    low_conf = avg_lp < MIN_AVG_LOGPROB
+                    over_comp = comp > MAX_COMPRESSION_RATIO
+                    if low_conf or over_comp:
+                        dropped_segments += 1
                         continue
                     if txt.lower() in {"thank you.", "okay.", "ok.", "you.", "bye."}:
+                        dropped_segments += 1
                         continue
                     parts.append(txt)
+
+                if not parts:
+                    if raw_parts:
+                        if dropped_segments:
+                            print(
+                                f"[/audio] low-confidence fallback: using {len(raw_parts)} raw segments "
+                                f"(dropped {dropped_segments} by threshold)"
+                            )
+                        parts = raw_parts
+                    else:
+                        continue
 
                 if not parts:
                     continue
