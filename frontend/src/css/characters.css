@@ -1,0 +1,6 @@
+@import 'styles.css';
+
+/* Characters page tweaks */
+#roster .card { cursor:pointer; padding:.6rem; border:1px solid var(--border); background:var(--panel-alt) }
+#ch-conditions .pill { cursor:pointer }
+#roll-result { padding:.6rem; border-radius:8px; border:1px solid var(--border); background:linear-gradient(180deg, rgba(122,77,241,.04), transparent) }

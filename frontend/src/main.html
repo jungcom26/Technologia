@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dungeon Scribe AI — Wireframe Prototype</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar" role="banner">
+      <div class="topbar-inner">
+        <div class="brand" aria-label="App brand">
+          <span class="gem">◆</span>
+          <span>Dungeon Scribe AI</span>
+        </div>
+        <nav class="main" aria-label="Primary">
+          <a href="inventory.html">Inventory</a>
+          <a href="quests.html" aria-current="page">Quests</a>
+          <a href="characters.html">Characters</a>
+        </nav>
+        <section class="tx" role="region" aria-label="Transcription controls">
+          <div class="status" aria-live="polite">
+            <span class="dot" id="tx-dot" aria-hidden="true"></span>
+            <span id="tx-state">Idle</span>
+          </div>
+          <div class="controls">
+            <button id="btn-start" title="Start recording (S)" aria-pressed="false">▶</button>
+            <button id="btn-pause" title="Pause/Resume (P)" disabled>⏸</button>
+            <button id="btn-stop" title="Stop recording (X)" disabled>⏹</button>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main class="container">
+      <aside class="timeline panel" aria-label="Session timeline">
+        <h2>Timeline &amp; Questline</h2>
+        <div class="timeline-scroll">
+          <div class="timeline-body" id="timeline-body">
+            <div class="rail" id="timeline-rail">
+              <div class="progress-line" id="progress-line"></div>
+            </div>
+          </div>
+          <div id="timeline-placeholder" class="placeholder">No timeline yet</div>
+        </div>
+        <section class="quests" aria-label="Recent quests">
+          <h3>Recent Quests</h3>
+          <div id="quest-list">
+            <div id="quest-placeholder" class="placeholder">No recent quests</div>
+          </div>
+        </section>
+      </aside>
+
+      <section class="log panel" aria-label="Conversation log">
+        <div class="log-toolbar">
+          <div class="search-container">
+            <input
+              type="search"
+              id="log-search"
+              placeholder="Search actions, rolls, or dialogue…"
+              aria-label="Search log"
+            />
+            <div class="search-dropdown" id="search-dropdown">
+              <div class="dropdown-header">Filter by event type</div>
+              <div class="dropdown-option" data-type="all">All events</div>
+              <div class="dropdown-option" data-type="character">Character events</div>
+              <div class="dropdown-option" data-type="world">World updates</div>
+              <div class="dropdown-option" data-type="quest">Quest updates</div>
+            </div>
+          </div>
+          <button title="Filter">Filter</button>
+          <button title="Export">Export</button>
+        </div>
+        <div class="messages" id="log">
+          <div id="log-placeholder" class="placeholder">No logs yet…</div>
+        </div>
+      </section>
+
+      <aside class="map-panel panel" aria-label="World map">
+        <h3 class="map-title">Image</h3>
+        <div class="map-viewport" id="map-viewport"></div>
+        <section class="context-query" aria-label="Story archive query">
+          <div class="context-query-header">
+            <h3>Ask the Archive</h3>
+            <p>Query the captured session for characters, items, quests, and locations.</p>
+          </div>
+          <form id="context-query-form" autocomplete="off">
+            <textarea
+              id="context-query-input"
+              rows="3"
+              placeholder="e.g., What items did Kyra pick up in the forest?"
+              aria-label="Question for the archive"
+              required
+            ></textarea>
+            <div class="context-query-actions">
+              <button type="submit">Ask</button>
+              <button type="button" id="context-query-clear">Clear</button>
+            </div>
+          </form>
+          <div class="context-query-results" id="context-query-results">
+            <div class="placeholder">No questions yet.</div>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <footer class="characters" aria-label="Character cards">
+      <div class="card-row">
+        <article class="card" aria-label="Character Kyra card">
+          <div class="top">
+            <div class="token" id="kyra-token">K</div>
+            <div>
+              <div>
+                <strong>Kyra</strong>
+                <span class="pill" id="first-species" contenteditable="true">
+                  ORC<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="first-class" contenteditable="true">
+                  Warlock L1<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="first-gender" contenteditable="true">
+                  Female<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+              </div>
+              <div class="stats">
+                <span class="pill hp">HP 10</span>
+                <span class="pill ac">AC 12</span>
+                <span class="pill speed">30 ft</span>
+              </div>
+            </div>
+          </div>
+          <button
+            id="kyra-generate-btn"
+            onclick="generatePortrait('kyra-token','Kyra','first-class','first-species','first-gender')"
+          >
+            🎨 Generate Portrait
+          </button>
+          <div class="actions">
+            <button>Eldritch Blast</button>
+            <button>Hex</button>
+            <button>Short Rest</button>
+          </div>
+        </article>
+
+        <!--
+        <article class="card" aria-label="Character Thorne card">
+          <div class="top">
+            <div class="token" id="thorne-token">T</div>
+            <div>
+              <div>
+                <strong>Thorne</strong>
+                <span class="pill" id="second-species" contenteditable="true">
+                  Human<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="second-class" contenteditable="true">
+                  Hero<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="second-gender" contenteditable="true">
+                  Male<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+              </div>
+              <div class="stats">
+                <span class="pill hp">HP 9</span>
+                <span class="pill ac">AC 14</span>
+                <span class="pill speed">30 ft</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="generatePortrait('thorne-token','Thorne','second-class','second-species','second-gender')">
+            🎨 Generate Portrait
+          </button>
+          <div class="actions">
+            <button>Sneak Attack</button>
+            <button>Hide</button>
+          </div>
+        </article>
+
+        <article class="card" aria-label="Character Seren card">
+          <div class="top">
+            <div class="token" id="seren-token">S</div>
+            <div>
+              <div>
+                <strong>Seren</strong>
+                <span class="pill" id="third-species" contenteditable="true">
+                  Elf<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="third-class" contenteditable="true">
+                  Wizard<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="third-gender" contenteditable="true">
+                  Female<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+              </div>
+              <div class="stats">
+                <span class="pill hp">HP 11</span>
+                <span class="pill ac">AC 18</span>
+                <span class="pill speed">30 ft</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="generatePortrait('seren-token','Seren','third-class','third-species','third-gender')">
+            🎨 Generate Portrait
+          </button>
+          <div class="actions">
+            <button>Guiding Bolt</button>
+            <button>Heal</button>
+          </div>
+        </article>
+
+        <article class="card" aria-label="Character Mira card">
+          <div class="top">
+            <div class="token" id="mira-token">M</div>
+            <div>
+              <div>
+                <strong>Mira</strong>
+                <span class="pill" id="fourth-species" contenteditable="true">
+                  DragonBorn<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="fourth-class" contenteditable="true">
+                  Barbarian<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="fourth-gender" contenteditable="true">
+                  Male<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+              </div>
+              <div class="stats">
+                <span class="pill hp">HP 8</span>
+                <span class="pill ac">AC 13</span>
+                <span class="pill speed">30 ft</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="generatePortrait('mira-token','Mira','fourth-class','fourth-species','fourth-gender')">
+            🎨 Generate Portrait
+          </button>
+          <div class="actions">
+            <button>Magic Missile</button>
+            <button>Shield</button>
+          </div>
+        </article>
+        -->
+      </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/main_live.js" defer></script>
+  </body>
+</html>
