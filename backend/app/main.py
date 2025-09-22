@@ -500,10 +500,10 @@ def _write_json_atomic_sync(path: Path, obj: dict):
 async def persist_chunk_model(chunk_model: ChunkStructuredOutput, transcript: str):
     # 1) Append a line (pure pydantic shape)
     await asyncio.to_thread(_append_jsonl_sync, chunk_model.model_dump())
-    # 2) Update aggregate and write atomically
+    # 2) Update aggregate and write full JSON
     SESSION_AGG["chunks"].append(chunk_model.model_dump())
     await asyncio.to_thread(_write_json_atomic_sync, JSON_PATH, SESSION_AGG)
-    # 3) Persist structured context into SQLite for later retrieval
+    # 3) Persist structured context into SQLite for retrieval purposes
     try:
         await asyncio.to_thread(
             store_chunk,
