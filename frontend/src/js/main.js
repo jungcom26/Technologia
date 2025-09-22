@@ -75,7 +75,6 @@ btnStop.addEventListener('click', () => {
   if (txState !== 'idle'){ setState('idle'); addLog('System', '<em>Transcription stopped.</em>'); }
 });
 
-// Keyboard shortcuts (disabled while typing in inputs/textareas)
 window.addEventListener('keydown', (e)=>{
   const target = e.target;
   const tag = target && target.tagName ? target.tagName.toLowerCase() : '';
@@ -384,28 +383,23 @@ document.addEventListener('DOMContentLoaded', function() {
   const dropdown = document.getElementById('search-dropdown');
   const dropdownOptions = document.querySelectorAll('.dropdown-option');
   
-  // Expand search on focus
   searchInput.addEventListener('focus', function() {
     this.parentElement.classList.add('expanded');
   });
   
   searchInput.addEventListener('blur', function() {
-    // Delay hiding to allow click on dropdown
     setTimeout(() => {
       this.parentElement.classList.remove('expanded');
     }, 200);
   });
   
-  // Handle dropdown selection
   dropdownOptions.forEach(option => {
     option.addEventListener('click', function() {
       const type = this.getAttribute('data-type');
       
-      // Update active state
       dropdownOptions.forEach(opt => opt.classList.remove('active'));
       this.classList.add('active');
       
-      // Update search placeholder based on selection
       if (type === 'all') {
         searchInput.placeholder = 'Search all events...';
       } else if (type === 'character') {
@@ -416,12 +410,10 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInput.placeholder = 'Search quest updates...';
       }
       
-      // Implement your actual filtering logic here
       filterLogs(type, searchInput.value);
     });
   });
   
-  // Handle search input
   searchInput.addEventListener('input', function() {
     const activeOption = document.querySelector('.dropdown-option.active');
     const type = activeOption ? activeOption.getAttribute('data-type') : 'all';
@@ -429,13 +421,9 @@ document.addEventListener('DOMContentLoaded', function() {
     filterLogs(type, this.value);
   });
   
-  // Filter function (pseudo-implementation)
   function filterLogs(type, query) {
     console.log(`Filtering ${type} events for: ${query}`);
-    // This is where you would implement your actual filtering logic
-    // based on your CSV data structure
-    
-    // For now, just a simple demonstration:
+    // For now, just a simple implementation that shows/hides messages based on query:
     const messages = document.querySelectorAll('.msg');
     
     messages.forEach(msg => {
@@ -490,9 +478,6 @@ async function generateImage(prompt, targetId, model = null, width = 256, height
   }
 }
 
-
-
-
 function generatePortrait(tokenId, name, classId, speciesId = null, genderId = null) {
   const charClass = document.getElementById(classId).innerText;
   let prompt = name + ', ' + charClass;
@@ -514,8 +499,6 @@ function generatePortrait(tokenId, name, classId, speciesId = null, genderId = n
 
   generateImage(prompt, tokenId, model);
 }
-
-
 
 // ------------------- WebSocket Chat Integration -------------------
 const ws = new WebSocket("ws://127.0.0.1:8000/ws");
