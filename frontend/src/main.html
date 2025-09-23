@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="p3reload">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Dungeon Scribe AI — Wireframe Prototype</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/theme.skins.css" />
   </head>
   <body>
+    <div id="toast-root" aria-live="polite"></div>
     <header class="topbar" role="banner">
       <div class="topbar-inner">
         <div class="brand" aria-label="App brand">
           <span class="gem">◆</span>
           <span>Dungeon Scribe AI</span>
+             <button id="theme-toggle" title="Switch theme">🎨</button>
         </div>
         <nav class="main" aria-label="Primary">
           <a href="inventory.html">Inventory</a>
@@ -24,7 +27,13 @@
             <span id="tx-state">Idle</span>
           </div>
           <div class="controls">
-            <button id="btn-start" title="Start recording (S)" aria-pressed="false">▶</button>
+            <button
+              id="btn-start"
+              title="Start recording (S)"
+              aria-pressed="false"
+            >
+              ▶
+            </button>
             <button id="btn-pause" title="Pause/Resume (P)" disabled>⏸</button>
             <button id="btn-stop" title="Stop recording (X)" disabled>⏹</button>
           </div>
@@ -35,18 +44,22 @@
     <main class="container">
       <aside class="timeline panel" aria-label="Session timeline">
         <h2>Timeline &amp; Questline</h2>
-        <div class="timeline-scroll">
+        <div id="timeline-upgraded"></div>
           <div class="timeline-body" id="timeline-body">
             <div class="rail" id="timeline-rail">
               <div class="progress-line" id="progress-line"></div>
             </div>
           </div>
-          <div id="timeline-placeholder" class="placeholder">No timeline yet</div>
+          <div id="timeline-placeholder" class="placeholder">
+            No timeline yet
+          </div>
         </div>
         <section class="quests" aria-label="Recent quests">
           <h3>Recent Quests</h3>
           <div id="quest-list">
-            <div id="quest-placeholder" class="placeholder">No recent quests</div>
+            <div id="quest-placeholder" class="placeholder">
+              No recent quests
+            </div>
           </div>
         </section>
       </aside>
@@ -63,7 +76,9 @@
             <div class="search-dropdown" id="search-dropdown">
               <div class="dropdown-header">Filter by event type</div>
               <div class="dropdown-option" data-type="all">All events</div>
-              <div class="dropdown-option" data-type="character">Character events</div>
+              <div class="dropdown-option" data-type="character">
+                Character events
+              </div>
               <div class="dropdown-option" data-type="world">World updates</div>
               <div class="dropdown-option" data-type="quest">Quest updates</div>
             </div>
@@ -82,7 +97,10 @@
         <section class="context-query" aria-label="Story archive query">
           <div class="context-query-header">
             <h3>Ask the Archive</h3>
-            <p>Query the captured session for characters, items, quests, and locations.</p>
+            <p>
+              Query the captured session for characters, items, quests, and
+              locations.
+            </p>
           </div>
           <form id="context-query-form" autocomplete="off">
             <textarea
@@ -113,13 +131,31 @@
               <div>
                 <strong>Kyra</strong>
                 <span class="pill" id="first-species" contenteditable="true">
-                  ORC<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                  ORC<img
+                    src="../public/assets/edit.png"
+                    class="edit-icon"
+                    width="16"
+                    height="16"
+                    alt="edit icon"
+                  />
                 </span>
                 <span class="pill" id="first-class" contenteditable="true">
-                  Warlock L1<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                  Warlock L1<img
+                    src="../public/assets/edit.png"
+                    class="edit-icon"
+                    width="16"
+                    height="16"
+                    alt="edit icon"
+                  />
                 </span>
                 <span class="pill" id="first-gender" contenteditable="true">
-                  Female<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                  Female<img
+                    src="../public/assets/edit.png"
+                    class="edit-icon"
+                    width="16"
+                    height="16"
+                    alt="edit icon"
+                  />
                 </span>
               </div>
               <div class="stats">
@@ -244,5 +280,6 @@
 
     <script src="js/main.js" defer></script>
     <script src="js/main_live.js" defer></script>
+    <script type="module" src="js/tl2.js"></script>
   </body>
 </html>

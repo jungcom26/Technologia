@@ -1,0 +1,525 @@
+/* =======================================================================
+   THEME SKINS (Metaphor / Persona 3 Reload)
+   - โหลดไฟล์นี้หลัง styles.css
+   - styles.css ควรใช้ body{ background: var(--app-bg, <fallback>) }
+   - ปุ่มสลับธีม: data-theme = metaphor | p3reload | p3reload-bright
+   ======================================================================= */
+
+/* ---------- Defaults the theme layer can override ---------- */
+:root {
+  /* surfaces */
+  --panel: #17131e;
+  --panel-alt: #1e1828;
+  --line: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.12);
+
+  /* text / accents */
+  --text: #eef3f8;
+  --muted: #bfc6d7;
+  --accent: #7a4df1;
+  --accent-2: #a071f6;
+  --accent-3: #aeeaff;
+
+  /* app background (theme sets this) */
+  --app-bg: radial-gradient(1200px 800px at 20% -10%, #221a35 0%, #0f0d13 45%);
+}
+
+/* Make interactive things feel alive across themes */
+button,
+.pill,
+.t-item,
+.bubble,
+.panel,
+.main a,
+.search-dropdown .dropdown-option,
+.tl2-node,
+.tl2-chip {
+  transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease,
+    box-shadow 0.18s ease, transform 0.14s ease;
+}
+
+/* ---------- Header polish ---------- */
+.topbar {
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
+}
+.topbar .brand {
+  font-family: "Cinzel", Georgia, serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), 0 0 18px rgba(255, 255, 255, 0.12);
+}
+.topbar .main a {
+  border-radius: 10px;
+  padding: 0.45rem 0.75rem;
+}
+.topbar .main a:hover,
+.topbar .main a:focus-visible {
+  outline: none;
+  background: color-mix(in oklab, var(--accent) 18%, transparent);
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 28%, transparent)
+    inset;
+}
+
+/* ---------- Panels & bubbles ---------- */
+.panel,
+.placeholder,
+.tl2-panel,
+.tl2-view,
+.map-panel,
+.log {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.04),
+      transparent 60%
+    ),
+    color-mix(in oklab, var(--panel) 92%, #000 8%);
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  border-radius: 16px;
+}
+.bubble {
+  background: var(--panel-alt);
+  border: 1px solid var(--border);
+}
+.bubble:hover {
+  border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 22%, transparent)
+    inset;
+}
+
+/* ---------- Buttons ---------- */
+button {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  border-radius: 12px;
+}
+button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 26px color-mix(in oklab, var(--accent) 22%, transparent);
+}
+button:active {
+  transform: translateY(0);
+}
+
+/* ---------- Pills ---------- */
+.pill {
+  color: #0b0f15;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  transform: skewX(-8deg);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(180deg, #c7ced8, #9aa6b6);
+}
+.pill:hover {
+  transform: skewX(-8deg) translateY(-1px);
+}
+
+/* ---------- Timeline nodes ---------- */
+.t-item {
+  border: 1px solid var(--border);
+  background: var(--panel-alt);
+}
+.t-item:hover {
+  transform: translateX(2px) translateY(-2px) skewX(-4deg);
+  border-color: var(--accent);
+  box-shadow: 0 10px 26px color-mix(in oklab, var(--accent) 20%, transparent);
+}
+.t-item .timeline-circle {
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 30%, transparent);
+}
+.t-item:hover .timeline-circle {
+  background: var(--accent);
+}
+
+/* ---------- Search dropdown ---------- */
+.search-dropdown .dropdown-option:hover {
+  background: color-mix(in oklab, var(--accent) 16%, transparent);
+}
+.search-dropdown .dropdown-option.active {
+  background: color-mix(in oklab, var(--accent) 28%, transparent);
+  color: var(--text);
+}
+
+/* ---------- TL2 chips & nodes (metaphor-ish motion) ---------- */
+.tl2-chip {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+}
+.tl2-chip:hover {
+  transform: translateY(-1px);
+}
+.tl2-chip.is-on {
+  border-color: var(--accent);
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.22),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.tl2-node {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.02)
+    ),
+    rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+.tl2-node:hover {
+  transform: translateX(4px) skewX(-6deg);
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.12),
+      rgba(255, 255, 255, 0.04)
+    ),
+    rgba(255, 255, 255, 0.06);
+}
+
+/* =======================================================================
+   THEMES
+   ======================================================================= */
+
+/* ---------- METAPHOR (magenta / yellow / aqua, dark) ---------- */
+html[data-theme="metaphor"] {
+  --text: #eef3f8;
+  --muted: #cdd3e2;
+
+  --panel: #0f1219;
+  --panel-alt: #131726;
+  --line: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.16);
+
+  --accent: #ff3c64; /* pink-red */
+  --accent-2: #ffd166; /* yellow */
+  --accent-3: #7ec8ff; /* aqua */
+
+  --app-bg: radial-gradient(
+      1100px 800px at 105% -10%,
+      rgba(255, 255, 255, 0.06),
+      transparent 45%
+    ),
+    radial-gradient(
+      900px 700px at -10% -20%,
+      rgba(255, 255, 255, 0.04),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #0a0b10, #0e1016 40%, #0a0b10);
+}
+
+/* ---------- P3 RELOAD (dark navy + cyan) ---------- */
+html[data-theme="p3reload"] {
+  --text: #eaf6ff;
+  --muted: #afc6de;
+
+  --panel: #0c1326;
+  --panel-alt: #0e1730;
+  --line: rgba(200, 230, 255, 0.12);
+  --border: rgba(200, 230, 255, 0.16);
+
+  --accent: #00e3ff; /* cyan */
+  --accent-2: #6afff9; /* extra */
+  --accent-3: #aeeaff;
+
+  --app-bg: radial-gradient(
+      1100px 800px at 105% -10%,
+      rgba(255, 255, 255, 0.06),
+      transparent 45%
+    ),
+    radial-gradient(
+      900px 700px at -10% -20%,
+      rgba(255, 255, 255, 0.04),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #0b1020, #0e1630 40%, #0a0f22);
+}
+
+/* ---------- P3 RELOAD BRIGHT (light blue) ---------- */
+html[data-theme="p3reload-bright"] {
+  --text: #141a26;
+  --muted: #4f5b72;
+
+  --panel: #ffffff;
+  --panel-alt: #f6f9ff;
+  --line: rgba(20, 26, 38, 0.12);
+  --border: rgba(20, 26, 38, 0.14);
+
+  --accent: #00aef0;
+  --accent-2: #00d5ff;
+  --accent-3: #79e8ff;
+
+  --app-bg: radial-gradient(
+      1200px 900px at 110% -10%,
+      rgba(255, 255, 255, 0.85),
+      transparent 45%
+    ),
+    radial-gradient(
+      900px 700px at -12% -20%,
+      rgba(255, 255, 255, 0.55),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #eef6ff 0%, #f7fbff 35%, #cfeeff 72%, #9ddfff 100%);
+}
+
+/* Light theme polish so elements don’t look “dark UI on white bg” */
+html[data-theme="p3reload-bright"] .panel,
+html[data-theme="p3reload-bright"] .placeholder,
+html[data-theme="p3reload-bright"] .tl2-panel,
+html[data-theme="p3reload-bright"] .tl2-view,
+html[data-theme="p3reload-bright"] .map-panel,
+html[data-theme="p3reload-bright"] .log,
+html[data-theme="p3reload-bright"] .bubble {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0)),
+    #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px rgba(0, 40, 90, 0.06);
+  color: var(--text);
+}
+html[data-theme="p3reload-bright"] .topbar {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.6)
+  );
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+html[data-theme="p3reload-bright"] .map-viewport {
+  background: radial-gradient(800px 500px at 60% 30%, #f3f8ff, #e8f1ff);
+}
+html[data-theme="p3reload-bright"] .pill {
+  color: #0a1020;
+  border-color: rgba(20, 26, 38, 0.12);
+  background: linear-gradient(180deg, #ecf2ff, #e4edff);
+}
+html[data-theme="p3reload-bright"] .pill.hp {
+  background: linear-gradient(180deg, #ffd1d9, #ffb0bf);
+}
+html[data-theme="p3reload-bright"] .pill.ac {
+  background: linear-gradient(180deg, #cfeaff, #bde0ff);
+}
+html[data-theme="p3reload-bright"] .pill.speed {
+  background: linear-gradient(180deg, #ffefb8, #ffe18a);
+}
+
+/* ---------- Toast (quest pop) ---------- */
+#toast-root {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+.toast {
+  pointer-events: auto;
+  min-width: 280px;
+  max-width: min(420px, 56vw);
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.05),
+      transparent 60%
+    ),
+    var(--panel);
+  color: var(--text);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transform: translateY(8px);
+  opacity: 0;
+  animation: toast-in 0.22s ease forwards;
+}
+.toast.quest {
+  border-left: 6px solid var(--accent);
+}
+@keyframes toast-in {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ---------- Character dock extra glow on hover ---------- */
+footer.characters .card:hover,
+footer.characters .card:focus-within {
+  box-shadow: 0 24px 70px
+    color-mix(in oklab, var(--accent) 18%, rgba(0, 0, 0, 0.55));
+  outline: 2px solid color-mix(in oklab, var(--accent) 45%, transparent);
+  outline-offset: 2px;
+}
+
+/* ===========================
+   P3R / Metaphor: Hover + Stat Pills
+   (Drop-in patch)
+   =========================== */
+
+/* --- stat palette (ใช้ได้กับทุกธีม) --- */
+:root {
+  --hp1: #00f0a8;
+  --hp2: #00c2a3; /* เขียวอมฟ้าแบบ P3R */
+  --sp1: #ffe36e;
+  --sp2: #ffb84d; /* เหลืองส้มแบบ P3R   */
+  --ac1: #7fd0ff;
+  --ac2: #56b5ff; /* ฟ้า (เกราะ/AC)      */
+  --spd1: #9df4bb;
+  --spd2: #66e39a; /* เขียวสปีด            */
+
+  --hover-ring: 0 0 0 1px var(--accent) inset, 0 0 26px -6px var(--accent);
+  --press-scale: 0.985;
+}
+
+/* ====== Interactive motion (P3R/Metaphor vibe) ====== */
+.main a,
+button,
+.search-container input,
+.quest,
+.bubble,
+.t-item,
+footer.characters .card {
+  transition: transform 0.14s ease, box-shadow 0.18s ease,
+    border-color 0.18s ease, background 0.18s ease, color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+/* Nav link underline wedge */
+nav.main a {
+  position: relative;
+}
+nav.main a::after {
+  content: "";
+  position: absolute;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.35rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transform: skewX(-12deg) translateY(2px);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+nav.main a:hover {
+  color: var(--accent);
+}
+nav.main a:hover::after {
+  opacity: 1;
+  transform: skewX(-12deg) translateY(0);
+}
+
+/* Buttons */
+button:hover {
+  box-shadow: var(--hover-ring);
+  transform: translateY(-1px) skewX(-4deg);
+}
+button:active {
+  transform: scale(var(--press-scale)) skewX(-2deg);
+}
+
+/* Search field */
+#log-search:hover {
+  box-shadow: 0 0 0 1px var(--accent) inset;
+}
+#log-search:focus {
+  box-shadow: 0 0 0 2px var(--accent) inset, 0 0 24px -6px var(--accent);
+}
+
+/* Timeline nodes */
+.t-item:hover {
+  transform: translateX(3px) skewX(-4deg);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--accent) inset;
+}
+.t-item:hover .timeline-circle {
+  background: var(--accent);
+}
+
+/* Chat bubble & quest card */
+.bubble:hover,
+.quest:hover {
+  box-shadow: var(--hover-ring);
+}
+
+/* Character cards (dock) */
+footer.characters .card {
+  border: 1px solid var(--border);
+}
+footer.characters .card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(255, 255, 255, 0.04) inset, 0 0 28px -6px var(--accent);
+}
+/* token rim glint */
+.token {
+  position: relative;
+}
+footer.characters .card:hover .token::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(180deg, transparent, transparent) padding-box,
+    conic-gradient(from 40deg, transparent, var(--accent) 55%, transparent 80%)
+      border-box;
+  opacity: 0.75;
+}
+
+/* ====== Stat pills (HP / SP / AC / Speed) ====== */
+.pill {
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.pill.hp {
+  color: #061016;
+  background: linear-gradient(180deg, var(--hp1), var(--hp2));
+  border-color: rgba(0, 227, 255, 0.25);
+  box-shadow: inset 0 10px 20px rgba(0, 227, 255, 0.18),
+    0 0 8px rgba(0, 227, 255, 0.08);
+}
+.pill.sp {
+  color: #1b1200;
+  background: linear-gradient(180deg, var(--sp1), var(--sp2));
+  border-color: rgba(255, 195, 61, 0.35);
+  box-shadow: inset 0 10px 20px rgba(255, 195, 61, 0.18),
+    0 0 8px rgba(255, 195, 61, 0.08);
+}
+.pill.ac {
+  color: #07101a;
+  background: linear-gradient(180deg, var(--ac1), var(--ac2));
+  border-color: rgba(86, 181, 255, 0.35);
+  box-shadow: inset 0 10px 20px rgba(86, 181, 255, 0.18);
+}
+.pill.speed {
+  color: #07140e;
+  background: linear-gradient(180deg, var(--spd1), var(--spd2));
+  border-color: rgba(102, 227, 154, 0.35);
+  box-shadow: inset 0 10px 20px rgba(102, 227, 154, 0.18);
+}
+
+/* Hover pulse for pills (เล็ก ๆ สไตล์ UI เกม) */
+.pill.hp:hover,
+.pill.sp:hover,
+.pill.ac:hover,
+.pill.speed:hover {
+  filter: saturate(1.05);
+  transform: translateY(-1px) skewX(-3deg);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset, var(--hover-ring);
+}
+
+/* ====== Bright variant adjustments (ถ้าใช้ p3reload-bright) ====== */
+html[data-theme="p3reload-bright"] .pill.hp,
+html[data-theme="p3reload-bright"] .pill.sp,
+html[data-theme="p3reload-bright"] .pill.ac,
+html[data-theme="p3reload-bright"] .pill.speed {
+  border-color: rgba(20, 26, 38, 0.12);
+  box-shadow: inset 0 8px 18px rgba(0, 0, 0, 0.06);
+}

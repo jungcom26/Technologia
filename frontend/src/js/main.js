@@ -1,121 +1,134 @@
 // Simple Start/Pause/Stop state machine for transcription controls
-const stateEl = document.getElementById('tx-state');
-const dotEl = document.getElementById('tx-dot');
-const btnStart = document.getElementById('btn-start');
-const btnPause = document.getElementById('btn-pause');
-const btnStop = document.getElementById('btn-stop');
-const logEl = document.getElementById('log');
-const API_BASE_URL = window.__API_BASE__ || 'http://127.0.0.1:8000';
+const stateEl = document.getElementById("tx-state");
+const dotEl = document.getElementById("tx-dot");
+const btnStart = document.getElementById("btn-start");
+const btnPause = document.getElementById("btn-pause");
+const btnStop = document.getElementById("btn-stop");
+const logEl = document.getElementById("log");
+const API_BASE_URL = window.__API_BASE__ || "http://127.0.0.1:8000";
 
-let txState = 'idle'; // 'idle' | 'recording' | 'paused'
+let txState = "idle"; // 'idle' | 'recording' | 'paused'
 
 const setState = (next) => {
   txState = next;
-  if (next === 'recording'){
-    stateEl.textContent = 'Recording';
-    dotEl.style.background = getComputedStyle(document.documentElement).getPropertyValue('--success');
-    btnStart.setAttribute('aria-pressed','true');
+  if (next === "recording") {
+    stateEl.textContent = "Recording";
+    dotEl.style.background = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--success");
+    btnStart.setAttribute("aria-pressed", "true");
     btnPause.disabled = false;
     btnStop.disabled = false;
-  } else if (next === 'paused'){
-    stateEl.textContent = 'Paused';
-    dotEl.style.background = getComputedStyle(document.documentElement).getPropertyValue('--warning');
-    btnStart.setAttribute('aria-pressed','false');
+  } else if (next === "paused") {
+    stateEl.textContent = "Paused";
+    dotEl.style.background = getComputedStyle(
+      document.documentElement
+    ).getPropertyValue("--warning");
+    btnStart.setAttribute("aria-pressed", "false");
     btnPause.disabled = false;
     btnStop.disabled = false;
   } else {
-    stateEl.textContent = 'Idle';
-    dotEl.style.background = '#6c6c6c';
-    btnStart.setAttribute('aria-pressed','false');
+    stateEl.textContent = "Idle";
+    dotEl.style.background = "#6c6c6c";
+    btnStart.setAttribute("aria-pressed", "false");
     btnPause.disabled = true;
     btnStop.disabled = true;
   }
 };
 
 const addLog = (meta, text) => {
-  const wrap = document.createElement('div');
-  wrap.className = 'msg';
+  const wrap = document.createElement("div");
+  wrap.className = "msg";
   wrap.innerHTML = `
     <div class="avatar">S</div>
     <div class="bubble">
-      <div class="meta">${new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})} • ${meta}</div>
+      <div class="meta">${new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit",
+      })} • ${meta}</div>
       ${text}
     </div>`;
 
-  const placeholder = document.getElementById('log-placeholder');
-  if (placeholder) placeholder.style.display = 'none';
+  const placeholder = document.getElementById("log-placeholder");
+  if (placeholder) placeholder.style.display = "none";
 
   logEl.appendChild(wrap);
   logEl.scrollTop = logEl.scrollHeight;
 };
 
-
-btnStart.addEventListener('click', () => {
-  if (txState === 'idle' || txState === 'paused'){
-    setState('recording');
+btnStart.addEventListener("click", () => {
+  if (txState === "idle" || txState === "paused") {
+    setState("recording");
     addLogMessage(`
 <div class="msg">
   <div class="avatar">S</div>
   <div class="bubble">
-    <div class="meta">${new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'})} • System</div>
+    <div class="meta">${new Date().toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+    })} • System</div>
     <em>Transcription started.</em>
   </div>
 </div>
 `);
-
   }
 });
 
-btnPause.addEventListener('click', () => {
-  if (txState === 'recording'){ setState('paused'); addLog('System', '<em>Transcription paused.</em>'); }
-  else if (txState === 'paused'){ setState('recording'); addLog('System', '<em>Transcription resumed.</em>'); }
+btnPause.addEventListener("click", () => {
+  if (txState === "recording") {
+    setState("paused");
+    addLog("System", "<em>Transcription paused.</em>");
+  } else if (txState === "paused") {
+    setState("recording");
+    addLog("System", "<em>Transcription resumed.</em>");
+  }
 });
 
-btnStop.addEventListener('click', () => {
-  if (txState !== 'idle'){ setState('idle'); addLog('System', '<em>Transcription stopped.</em>'); }
+btnStop.addEventListener("click", () => {
+  if (txState !== "idle") {
+    setState("idle");
+    addLog("System", "<em>Transcription stopped.</em>");
+  }
 });
 
-window.addEventListener('keydown', (e)=>{
+window.addEventListener("keydown", (e) => {
   const target = e.target;
-  const tag = target && target.tagName ? target.tagName.toLowerCase() : '';
-  const isEditable = tag === 'input' || tag === 'textarea' || (target && target.isContentEditable);
+  const tag = target && target.tagName ? target.tagName.toLowerCase() : "";
+  const isEditable =
+    tag === "input" ||
+    tag === "textarea" ||
+    (target && target.isContentEditable);
   if (isEditable) return;
 
   const key = e.key.toLowerCase();
-  if (key === 's') btnStart.click();
-  if (key === 'p') btnPause.click();
-  if (key === 'x') btnStop.click();
+  if (key === "s") btnStart.click();
+  if (key === "p") btnPause.click();
+  if (key === "x") btnStop.click();
 });
 
-function addLogMessage(messageHtml) {
+function addLogMessage(html) {
   const log = document.getElementById("log");
-  const placeholder = document.getElementById("log-placeholder");
-
-  if (placeholder) placeholder.style.display = "none";
-
-  // Prepend new log messages at the top
-  log.insertAdjacentHTML("afterbegin", messageHtml);
-
-  // Keep scroll at the very top for newest-first layout
-  log.scrollTop = 0;
+  if (!log) return;
+  log.insertAdjacentHTML("beforeend", html); // not 'afterbegin'
+  log.scrollTop = log.scrollHeight;
 }
 
 function formatMessage(charName, text) {
   // Capitalize first letter of name
   const name = charName.charAt(0).toUpperCase() + charName.slice(1);
-  
+
   // Lowercase first letter of message content
   const content = text.charAt(0).toLowerCase() + text.slice(1);
 
   return `${name} ${content}`;
 }
 
-function addQuest(title, update, icon="🔎") {
+function addQuest(title, update, icon = "🔎") {
   const questList = document.getElementById("quest-list");
 
   // Hide placeholder if it's still visible
-  const questPlaceholder = document.getElementById('quest-placeholder');
-  if (questPlaceholder) questPlaceholder.style.display = 'none';
+  const questPlaceholder = document.getElementById("quest-placeholder");
+  if (questPlaceholder) questPlaceholder.style.display = "none";
 
   const questDiv = document.createElement("div");
   questDiv.className = "quest";
@@ -132,14 +145,13 @@ function addQuest(title, update, icon="🔎") {
   }
 }
 
-
 // ---------------- Timeline Functions ----------------
 function updateTimelineProgress() {
-  const rail = document.getElementById('timeline-rail');
+  const rail = document.getElementById("timeline-rail");
   if (!rail) return;
 
-  const items = rail.querySelectorAll('.t-item');
-  const oldLine = rail.querySelector('.progress-line');
+  const items = rail.querySelectorAll(".t-item");
+  const oldLine = rail.querySelector(".progress-line");
   if (oldLine) oldLine.remove();
   if (items.length === 0) return;
 
@@ -147,8 +159,8 @@ function updateTimelineProgress() {
   const newest = items[0];
   const oldest = items[items.length - 1];
 
-  const newestCircle = newest.querySelector('.timeline-circle');
-  const oldestCircle = oldest.querySelector('.timeline-circle');
+  const newestCircle = newest.querySelector(".timeline-circle");
+  const oldestCircle = oldest.querySelector(".timeline-circle");
   if (!newestCircle || !oldestCircle) return;
 
   const railRect = rail.getBoundingClientRect();
@@ -160,8 +172,8 @@ function updateTimelineProgress() {
   const bottom = oldestRect.top - railRect.top + oldestRect.height / 2;
   const height = bottom - top;
 
-  const progressLineEl = document.createElement('div');
-  progressLineEl.className = 'progress-line';
+  const progressLineEl = document.createElement("div");
+  progressLineEl.className = "progress-line";
   progressLineEl.style.cssText = `
     position: absolute;
     left: 0.65rem;
@@ -178,15 +190,15 @@ function updateTimelineProgress() {
 function initTimeline() {
   setTimeout(updateTimelineProgress, 100);
 
-  const rail = document.getElementById('timeline-rail');
+  const rail = document.getElementById("timeline-rail");
   if (!rail) return;
 
   if (window.timelineObserver) window.timelineObserver.disconnect();
 
-  window.timelineObserver = new MutationObserver(mutations => {
+  window.timelineObserver = new MutationObserver((mutations) => {
     let shouldUpdate = false;
     for (let m of mutations) {
-      if (m.type === 'childList' && m.addedNodes.length > 0) {
+      if (m.type === "childList" && m.addedNodes.length > 0) {
         shouldUpdate = true;
         break;
       }
@@ -197,18 +209,18 @@ function initTimeline() {
   window.timelineObserver.observe(rail, { childList: true, subtree: false });
 }
 
-function addTimelineEvent(time, type, title, meta, icon="🔹", options = {}) {
-  const rail = document.getElementById('timeline-rail');
+function addTimelineEvent(time, type, title, meta, icon = "🔹", options = {}) {
+  const rail = document.getElementById("timeline-rail");
   if (!rail) return;
 
   // Hide placeholder if it's still visible
-  const timelinePlaceholder = document.getElementById('timeline-placeholder');
-  if (timelinePlaceholder) timelinePlaceholder.style.display = 'none';
+  const timelinePlaceholder = document.getElementById("timeline-placeholder");
+  if (timelinePlaceholder) timelinePlaceholder.style.display = "none";
 
   const item = document.createElement("article");
   item.className = "t-item";
-  const itemCount = rail.querySelectorAll('.t-item').length;
-  item.style.setProperty('--item-index', itemCount);
+  const itemCount = rail.querySelectorAll(".t-item").length;
+  item.style.setProperty("--item-index", itemCount);
 
   item.innerHTML = `
     <time datetime="${time}">${time}</time>
@@ -222,12 +234,12 @@ function addTimelineEvent(time, type, title, meta, icon="🔹", options = {}) {
   `;
 
   const opts = options || {};
-  if (typeof opts.onClick === 'function') {
-    item.classList.add('interactive');
+  if (typeof opts.onClick === "function") {
+    item.classList.add("interactive");
     if (opts.tooltip) {
       item.title = opts.tooltip;
     }
-    item.addEventListener('click', (ev) => {
+    item.addEventListener("click", (ev) => {
       ev.preventDefault();
       opts.onClick();
     });
@@ -238,41 +250,41 @@ function addTimelineEvent(time, type, title, meta, icon="🔹", options = {}) {
 }
 
 function setupContextQuery() {
-  const form = document.getElementById('context-query-form');
-  const input = document.getElementById('context-query-input');
-  const results = document.getElementById('context-query-results');
-  const clearBtn = document.getElementById('context-query-clear');
+  const form = document.getElementById("context-query-form");
+  const input = document.getElementById("context-query-input");
+  const results = document.getElementById("context-query-results");
+  const clearBtn = document.getElementById("context-query-clear");
 
   if (!form || !input || !results) return;
 
   const setPlaceholder = (text) => {
-    results.innerHTML = '';
-    const placeholder = document.createElement('div');
-    placeholder.className = 'placeholder';
+    results.innerHTML = "";
+    const placeholder = document.createElement("div");
+    placeholder.className = "placeholder";
     placeholder.textContent = text;
     results.appendChild(placeholder);
   };
 
   const renderError = (message) => {
-    results.innerHTML = '';
-    const err = document.createElement('div');
-    err.className = 'context-query-error';
+    results.innerHTML = "";
+    const err = document.createElement("div");
+    err.className = "context-query-error";
     err.textContent = message;
     results.appendChild(err);
   };
 
   const buildSection = (title, entries, formatter) => {
     if (!Array.isArray(entries) || entries.length === 0) return null;
-    const wrap = document.createElement('div');
-    wrap.className = 'query-chunk-section';
+    const wrap = document.createElement("div");
+    wrap.className = "query-chunk-section";
 
-    const heading = document.createElement('h4');
+    const heading = document.createElement("h4");
     heading.textContent = title;
     wrap.appendChild(heading);
 
-    const list = document.createElement('ul');
+    const list = document.createElement("ul");
     entries.forEach((entry) => {
-      const item = document.createElement('li');
+      const item = document.createElement("li");
       item.textContent = formatter(entry);
       list.appendChild(item);
     });
@@ -281,41 +293,41 @@ function setupContextQuery() {
   };
 
   const renderResults = (payload) => {
-    results.innerHTML = '';
+    results.innerHTML = "";
 
-    const answer = document.createElement('div');
-    answer.className = 'query-answer';
-    answer.textContent = payload?.answer || 'No answer generated yet.';
+    const answer = document.createElement("div");
+    answer.className = "query-answer";
+    answer.textContent = payload?.answer || "No answer generated yet.";
     results.appendChild(answer);
 
     const context = Array.isArray(payload?.context) ? payload.context : [];
     if (!context.length) {
-      const placeholder = document.createElement('div');
-      placeholder.className = 'placeholder';
-      placeholder.textContent = 'No matching records yet.';
+      const placeholder = document.createElement("div");
+      placeholder.className = "placeholder";
+      placeholder.textContent = "No matching records yet.";
       results.appendChild(placeholder);
       return;
     }
 
     context.forEach((chunk) => {
-      const chunkEl = document.createElement('div');
-      chunkEl.className = 'query-chunk';
+      const chunkEl = document.createElement("div");
+      chunkEl.className = "query-chunk";
 
-      const title = document.createElement('div');
-      title.className = 'query-chunk-title';
+      const title = document.createElement("div");
+      title.className = "query-chunk-title";
       title.textContent = `Chunk #${chunk.chunk_index} • Session ${chunk.session_id}`;
       chunkEl.appendChild(title);
 
       const transcript = chunk.transcript_snippet || chunk.transcript;
       if (transcript) {
-        const transcriptEl = document.createElement('p');
-        transcriptEl.className = 'query-chunk-transcript';
+        const transcriptEl = document.createElement("p");
+        transcriptEl.className = "query-chunk-transcript";
         transcriptEl.textContent = transcript;
         chunkEl.appendChild(transcriptEl);
       }
 
       const characterSection = buildSection(
-        'Character events',
+        "Character events",
         chunk.character_events,
         (event) => {
           const base = `${event.character}: ${event.action}`;
@@ -325,28 +337,32 @@ function setupContextQuery() {
       if (characterSection) chunkEl.appendChild(characterSection);
 
       const worldSection = buildSection(
-        'World updates',
+        "World updates",
         chunk.world_state_updates,
         (entry) => `${entry.location}: ${entry.update}`
       );
       if (worldSection) chunkEl.appendChild(worldSection);
 
       const questSection = buildSection(
-        'Quest updates',
+        "Quest updates",
         chunk.quest_updates,
         (entry) => `${entry.quest}: ${entry.update}`
       );
       if (questSection) chunkEl.appendChild(questSection);
 
       const entitySection = buildSection(
-        'Entities',
+        "Entities",
         chunk.entities,
         (entity) => {
-          const alias = Array.isArray(entity.aliases) && entity.aliases.length ? ` (aka ${entity.aliases.join(', ')})` : '';
+          const alias =
+            Array.isArray(entity.aliases) && entity.aliases.length
+              ? ` (aka ${entity.aliases.join(", ")})`
+              : "";
           const pieces = [entity.name + alias];
-          if (entity.kind && entity.kind !== 'unknown') pieces.push(`[${entity.kind}]`);
+          if (entity.kind && entity.kind !== "unknown")
+            pieces.push(`[${entity.kind}]`);
           if (entity.description) pieces.push(entity.description);
-          return pieces.join(' ');
+          return pieces.join(" ");
         }
       );
       if (entitySection) chunkEl.appendChild(entitySection);
@@ -355,17 +371,17 @@ function setupContextQuery() {
     });
   };
 
-  form.addEventListener('submit', async (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const question = input.value.trim();
     if (!question) return;
 
-    setPlaceholder('Searching archive…');
+    setPlaceholder("Searching archive…");
 
     try {
       const resp = await fetch(`${API_BASE_URL}/ask`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ question }),
       });
 
@@ -376,84 +392,92 @@ function setupContextQuery() {
       const data = await resp.json();
       renderResults(data);
     } catch (err) {
-      console.error('Context query failed:', err);
-      renderError('Could not retrieve an answer. Is the server running?');
+      console.error("Context query failed:", err);
+      renderError("Could not retrieve an answer. Is the server running?");
     }
   });
 
   if (clearBtn) {
-    clearBtn.addEventListener('click', () => {
-      input.value = '';
-      setPlaceholder('No questions yet.');
+    clearBtn.addEventListener("click", () => {
+      input.value = "";
+      setPlaceholder("No questions yet.");
       input.focus();
     });
   }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  const searchInput = document.getElementById('log-search');
-  const dropdown = document.getElementById('search-dropdown');
-  const dropdownOptions = document.querySelectorAll('.dropdown-option');
-  
-  searchInput.addEventListener('focus', function() {
-    this.parentElement.classList.add('expanded');
+document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("log-search");
+  const dropdown = document.getElementById("search-dropdown");
+  const dropdownOptions = document.querySelectorAll(".dropdown-option");
+
+  searchInput.addEventListener("focus", function () {
+    this.parentElement.classList.add("expanded");
   });
-  
-  searchInput.addEventListener('blur', function() {
+
+  searchInput.addEventListener("blur", function () {
     setTimeout(() => {
-      this.parentElement.classList.remove('expanded');
+      this.parentElement.classList.remove("expanded");
     }, 200);
   });
-  
-  dropdownOptions.forEach(option => {
-    option.addEventListener('click', function() {
-      const type = this.getAttribute('data-type');
-      
-      dropdownOptions.forEach(opt => opt.classList.remove('active'));
-      this.classList.add('active');
-      
-      if (type === 'all') {
-        searchInput.placeholder = 'Search all events...';
-      } else if (type === 'character') {
-        searchInput.placeholder = 'Search character events...';
-      } else if (type === 'world') {
-        searchInput.placeholder = 'Search world updates...';
-      } else if (type === 'quest') {
-        searchInput.placeholder = 'Search quest updates...';
+
+  dropdownOptions.forEach((option) => {
+    option.addEventListener("click", function () {
+      const type = this.getAttribute("data-type");
+
+      dropdownOptions.forEach((opt) => opt.classList.remove("active"));
+      this.classList.add("active");
+
+      if (type === "all") {
+        searchInput.placeholder = "Search all events...";
+      } else if (type === "character") {
+        searchInput.placeholder = "Search character events...";
+      } else if (type === "world") {
+        searchInput.placeholder = "Search world updates...";
+      } else if (type === "quest") {
+        searchInput.placeholder = "Search quest updates...";
       }
-      
+
       filterLogs(type, searchInput.value);
     });
   });
-  
-  searchInput.addEventListener('input', function() {
-    const activeOption = document.querySelector('.dropdown-option.active');
-    const type = activeOption ? activeOption.getAttribute('data-type') : 'all';
-    
+
+  searchInput.addEventListener("input", function () {
+    const activeOption = document.querySelector(".dropdown-option.active");
+    const type = activeOption ? activeOption.getAttribute("data-type") : "all";
+
     filterLogs(type, this.value);
   });
-  
+
   function filterLogs(type, query) {
     console.log(`Filtering ${type} events for: ${query}`);
     // For now, just a simple implementation that shows/hides messages based on query:
-    const messages = document.querySelectorAll('.msg');
-    
-    messages.forEach(msg => {
+    const messages = document.querySelectorAll(".msg");
+
+    messages.forEach((msg) => {
       const text = msg.textContent.toLowerCase();
       const shouldShow = text.includes(query.toLowerCase());
-      msg.style.display = shouldShow ? 'flex' : 'none';
+      msg.style.display = shouldShow ? "flex" : "none";
     });
   }
-  
+
   // Initialize with 'all' selected
-  document.querySelector('.dropdown-option[data-type="all"]').classList.add('active');
+  document
+    .querySelector('.dropdown-option[data-type="all"]')
+    .classList.add("active");
 
   setupContextQuery();
 });
 
 // -------------------- Generate Image -----------------------------------
 
-async function generateImage(prompt, targetId, model = null, width = 256, height = 256) {
+async function generateImage(
+  prompt,
+  targetId,
+  model = null,
+  width = 256,
+  height = 256
+) {
   try {
     const payload = { prompt, width, height, steps: 20, cfg_scale: 7 };
     if (model) payload.model = model;
@@ -461,7 +485,7 @@ async function generateImage(prompt, targetId, model = null, width = 256, height
     const response = await fetch("http://127.0.0.1:8000/generate-image/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
     });
 
     const data = await response.json();
@@ -474,40 +498,46 @@ async function generateImage(prompt, targetId, model = null, width = 256, height
     if (!targetEl) return;
 
     if (targetEl.tagName.toLowerCase() === "img") {
-  // For <img> tags (scene generator etc.)
-  targetEl.src = `data:image/png;base64,${data.image}`;
-  targetEl.style.display = "block";
-} else {
-  // For <div> tokens (character portraits)
-  targetEl.style.backgroundImage = `url(data:image/png;base64,${data.image})`;
-  targetEl.style.backgroundSize = "cover";
-  targetEl.style.backgroundPosition = "center";
-  targetEl.innerText = ""; // remove the letter
-}
-
+      // For <img> tags (scene generator etc.)
+      targetEl.src = `data:image/png;base64,${data.image}`;
+      targetEl.style.display = "block";
+    } else {
+      // For <div> tokens (character portraits)
+      targetEl.style.backgroundImage = `url(data:image/png;base64,${data.image})`;
+      targetEl.style.backgroundSize = "cover";
+      targetEl.style.backgroundPosition = "center";
+      targetEl.innerText = ""; // remove the letter
+    }
   } catch (err) {
     console.error("Image generation error:", err);
   }
 }
 
-function generatePortrait(tokenId, name, classId, speciesId = null, genderId = null) {
+function generatePortrait(
+  tokenId,
+  name,
+  classId,
+  speciesId = null,
+  genderId = null
+) {
   const charClass = document.getElementById(classId).innerText;
-  let prompt = name + ', ' + charClass;
+  let prompt = name + ", " + charClass;
 
-  let species = '';
+  let species = "";
   if (speciesId) {
     species = document.getElementById(speciesId).innerText;
-    prompt = name + ', ' + species + ', ' + charClass;
+    prompt = name + ", " + species + ", " + charClass;
   }
   if (genderId) {
     const gender = document.getElementById(genderId).innerText;
-    prompt = name + ', ' + species + ', ' + charClass + ', ' + gender;
+    prompt = name + ", " + species + ", " + charClass + ", " + gender;
   }
 
-  prompt += ', high quality fantasy portrait, upper body, concept art, dramatic lighting';
+  prompt +=
+    ", high quality fantasy portrait, upper body, concept art, dramatic lighting";
 
   // Hardcoded model for portraits
-  const model = "dreamshaper_8.safetensors";  
+  const model = "dreamshaper_8.safetensors";
 
   generateImage(prompt, tokenId, model);
 }
@@ -519,9 +549,18 @@ ws.onopen = () => {
   console.log("✅ Connected to WebSocket");
 
   // Start new game session automatically ONCE
-  const now = new Date().toLocaleTimeString([], { hour:'2-digit', minute:'2-digit' });
-  addTimelineEvent(now, "Session", "New adventure begins", "Game started", "⚔️");
-  addLog('System', '<em>New game session started.</em>');
+  const now = new Date().toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  addTimelineEvent(
+    now,
+    "Session",
+    "New adventure begins",
+    "Game started",
+    "⚔️"
+  );
+  addLog("System", "<em>New game session started.</em>");
 };
 
 ws.onmessage = (event) => {
@@ -529,10 +568,13 @@ ws.onmessage = (event) => {
   console.log("📩 Received:", msg);
 
   let wrap; // will hold the final message element
-  const timestamp = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+  const timestamp = new Date().toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
   // ---------------- Quest Updates ----------------
-  if (msg.heading === "Quest Update") {    
+  if (msg.heading === "Quest Update") {
     wrap = document.createElement("div");
     wrap.className = "msg right"; // right-aligned like world updates
     wrap.innerHTML = `
@@ -545,7 +587,13 @@ ws.onmessage = (event) => {
     addLogMessage(wrap.outerHTML);
 
     // Also add to timeline & quest list
-    addTimelineEvent(timestamp, "Quest", msg.quest_name, "📜 Quest Updated", "");
+    addTimelineEvent(
+      timestamp,
+      "Quest",
+      msg.quest_name,
+      "📜 Quest Updated",
+      ""
+    );
     addQuest(msg.quest_name, msg.content);
 
     return; // stop further processing for this message
@@ -573,13 +621,13 @@ ws.onmessage = (event) => {
     const mapTarget = "map-viewport";
     const mapModel = "revAnimated_v2Rebirth.safetensors"; // specific safetensor model for maps
 
-    const bubbleEl = wrap.querySelector('.bubble');
+    const bubbleEl = wrap.querySelector(".bubble");
     if (bubbleEl) {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'generate-btn';
-      btn.textContent = 'Generate Scene Image';
-      btn.addEventListener('click', (event) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "generate-btn";
+      btn.textContent = "Generate Scene Image";
+      btn.addEventListener("click", (event) => {
         event.stopPropagation();
         generateImage(mapPrompt, mapTarget, mapModel, 512, 512);
       });
@@ -587,20 +635,26 @@ ws.onmessage = (event) => {
     }
 
     addTimelineEvent(timestamp, "Location", location, msg.content, "📍", {
-      tooltip: 'Click to generate art for this scene',
-      onClick: () => generateImage(mapPrompt, mapTarget, mapModel, 512, 512)
+      tooltip: "Click to generate art for this scene",
+      onClick: () => generateImage(mapPrompt, mapTarget, mapModel, 512, 512),
     });
-
   }
 
   // ---------------- Character Messages ----------------
-  else if (msg.heading.startsWith("Character Action") || msg.heading.startsWith("Character Outcome")) {
+  else if (
+    msg.heading.startsWith("Character Action") ||
+    msg.heading.startsWith("Character Outcome")
+  ) {
     const charName = msg.heading.split(":")[1].trim();
-    const meta = msg.heading.startsWith("Character Action") ? "Action" : "Outcome";
+    const meta = msg.heading.startsWith("Character Action")
+      ? "Action"
+      : "Outcome";
 
     if (charName.toLowerCase() === "narrator") {
       // Narrator / DM messages with location
-      let locationHTML = msg.location ? `<div class="meta-location">📍 ${msg.location}</div>` : "";
+      let locationHTML = msg.location
+        ? `<div class="meta-location">📍 ${msg.location}</div>`
+        : "";
 
       wrap = document.createElement("div");
       wrap.className = "msg right";
@@ -615,7 +669,10 @@ ws.onmessage = (event) => {
     } else {
       // Player / Character message
       const avatar = charName.charAt(0).toUpperCase();
-      const content = formatMessage(charName, msg.content.replace(/<br>/g, "<br>"));
+      const content = formatMessage(
+        charName,
+        msg.content.replace(/<br>/g, "<br>")
+      );
 
       wrap = document.createElement("div");
       wrap.className = "msg left"; // left-aligned
@@ -633,7 +690,25 @@ ws.onmessage = (event) => {
   if (wrap) addLogMessage(wrap.outerHTML);
 };
 
+(function initThemeToggle() {
+  const KEY = "ds-theme";
+  const root = document.documentElement;
+  const btn = document.getElementById("theme-toggle");
+  const THEMES = ["p3reload", "metaphor", "p3reload-bright"];
 
+  // โหลดธีมที่เคยเลือก
+  const saved = localStorage.getItem(KEY);
+  if (saved) root.setAttribute("data-theme", saved);
+
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    const cur = root.getAttribute("data-theme") || THEMES[0];
+    const idx = THEMES.indexOf(cur);
+    const next = THEMES[(idx + 1) % THEMES.length];
+    root.setAttribute("data-theme", next);
+    localStorage.setItem(KEY, next);
+  });
+})();
 
 ws.onclose = () => console.log("❌ WebSocket disconnected");
 ws.onerror = (err) => console.error("WebSocket error", err);
