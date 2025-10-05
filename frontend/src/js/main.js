@@ -51,9 +51,8 @@ const addLog = (meta, text) => {
 
   const placeholder = document.getElementById("log-placeholder");
   if (placeholder) placeholder.style.display = "none";
-
-  logEl.appendChild(wrap);
-  logEl.scrollTop = logEl.scrollHeight;
+  logEl.insertBefore(wrap, logEl.firstChild);
+  logEl.scrollTop = 0;
 };
 
 btnStart.addEventListener("click", () => {
@@ -109,8 +108,20 @@ window.addEventListener("keydown", (e) => {
 function addLogMessage(html) {
   const log = document.getElementById("log");
   if (!log) return;
-  log.insertAdjacentHTML("beforeend", html); // not 'afterbegin'
-  log.scrollTop = log.scrollHeight;
+
+  const placeholder = document.getElementById("log-placeholder");
+  if (placeholder) placeholder.style.display = "none";
+
+  const wasAtTop = log.scrollTop <= 4;
+  const oldH = log.scrollHeight;
+  log.insertAdjacentHTML("afterbegin", html);
+
+  if (wasAtTop) {
+    log.scrollTop = 0;
+  } else {
+    const newH = log.scrollHeight;
+    log.scrollTop += newH - oldH;
+  }
 }
 
 function formatMessage(charName, text) {

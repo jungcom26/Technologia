@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="p3reload">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dungeon Scribe AI — Journal</title>
+    <link
+      rel="preload"
+      href="fonts/p3r/FOT-Skip Std B.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/p3r/FOT-Rodin Pro EB.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/p3r/FOT-NewRodin Pro EB.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/p3r/BMSPA___.TTF"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/theme.skins.css" />
+    <link rel="stylesheet" href="css/journal.css" />
+  </head>
+  <body>
+    <div id="toast-root" aria-live="polite"></div>
+
+    <header class="topbar" role="banner">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="gem">◆</span><span>Dungeon Scribe AI</span>
+          <button id="theme-toggle" title="Switch theme">🎨</button>
+        </div>
+        <nav class="main nav-p3r" aria-label="Primary">
+          <a href="main.html">Home</a>
+          <a href="inventory.html">Inventory</a>
+          <a href="journal.html" aria-current="page">Journal</a>
+          <a href="quests.html">Quests</a>
+          <a href="characters.html">Characters</a>
+        </nav>
+        <section class="tx" role="region" aria-label="Transcription controls">
+          <div class="status">
+            <span class="dot" id="tx-dot"></span><span id="tx-state">Idle</span>
+          </div>
+          <div class="controls">
+            <button
+              id="btn-start"
+              title="Start recording (S)"
+              aria-pressed="false"
+            >
+              ▶
+            </button>
+            <button id="btn-pause" title="Pause/Resume (P)" disabled>⏸</button>
+            <button id="btn-stop" title="Stop recording (X)" disabled>⏹</button>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <main class="journal-shell">
+      <!-- LEFT: Quest tree -->
+      <aside class="panel journal-list" aria-label="Quest list">
+        <div class="jl-toolbar">
+          <input
+            type="search"
+            id="jl-search"
+            placeholder="Search quests or objectives…"
+          />
+          <div id="jl-cat-chips" class="jl-cats"></div>
+          <div class="jl-filters">
+            <button data-filter="all" class="chip is-on">All</button>
+            <button data-filter="active" class="chip">Active</button>
+            <button data-filter="ongoing" class="chip">Ongoing</button>
+            <button data-filter="completed" class="chip">Completed</button>
+            <button data-filter="failed" class="chip">Failed</button>
+          </div>
+        </div>
+
+        <div id="jl-tree" class="jl-tree">
+          <!-- filled by JS -->
+          <div class="placeholder">No quests yet.</div>
+        </div>
+
+        <div class="jl-footer">
+          <label class="switch">
+            <input type="checkbox" id="jl-hide-completed" />
+            <span>Hide Completed</span>
+          </label>
+          <button id="jl-new" title="New quest">＋ New</button>
+        </div>
+      </aside>
+
+      <!-- RIGHT: Details -->
+      <section class="panel journal-detail" aria-label="Quest detail">
+        <div id="jd-empty" class="placeholder">
+          Select a quest to see details.
+        </div>
+        <div id="jd-body" class="jd-body" hidden>
+          <header class="jd-head">
+            <div>
+              <h2 class="p3r-title p3r-title--xl">Quest Title</h2>
+              <div id="jd-meta" class="jd-meta"></div>
+            </div>
+            <div class="jd-actions">
+              <select id="jd-category"></select>
+              <!-- ✨ add -->
+              <button id="jd-cat-add" class="ghost" title="Add category">
+                ＋
+              </button>
+              <!-- ✨ add -->
+              <select id="jd-status">
+                <option value="active">Active</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="completed">Completed</option>
+                <option value="failed">Failed</option>
+              </select>
+              <label class="jd-field">
+                <span>Session date</span>
+                <input type="date" id="jd-date" />
+                <span>Campaign date</span>
+                <input
+                  type="text"
+                  id="jd-camp"
+                  placeholder="e.g., 12 Kythorn 1492 DR"
+                />
+              </label>
+              <span id="jd-week" class="jd-week"></span>
+              <select id="jd-status">
+                <option value="active">Active</option>
+                <option value="ongoing">Ongoing</option>
+                <option value="completed">Completed</option>
+                <option value="failed">Failed</option>
+              </select>
+              <button id="jd-complete">Mark Completed</button>
+              <button id="jd-delete">Delete</button>
+            </div>
+          </header>
+
+          <section class="jd-section">
+            <h3>Objectives</h3>
+            <ul id="jd-objectives" class="jd-objectives"></ul>
+
+            <div class="jd-add">
+              <input id="jd-new-obj" type="text" placeholder="Add objective…" />
+              <button id="jd-add-obj">Add</button>
+            </div>
+          </section>
+
+          <section class="jd-section">
+            <h3>Notes</h3>
+            <div id="jd-notes" class="jd-notes"></div>
+            <div class="jd-add">
+              <textarea
+                id="jd-new-note"
+                rows="3"
+                placeholder="Add story note…"
+              ></textarea>
+              <button id="jd-add-note">Add</button>
+              <button id="jd-ai-sum" class="ghost">🤖 Summarize with AI</button>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="characters" aria-label="Character cards">
+      <div class="card-row"></div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/journal.js" defer></script>
+  </body>
+</html>

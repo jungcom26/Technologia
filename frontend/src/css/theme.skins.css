@@ -1,11 +1,199 @@
 /* =======================================================================
-   THEME SKINS (Metaphor / Persona 3 Reload)
-   - โหลดไฟล์นี้หลัง styles.css
-   - styles.css ควรใช้ body{ background: var(--app-bg, <fallback>) }
-   - ปุ่มสลับธีม: data-theme = metaphor | p3reload | p3reload-bright
+   Persona / Metaphor THEME + FONTS (drop-in)
+   - Save as: src/css/theme.skins.css
+   - Fonts folder: src/fonts/p3r/
+   - Pages should already have: body{ background: var(--app-bg); }
+   - Toggle themes via: <html data-theme="metaphor|p3reload|p3reload-bright">
    ======================================================================= */
 
-/* ---------- Defaults the theme layer can override ---------- */
+/* =========================
+   0) FONTS (P3R family)
+   ========================= */
+/* Headline / Display (Skip Std B) */
+@font-face {
+  font-family: "SkipStdB";
+  src: url("../fonts/p3r/FOT-Skip Std B.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "RodinPro";
+  src: url("../fonts/p3r/FOT-Rodin Pro B.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap; /* DemiBold */
+}
+@font-face {
+  font-family: "RodinPro";
+  src: url("../fonts/p3r/FOT-Rodin Pro EB.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap; /* ExtraBold */
+}
+
+@font-face {
+  font-family: "NewRodinPro";
+  src: url("../fonts/p3r/FOT-NewRodin Pro DB.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NewRodinPro";
+  src: url("../fonts/p3r/FOT-NewRodin Pro EB.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BMSpace";
+  src: url("../fonts/p3r/BMSPA___.TTF") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Roles ---------- */
+:root {
+  --font-body: "SkipStdB";
+  --font-heading: "RodinPro";
+  --font-command: "NewRodinPro";
+  --font-logo: "BMSpace";
+
+  --trk-body: 0.2px;
+  --trk-heading: 0.4px;
+  --trk-command: 0.6px;
+}
+
+/* ---------- Global apply ---------- */
+html,
+body {
+  font-family: var(--font-body);
+  letter-spacing: var(--trk-body);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* Panel/section titles, h1–h4 -> Rodin Pro (headings) */
+h1,
+h2,
+h3,
+.title,
+.panel h2 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: var(--trk-heading);
+}
+
+/* Navigation links look crisper with heading face */
+nav.main a {
+  font-family: var(--font-heading);
+  letter-spacing: var(--trk-heading);
+  font-weight: 600;
+}
+
+/* Commands / Buttons / Chips -> New Rodin Pro */
+button,
+.button,
+.tl2-btn,
+.chip,
+.badge,
+.pill,
+input[type="submit"],
+input[type="button"] {
+  font-family: var(--font-command);
+  font-weight: 600;
+  letter-spacing: var(--trk-command);
+}
+
+.t-item {
+  padding: 12px 14px 12px 28px;
+}
+
+/* Journal / Quests left list names */
+.jl-item .title,
+.quest .title,
+.t-item .badge {
+  font-family: var(--font-command);
+  font-weight: 600;
+  font-size: 11.5px;
+  letter-spacing: 0.4px;
+  padding: 3px 8px;
+  margin-right: 8px;
+  border-radius: 999px;
+  transform: skewX(-8deg);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(200, 230, 255, 0.16);
+}
+
+/* Big callouts (e.g. NEW GAME–style) */
+.u-command-xxl {
+  font-family: var(--font-command);
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Brand / Logo slot -> BM Space (optional) */
+.brand,
+.logo-text,
+.u-logo {
+  font-family: var(--font-logo);
+  letter-spacing: 0.5px;
+}
+
+/* Message bubbles keep body face for readability */
+.bubble,
+.messages,
+.context-query textarea {
+  font-family: var(--font-body);
+  letter-spacing: var(--trk-body);
+}
+
+/* Inputs / search */
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+
+/* ===== Utility classes for manual control ===== */
+.font-body {
+  font-family: var(--font-body) !important;
+}
+.font-heading {
+  font-family: var(--font-heading) !important;
+}
+.font-command {
+  font-family: var(--font-command) !important;
+}
+.font-logo {
+  font-family: var(--font-logo) !important;
+}
+
+/* Weight helpers that match our font files */
+.w-600 {
+  font-weight: 600 !important;
+} /* DB */
+.w-800 {
+  font-weight: 800 !important;
+} /* EB */
+
+/* Optional: make numbers align nicely in stat pills */
+.pill,
+.stat,
+.hp,
+.sp,
+.ac,
+.speed {
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+/* =========================
+   1) BASE TOKENS (defaults)
+   ========================= */
 :root {
   /* surfaces */
   --panel: #17131e;
@@ -20,11 +208,42 @@
   --accent-2: #a071f6;
   --accent-3: #aeeaff;
 
-  /* app background (theme sets this) */
+  /* app background (overridden by themes) */
   --app-bg: radial-gradient(1200px 800px at 20% -10%, #221a35 0%, #0f0d13 45%);
+
+  /* stat palettes */
+  --hp1: #00f0a8;
+  --hp2: #00c2a3; /* HP cyan-green */
+  --sp1: #ffe36e;
+  --sp2: #ffb84d; /* SP yellow/orange */
+  --ac1: #7fd0ff;
+  --ac2: #56b5ff; /* AC blue */
+  --spd1: #9df4bb;
+  --spd2: #66e39a; /* Speed green */
 }
 
-/* Make interactive things feel alive across themes */
+/* base typography */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-body);
+  background: var(--app-bg);
+}
+h1,
+h2,
+h3,
+.title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+/* Smooth interactive transitions everywhere */
 button,
 .pill,
 .t-item,
@@ -33,12 +252,15 @@ button,
 .main a,
 .search-dropdown .dropdown-option,
 .tl2-node,
-.tl2-chip {
+.tl2-chip,
+footer.characters .card {
   transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease,
-    box-shadow 0.18s ease, transform 0.14s ease;
+    box-shadow 0.18s ease, transform 0.14s ease, opacity 0.18s ease;
 }
 
-/* ---------- Header polish ---------- */
+/* =========================
+   2) APP SHELL
+   ========================= */
 .topbar {
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
@@ -49,24 +271,51 @@ button,
   );
 }
 .topbar .brand {
-  font-family: "Cinzel", Georgia, serif;
-  letter-spacing: 1.5px;
+  font-family: var(--font-logo);
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), 0 0 18px rgba(255, 255, 255, 0.12);
 }
+
+.topbar .brand .gem {
+  font-family: var(--font-command);
+}
+
+.topbar .brand > span:nth-of-type(2) {
+  font-family: var(--font-logo);
+}
+
 .topbar .main a {
   border-radius: 10px;
   padding: 0.45rem 0.75rem;
+  position: relative;
 }
 .topbar .main a:hover,
 .topbar .main a:focus-visible {
   outline: none;
+  color: var(--accent);
   background: color-mix(in oklab, var(--accent) 18%, transparent);
   box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 28%, transparent)
     inset;
 }
+.topbar .main a::after {
+  content: "";
+  position: absolute;
+  left: 0.6rem;
+  right: 0.6rem;
+  bottom: 0.35rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0;
+  transform: skewX(-12deg) translateY(2px);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.topbar .main a:hover::after {
+  opacity: 1;
+  transform: skewX(-12deg) translateY(0);
+}
 
-/* ---------- Panels & bubbles ---------- */
+/* Panels / shells / bubbles */
 .panel,
 .placeholder,
 .tl2-panel,
@@ -93,54 +342,32 @@ button,
     inset;
 }
 
-/* ---------- Buttons ---------- */
+/* Buttons */
 button {
   border: 1px solid var(--border);
   background: rgba(255, 255, 255, 0.06);
   color: var(--text);
   border-radius: 12px;
+  padding: 0.5rem 0.75rem;
+  font-weight: 600;
 }
 button:hover {
-  transform: translateY(-1px);
+  transform: translateY(-1px) skewX(-4deg);
   background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 26px color-mix(in oklab, var(--accent) 22%, transparent);
+  box-shadow: 0 0 0 1px var(--accent) inset,
+    0 8px 26px color-mix(in oklab, var(--accent) 22%, transparent);
 }
 button:active {
-  transform: translateY(0);
+  transform: scale(0.985) skewX(-2deg);
 }
 
-/* ---------- Pills ---------- */
-.pill {
-  color: #0b0f15;
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  transform: skewX(-8deg);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: linear-gradient(180deg, #c7ced8, #9aa6b6);
+/* Search / dropdown */
+#log-search:hover {
+  box-shadow: 0 0 0 1px var(--accent) inset;
 }
-.pill:hover {
-  transform: skewX(-8deg) translateY(-1px);
+#log-search:focus {
+  box-shadow: 0 0 0 2px var(--accent) inset, 0 0 24px -6px var(--accent);
 }
-
-/* ---------- Timeline nodes ---------- */
-.t-item {
-  border: 1px solid var(--border);
-  background: var(--panel-alt);
-}
-.t-item:hover {
-  transform: translateX(2px) translateY(-2px) skewX(-4deg);
-  border-color: var(--accent);
-  box-shadow: 0 10px 26px color-mix(in oklab, var(--accent) 20%, transparent);
-}
-.t-item .timeline-circle {
-  border: 2px solid var(--accent);
-  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 30%, transparent);
-}
-.t-item:hover .timeline-circle {
-  background: var(--accent);
-}
-
-/* ---------- Search dropdown ---------- */
 .search-dropdown .dropdown-option:hover {
   background: color-mix(in oklab, var(--accent) 16%, transparent);
 }
@@ -149,7 +376,34 @@ button:active {
   color: var(--text);
 }
 
-/* ---------- TL2 chips & nodes (metaphor-ish motion) ---------- */
+/* =========================
+   3) TIMELINE / CHAT / QUESTS
+   ========================= */
+.t-item {
+  border: 1px solid var(--border);
+  background: var(--panel-alt);
+  position: relative;
+}
+.t-item:hover {
+  transform: translateX(3px) skewX(-4deg);
+  border-color: var(--accent);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--accent) inset;
+}
+.t-item .timeline-circle {
+  position: absolute;
+  left: -1rem;
+  top: 1.25rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--panel-alt);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 30%, transparent);
+}
+.t-item:hover .timeline-circle {
+  background: var(--accent);
+}
+
 .tl2-chip {
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.04);
@@ -183,133 +437,101 @@ button:active {
     rgba(255, 255, 255, 0.06);
 }
 
-/* =======================================================================
-   THEMES
-   ======================================================================= */
-
-/* ---------- METAPHOR (magenta / yellow / aqua, dark) ---------- */
-html[data-theme="metaphor"] {
-  --text: #eef3f8;
-  --muted: #cdd3e2;
-
-  --panel: #0f1219;
-  --panel-alt: #131726;
-  --line: rgba(255, 255, 255, 0.1);
-  --border: rgba(255, 255, 255, 0.16);
-
-  --accent: #ff3c64; /* pink-red */
-  --accent-2: #ffd166; /* yellow */
-  --accent-3: #7ec8ff; /* aqua */
-
-  --app-bg: radial-gradient(
-      1100px 800px at 105% -10%,
-      rgba(255, 255, 255, 0.06),
-      transparent 45%
-    ),
-    radial-gradient(
-      900px 700px at -10% -20%,
-      rgba(255, 255, 255, 0.04),
-      transparent 40%
-    ),
-    linear-gradient(180deg, #0a0b10, #0e1016 40%, #0a0b10);
+/* Quest / bubble hover ring */
+.quest:hover,
+.bubble:hover {
+  box-shadow: 0 0 0 1px var(--accent) inset, 0 0 26px -6px var(--accent);
 }
 
-/* ---------- P3 RELOAD (dark navy + cyan) ---------- */
-html[data-theme="p3reload"] {
-  --text: #eaf6ff;
-  --muted: #afc6de;
-
-  --panel: #0c1326;
-  --panel-alt: #0e1730;
-  --line: rgba(200, 230, 255, 0.12);
-  --border: rgba(200, 230, 255, 0.16);
-
-  --accent: #00e3ff; /* cyan */
-  --accent-2: #6afff9; /* extra */
-  --accent-3: #aeeaff;
-
-  --app-bg: radial-gradient(
-      1100px 800px at 105% -10%,
-      rgba(255, 255, 255, 0.06),
-      transparent 45%
-    ),
-    radial-gradient(
-      900px 700px at -10% -20%,
-      rgba(255, 255, 255, 0.04),
-      transparent 40%
-    ),
-    linear-gradient(180deg, #0b1020, #0e1630 40%, #0a0f22);
+/* =========================
+   4) STAT PILLS (HP/SP/AC/Speed)
+   ========================= */
+.pill {
+  font-family: var(--ff-ui);
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  transform: skewX(-8deg);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.pill.hp {
+  color: #061016;
+  background: linear-gradient(180deg, var(--hp1), var(--hp2));
+  border-color: rgba(0, 227, 255, 0.25);
+  box-shadow: inset 0 10px 20px rgba(0, 227, 255, 0.18),
+    0 0 8px rgba(0, 227, 255, 0.08);
+}
+.pill.sp {
+  color: #1b1200;
+  background: linear-gradient(180deg, var(--sp1), var(--sp2));
+  border-color: rgba(255, 195, 61, 0.35);
+  box-shadow: inset 0 10px 20px rgba(255, 195, 61, 0.18),
+    0 0 8px rgba(255, 195, 61, 0.08);
+}
+.pill.ac {
+  color: #07101a;
+  background: linear-gradient(180deg, var(--ac1), var(--ac2));
+  border-color: rgba(86, 181, 255, 0.35);
+  box-shadow: inset 0 10px 20px rgba(86, 181, 255, 0.18);
+}
+.pill.speed {
+  color: #07140e;
+  background: linear-gradient(180deg, var(--spd1), var(--spd2));
+  border-color: rgba(102, 227, 154, 0.35);
+  box-shadow: inset 0 10px 20px rgba(102, 227, 154, 0.18);
+}
+/* legacy text-color helpers (ถ้าเดิมใช้ .hp .ac .speed บนข้อความเฉย ๆ) */
+.hp {
+  color: #00d4aa;
+}
+.ac {
+  color: #56b5ff;
+}
+.speed {
+  color: #66e39a;
 }
 
-/* ---------- P3 RELOAD BRIGHT (light blue) ---------- */
-html[data-theme="p3reload-bright"] {
-  --text: #141a26;
-  --muted: #4f5b72;
-
-  --panel: #ffffff;
-  --panel-alt: #f6f9ff;
-  --line: rgba(20, 26, 38, 0.12);
-  --border: rgba(20, 26, 38, 0.14);
-
-  --accent: #00aef0;
-  --accent-2: #00d5ff;
-  --accent-3: #79e8ff;
-
-  --app-bg: radial-gradient(
-      1200px 900px at 110% -10%,
-      rgba(255, 255, 255, 0.85),
-      transparent 45%
-    ),
-    radial-gradient(
-      900px 700px at -12% -20%,
-      rgba(255, 255, 255, 0.55),
-      transparent 40%
-    ),
-    linear-gradient(180deg, #eef6ff 0%, #f7fbff 35%, #cfeeff 72%, #9ddfff 100%);
+.pill.hp:hover,
+.pill.sp:hover,
+.pill.ac:hover,
+.pill.speed:hover {
+  filter: saturate(1.05);
+  transform: skewX(-3deg) translateY(-1px);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 0 26px -6px var(--accent);
 }
 
-/* Light theme polish so elements don’t look “dark UI on white bg” */
-html[data-theme="p3reload-bright"] .panel,
-html[data-theme="p3reload-bright"] .placeholder,
-html[data-theme="p3reload-bright"] .tl2-panel,
-html[data-theme="p3reload-bright"] .tl2-view,
-html[data-theme="p3reload-bright"] .map-panel,
-html[data-theme="p3reload-bright"] .log,
-html[data-theme="p3reload-bright"] .bubble {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0)),
-    #fff;
-  border: 1px solid var(--line);
-  box-shadow: 0 10px 28px rgba(0, 40, 90, 0.06);
-  color: var(--text);
+/* =========================
+   5) CHARACTER DOCK
+   ========================= */
+footer.characters .card {
+  border: 1px solid var(--border);
 }
-html[data-theme="p3reload-bright"] .topbar {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.8),
-    rgba(255, 255, 255, 0.6)
-  );
-  border-bottom: 1px solid var(--line);
-  backdrop-filter: blur(8px);
+footer.characters .card:hover,
+footer.characters .card:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6),
+    0 0 0 2px rgba(255, 255, 255, 0.04) inset, 0 0 28px -6px var(--accent);
+  outline: 2px solid color-mix(in oklab, var(--accent) 45%, transparent);
+  outline-offset: 2px;
 }
-html[data-theme="p3reload-bright"] .map-viewport {
-  background: radial-gradient(800px 500px at 60% 30%, #f3f8ff, #e8f1ff);
+.token {
+  position: relative;
 }
-html[data-theme="p3reload-bright"] .pill {
-  color: #0a1020;
-  border-color: rgba(20, 26, 38, 0.12);
-  background: linear-gradient(180deg, #ecf2ff, #e4edff);
-}
-html[data-theme="p3reload-bright"] .pill.hp {
-  background: linear-gradient(180deg, #ffd1d9, #ffb0bf);
-}
-html[data-theme="p3reload-bright"] .pill.ac {
-  background: linear-gradient(180deg, #cfeaff, #bde0ff);
-}
-html[data-theme="p3reload-bright"] .pill.speed {
-  background: linear-gradient(180deg, #ffefb8, #ffe18a);
+footer.characters .card:hover .token::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background: linear-gradient(180deg, transparent, transparent) padding-box,
+    conic-gradient(from 40deg, transparent, var(--accent) 55%, transparent 80%)
+      border-box;
+  opacity: 0.75;
 }
 
-/* ---------- Toast (quest pop) ---------- */
+/* =========================
+   6) TOAST
+   ========================= */
 #toast-root {
   position: fixed;
   right: 24px;
@@ -349,177 +571,594 @@ html[data-theme="p3reload-bright"] .pill.speed {
   }
 }
 
-/* ---------- Character dock extra glow on hover ---------- */
-footer.characters .card:hover,
-footer.characters .card:focus-within {
-  box-shadow: 0 24px 70px
-    color-mix(in oklab, var(--accent) 18%, rgba(0, 0, 0, 0.55));
-  outline: 2px solid color-mix(in oklab, var(--accent) 45%, transparent);
-  outline-offset: 2px;
-}
-
-/* ===========================
-   P3R / Metaphor: Hover + Stat Pills
-   (Drop-in patch)
-   =========================== */
-
-/* --- stat palette (ใช้ได้กับทุกธีม) --- */
-:root {
-  --hp1: #00f0a8;
-  --hp2: #00c2a3; /* เขียวอมฟ้าแบบ P3R */
-  --sp1: #ffe36e;
-  --sp2: #ffb84d; /* เหลืองส้มแบบ P3R   */
-  --ac1: #7fd0ff;
-  --ac2: #56b5ff; /* ฟ้า (เกราะ/AC)      */
-  --spd1: #9df4bb;
-  --spd2: #66e39a; /* เขียวสปีด            */
-
-  --hover-ring: 0 0 0 1px var(--accent) inset, 0 0 26px -6px var(--accent);
-  --press-scale: 0.985;
-}
-
-/* ====== Interactive motion (P3R/Metaphor vibe) ====== */
-.main a,
-button,
-.search-container input,
-.quest,
-.bubble,
-.t-item,
-footer.characters .card {
-  transition: transform 0.14s ease, box-shadow 0.18s ease,
-    border-color 0.18s ease, background 0.18s ease, color 0.18s ease,
-    opacity 0.18s ease;
-}
-
-/* Nav link underline wedge */
-nav.main a {
+/* ===== P3R Banner Title ===== */
+.p3r-title {
   position: relative;
-}
-nav.main a::after {
-  content: "";
-  position: absolute;
-  left: 0.6rem;
-  right: 0.6rem;
-  bottom: 0.35rem;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent), transparent);
-  opacity: 0;
-  transform: skewX(-12deg) translateY(2px);
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-nav.main a:hover {
-  color: var(--accent);
-}
-nav.main a:hover::after {
-  opacity: 1;
-  transform: skewX(-12deg) translateY(0);
-}
-
-/* Buttons */
-button:hover {
-  box-shadow: var(--hover-ring);
-  transform: translateY(-1px) skewX(-4deg);
-}
-button:active {
-  transform: scale(var(--press-scale)) skewX(-2deg);
-}
-
-/* Search field */
-#log-search:hover {
-  box-shadow: 0 0 0 1px var(--accent) inset;
-}
-#log-search:focus {
-  box-shadow: 0 0 0 2px var(--accent) inset, 0 0 24px -6px var(--accent);
-}
-
-/* Timeline nodes */
-.t-item:hover {
-  transform: translateX(3px) skewX(-4deg);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--accent) inset;
-}
-.t-item:hover .timeline-circle {
-  background: var(--accent);
-}
-
-/* Chat bubble & quest card */
-.bubble:hover,
-.quest:hover {
-  box-shadow: var(--hover-ring);
-}
-
-/* Character cards (dock) */
-footer.characters .card {
-  border: 1px solid var(--border);
-}
-footer.characters .card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6),
-    0 0 0 2px rgba(255, 255, 255, 0.04) inset, 0 0 28px -6px var(--accent);
-}
-/* token rim glint */
-.token {
-  position: relative;
-}
-footer.characters .card:hover .token::after {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  background: linear-gradient(180deg, transparent, transparent) padding-box,
-    conic-gradient(from 40deg, transparent, var(--accent) 55%, transparent 80%)
-      border-box;
-  opacity: 0.75;
-}
-
-/* ====== Stat pills (HP / SP / AC / Speed) ====== */
-.pill {
+  display: inline-block;
+  padding: 20px 24px 18px;
+  color: #eaf6ff;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+  font-family: var(--font-heading);
   font-weight: 800;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  background: linear-gradient(
+    180deg,
+    rgba(120, 140, 255, 0.2),
+    rgba(0, 0, 20, 0.1) 70%
+  );
+  border-radius: 6px;
+  isolation: isolate;
+}
+.p3r-title::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  height: 6px;
+  background: linear-gradient(90deg, #0bd0ff 0%, #0476ff 70%);
+  box-shadow: 0 10px 26px rgba(4, 118, 255, 0.35);
+  border-radius: 3px;
+  z-index: -1;
+  transform: skewX(-14deg) translateY(3px);
+  opacity: 0;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+.p3r-title:hover::before,
+.p3r-title.is-active::before {
+  opacity: 1;
+  transform: skewX(-14deg) translateY(0);
+}
+.p3r-title--xl {
+  font-size: 42px;
+  line-height: 1;
 }
 
-.pill.hp {
-  color: #061016;
-  background: linear-gradient(180deg, var(--hp1), var(--hp2));
-  border-color: rgba(0, 227, 255, 0.25);
-  box-shadow: inset 0 10px 20px rgba(0, 227, 255, 0.18),
-    0 0 8px rgba(0, 227, 255, 0.08);
+/* ===== Nav Bar ===== */
+.topbar .main.nav-p3r a {
+  background: transparent;
+  box-shadow: none;
 }
-.pill.sp {
-  color: #1b1200;
-  background: linear-gradient(180deg, var(--sp1), var(--sp2));
-  border-color: rgba(255, 195, 61, 0.35);
-  box-shadow: inset 0 10px 20px rgba(255, 195, 61, 0.18),
-    0 0 8px rgba(255, 195, 61, 0.08);
-}
-.pill.ac {
-  color: #07101a;
-  background: linear-gradient(180deg, var(--ac1), var(--ac2));
-  border-color: rgba(86, 181, 255, 0.35);
-  box-shadow: inset 0 10px 20px rgba(86, 181, 255, 0.18);
-}
-.pill.speed {
-  color: #07140e;
-  background: linear-gradient(180deg, var(--spd1), var(--spd2));
-  border-color: rgba(102, 227, 154, 0.35);
-  box-shadow: inset 0 10px 20px rgba(102, 227, 154, 0.18);
+.topbar .main.nav-p3r a:hover,
+.topbar .main.nav-p3r a:focus-visible {
+  background: transparent;
+  box-shadow: none;
+  color: inherit;
 }
 
-/* Hover pulse for pills (เล็ก ๆ สไตล์ UI เกม) */
-.pill.hp:hover,
-.pill.sp:hover,
-.pill.ac:hover,
-.pill.speed:hover {
-  filter: saturate(1.05);
-  transform: translateY(-1px) skewX(-3deg);
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06) inset, var(--hover-ring);
+nav.main.nav-p3r a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 18px;
+  border-radius: 14px;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid color-mix(in oklab, var(--accent) 22%, transparent);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
+}
+nav.main.nav-p3r a::before,
+nav.main.nav-p3r a::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+nav.main.nav-p3r a::before {
+  inset: -2px;
+  border-radius: 16px;
+  box-shadow: 0 0 0 2px rgba(0, 227, 255, 0.18);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+nav.main.nav-p3r a::after {
+  left: 16px;
+  right: 16px;
+  bottom: 6px;
+  height: 6px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #00e3ff, #33ccff);
+  transform: skewX(-14deg) translateY(3px);
+  opacity: 0;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+}
+nav.main.nav-p3r a:hover,
+nav.main.nav-p3r a[aria-current="page"] {
+  color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(0, 227, 255, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+nav.main.nav-p3r a:hover::before,
+nav.main.nav-p3r a[aria-current="page"]::before {
+  opacity: 0.7;
+}
+nav.main.nav-p3r a:hover::after,
+nav.main.nav-p3r a[aria-current="page"]::after {
+  opacity: 1;
+  transform: skewX(-14deg) translateY(0);
 }
 
-/* ====== Bright variant adjustments (ถ้าใช้ p3reload-bright) ====== */
+/* =========================
+   7) THEMES
+   ========================= */
+/* --- METAPHOR (magenta / yellow / aqua) --- */
+html[data-theme="metaphor"] {
+  --text: #eef3f8;
+  --muted: #cdd3e2;
+  --panel: #0f1219;
+  --panel-alt: #131726;
+  --line: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.16);
+  --accent: #ff3c64;
+  --accent-2: #ffd166;
+  --accent-3: #7ec8ff;
+  --app-bg: radial-gradient(
+      1100px 800px at 105% -10%,
+      rgba(255, 255, 255, 0.06),
+      transparent 45%
+    ),
+    radial-gradient(
+      900px 700px at -10% -20%,
+      rgba(255, 255, 255, 0.04),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #0a0b10, #0e1016 40%, #0a0b10);
+}
+
+/* --- P3 RELOAD (dark navy + cyan) --- */
+html[data-theme="p3reload"] {
+  --text: #eaf6ff;
+  --muted: #afc6de;
+  --panel: #0c1326;
+  --panel-alt: #0e1730;
+  --line: rgba(200, 230, 255, 0.12);
+  --border: rgba(200, 230, 255, 0.16);
+  --accent: #00e3ff;
+  --accent-2: #6afff9;
+  --accent-3: #aeeaff;
+  --app-bg: radial-gradient(
+      1100px 800px at 105% -10%,
+      rgba(255, 255, 255, 0.06),
+      transparent 45%
+    ),
+    radial-gradient(
+      900px 700px at -10% -20%,
+      rgba(255, 255, 255, 0.04),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #0b1020, #0e1630 40%, #0a0f22);
+}
+
+/* --- P3 RELOAD BRIGHT (light blue) --- */
+html[data-theme="p3reload-bright"] {
+  --text: #141a26;
+  --muted: #4f5b72;
+  --panel: #ffffff;
+  --panel-alt: #f6f9ff;
+  --line: rgba(20, 26, 38, 0.12);
+  --border: rgba(20, 26, 38, 0.14);
+  --accent: #00aef0;
+  --accent-2: #00d5ff;
+  --accent-3: #79e8ff;
+  --app-bg: radial-gradient(
+      1200px 900px at 110% -10%,
+      rgba(255, 255, 255, 0.85),
+      transparent 45%
+    ),
+    radial-gradient(
+      900px 700px at -12% -20%,
+      rgba(255, 255, 255, 0.55),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #eef6ff 0%, #f7fbff 35%, #cfeeff 72%, #9ddfff 100%);
+}
+/* Light theme surface polish */
+html[data-theme="p3reload-bright"] .panel,
+html[data-theme="p3reload-bright"] .placeholder,
+html[data-theme="p3reload-bright"] .tl2-panel,
+html[data-theme="p3reload-bright"] .tl2-view,
+html[data-theme="p3reload-bright"] .map-panel,
+html[data-theme="p3reload-bright"] .log,
+html[data-theme="p3reload-bright"] .bubble {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.02), rgba(0, 0, 0, 0)),
+    #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 28px rgba(0, 40, 90, 0.06);
+  color: var(--text);
+}
+html[data-theme="p3reload-bright"] .topbar {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.6)
+  );
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+}
+html[data-theme="p3reload-bright"] .map-viewport {
+  background: radial-gradient(800px 500px at 60% 30%, #f3f8ff, #e8f1ff);
+}
+/* Pills on bright bg */
 html[data-theme="p3reload-bright"] .pill.hp,
 html[data-theme="p3reload-bright"] .pill.sp,
 html[data-theme="p3reload-bright"] .pill.ac,
 html[data-theme="p3reload-bright"] .pill.speed {
   border-color: rgba(20, 26, 38, 0.12);
   box-shadow: inset 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== P3R Dialogue ===== */
+:root {
+  --p3r-cyan: #00e3ff;
+  --p3r-cyan-2: #6af5ff;
+  --p3r-blue-2: #0e1730;
+  --p3r-blue-3: #102246;
+}
+
+/* log spine */
+.messages {
+  position: relative;
+}
+.messages::before {
+  content: "";
+  position: absolute;
+  left: 64px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(var(--accent), var(--accent-2));
+  opacity: 0.35;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* โครงข้อความ */
+.msg {
+  gap: 14px;
+  align-items: flex-start;
+  padding: 10px 16px;
+  position: relative;
+}
+.msg .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  background: linear-gradient(180deg, #261b38, #151827);
+  color: #eaf6ff;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.06);
+}
+.msg .bubble {
+  position: relative;
+  flex: 1;
+  padding: 14px 18px 16px;
+  border: 1px solid rgba(200, 230, 255, 0.12);
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--p3r-blue-2), var(--p3r-blue-3));
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+.msg.left .bubble::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  top: 18px;
+  width: 14px;
+  height: 18px;
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  background: linear-gradient(180deg, var(--p3r-blue-2), var(--p3r-blue-3));
+  border-left: 1px solid rgba(200, 230, 255, 0.12);
+}
+.msg.right .bubble {
+  background: linear-gradient(180deg, #1a233a, #231a39);
+}
+
+.msg .bubble .meta {
+  font: 600 12px/1 var(--font-command);
+  letter-spacing: 0.3px;
+  opacity: 0.7;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.msg .bubble .line {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text);
+}
+.msg .bubble .who {
+  display: inline-block;
+  margin-right: 0.4ch;
+  font: 800 18px/1 var(--font-heading);
+  letter-spacing: 0.4px;
+  color: var(--p3r-cyan);
+  text-shadow: 0 0 14px rgba(0, 227, 255, 0.25);
+}
+.msg .bubble:hover {
+  box-shadow: 0 0 0 1px var(--accent) inset, 0 12px 34px rgba(0, 227, 255, 0.16);
+  transform: translateX(2px);
+}
+
+/* ===== P3R Archive Panel ===== */
+.map-panel {
+  display: grid;
+  grid-template-rows: auto minmax(320px, 1fr) auto;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.map-title {
+  position: relative;
+  z-index: 1;
+  height: 72px;
+  margin: 0;
+  padding: 18px 18px 16px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: #0a1630;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.map-panel .map-title::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #fff, #f3f6ff);
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+  z-index: -1;
+}
+.map-panel .map-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 6px;
+  background: linear-gradient(90deg, #ff3c64, #ff8aa1);
+  clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);
+}
+
+.map-viewport {
+  grid-row: 2;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border-radius: 0 0 16px 16px;
+  border-top: 1px solid rgba(200, 230, 255, 0.12);
+  background: radial-gradient(
+      900px 500px at 20% 0%,
+      rgba(0, 227, 255, 0.12),
+      transparent 55%
+    ),
+    linear-gradient(180deg, #0e1730, #101a38 45%, #0b1228 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+.map-viewport img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 0 16px 16px;
+}
+
+.map-title::after {
+  left: -2px;
+  right: -2px;
+  top: -2px;
+}
+
+.context-query {
+  grid-row: 3;
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(200, 230, 255, 0.12);
+}
+.context-query-header h3 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: #eaf6ff;
+  text-transform: uppercase;
+  margin: 16px 0 4px;
+}
+.context-query-header p {
+  color: var(--muted);
+  opacity: 0.9;
+}
+
+#context-query-input {
+  border: 1px solid rgba(200, 230, 255, 0.14);
+  border-radius: 12px;
+  padding: 14px 16px;
+  color: var(--text);
+  background: linear-gradient(180deg, #0f172b, #0d1526);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+#context-query-input:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px #00e3ff, 0 0 24px -6px #00e3ff;
+}
+
+.context-query-actions button {
+  font-family: var(--font-command);
+  font-weight: 800;
+  border-radius: 12px;
+  border: 1px solid rgba(200, 230, 255, 0.16);
+  background: linear-gradient(180deg, #0e1730, #0b1326);
+}
+.context-query-actions button:hover {
+  transform: translateY(-1px) skewX(-3deg);
+  box-shadow: 0 0 0 1px var(--accent) inset, 0 10px 26px rgba(0, 227, 255, 0.16);
+}
+
+.context-query-results .placeholder,
+.query-answer {
+  border: 1px dashed rgba(200, 230, 255, 0.16);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--muted);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+}
+.query-chunk {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(200, 230, 255, 0.12);
+  background: linear-gradient(180deg, #0e1730, #0b1226);
+}
+.query-chunk-title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: #aeeaff;
+  margin-bottom: 6px;
+}
+
+.timeline {
+  padding: 12px;
+}
+.timeline h2 {
+  margin: 4px 4px 10px;
+}
+
+/* ===== Left column: Timeline & Quests – compact ===== */
+aside.timeline.panel {
+  padding: 12px 14px 16px;
+}
+
+aside.timeline.panel > #timeline-placeholder.placeholder,
+aside.timeline.panel .placeholder,
+section.quests .placeholder {
+  font-size: 16px !important;
+  line-height: 1.25 !important;
+  padding: 12px 16px !important;
+  margin: 10px 8px 14px !important;
+  min-height: 0 !important;
+  border-radius: 12px !important;
+}
+
+aside.timeline.panel h2 {
+  margin: 6px 6px 10px !important;
+}
+
+aside.timeline.panel .timeline-body {
+  padding: 6px 10px 12px 18px;
+}
+aside.timeline.panel .t-item {
+  margin: 8px 8px 10px 8px;
+  padding: 10px 12px 10px 16px;
+  border-radius: 12px;
+}
+aside.timeline.panel .t-item .timeline-circle {
+  left: -12px;
+  top: 1.1rem;
+}
+
+aside.timeline.panel .t-item .badge {
+  font-family: var(--font-command);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.35px;
+  padding: 2px 7px;
+  margin-right: 8px;
+  border-radius: 999px;
+  transform: skewX(-6deg);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(200, 230, 255, 0.16);
+}
+
+aside.timeline.panel .quests {
+  padding: 12px;
+}
+aside.timeline.panel .quests h3 {
+  margin: 0 0 8px;
+}
+aside.timeline.panel .quests #quest-list .quest {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--panel-alt);
+}
+
+nav.main.nav-p3r a {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--text);
+  transition: color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+nav.main.nav-p3r a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, #fff, #f3f6ff);
+  clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
+  transform: translateY(110%) skewX(-8deg); /* ซ่อนก่อน */
+  transition: transform 0.24s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+nav.main.nav-p3r a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 6px;
+  z-index: 0;
+  background: linear-gradient(90deg, #ff3c64, #ff8aa1);
+  clip-path: polygon(0 0, 100% 0, 98% 100%, 0 100%);
+  transform: skewX(-14deg) translateY(-6px) scaleX(0.5);
+  opacity: 0;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+}
+
+nav.main.nav-p3r a:hover,
+nav.main.nav-p3r a:focus-visible,
+nav.main.nav-p3r a[aria-current="page"] {
+  color: #0a1630;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(0, 227, 255, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+nav.main.nav-p3r a:hover::before,
+nav.main.nav-p3r a:focus-visible::before,
+nav.main.nav-p3r a[aria-current="page"]::before {
+  transform: translateY(0) skewX(-8deg);
+}
+
+nav.main.nav-p3r a:hover::after,
+nav.main.nav-p3r a:focus-visible::after,
+nav.main.nav-p3r a[aria-current="page"]::after {
+  opacity: 1;
+  transform: skewX(-14deg) translateY(0) scaleX(1);
+}
+
+.topbar .main.nav-p3r a:hover,
+.topbar .main.nav-p3r a:focus-visible,
+.topbar .main.nav-p3r a[aria-current="page"] {
+  color: #000 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  nav.main.nav-p3r a,
+  nav.main.nav-p3r a::before,
+  nav.main.nav-p3r a::after {
+    transition: none;
+  }
 }

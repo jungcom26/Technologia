@@ -1,0 +1,323 @@
+/* ===== Journal layout ===== */
+.journal-shell {
+  width: 95vw;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 16px;
+  min-height: calc(100vh - var(--topbar-h) - 20px);
+}
+
+/* left */
+.journal-list {
+  display: flex;
+  flex-direction: column;
+}
+.jl-toolbar {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+}
+.jl-toolbar input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+}
+.jl-filters {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.6rem;
+  flex-wrap: wrap;
+}
+.jl-filters .chip {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+.jl-filters .chip:hover {
+  transform: translateY(-1px);
+  background: var(--btn-bg-hover);
+}
+.jl-filters .chip.is-on {
+  border-color: var(--accent);
+  box-shadow: 0 0 22px rgba(255, 255, 255, 0.18),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.jl-tree {
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: 0.5rem 0.5rem 1rem;
+}
+.jl-group {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin: 0.5rem 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+}
+.jl-cat {
+  width: 100%;
+  text-align: left;
+  padding: 0.55rem 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  color: var(--muted);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.jl-group.is-collapsed .jl-items {
+  display: none;
+}
+
+.jl-items {
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.jl-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.12s ease, border-color 0.12s ease,
+    background 0.12s ease, box-shadow 0.12s ease;
+}
+.jl-item .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06) inset;
+}
+.status-active {
+  background: var(--accent);
+}
+.status-ongoing {
+  background: var(--tl2-world);
+}
+.status-completed {
+  background: #ffd166;
+}
+.status-failed {
+  background: #ff6b6b;
+}
+
+.jl-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  transform: translateX(2px) skewX(-4deg);
+}
+.jl-item.is-active {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  border-color: var(--accent);
+}
+
+.jl-item .title {
+  flex: 1;
+}
+.jl-item .muted {
+  color: var(--muted);
+}
+
+/* footer on list */
+.jl-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.6rem 0.75rem;
+  border-top: 1px solid var(--line);
+}
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.jl-footer button {
+  padding: 0.45rem 0.7rem;
+}
+
+/* right */
+.journal-detail {
+  display: flex;
+  flex-direction: column;
+}
+.jd-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+.jd-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.6rem;
+}
+.jd-title {
+  margin: 0.1rem 0;
+  letter-spacing: 0.3px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+.jd-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.jd-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.jd-actions .ghost {
+  background: transparent;
+}
+
+.jd-section h3 {
+  margin: 0.2rem 0 0.5rem;
+  color: var(--muted);
+}
+
+.jd-objectives {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.obj {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+}
+.obj-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.obj-text.completed {
+  opacity: 0.85;
+  text-decoration: line-through;
+}
+.obj-text.failed {
+  color: #ffb3b3;
+}
+.obj-actions .mini {
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+}
+
+.jd-add {
+  display: flex;
+  gap: 0.5rem;
+}
+.jd-add input,
+.jd-add textarea {
+  flex: 1;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  border-radius: 10px;
+  padding: 0.6rem 0.7rem;
+}
+
+.jl-cats {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+.jd-actions select {
+  padding: 0.45rem 0.55rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  border-radius: 10px;
+}
+
+.jd-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.note {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 0.6rem 0.7rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+}
+.note time {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+.jd-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.jd-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.jd-field > span {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+.jd-field input {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  border-radius: 10px;
+  min-width: 180px;
+}
+.jd-week {
+  padding: 0.35rem 0.6rem;
+  border: 1px dashed var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.jl-item .muted {
+  margin-left: 0.35rem;
+}
+
+/* responsive */
+@media (max-width: 980px) {
+  .journal-shell {
+    grid-template-columns: 1fr;
+  }
+}
