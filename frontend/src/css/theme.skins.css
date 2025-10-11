@@ -281,9 +281,11 @@ footer.characters .card {
 .topbar {
   backdrop-filter: blur(6px);
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0.05),
-      rgba(255, 255, 255, 0.02));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
 }
 
 .topbar .brand {
@@ -297,7 +299,7 @@ footer.characters .card {
   font-family: var(--font-command);
 }
 
-.topbar .brand>span:nth-of-type(2) {
+.topbar .brand > span:nth-of-type(2) {
   font-family: var(--font-logo);
 }
 
@@ -312,7 +314,8 @@ footer.characters .card {
   outline: none;
   color: var(--accent);
   background: color-mix(in oklab, var(--accent) 18%, transparent);
-  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 28%, transparent) inset;
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 28%, transparent)
+    inset;
 }
 
 .topbar .main a::after {
@@ -340,9 +343,11 @@ footer.characters .card {
 .tl2-view,
 .map-panel,
 .log {
-  background: linear-gradient(180deg,
+  background: linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.04),
-      transparent 60%),
+      transparent 60%
+    ),
     color-mix(in oklab, var(--panel) 92%, #000 8%);
   border: 1px solid var(--line);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -356,7 +361,8 @@ footer.characters .card {
 
 .bubble:hover {
   border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
-  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 22%, transparent) inset;
+  box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 22%, transparent)
+    inset;
 }
 
 /* Buttons */
@@ -445,9 +451,11 @@ button:active {
 }
 
 .tl2-node {
-  background: linear-gradient(180deg,
+  background: linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.08),
-      rgba(255, 255, 255, 0.02)),
+      rgba(255, 255, 255, 0.02)
+    ),
     rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35),
@@ -456,9 +464,11 @@ button:active {
 
 .tl2-node:hover {
   transform: translateX(4px) skewX(-6deg);
-  background: linear-gradient(180deg,
+  background: linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.12),
-      rgba(255, 255, 255, 0.04)),
+      rgba(255, 255, 255, 0.04)
+    ),
     rgba(255, 255, 255, 0.06);
 }
 
@@ -559,7 +569,8 @@ footer.characters .card:hover .token::after {
   border-radius: 50%;
   border: 2px solid transparent;
   background: linear-gradient(180deg, transparent, transparent) padding-box,
-    conic-gradient(from 40deg, transparent, var(--accent) 55%, transparent 80%) border-box;
+    conic-gradient(from 40deg, transparent, var(--accent) 55%, transparent 80%)
+      border-box;
   opacity: 0.75;
 }
 
@@ -584,9 +595,11 @@ footer.characters .card:hover .token::after {
   padding: 14px 16px;
   border-radius: 14px;
   border: 1px solid var(--border);
-  background: linear-gradient(180deg,
+  background: linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.05),
-      transparent 60%),
+      transparent 60%
+    ),
     var(--panel);
   color: var(--text);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -617,9 +630,11 @@ footer.characters .card:hover .token::after {
   font-weight: 800;
   letter-spacing: 0.02em;
   text-transform: uppercase;
-  background: linear-gradient(180deg,
-      rgba(120, 140, 255, 0.2),
-      rgba(0, 0, 20, 0.1) 70%);
+  background: linear-gradient(
+    180deg,
+    rgba(120, 140, 255, 0.2),
+    rgba(0, 0, 20, 0.1) 70%
+  );
   border-radius: 6px;
   isolation: isolate;
 }
@@ -740,12 +755,16 @@ html[data-theme="metaphor"] {
   --accent: #ff3c64;
   --accent-2: #ffd166;
   --accent-3: #7ec8ff;
-  --app-bg: radial-gradient(1100px 800px at 105% -10%,
+  --app-bg: radial-gradient(
+      1100px 800px at 105% -10%,
       rgba(255, 255, 255, 0.06),
-      transparent 45%),
-    radial-gradient(900px 700px at -10% -20%,
+      transparent 45%
+    ),
+    radial-gradient(
+      900px 700px at -10% -20%,
       rgba(255, 255, 255, 0.04),
-      transparent 40%),
+      transparent 40%
+    ),
     linear-gradient(180deg, #0a0b10, #0e1016 40%, #0a0b10);
 }
 
@@ -760,12 +779,16 @@ html[data-theme="p3reload"] {
   --accent: #00e3ff;
   --accent-2: #6afff9;
   --accent-3: #aeeaff;
-  --app-bg: radial-gradient(1100px 800px at 105% -10%,
+  --app-bg: radial-gradient(
+      1100px 800px at 105% -10%,
       rgba(255, 255, 255, 0.06),
-      transparent 45%),
-    radial-gradient(900px 700px at -10% -20%,
+      transparent 45%
+    ),
+    radial-gradient(
+      900px 700px at -10% -20%,
       rgba(255, 255, 255, 0.04),
-      transparent 40%),
+      transparent 40%
+    ),
     linear-gradient(180deg, #0b1020, #0e1630 40%, #0a0f22);
 }
 
@@ -780,12 +803,16 @@ html[data-theme="p3reload-bright"] {
   --accent: #00aef0;
   --accent-2: #00d5ff;
   --accent-3: #79e8ff;
-  --app-bg: radial-gradient(1200px 900px at 110% -10%,
+  --app-bg: radial-gradient(
+      1200px 900px at 110% -10%,
       rgba(255, 255, 255, 0.85),
-      transparent 45%),
-    radial-gradient(900px 700px at -12% -20%,
+      transparent 45%
+    ),
+    radial-gradient(
+      900px 700px at -12% -20%,
       rgba(255, 255, 255, 0.55),
-      transparent 40%),
+      transparent 40%
+    ),
     linear-gradient(180deg, #eef6ff 0%, #f7fbff 35%, #cfeeff 72%, #9ddfff 100%);
 }
 
@@ -805,9 +832,11 @@ html[data-theme="p3reload-bright"] .bubble {
 }
 
 html[data-theme="p3reload-bright"] .topbar {
-  background: linear-gradient(180deg,
-      rgba(255, 255, 255, 0.8),
-      rgba(255, 255, 255, 0.6));
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.6)
+  );
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(8px);
 }
@@ -977,9 +1006,11 @@ html[data-theme="p3reload-bright"] .pill.speed {
   margin: 0;
   border-radius: 0 0 16px 16px;
   border-top: 1px solid rgba(200, 230, 255, 0.12);
-  background: radial-gradient(900px 500px at 20% 0%,
+  background: radial-gradient(
+      900px 500px at 20% 0%,
       rgba(0, 227, 255, 0.12),
-      transparent 55%),
+      transparent 55%
+    ),
     linear-gradient(180deg, #0e1730, #101a38 45%, #0b1228 100%);
   background-size: cover;
   background-position: center;
@@ -1084,7 +1115,7 @@ aside.timeline.panel {
   padding: 12px 14px 16px;
 }
 
-aside.timeline.panel>#timeline-placeholder.placeholder,
+aside.timeline.panel > #timeline-placeholder.placeholder,
 aside.timeline.panel .placeholder,
 section.quests .placeholder {
   font-size: 16px !important;
@@ -1209,16 +1240,12 @@ nav.main.nav-p3r a[aria-current="page"]::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
-
   nav.main.nav-p3r a,
   nav.main.nav-p3r a::before,
   nav.main.nav-p3r a::after {
     transition: none;
   }
 }
-
-
-
 
 :root[data-theme="oak"] {
   --panel: #2b2016;
@@ -1227,7 +1254,7 @@ nav.main.nav-p3r a[aria-current="page"]::after {
   --muted: #c3a689;
   --accent: #a47c48;
   --accent-2: #c29b6f;
-  --border: rgba(255, 255, 255, 0.08)
+  --border: rgba(255, 255, 255, 0.08);
 }
 
 :root[data-theme="parchment"] {
@@ -1237,7 +1264,7 @@ nav.main.nav-p3r a[aria-current="page"]::after {
   --muted: #5b4636;
   --accent: #9a6b34;
   --accent-2: #b98a56;
-  --border: rgba(0, 0, 0, 0.12)
+  --border: rgba(0, 0, 0, 0.12);
 }
 
 :root[data-theme="ember"] {
@@ -1247,5 +1274,662 @@ nav.main.nav-p3r a[aria-current="page"]::after {
   --muted: #f2b081;
   --accent: #b45309;
   --accent-2: #ea580c;
-  --border: rgba(255, 255, 255, 0.08)
+  --border: rgba(255, 255, 255, 0.08);
+}
+
+/* ==== NPCs (drop-in replacement) =================================== */
+#npcs-panel {
+  --tile: 72px;
+  --tile-r: 12px;
+  --card-r: 12px;
+}
+
+/* Header + mini preview (ขวาบนของแถบซ้าย) */
+#npcs-panel .npcs-header {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: var(--trk-heading);
+}
+#npcs-panel .npc-preview {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+  min-width: 0;
+}
+#npcs-panel .npc-portrait-frame {
+  width: 72px;
+  aspect-ratio: 1/1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #1a1f2e, #121726);
+  border: 1px solid var(--border);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  flex-shrink: 0;
+}
+#npcs-panel #npc-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+#npcs-panel #npc-preview-name {
+  font: 800 1rem/1.2 var(--font-heading);
+}
+#npcs-panel #npc-preview-role {
+  margin-top: 4px;
+  color: var(--muted);
+  font: 600 0.9rem/1 var(--font-command);
+}
+
+/* Scroll list */
+#npcs-panel .npcs-list {
+  overflow: auto;
+  min-height: 0;
+  padding: 6px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* === Card: [name row] on top, [portrait|info] row, [HP|info] row ==== */
+#npcs-panel #npcs-list .npc {
+  display: grid;
+  grid-template-columns: var(--tile) 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "info  info"
+    "thumb info"
+    "hp    info";
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--card-r);
+  background: var(--panel-alt);
+}
+
+/* Info (name + race/meta) */
+#npcs-panel .npc-info {
+  grid-area: info;
+  min-width: 0;
+}
+#npcs-panel .npc-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.1;
+}
+#npcs-panel .npc-race,           /* use either .npc-race or .npc-meta */
+#npcs-panel .npc-meta {
+  color: var(--muted);
+  font: 600 0.9rem/1 var(--font-command);
+  margin-top: 2px;
+}
+/* inline edit */
+#npcs-panel .npc-name[contenteditable],
+#npcs-panel .npc-race[contenteditable],
+#npcs-panel .npc-meta[contenteditable] {
+  outline: none;
+  border-radius: 6px;
+  padding: 1px 3px;
+}
+#npcs-panel .npc-name[contenteditable]:focus,
+#npcs-panel .npc-race[contenteditable]:focus,
+#npcs-panel .npc-meta[contenteditable]:focus {
+  box-shadow: 0 0 0 1px var(--accent) inset;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Portrait (fixed square) */
+#npcs-panel .npc-thumb {
+  grid-area: thumb;
+  width: var(--tile);
+  aspect-ratio: 1/1;
+  border-radius: var(--tile-r);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #1a1f2e, #121726);
+}
+#npcs-panel .npc-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+/* small buttons on portrait */
+#npcs-panel .thumb-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+#npcs-panel .thumb-actions button {
+  pointer-events: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  place-items: center;
+  font: 700 14px/1 var(--font-command);
+}
+
+/* HP (left, under portrait) */
+#npcs-panel .npc-hp {
+  grid-area: hp;
+  width: var(--tile);
+  margin-top: 2px;
+}
+#npcs-panel .npc-hp-bar {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+  position: relative;
+}
+#npcs-panel .npc-hp-fill {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: calc(var(--hpPct, 1) * 100%);
+  background: linear-gradient(
+    180deg,
+    var(--spd1, #9df4bb),
+    var(--spd2, #66e39a)
+  );
+}
+#npcs-panel .npc-hp-text {
+  margin-top: 4px;
+  text-align: left;
+  font: 700 0.8rem/1 var(--font-command);
+  color: var(--muted);
+}
+
+/* States */
+#npcs-panel #npcs-list .npc.is-active {
+  outline: 2px solid color-mix(in oklab, var(--accent) 45%, transparent);
+  outline-offset: 2px;
+}
+#npcs-panel #npcs-list .npc:hover .npc-thumb {
+  box-shadow: 0 0 0 1px var(--accent) inset,
+    0 8px 20px color-mix(in oklab, var(--accent) 22%, transparent);
+}
+
+/* Actions (Add NPC) */
+#npcs-panel .npcs-actions {
+  order: 3;
+  padding: 10px 12px;
+  border: 0;
+  background: transparent;
+}
+#npcs-panel #add-npc {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 14px;
+  border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  font-family: var(--font-command);
+  font-weight: 800;
+  letter-spacing: var(--trk-command);
+}
+#npcs-panel #add-npc::before {
+  content: "＋";
+  font-weight: 800;
+}
+
+/* ================= NPC list — back to classic layout =================
+   Left: square portrait  |  Right: name + race
+   Bottom (full width): HP bar
+   ==================================================================== */
+
+#npcs-panel {
+  --tile: 72px;
+  --tile-r: 12px;
+} /* portrait size */
+
+#npcs-panel .npcs-list {
+  overflow: auto;
+  min-height: 0;
+  padding: 6px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Card */
+#npcs-panel #npcs-list .npc {
+  display: grid;
+  grid-template-columns: var(--tile) 1fr; /* [thumb][info] */
+  grid-template-rows: auto auto; /* info | hp */
+  grid-template-areas:
+    "thumb info"
+    "hp    hp";
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel-alt);
+}
+
+/* ---- info (right) -------------------------------------------------- */
+#npcs-panel #npcs-list .npc .npc-info {
+  grid-area: info;
+  min-width: 0;
+}
+#npcs-panel #npcs-list .npc .npc-name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.1;
+}
+#npcs-panel #npcs-list .npc .npc-meta,
+#npcs-panel #npcs-list .npc .npc-race {
+  color: var(--muted);
+  font: 600 0.9rem/1 var(--font-command);
+  margin-top: 2px;
+}
+/* inline-edit polish */
+#npcs-panel #npcs-list .npc .npc-name[contenteditable],
+#npcs-panel #npcs-list .npc .npc-race[contenteditable] {
+  outline: none;
+  border-radius: 6px;
+  padding: 1px 3px;
+}
+#npcs-panel #npcs-list .npc .npc-name[contenteditable]:focus,
+#npcs-panel #npcs-list .npc .npc-race[contenteditable]:focus {
+  box-shadow: 0 0 0 1px var(--accent) inset;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ---- portrait (left) ----------------------------------------------- */
+#npcs-panel #npcs-list .npc .npc-thumb {
+  grid-area: thumb;
+  width: var(--tile);
+  aspect-ratio: 1/1;
+  border-radius: var(--tile-r);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #1a1f2e, #121726);
+}
+#npcs-panel #npcs-list .npc .npc-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* overlay buttons stay visible */
+#npcs-panel #npcs-list .npc .thumb-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+#npcs-panel #npcs-list .npc .thumb-actions button {
+  pointer-events: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  place-items: center;
+  font: 700 14px/1 var(--font-command);
+}
+#npcs-panel #npcs-list .npc .upload-input {
+  display: none;
+}
+
+/* ---- HP (full width at bottom) ------------------------------------ */
+#npcs-panel #npcs-list .npc .npc-hp {
+  grid-area: hp;
+  margin-top: 2px;
+}
+#npcs-panel #npcs-list .npc .npc-hp-bar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+}
+#npcs-panel #npcs-list .npc .npc-hp-fill {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: calc(var(--hpPct, 1) * 100%);
+  background: linear-gradient(
+    180deg,
+    var(--spd1, #9df4bb),
+    var(--spd2, #66e39a)
+  );
+}
+#npcs-panel #npcs-list .npc .npc-hp-text {
+  margin-top: 4px;
+  font: 700 0.8rem/1 var(--font-command);
+  color: var(--muted);
+}
+
+/* ---- states -------------------------------------------------------- */
+#npcs-panel #npcs-list .npc.is-active {
+  outline: 2px solid color-mix(in oklab, var(--accent) 45%, transparent);
+  outline-offset: 2px;
+}
+#npcs-panel #npcs-list .npc:hover .npc-thumb {
+  box-shadow: 0 0 0 1px var(--accent) inset,
+    0 8px 20px color-mix(in oklab, var(--accent) 22%, transparent);
+}
+
+/* === NPC card: move name+race to the TOP ============================ */
+/* Keep portrait on the left; HP spans full width at the bottom.      */
+
+#npcs-panel {
+  --tile: 72px;
+  --tile-r: 12px;
+} /* adjust as you like */
+
+#npcs-panel #npcs-list .npc {
+  display: grid;
+  grid-template-columns: var(--tile) 1fr; /* [thumb][(empty/right)] */
+  grid-template-rows: auto auto auto; /* top info | body | hp   */
+  grid-template-areas:
+    "info  info" /* name + race on top, span both columns */
+    "thumb ." /* portrait left, nothing on the right    */
+    "hp    hp"; /* HP bar full width at the bottom        */
+  gap: 10px;
+}
+
+/* top row */
+#npcs-panel #npcs-list .npc .npc-info {
+  grid-area: info;
+  min-width: 0;
+}
+
+/* portrait (unchanged, fixed square) */
+#npcs-panel #npcs-list .npc .npc-thumb {
+  grid-area: thumb;
+  width: var(--tile);
+  aspect-ratio: 1/1;
+  border-radius: var(--tile-r);
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #1a1f2e, #121726);
+}
+#npcs-panel #npcs-list .npc .npc-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* HP full width at the bottom */
+#npcs-panel #npcs-list .npc .npc-hp {
+  grid-area: hp;
+  margin-top: 2px;
+}
+#npcs-panel #npcs-list .npc .npc-hp-bar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+}
+#npcs-panel #npcs-list .npc .npc-hp-fill {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: calc(var(--hpPct, 1) * 100%);
+  background: linear-gradient(
+    180deg,
+    var(--spd1, #9df4bb),
+    var(--spd2, #66e39a)
+  );
+}
+#npcs-panel #npcs-list .npc .npc-hp-text {
+  margin-top: 4px;
+  font: 700 0.8rem/1 var(--font-command);
+  color: var(--muted);
+}
+
+/* keep overlay buttons on the portrait */
+#npcs-panel #npcs-list .npc .thumb-actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  pointer-events: none;
+}
+#npcs-panel #npcs-list .npc .thumb-actions button {
+  pointer-events: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  place-items: center;
+  font: 700 14px/1 var(--font-command);
+}
+
+/* === NPC card: full-width square portrait + actions under image ====== */
+#npcs-panel {
+  --tile-r: 12px;
+}
+
+/* Card layout: info (top) → image (middle) → HP (bottom) */
+#npcs-panel #npcs-list .npc {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "info"
+    "thumb"
+    "hp";
+  gap: 10px;
+}
+
+/* Info row (name + race) */
+#npcs-panel #npcs-list .npc .npc-info {
+  grid-area: info;
+}
+
+/* Portrait: fill card width, keep square */
+#npcs-panel #npcs-list .npc .npc-thumb {
+  grid-area: thumb;
+  width: 100% !important; /* full card width */
+  border: 1px solid var(--border);
+  border-radius: var(--tile-r);
+  background: linear-gradient(180deg, #1a1f2e, #121726);
+  overflow: hidden;
+  display: block; /* so actions can sit below */
+}
+#npcs-panel #npcs-list .npc .npc-thumb img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1; /* keep it square */
+  object-fit: cover;
+  display: block;
+  border-radius: var(--tile-r);
+}
+
+/* Actions: move below the image (horizontal) */
+#npcs-panel #npcs-list .npc .thumb-actions {
+  position: static; /* no absolute overlay */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+  padding-top: 8px;
+  pointer-events: auto;
+}
+#npcs-panel #npcs-list .npc .thumb-actions button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  place-items: center;
+  font: 700 14px/1 var(--font-command);
+}
+#npcs-panel #npcs-list .npc .thumb-actions input.upload-input {
+  display: none;
+}
+
+/* HP under image, full width */
+#npcs-panel #npcs-list .npc .npc-hp {
+  grid-area: hp;
+  margin-top: 2px;
+}
+#npcs-panel #npcs-list .npc .npc-hp-bar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+}
+#npcs-panel #npcs-list .npc .npc-hp-fill {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: calc(var(--hpPct, 1) * 100%);
+  background: linear-gradient(
+    180deg,
+    var(--spd1, #9df4bb),
+    var(--spd2, #66e39a)
+  );
+}
+#npcs-panel #npcs-list .npc .npc-hp-text {
+  margin-top: 4px;
+  font: 700 0.8rem/1 var(--font-command);
+  color: var(--muted);
+}
+
+/* === NPC card: full-width square image, actions under it, scroll fixed === */
+
+/* keep the list scrollable */
+#npcs-panel .npcs-body {
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  min-height: 0;
+}
+#npcs-panel .npcs-list {
+  overflow: auto;
+  min-height: 0;
+}
+
+/* card layout = info (top) → image (middle) → HP (bottom) */
+#npcs-panel #npcs-list .npc {
+  display: grid !important;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "info"
+    "thumb"
+    "hp";
+  gap: 10px;
+}
+
+/* info row (name + race) */
+#npcs-panel #npcs-list .npc .npc-info {
+  grid-area: info;
+  min-width: 0;
+}
+
+/* portrait: fill card width, remain square */
+#npcs-panel #npcs-list .npc .npc-thumb {
+  grid-area: thumb;
+  width: 100% !important;
+  border-radius: var(--tile-r, 12px);
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #1a1f2e, #121726);
+  overflow: visible !important; /* <-- allow the row of buttons to show */
+}
+#npcs-panel #npcs-list .npc .npc-thumb img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  height: auto;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+}
+
+/* actions: under the image (horizontal), clickable */
+#npcs-panel #npcs-list .npc .thumb-actions {
+  position: static !important; /* no overlay */
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  padding-top: 8px;
+  pointer-events: auto; /* clickable */
+}
+#npcs-panel #npcs-list .npc .thumb-actions input.upload-input {
+  display: none;
+}
+#npcs-panel #npcs-list .npc .thumb-actions button {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.06);
+  display: grid;
+  place-items: center;
+  font: 700 14px/1 var(--font-command);
+}
+
+/* HP: below image, full width */
+#npcs-panel #npcs-list .npc .npc-hp {
+  grid-area: hp;
+  margin-top: 2px;
+}
+#npcs-panel #npcs-list .npc .npc-hp-bar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
+}
+#npcs-panel #npcs-list .npc .npc-hp-fill {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: calc(var(--hpPct, 1) * 100%);
+  background: linear-gradient(
+    180deg,
+    var(--spd1, #9df4bb),
+    var(--spd2, #66e39a)
+  );
+}
+#npcs-panel #npcs-list .npc .npc-hp-text {
+  margin-top: 4px;
+  font: 700 0.8rem/1 var(--font-command);
+  color: var(--muted);
 }
