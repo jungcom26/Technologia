@@ -15,20 +15,22 @@ import time
 from collections import deque
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import TYPE_CHECKING, Any, Dict, List, Optional
+import uuid
 
 import numpy as np
 import requests
 import uvicorn
-from db_manager import ensure_session, search_chunks, store_chunk
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from db_manager import ensure_session, get_all_characters, get_all_inventory, get_all_journal_entries, get_all_quests, save_character, save_inventory_item, save_journal_entry, save_quest, search_chunks, store_chunk
+from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+from vector_db import vector_db
 
-try:
+if TYPE_CHECKING:
     from faster_whisper import WhisperModel
     import webrtcvad
-except Exception:
+else:
     WhisperModel = None
     webrtcvad = None
     print(
@@ -171,8 +173,8 @@ def normalize_text(text: str) -> str:
     t = _roll_pat.sub(_fix_roll, t)
 
     def _canon(m: re.Match) -> str:
-        raw = m.group(0)
-        key = raw.lower()
+        raw:str = m.group(0)
+        key:str = raw.lower()
         return NAME_CANON.get(key, raw.capitalize())
     if NAME_CANON:
         t = re.sub(r"\b(" + "|".join(map(re.escape, NAME_CANON.keys())) + r")\b", _canon, t, flags=re.I)
@@ -329,10 +331,10 @@ def init_autogen() -> None:
         AUTO_CLIENT = OllamaChatCompletionClient(
             model=OLLAMA_MODEL,
             response_format=ChunkStructuredOutput,  # <- YOUR schema
-            json_output=True,
-            temperature=0.1,
-            system_message=SYSTEM_PROMPT,
-            model_info={"json_output": True, "vision": False, "temperature": 0.1},
+            # json_output=True,
+            # temperature=0.1,
+            # system_message=SYSTEM_PROMPT,
+            # model_info={"json_output": True, "vision": False, "temperature": 0.1},
         )
         AUTO_READY = True
         print(f"[autogen] ready with model {OLLAMA_MODEL}")
@@ -502,12 +504,27 @@ def _write_json_atomic_sync(path: Path, obj: dict):
     os.replace(tmp_name, path)
 
 async def persist_chunk_model(chunk_model: ChunkStructuredOutput, transcript: str):
-    # 1) Append a line (pure pydantic shape)
+     # 1) Append a line (pure pydantic shape) - EXISTING
     await asyncio.to_thread(_append_jsonl_sync, chunk_model.model_dump())
-    # 2) Update aggregate and write full JSON
+    
+    # 2) NEW: Store in Vector Database (storage only)
+    try:
+        # Get current chunk index
+        chunk_index = len(SESSION_AGG["chunks"])
+        vector_db.store_chunk(
+            session_id=SESSION_ID,
+            chunk_index=chunk_index,
+            transcript=transcript,
+            structured_data=chunk_model.model_dump()
+        )
+    except Exception as e:
+        print(f"[vector_db] storage failed: {e}")
+    
+    # 3) Update aggregate and write full JSON - EXISTING
     SESSION_AGG["chunks"].append(chunk_model.model_dump())
     await asyncio.to_thread(_write_json_atomic_sync, JSON_PATH, SESSION_AGG)
-    # 3) Persist structured context into SQLite for retrieval purposes
+    
+    # 4) Persist structured context into SQLite for retrieval purposes - EXISTING
     try:
         await asyncio.to_thread(
             store_chunk,
@@ -734,6 +751,9 @@ async def ws_audio(websocket: WebSocket) -> None:
                 utterances.extend(ep.process_frame(fr))
 
             for utt in utterances:
+                if whisper_model is None:
+                    print("[/audio] Whisper model not initialized")
+                    continue
                 audio_f32 = utt.astype(np.float32) / 32768.0
                 segments, info = whisper_model.transcribe(
                     audio_f32,
@@ -879,6 +899,148 @@ async def generate_image(req: GenerateRequest):
         return {"image": data["images"][0]}
     except Exception as e:
         return {"error": str(e)}
+    
+# ---------------- Endpoints for App data ----------------
+# In main.py, add these new endpoints
+
+# Pydantic models for app data
+class CharacterCreate(BaseModel):
+    name: str
+    class_name: str = Field(..., alias="class")
+    level: int = 1
+    hp: int = 1
+    max_hp: int = 1
+    ac: int = 10
+    speed: int = 30
+    hit_die: int = 8
+    hit_dice: int = 1
+    str_score: int = 10
+    dex_score: int = 10
+    con_score: int = 10
+    int_score: int = 10
+    wis_score: int = 10
+    cha_score: int = 10
+    conditions: List[str] = Field(default_factory=list)
+    spells: List[Dict[str, Any]] = Field(default_factory=list)
+    concentrating_on: Optional[str] = None
+
+class InventoryItemCreate(BaseModel):
+    name: str
+    type: str
+    description: str = ""
+    weight: float = 0
+    quantity: int = 1
+    equipped: bool = False
+    character_id: Optional[str] = None
+
+class QuestCreate(BaseModel):
+    title: str
+    description: str = ""
+    status: str = "active"
+    category: str = "Main Quest"
+    assigned_character: Optional[str] = None
+    session_date: Optional[str] = None
+    campaign_date: Optional[str] = None
+    objectives: List[Dict[str, Any]] = Field(default_factory=list)
+    notes: List[Dict[str, Any]] = Field(default_factory=list)
+
+class JournalEntryCreate(BaseModel):
+    title: str
+    content: str
+    type: str = "note"
+    session_date: Optional[str] = None
+    campaign_date: Optional[str] = None
+    related_quest_id: Optional[str] = None
+
+# CHARACTER ENDPOINTS
+@app.get("/api/characters")
+async def get_characters():
+    characters = get_all_characters()
+    return characters
+
+@app.post("/api/characters")
+async def create_character(character: CharacterCreate):
+    character_data = character.dict()
+    character_data['id'] = f"char_{uuid.uuid4().hex[:8]}"
+    character_id = save_character(character_data)
+    return {"id": character_id, "message": "Character created"}
+
+@app.put("/api/characters/{character_id}")
+async def update_character(character_id: str, character: CharacterCreate):
+    character_data = character.dict()
+    character_data['id'] = character_id
+    save_character(character_data)
+    return {"message": "Character updated"}
+
+@app.delete("/api/characters/{character_id}")
+async def delete_character(character_id: str):
+    success = delete_character(character_id)
+    if success:
+        return {"message": "Character deleted"}
+    else:
+        raise HTTPException(status_code=404, detail="Character not found")
+
+# INVENTORY ENDPOINTS
+@app.get("/api/inventory")
+async def get_inventory(character_id: Optional[str] = None):
+    items = get_all_inventory(character_id)
+    return items
+
+@app.post("/api/inventory")
+async def create_inventory_item(item: InventoryItemCreate):
+    item_data = item.dict()
+    item_data['id'] = f"item_{uuid.uuid4().hex[:8]}"
+    item_id = save_inventory_item(item_data)
+    return {"id": item_id, "message": "Item created"}
+
+@app.delete("/api/inventory/{item_id}")
+async def delete_inventory_item(item_id: str):
+    success = delete_inventory_item(item_id)
+    if success:
+        return {"message": "Item deleted"}
+    else:
+        raise HTTPException(status_code=404, detail="Item not found")
+
+# QUEST ENDPOINTS
+@app.get("/api/quests")
+async def get_quests():
+    quests = get_all_quests()
+    return quests
+
+@app.post("/api/quests")
+async def create_quest(quest: QuestCreate):
+    quest_data = quest.dict()
+    quest_data['id'] = f"quest_{uuid.uuid4().hex[:8]}"
+    quest_id = save_quest(quest_data)
+    return {"id": quest_id, "message": "Quest created"}
+
+@app.put("/api/quests/{quest_id}")
+async def update_quest(quest_id: str, quest: QuestCreate):
+    quest_data = quest.dict()
+    quest_data['id'] = quest_id
+    save_quest(quest_data)
+    return {"message": "Quest updated"}
+
+@app.delete("/api/quests/{quest_id}")
+async def delete_quest(quest_id: str):
+    success = delete_quest(quest_id)
+    if success:
+        return {"message": "Quest deleted"}
+    else:
+        raise HTTPException(status_code=404, detail="Quest not found")
+
+# JOURNAL ENDPOINTS
+@app.get("/api/journal")
+async def get_journal_entries(quest_id: Optional[str] = None):
+    entries = get_all_journal_entries(quest_id)
+    return entries
+
+@app.post("/api/journal")
+async def create_journal_entry(entry: JournalEntryCreate):
+    entry_data = entry.dict()
+    entry_data['id'] = f"journal_{uuid.uuid4().hex[:8]}"
+    entry_id = save_journal_entry(entry_data)
+    return {"id": entry_id, "message": "Journal entry created"}
 
 # ---------------- main ----------------
 if __name__ == "__main__":

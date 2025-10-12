@@ -1,7 +1,6 @@
-// js/journal.js
+// js/journal.js - UPDATED VERSION (SQLite via API)
 (() => {
   const API_BASE_URL = window.__API_BASE__ || "http://127.0.0.1:8000";
-  const STORE_KEY = "ds-journal-v1";
 
   /** @typedef {{id:string,title:string,category?:string,status:'active'|'ongoing'|'completed'|'failed', created:number, updated:number, objectives:{id:string,text:string,status:'active'|'completed'|'failed'}[], notes:{id:string,text:string,ts:number}[]}} Quest */
 
@@ -12,26 +11,58 @@
   );
   const saveCats = () =>
     localStorage.setItem(CATS_KEY, JSON.stringify(categories));
+  
   // ---------- State ----------
   const state = {
     filter: "all",
-    catFilter: "all", // ✨ กรองตามหมวด
+    catFilter: "all",
     hideCompleted: false,
     selectedId: null,
-    quests: load() || [],
+    quests: [],
   };
 
   // Quick id
   const uid = () => Math.random().toString(36).slice(2, 10);
 
-  function save() {
-    localStorage.setItem(STORE_KEY, JSON.stringify(state.quests));
-  }
-  function load() {
+  // API helper functions
+  async function apiCall(endpoint, options = {}) {
     try {
-      return JSON.parse(localStorage.getItem(STORE_KEY) || "[]");
-    } catch {
-      return [];
+      const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          ...options.headers
+        },
+        ...options
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return await response.json();
+    } catch (error) {
+      console.error('API call failed:', error);
+      throw error;
+    }
+  }
+
+  // Load quests from SQLite
+  async function loadQuests() {
+    try {
+      const data = await apiCall('/api/quests');
+      // Transform API data to match existing format
+      state.quests = data.map(q => ({
+        id: q.id,
+        title: q.title,
+        category: q.category || 'Main Quest',
+        status: q.status || 'active',
+        created: new Date(q.created_at).getTime(),
+        updated: new Date(q.updated_at).getTime(),
+        sessionDateISO: q.session_date,
+        campaignDate: q.campaign_date,
+        objectives: q.objectives || [],
+        notes: q.notes || [],
+        description: q.description || ''
+      }));
+    } catch (error) {
+      console.error('Failed to load quests:', error);
+      state.quests = [];
     }
   }
 
@@ -101,7 +132,6 @@
   }
 
   function fmtShort(iso) {
-    // 'YYYY-MM-DD' -> 'Tue, 5 Oct 2025'
     if (!iso) return "";
     const d = new Date(iso);
     if (isNaN(+d)) return iso;
@@ -112,6 +142,7 @@
       day: "numeric",
     });
   }
+
   function weekday(iso) {
     if (!iso) return "";
     const d = new Date(iso);
@@ -120,78 +151,161 @@
   }
 
   // ---------- CRUD helpers ----------
-  function upsertQuest(partial) {
+  async function upsertQuest(partial) {
     let q = state.quests.find((x) => x.id === partial.id);
+    
     if (!q) {
-      q = {
-        id: partial.id || uid(),
+      // Create new quest
+      const questData = {
         title: partial.title || "Untitled Quest",
-        category:
-          partial.category ||
-          (state.catFilter !== "all" ? state.catFilter : categories[0]),
+        description: "",
         status: partial.status || "active",
-        created: Date.now(),
-        updated: Date.now(),
-        // ✨ new
-        sessionDateISO:
-          partial.sessionDateISO || new Date().toISOString().slice(0, 10), // 'YYYY-MM-DD'
-        campaignDate: partial.campaignDate || "",
+        category: partial.category || (state.catFilter !== "all" ? state.catFilter : categories[0]),
+        assigned_character: "",
+        session_date: partial.sessionDateISO || new Date().toISOString().slice(0, 10),
+        campaign_date: partial.campaignDate || "",
         objectives: [],
-        notes: [],
+        notes: []
       };
-      state.quests.unshift(q);
-      state.selectedId = q.id;
+      
+      try {
+        const result = await apiCall('/api/quests', {
+          method: 'POST',
+          body: JSON.stringify(questData)
+        });
+        await loadQuests(); // Reload from server
+        state.selectedId = result.id;
+      } catch (error) {
+        console.error('Failed to create quest:', error);
+      }
     } else {
-      Object.assign(q, partial);
-      q.updated = Date.now();
+      // Update existing quest
+      const questData = {
+        title: partial.title || q.title,
+        description: q.description || "",
+        status: partial.status || q.status,
+        category: partial.category || q.category,
+        assigned_character: "",
+        session_date: partial.sessionDateISO || q.sessionDateISO,
+        campaign_date: partial.campaignDate || q.campaignDate,
+        objectives: q.objectives,
+        notes: q.notes
+      };
+      
+      try {
+        await apiCall(`/api/quests/${q.id}`, {
+          method: 'PUT',
+          body: JSON.stringify(questData)
+        });
+        await loadQuests(); // Reload from server
+      } catch (error) {
+        console.error('Failed to update quest:', error);
+      }
     }
-    save();
+    
     render();
     return q;
   }
 
-  function addObjective(qid, text) {
+  async function addObjective(qid, text) {
     const q = byId(qid);
     if (!q) return;
-    q.objectives.push({ id: uid(), text, status: "active" });
-    q.updated = Date.now();
-    save();
-    renderDetail(q);
+    
+    const newObjectives = [
+      ...q.objectives,
+      { id: uid(), text, status: "active" }
+    ];
+    
+    await updateQuestWithObjectives(q.id, newObjectives);
   }
 
-  function setObjectiveStatus(qid, oid, status) {
+  async function updateQuestWithObjectives(questId, objectives) {
+    const q = byId(questId);
+    if (!q) return;
+    
+    const questData = {
+      title: q.title,
+      description: q.description,
+      status: q.status,
+      category: q.category,
+      assigned_character: "",
+      session_date: q.sessionDateISO,
+      campaign_date: q.campaignDate,
+      objectives: objectives,
+      notes: q.notes
+    };
+    
+    try {
+      await apiCall(`/api/quests/${questId}`, {
+        method: 'PUT',
+        body: JSON.stringify(questData)
+      });
+      await loadQuests(); // Reload from server
+    } catch (error) {
+      console.error('Failed to update objectives:', error);
+    }
+  }
+
+  async function setObjectiveStatus(qid, oid, status) {
     const q = byId(qid);
     if (!q) return;
-    const o = q.objectives.find((x) => x.id === oid);
-    if (!o) return;
-    o.status = status;
-    q.updated = Date.now();
-    save();
-    renderDetail(q);
-    renderTree();
+    
+    const newObjectives = q.objectives.map(obj => 
+      obj.id === oid ? { ...obj, status } : obj
+    );
+    
+    await updateQuestWithObjectives(q.id, newObjectives);
   }
 
-  function addNote(qid, text) {
+  async function addNote(qid, text) {
     const q = byId(qid);
     if (!q) return;
-    q.notes.unshift({
-      id: uid(),
-      ts: Date.now(),
-      text: noteText,
-      sessionDateISO: q.sessionDateISO,
-      campaignDate: q.campaignDate,
-    });
-    q.updated = Date.now();
-    save();
-    renderDetail(q);
+    
+    const newNotes = [
+      {
+        id: uid(),
+        text: text,
+        session_date: q.sessionDateISO,
+        campaign_date: q.campaignDate,
+        created_at: new Date().toISOString()
+      },
+      ...q.notes
+    ];
+    
+    const questData = {
+      title: q.title,
+      description: q.description,
+      status: q.status,
+      category: q.category,
+      assigned_character: "",
+      session_date: q.sessionDateISO,
+      campaign_date: q.campaignDate,
+      objectives: q.objectives,
+      notes: newNotes
+    };
+    
+    try {
+      await apiCall(`/api/quests/${q.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(questData)
+      });
+      await loadQuests(); // Reload from server
+    } catch (error) {
+      console.error('Failed to add note:', error);
+    }
   }
 
-  function removeQuest(qid) {
-    const i = state.quests.findIndex((x) => x.id === qid);
-    if (i >= 0) state.quests.splice(i, 1);
-    if (state.selectedId === qid) state.selectedId = null;
-    save();
-    render();
+  async function removeQuest(qid) {
+    try {
+      await apiCall(`/api/quests/${qid}`, {
+        method: 'DELETE'
+      });
+      await loadQuests(); // Reload from server
+      if (state.selectedId === qid) state.selectedId = null;
+      render();
+    } catch (error) {
+      console.error('Failed to delete quest:', error);
+    }
   }
 
   const byId = (id) => state.quests.find((x) => x.id === id) || null;
@@ -212,16 +326,17 @@
       ).toLowerCase();
       const qmatch = !qtext || text.includes(qtext);
       const fmatch = state.filter === "all" ? true : qu.status === state.filter;
-      const cmatch =
-        state.catFilter === "all" ? true : qu.category === state.catFilter; // ✨
+      const cmatch = state.catFilter === "all" ? true : qu.category === state.catFilter;
       const hmatch = hideDone ? qu.status !== "completed" : true;
       return qmatch && fmatch && cmatch && hmatch;
     });
+    
     filtered.sort((a, b) => {
       const aa = a.sessionDateISO || "";
       const bb = b.sessionDateISO || "";
       return bb.localeCompare(aa);
     });
+    
     if (!filtered.length) {
       treeEl.innerHTML = `<div class="placeholder">No quests match.</div>`;
       return;
@@ -235,14 +350,13 @@
       ...categories,
       ...Object.keys(groups).filter((k) => !categories.includes(k)),
     ];
+    
     treeEl.innerHTML = order
       .filter((cat) => groups[cat]?.length)
       .map(
         (cat) => `
     <div class="jl-group">
-      <button class="jl-cat" data-cat="${escapeHTML(cat)}">${escapeHTML(
-          cat
-        )}</button>
+      <button class="jl-cat" data-cat="${escapeHTML(cat)}">${escapeHTML(cat)}</button>
       <ul class="jl-items">
         ${groups[cat]
           .map(
@@ -269,6 +383,7 @@
         render();
       });
     });
+    
     treeEl.querySelectorAll(".jl-cat").forEach((btn) => {
       btn.addEventListener("click", () =>
         btn.parentElement.classList.toggle("is-collapsed")
@@ -290,6 +405,7 @@
     }
     return map;
   }
+
   const escapeHTML = (s) =>
     String(s).replace(
       /[&<>"']/g,
@@ -315,21 +431,19 @@
     bodyEl.hidden = false;
 
     titleEl.textContent = q.title;
-    metaEl.textContent = `${q.category} • ${new Date(
-      q.created
-    ).toLocaleString()} • ${q.status}`;
+    metaEl.textContent = `${q.category} • ${new Date(q.created).toLocaleString()} • ${q.status}`;
     statusSel.value = q.status;
 
-    populateCategorySelect(q.category); // ✨
-    catSelect.onchange = () => {
-      // ✨
+    populateCategorySelect(q.category);
+    catSelect.onchange = async () => {
       q.category = catSelect.value;
-      q.updated = Date.now();
-      save();
-      render();
+      await upsertQuest({
+        id: q.id,
+        category: q.category
+      });
     };
+    
     catAddBtn.onclick = () => {
-      // ✨
       const name = prompt("New category name:");
       if (!name) return;
       if (!categories.includes(name)) {
@@ -340,31 +454,36 @@
       renderCatChips();
     };
 
-    // ✨ Session date (IRL)
+    // Session date (IRL)
     if (dateEl) {
       dateEl.value =
         q.sessionDateISO && /^\d{4}-\d{2}-\d{2}$/.test(q.sessionDateISO)
           ? q.sessionDateISO
           : new Date().toISOString().slice(0, 10);
-      dateEl.onchange = () => {
+      dateEl.onchange = async () => {
         q.sessionDateISO = dateEl.value;
-        q.updated = Date.now();
-        save();
-        // show the date same as badge
+        await upsertQuest({
+          id: q.id,
+          sessionDateISO: q.sessionDateISO
+        });
         if (weekEl) weekEl.textContent = weekday(q.sessionDateISO);
         renderTree();
       };
     }
-    // ✨ Campaign date (free text)
+    
+    // Campaign date (free text)
     if (campEl) {
       campEl.value = q.campaignDate || "";
-      campEl.onchange = () => {
+      campEl.onchange = async () => {
         q.campaignDate = campEl.value.trim();
-        q.updated = Date.now();
-        save();
+        await upsertQuest({
+          id: q.id,
+          campaignDate: q.campaignDate
+        });
       };
     }
-    // ✨ day-of-week badge
+    
+    // day-of-week badge
     if (weekEl) {
       weekEl.textContent = weekday(q.sessionDateISO);
     }
@@ -383,9 +502,7 @@
         </label>
         <div class="obj-actions">
           <button class="mini" data-act="fail" data-oid="${o.id}">Fail</button>
-          <button class="mini ghost" data-act="del" data-oid="${
-            o.id
-          }">Delete</button>
+          <button class="mini ghost" data-act="del" data-oid="${o.id}">Delete</button>
         </div>
       </li>
     `
@@ -401,21 +518,17 @@
         );
       });
     });
+    
     objListEl.querySelectorAll('button[data-act="fail"]').forEach((btn) => {
       btn.addEventListener("click", () =>
         setObjectiveStatus(q.id, btn.dataset.oid, "failed")
       );
     });
+    
     objListEl.querySelectorAll('button[data-act="del"]').forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const i = q.objectives.findIndex((o) => o.id === btn.dataset.oid);
-        if (i >= 0) {
-          q.objectives.splice(i, 1);
-          q.updated = Date.now();
-          save();
-          renderDetail(q);
-          renderTree();
-        }
+      btn.addEventListener("click", async () => {
+        const newObjectives = q.objectives.filter(o => o.id !== btn.dataset.oid);
+        await updateQuestWithObjectives(q.id, newObjectives);
       });
     });
 
@@ -424,52 +537,47 @@
       q.notes
         .map(
           (n) => `
-      <article class="note"><time>${new Date(
-        n.ts
-      ).toLocaleString()}</time><p>${escapeHTML(n.text)}</p></article>
+      <article class="note">
+        <time>${new Date(n.created_at || n.ts).toLocaleString()}</time>
+        <p>${escapeHTML(n.text)}</p>
+      </article>
     `
         )
         .join("") || `<div class="muted">No notes yet.</div>`;
 
-    // actions
-
-    newBtn.addEventListener("click", () => {
-      const q = upsertQuest({
-        id: uid(),
-        title: "New Quest",
-        status: "active",
+    // Event handlers for detail actions
+    statusSel.onchange = async () => {
+      await upsertQuest({
+        id: q.id,
+        status: statusSel.value
       });
-      addObjective(q.id, "First objective");
-    });
-
-    statusSel.onchange = () => {
-      q.status = statusSel.value;
-      q.updated = Date.now();
-      save();
       renderTree();
     };
-    completeBtn.onclick = () => {
-      q.status = "completed";
-      q.updated = Date.now();
-      save();
+    
+    completeBtn.onclick = async () => {
+      await upsertQuest({
+        id: q.id,
+        status: "completed"
+      });
       render();
     };
-    deleteBtn.onclick = () => {
-      if (confirm("Delete this quest?")) removeQuest(q.id);
+    
+    deleteBtn.onclick = async () => {
+      if (confirm("Delete this quest?")) await removeQuest(q.id);
     };
 
-    objAdd.onclick = () => {
+    objAdd.onclick = async () => {
       const t = objInput.value.trim();
       if (!t) return;
-      addObjective(q.id, t);
+      await addObjective(q.id, t);
       objInput.value = "";
       objInput.focus();
     };
 
-    noteAdd.onclick = () => {
+    noteAdd.onclick = async () => {
       const t = noteInput.value.trim();
       if (!t) return;
-      addNote(q.id, t);
+      await addNote(q.id, t);
       noteInput.value = "";
       noteInput.focus();
     };
@@ -480,25 +588,27 @@
   // ---------- AI summary ----------
   async function summarizeWithAI(q) {
     try {
-      // summarize objective
       const prompt = [
         "You are a quest journal summarizer.",
         "Given a quest and its notes/objectives, return a concise summary + classify objectives into active/ongoing/completed/failed.",
         "Respond as markdown. Use short bullet points.",
       ].join(" ");
+      
       const payload = {
         question: `${prompt}\n\nQUEST JSON:\n${JSON.stringify(q, null, 2)}`,
       };
+      
       const r = await fetch(`${API_BASE_URL}/ask`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+      
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       const data = await r.json();
 
       const txt = data?.answer || "No summary.";
-      addNote(q.id, `AI Summary:\n${txt}`);
+      await addNote(q.id, `AI Summary:\n${txt}`);
       toast("AI summary added to notes.");
     } catch (err) {
       console.error(err);
@@ -531,41 +641,46 @@
       renderTree();
     })
   );
+  
   hideCompletedEl.addEventListener("change", renderTree);
   searchEl.addEventListener("input", renderTree);
-  newBtn.addEventListener("click", () => {
-    const q = upsertQuest({
+  
+  newBtn.addEventListener("click", async () => {
+    const q = await upsertQuest({
       id: uid(),
       title: "New Quest",
       category: "Personal Quest",
       status: "active",
     });
-    addObjective(q.id, "First objective");
+    await addObjective(q.id, "First objective");
   });
 
   // ---------- OPTIONAL: ingest from game events ----------
-  // window.Journal.addFromEvent({ quest:"Find a Cure", category:"Main Quest", note:"Met a friendly mind flayer.", objective:"+ Ask for help" });
   window.Journal = {
-    addFromEvent(evt) {
-      const q = upsertQuest({
+    async addFromEvent(evt) {
+      const q = await upsertQuest({
         id: `q_${slug(evt.quest)}`,
         title: evt.quest,
         category: evt.category || "Main Quest",
       });
-      if (evt.note) addNote(q.id, evt.note);
+      
+      if (evt.note) await addNote(q.id, evt.note);
+      
       if (evt.objective) {
         const text = evt.objective.replace(/^\+\s*/, "");
         if (!q.objectives.some((o) => o.text === text))
-          addObjective(q.id, text);
+          await addObjective(q.id, text);
       }
+      
       if (evt.complete) {
-        q.status = "completed";
-        q.updated = Date.now();
-        save();
-        render();
+        await upsertQuest({
+          id: q.id,
+          status: "completed"
+        });
       }
     },
   };
+  
   const slug = (s) =>
     String(s || "")
       .toLowerCase()
@@ -573,18 +688,21 @@
       .replace(/(^-|-$)/g, "");
 
   // ---------- Boot ----------
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("DOMContentLoaded", async () => {
+    await loadQuests();
+    
     if (state.quests.length === 0) {
-      const q = upsertQuest({
+      const q = await upsertQuest({
         id: "q_new-adventure",
         title: "New adventure begins",
         category: "Session",
         status: "ongoing",
       });
-      addObjective(q.id, "Meet the party at the tavern");
-      addObjective(q.id, "Find a way to Moonrise Towers");
-      addNote(q.id, "The game session started.");
+      await addObjective(q.id, "Meet the party at the tavern");
+      await addObjective(q.id, "Find a way to Moonrise Towers");
+      await addNote(q.id, "The game session started.");
     }
+    
     renderCatChips();
     render();
   });

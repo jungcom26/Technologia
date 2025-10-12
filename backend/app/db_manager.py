@@ -1,6 +1,7 @@
 """Persistence and retrieval helpers for live D&D transcription data."""
-""" This is a test of GitHub Sync -- Delete comment later """
 from __future__ import annotations
+import uuid
+""" This is a test of GitHub Sync -- Delete comment later """
 
 import os
 import re
@@ -28,6 +29,7 @@ def _connect() -> sqlite3.Connection:
 def _ensure_schema(conn: sqlite3.Connection) -> None:
     conn.executescript(
         """
+        -- EXISTING TABLES (keep all existing ones)
         CREATE TABLE IF NOT EXISTS sessions (
             id TEXT PRIMARY KEY,
             started_at TEXT NOT NULL
@@ -96,6 +98,89 @@ def _ensure_schema(conn: sqlite3.Connection) -> None:
             FOREIGN KEY(chunk_id) REFERENCES transcript_chunks(id) ON DELETE CASCADE
         );
 
+        -- NEW TABLES FOR APP DATA
+        CREATE TABLE IF NOT EXISTS characters (
+            id TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            class TEXT NOT NULL,
+            level INTEGER DEFAULT 1,
+            hp INTEGER DEFAULT 1,
+            max_hp INTEGER DEFAULT 1,
+            ac INTEGER DEFAULT 10,
+            speed INTEGER DEFAULT 30,
+            hit_die INTEGER DEFAULT 8,
+            hit_dice INTEGER DEFAULT 1,
+            str_score INTEGER DEFAULT 10,
+            dex_score INTEGER DEFAULT 10,
+            con_score INTEGER DEFAULT 10,
+            int_score INTEGER DEFAULT 10,
+            wis_score INTEGER DEFAULT 10,
+            cha_score INTEGER DEFAULT 10,
+            conditions TEXT DEFAULT '[]',
+            spells TEXT DEFAULT '[]',
+            concentrating_on TEXT,
+            created_at TEXT DEFAULT (datetime('now')),
+            updated_at TEXT DEFAULT (datetime('now'))
+        );
+
+        CREATE TABLE IF NOT EXISTS inventory (
+            id TEXT PRIMARY KEY,
+            name TEXT NOT NULL,
+            type TEXT NOT NULL,
+            description TEXT,
+            weight REAL DEFAULT 0,
+            quantity INTEGER DEFAULT 1,
+            equipped INTEGER DEFAULT 0,
+            character_id TEXT,
+            created_at TEXT DEFAULT (datetime('now')),
+            FOREIGN KEY(character_id) REFERENCES characters(id) ON DELETE SET NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS quests (
+            id TEXT PRIMARY KEY,
+            title TEXT NOT NULL,
+            description TEXT,
+            status TEXT DEFAULT 'active',
+            category TEXT,
+            assigned_character TEXT,
+            session_date TEXT,
+            campaign_date TEXT,
+            created_at TEXT DEFAULT (datetime('now')),
+            updated_at TEXT DEFAULT (datetime('now')),
+            FOREIGN KEY(assigned_character) REFERENCES characters(id) ON DELETE SET NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS quest_objectives (
+            id TEXT PRIMARY KEY,
+            quest_id TEXT NOT NULL,
+            text TEXT NOT NULL,
+            status TEXT DEFAULT 'active',
+            created_at TEXT DEFAULT (datetime('now')),
+            FOREIGN KEY(quest_id) REFERENCES quests(id) ON DELETE CASCADE
+        );
+
+        CREATE TABLE IF NOT EXISTS quest_notes (
+            id TEXT PRIMARY KEY,
+            quest_id TEXT NOT NULL,
+            text TEXT NOT NULL,
+            session_date TEXT,
+            campaign_date TEXT,
+            created_at TEXT DEFAULT (datetime('now')),
+            FOREIGN KEY(quest_id) REFERENCES quests(id) ON DELETE CASCADE
+        );
+
+        CREATE TABLE IF NOT EXISTS journal_entries (
+            id TEXT PRIMARY KEY,
+            title TEXT NOT NULL,
+            content TEXT NOT NULL,
+            type TEXT DEFAULT 'note',
+            session_date TEXT,
+            campaign_date TEXT,
+            related_quest_id TEXT,
+            created_at TEXT DEFAULT (datetime('now')),
+            FOREIGN KEY(related_quest_id) REFERENCES quests(id) ON DELETE SET NULL
+        );
+
         CREATE VIRTUAL TABLE IF NOT EXISTS transcript_chunks_fts USING fts5(
             transcript,
             metadata
@@ -145,6 +230,8 @@ def store_chunk(
             (session_id, next_idx, transcript),
         )
         chunk_id = cur.lastrowid
+        if chunk_id is None:
+            raise ValueError("Failed to insert transcript chunk")
 
         if world_updates:
             conn.executemany(
@@ -188,7 +275,7 @@ def store_chunk(
         if entities:
             for item in entities:
                 entity_id = _upsert_entity(conn, chunk_id, item)
-                if entity_id:
+                if entity_id is not None:  # Add null check
                     _link_entity_aliases(conn, entity_id, item.get("aliases") or [])
                     conn.execute(
                         "INSERT OR IGNORE INTO entity_mentions (entity_id, chunk_id, mention_text) VALUES (?, ?, ?)",
@@ -292,14 +379,13 @@ def _upsert_entity(conn: sqlite3.Connection, chunk_id: int, record: Dict[str, An
             "UPDATE entities SET kind = ?, description = ?, last_chunk_id = ? WHERE id = ?",
             (new_kind, new_description or "", chunk_id, entity_id),
         )
+        return entity_id  # Explicit return
     else:
         cur = conn.execute(
             "INSERT INTO entities (name, kind, description, first_chunk_id, last_chunk_id) VALUES (?, ?, ?, ?, ?)",
             (name, kind or "unknown", description, chunk_id, chunk_id),
         )
-        entity_id = cur.lastrowid
-
-    return int(entity_id)
+        return cur.lastrowid  # Explicit return
 
 
 def _link_entity_aliases(
@@ -537,3 +623,252 @@ def _entities_by_chunk(conn: sqlite3.Connection, chunk_ids: Sequence[int]) -> Di
             }
         )
     return grouped
+
+# \\\--- App Data management functions ---///
+
+# CHARACTER MANAGEMENT
+def save_character(character_data: Dict[str, Any]) -> str:
+    conn = _get_conn()
+    with _lock:
+        cursor = conn.cursor()
+        
+        # Convert lists to JSON strings
+        import json
+        conditions_json = json.dumps(character_data.get('conditions', []))
+        spells_json = json.dumps(character_data.get('spells', []))
+        
+        cursor.execute('''
+            INSERT OR REPLACE INTO characters 
+            (id, name, class, level, hp, max_hp, ac, speed, hit_die, hit_dice,
+             str_score, dex_score, con_score, int_score, wis_score, cha_score,
+             conditions, spells, concentrating_on, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+        ''', (
+            character_data['id'],
+            character_data['name'],
+            character_data.get('class', 'Adventurer'),
+            character_data.get('level', 1),
+            character_data.get('hp', 1),
+            character_data.get('max_hp', 1),
+            character_data.get('ac', 10),
+            character_data.get('speed', 30),
+            character_data.get('hit_die', 8),
+            character_data.get('hit_dice', 1),
+            character_data.get('str_score', 10),
+            character_data.get('dex_score', 10),
+            character_data.get('con_score', 10),
+            character_data.get('int_score', 10),
+            character_data.get('wis_score', 10),
+            character_data.get('cha_score', 10),
+            conditions_json,
+            spells_json,
+            character_data.get('concentrating_on')
+        ))
+        
+        conn.commit()
+        return character_data['id']
+
+def get_all_characters() -> List[Dict[str, Any]]:
+    conn = _get_conn()
+    with _lock:
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM characters ORDER BY created_at DESC')
+        rows = cursor.fetchall()
+        
+        characters = []
+        for row in rows:
+            character = dict(row)
+            # Parse JSON fields
+            import json
+            character['conditions'] = json.loads(character.get('conditions', '[]'))
+            character['spells'] = json.loads(character.get('spells', '[]'))
+            characters.append(character)
+        
+        return characters
+
+def delete_character(character_id: str) -> bool:
+    conn = _get_conn()
+    with _lock:
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM characters WHERE id = ?', (character_id,))
+        conn.commit()
+        return cursor.rowcount > 0
+
+# INVENTORY MANAGEMENT
+def save_inventory_item(item_data: Dict[str, Any]) -> str:
+    conn = _get_conn()
+    with _lock:
+        cursor = conn.cursor()
+        cursor.execute('''
+            INSERT OR REPLACE INTO inventory 
+            (id, name, type, description, weight, quantity, equipped, character_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            item_data['id'],
+            item_data['name'],
+            item_data.get('type', 'misc'),
+            item_data.get('description', ''),
+            item_data.get('weight', 0),
+            item_data.get('quantity', 1),
+            1 if item_data.get('equipped', False) else 0,
+            item_data.get('character_id')
+        ))
+        
+        conn.commit()
+        return item_data['id']
+
+def get_all_inventory(character_id: Optional[str] = None) -> List[Dict[str, Any]]:
+    conn = _get_conn()
+    with _lock:
+        cursor = conn.cursor()
+        if character_id:
+            cursor.execute('SELECT * FROM inventory WHERE character_id = ? ORDER BY created_at DESC', (character_id,))
+        else:
+            cursor.execute('SELECT * FROM inventory ORDER BY created_at DESC')
+        
+        return [dict(row) for row in cursor.fetchall()]
+
+def delete_inventory_item(item_id: str) -> bool:
+    conn = _get_conn()
+    with _lock:
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM inventory WHERE id = ?', (item_id,))
+        conn.commit()
+        return cursor.rowcount > 0
+
+# QUEST MANAGEMENT
+def save_quest(quest_data: Dict[str, Any]) -> str:
+    conn = _get_conn()
+    with _lock:
+        cursor = conn.cursor()
+        cursor.execute('''
+            INSERT OR REPLACE INTO quests 
+            (id, title, description, status, category, assigned_character, session_date, campaign_date, updated_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, datetime('now'))
+        ''', (
+            quest_data['id'],
+            quest_data['title'],
+            quest_data.get('description', ''),
+            quest_data.get('status', 'active'),
+            quest_data.get('category', 'Main Quest'),
+            quest_data.get('assigned_character'),
+            quest_data.get('session_date'),
+            quest_data.get('campaign_date')
+        ))
+        
+        # Save objectives
+        if 'objectives' in quest_data:
+            cursor.execute('DELETE FROM quest_objectives WHERE quest_id = ?', (quest_data['id'],))
+            for objective in quest_data['objectives']:
+                cursor.execute('''
+                    INSERT INTO quest_objectives (id, quest_id, text, status)
+                    VALUES (?, ?, ?, ?)
+                ''', (
+                    objective.get('id', f"obj_{uuid.uuid4().hex[:8]}"),
+                    quest_data['id'],
+                    objective['text'],
+                    objective.get('status', 'active')
+                ))
+        
+        # Save notes
+        if 'notes' in quest_data:
+            cursor.execute('DELETE FROM quest_notes WHERE quest_id = ?', (quest_data['id'],))
+            for note in quest_data['notes']:
+                cursor.execute('''
+                    INSERT INTO quest_notes (id, quest_id, text, session_date, campaign_date)
+                    VALUES (?, ?, ?, ?, ?)
+                ''', (
+                    note.get('id', f"note_{uuid.uuid4().hex[:8]}"),
+                    quest_data['id'],
+                    note['text'],
+                    note.get('session_date'),
+                    note.get('campaign_date')
+                ))
+        
+        conn.commit()
+        return quest_data['id']
+
+def get_all_quests() -> List[Dict[str, Any]]:
+    conn = _get_conn()
+    with _lock:
+        cursor = conn.cursor()
+        cursor.execute('''
+            SELECT q.*, 
+                   GROUP_CONCAT(DISTINCT o.id) as objective_ids,
+                   GROUP_CONCAT(DISTINCT o.text) as objective_texts,
+                   GROUP_CONCAT(DISTINCT o.status) as objective_statuses
+            FROM quests q
+            LEFT JOIN quest_objectives o ON q.id = o.quest_id
+            GROUP BY q.id
+            ORDER BY q.created_at DESC
+        ''')
+        
+        quests = []
+        for row in cursor.fetchall():
+            quest = dict(row)
+            # Parse objectives
+            if quest.get('objective_ids'):
+                objective_ids = quest['objective_ids'].split(',')
+                objective_texts = quest['objective_texts'].split(',')
+                objective_statuses = quest['objective_statuses'].split(',')
+                
+                quest['objectives'] = [
+                    {'id': oid, 'text': otext, 'status': ostatus}
+                    for oid, otext, ostatus in zip(objective_ids, objective_texts, objective_statuses)
+                ]
+            else:
+                quest['objectives'] = []
+            
+            # Get notes
+            cursor2 = conn.cursor()
+            cursor2.execute('SELECT * FROM quest_notes WHERE quest_id = ? ORDER BY created_at DESC', (quest['id'],))
+            quest['notes'] = [dict(note) for note in cursor2.fetchall()]
+            
+            quests.append(quest)
+        
+        return quests
+
+def delete_quest(quest_id: str) -> bool:
+    conn = _get_conn()
+    with _lock:
+        cursor = conn.cursor()
+        cursor.execute('DELETE FROM quests WHERE id = ?', (quest_id,))
+        conn.commit()
+        return cursor.rowcount > 0
+
+# JOURNAL MANAGEMENT
+def save_journal_entry(entry_data: Dict[str, Any]) -> str:
+    conn = _get_conn()
+    with _lock:
+        cursor = conn.cursor()
+        cursor.execute('''
+            INSERT INTO journal_entries 
+            (id, title, content, type, session_date, campaign_date, related_quest_id)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        ''', (
+            entry_data['id'],
+            entry_data['title'],
+            entry_data['content'],
+            entry_data.get('type', 'note'),
+            entry_data.get('session_date'),
+            entry_data.get('campaign_date'),
+            entry_data.get('related_quest_id')
+        ))
+        
+        conn.commit()
+        return entry_data['id']
+
+def get_all_journal_entries(quest_id: Optional[str] = None) -> List[Dict[str, Any]]:
+    conn = _get_conn()
+    with _lock:
+        cursor = conn.cursor()
+        if quest_id:
+            cursor.execute('''
+                SELECT * FROM journal_entries 
+                WHERE related_quest_id = ? 
+                ORDER BY created_at DESC
+            ''', (quest_id,))
+        else:
+            cursor.execute('SELECT * FROM journal_entries ORDER BY created_at DESC')
+        
+        return [dict(row) for row in cursor.fetchall()]
