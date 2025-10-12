@@ -35,17 +35,15 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/theme.skins.css" />
   </head>
-
   <body>
     <div id="toast-root" aria-live="polite"></div>
-
     <header class="topbar" role="banner">
       <div class="topbar-inner">
         <div class="brand" aria-label="App brand">
           <span class="gem">◆</span>
           <span>Dungeon Scribe AI</span>
+          <button id="theme-toggle" title="Switch theme">🎨</button>
         </div>
-
         <nav class="main nav-p3r" aria-label="Primary">
           <a href="main.html">Home</a>
           <a href="inventory.html">Inventory</a>
@@ -53,134 +51,44 @@
           <a href="quests.html">Quests</a>
           <a href="characters.html">Characters</a>
         </nav>
-
-        <div class="right-actions">
-          <section class="tx" role="region" aria-label="Transcription controls">
-            <div class="status" aria-live="polite">
-              <span class="dot" id="tx-dot" aria-hidden="true"></span>
-              <span id="tx-state">Idle</span>
-            </div>
-            <div class="controls">
-              <button
-                id="btn-start"
-                title="Start recording (S)"
-                aria-pressed="false"
-              >
-                ▶
-              </button>
-              <button id="btn-pause" title="Pause/Resume (P)" disabled>
-                ⏸
-              </button>
-              <button id="btn-stop" title="Stop recording (X)" disabled>
-                ⏹
-              </button>
-            </div>
-          </section>
-
-          <div class="theme-menu">
-            <button
-              id="theme-button"
-              class="theme-button"
-              aria-expanded="false"
-              aria-haspopup="true"
-              title="Themes"
-            >
-              🎨
-            </button>
-            <div
-              id="theme-panel"
-              class="theme-panel"
-              role="dialog"
-              aria-modal="false"
-              aria-label="Theme chooser"
-            >
-              <div class="theme-panel-header">
-                <div>Theme</div>
-                <button
-                  id="fullscreen-toggle"
-                  class="mini"
-                  title="Toggle fullscreen"
-                >
-                  ⛶
-                </button>
-              </div>
-              <div class="theme-grid">
-                <button class="swatch" data-theme="p3reload">
-                  <span
-                    class="swatch-chip"
-                    style="--c1: #b499ea; --c2: #1e1828"
-                  ></span>
-                  <span class="swatch-name">Neo Arcane</span>
-                </button>
-                <button class="swatch" data-theme="metaphor">
-                  <span
-                    class="swatch-chip"
-                    style="--c1: #101418; --c2: #2a2f3a"
-                  ></span>
-                  <span class="swatch-name">Metaphor</span>
-                </button>
-                <button class="swatch" data-theme="p3reload-bright">
-                  <span
-                    class="swatch-chip"
-                    style="--c1: #e5e1ff; --c2: #27213a"
-                  ></span>
-                  <span class="swatch-name">Bright</span>
-                </button>
-                <button class="swatch" data-theme="oak">
-                  <span
-                    class="swatch-chip"
-                    style="--c1: #3a2a1a; --c2: #a47c48"
-                  ></span>
-                  <span class="swatch-name">Oak</span>
-                </button>
-                <button class="swatch" data-theme="parchment">
-                  <span
-                    class="swatch-chip"
-                    style="--c1: #f0e6cf; --c2: #5b4636"
-                  ></span>
-                  <span class="swatch-name">Parchment</span>
-                </button>
-                <button class="swatch" data-theme="ember">
-                  <span
-                    class="swatch-chip"
-                    style="--c1: #1c0f0a; --c2: #b45309"
-                  ></span>
-                  <span class="swatch-name">Ember</span>
-                </button>
-              </div>
-            </div>
+        <section class="tx" role="region" aria-label="Transcription controls">
+          <div class="status" aria-live="polite">
+            <span class="dot" id="tx-dot" aria-hidden="true"></span>
+            <span id="tx-state">Idle</span>
           </div>
-        </div>
+          <div class="controls">
+            <button
+              id="btn-start"
+              title="Start recording (S)"
+              aria-pressed="false"
+            >
+              ▶
+            </button>
+            <button id="btn-pause" title="Pause/Resume (P)" disabled>⏸</button>
+            <button id="btn-stop" title="Stop recording (X)" disabled>⏹</button>
+          </div>
+        </section>
       </div>
     </header>
 
     <main class="container">
-      <aside class="npcs panel" id="npcs-panel" aria-label="NPCs">
-        <div class="npcs-body">
-          <h2 class="npcs-header">NPCs</h2>
-          <div class="npc-preview">
-            <div class="npc-portrait-frame">
-              <img id="npc-portrait" alt="" />
-            </div>
-            <div class="npc-preview-info">
-              <div id="npc-preview-name">Select an NPC</div>
-              <div id="npc-preview-role">HP —</div>
-            </div>
-          </div>
-          <div class="npcs-list" id="npcs-list"></div>
-          <div class="npcs-actions">
-            <button id="add-npc">Add NPC</button>
+      <aside class="timeline panel" aria-label="Session timeline">
+        <h2>Timeline &amp; Questline</h2>
+        <div id="timeline-upgraded"></div>
+        <div class="timeline-body" id="timeline-body">
+          <div class="rail" id="timeline-rail">
+            <div class="progress-line" id="progress-line"></div>
           </div>
         </div>
-        <button
-          class="npcs-toggle"
-          id="npcs-collapse"
-          aria-expanded="true"
-          title="Collapse"
-        >
-          ⟨
-        </button>
-        <div class="npcs-tab" id="npcs-tab" title="Expand NPCs">⟩</div>
+        <div id="timeline-placeholder" class="placeholder">No timeline yet</div>
+        <section class="quests" aria-label="Recent quests">
+          <h3>Recent Quests</h3>
+          <div id="quest-list">
+            <div id="quest-placeholder" class="placeholder">
+              No recent quests
+            </div>
+          </div>
+        </section>
       </aside>
 
       <section class="log panel" aria-label="Conversation log">
@@ -249,15 +157,33 @@
             <div>
               <div>
                 <strong>Kyra</strong>
-                <span class="pill" id="first-species" contenteditable="true"
-                  >ORC</span
-                >
-                <span class="pill" id="first-class" contenteditable="true"
-                  >Warlock L1</span
-                >
-                <span class="pill" id="first-gender" contenteditable="true"
-                  >Female</span
-                >
+                <span class="pill" id="first-species" contenteditable="true">
+                  ORC<img
+                    src="../public/assets/edit.png"
+                    class="edit-icon"
+                    width="16"
+                    height="16"
+                    alt="edit icon"
+                  />
+                </span>
+                <span class="pill" id="first-class" contenteditable="true">
+                  Warlock L1<img
+                    src="../public/assets/edit.png"
+                    class="edit-icon"
+                    width="16"
+                    height="16"
+                    alt="edit icon"
+                  />
+                </span>
+                <span class="pill" id="first-gender" contenteditable="true">
+                  Female<img
+                    src="../public/assets/edit.png"
+                    class="edit-icon"
+                    width="16"
+                    height="16"
+                    alt="edit icon"
+                  />
+                </span>
               </div>
               <div class="stats">
                 <span class="pill hp">HP 10</span>
@@ -278,83 +204,109 @@
             <button>Short Rest</button>
           </div>
         </article>
+
+        <!--
+        <article class="card" aria-label="Character Thorne card">
+          <div class="top">
+            <div class="token" id="thorne-token">T</div>
+            <div>
+              <div>
+                <strong>Thorne</strong>
+                <span class="pill" id="second-species" contenteditable="true">
+                  Human<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="second-class" contenteditable="true">
+                  Hero<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="second-gender" contenteditable="true">
+                  Male<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+              </div>
+              <div class="stats">
+                <span class="pill hp">HP 9</span>
+                <span class="pill ac">AC 14</span>
+                <span class="pill speed">30 ft</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="generatePortrait('thorne-token','Thorne','second-class','second-species','second-gender')">
+            🎨 Generate Portrait
+          </button>
+          <div class="actions">
+            <button>Sneak Attack</button>
+            <button>Hide</button>
+          </div>
+        </article>
+
+        <article class="card" aria-label="Character Seren card">
+          <div class="top">
+            <div class="token" id="seren-token">S</div>
+            <div>
+              <div>
+                <strong>Seren</strong>
+                <span class="pill" id="third-species" contenteditable="true">
+                  Elf<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="third-class" contenteditable="true">
+                  Wizard<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="third-gender" contenteditable="true">
+                  Female<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+              </div>
+              <div class="stats">
+                <span class="pill hp">HP 11</span>
+                <span class="pill ac">AC 18</span>
+                <span class="pill speed">30 ft</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="generatePortrait('seren-token','Seren','third-class','third-species','third-gender')">
+            🎨 Generate Portrait
+          </button>
+          <div class="actions">
+            <button>Guiding Bolt</button>
+            <button>Heal</button>
+          </div>
+        </article>
+
+        <article class="card" aria-label="Character Mira card">
+          <div class="top">
+            <div class="token" id="mira-token">M</div>
+            <div>
+              <div>
+                <strong>Mira</strong>
+                <span class="pill" id="fourth-species" contenteditable="true">
+                  DragonBorn<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="fourth-class" contenteditable="true">
+                  Barbarian<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+                <span class="pill" id="fourth-gender" contenteditable="true">
+                  Male<img src="../public/assets/edit.png" class="edit-icon" width="16" height="16" alt="edit icon" />
+                </span>
+              </div>
+              <div class="stats">
+                <span class="pill hp">HP 8</span>
+                <span class="pill ac">AC 13</span>
+                <span class="pill speed">30 ft</span>
+              </div>
+            </div>
+          </div>
+          <button onclick="generatePortrait('mira-token','Mira','fourth-class','fourth-species','fourth-gender')">
+            🎨 Generate Portrait
+          </button>
+          <div class="actions">
+            <button>Magic Missile</button>
+            <button>Shield</button>
+          </div>
+        </article>
+        -->
       </div>
     </footer>
 
     <script src="js/main.js" defer></script>
     <script src="js/main_live.js" defer></script>
     <script type="module" src="js/tl2.js"></script>
-    <script>
-      const themeBtn = document.getElementById("theme-button");
-      const themePanel = document.getElementById("theme-panel");
-      const root = document.documentElement;
-      const THEME_KEY = "ds-theme";
-      const saved = localStorage.getItem(THEME_KEY);
-      if (saved) root.setAttribute("data-theme", saved);
-      function openTheme(open) {
-        themePanel.classList.toggle("open", open);
-        themeBtn.setAttribute("aria-expanded", open ? "true" : "false");
-      }
-      themeBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        openTheme(!themePanel.classList.contains("open"));
-      });
-      themePanel.addEventListener("click", (e) => {
-        const t = e.target.closest(".swatch");
-        if (!t) return;
-        const val = t.getAttribute("data-theme");
-        root.setAttribute("data-theme", val);
-        localStorage.setItem(THEME_KEY, val);
-        openTheme(false);
-      });
-      document.addEventListener("click", (e) => {
-        if (!themePanel.contains(e.target) && e.target !== themeBtn) {
-          openTheme(false);
-        }
-      });
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") openTheme(false);
-      });
-      const fsBtn = document.getElementById("fullscreen-toggle");
-      if (fsBtn) {
-        fsBtn.addEventListener("click", async () => {
-          if (!document.fullscreenElement) {
-            await document.documentElement.requestFullscreen();
-          } else {
-            await document.exitFullscreen();
-          }
-        });
-      }
-      const npcsPanel = document.getElementById("npcs-panel");
-      const collapseBtn = document.getElementById("npcs-collapse");
-      const expandTab = document.getElementById("npcs-tab");
-      function setCollapsed(c) {
-        if (c) {
-          npcsPanel.classList.add("collapsed");
-          collapseBtn.setAttribute("aria-expanded", "false");
-        } else {
-          npcsPanel.classList.remove("collapsed");
-          collapseBtn.setAttribute("aria-expanded", "true");
-        }
-      }
-      if (collapseBtn) {
-        collapseBtn.addEventListener("click", () => setCollapsed(true));
-      }
-      if (expandTab) {
-        expandTab.addEventListener("click", () => setCollapsed(false));
-      }
-      const addNpcBtn = document.getElementById("add-npc");
-      if (addNpcBtn) {
-        addNpcBtn.addEventListener("click", () => {
-          const list = document.getElementById("npcs-list");
-          const wrap = document.createElement("div");
-          wrap.className = "npc";
-          wrap.innerHTML = `<div class="npc-name">New NPC</div><div class="npc-meta">Unknown</div>`;
-          list.prepend(wrap);
-        });
-      }
-    </script>
-    <script src="js/npc.js" defer></script>
-    <script src="js/npc_ai.js" defer></script>
   </body>
 </html>
