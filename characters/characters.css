@@ -1,0 +1,128 @@
+/* ---------------------------
+  Dungeon Scribe — Full UI Styles
+  (Standalone: NO external style import)
+   - Font: Cinzel (headings) + Inter (body)
+   - Rich dark fantasy palette, subtle textures, glass surfaces
+---------------------------- */
+
+:root{
+  --bg:#0b0910;
+  --panel:#15121a;
+  --panel-2:#1d1926;
+  --glass:rgba(255,255,255,0.03);
+  --muted:#b3b0c6;
+  --text:#eceaf7;
+  --accent:#8b5cf6;
+  --accent-2:#b794ff;
+  --danger:#f87171;
+  --success:#34d399;
+  --radius:14px;
+  --shadow: 0 12px 50px rgba(5,3,12,0.75);
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:
+  radial-gradient(circle at 15% 5%, rgba(139,92,246,0.06), transparent 12%),
+  linear-gradient(180deg,#06050a,#0b0910) fixed;
+  color:var(--text);font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+}
+
+/* Topbar */
+.topbar{position:sticky;top:0;z-index:60;padding:14px 20px;backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:space-between}
+.topbar-inner{display:flex;align-items:center;width:100%;gap:18px;max-width:1400px;margin:0 auto}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;font-size:22px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 10px 40px rgba(139,92,246,0.12)}
+.title{font-family:"Cinzel",serif;font-size:18px;font-weight:700;color:var(--text)}
+.subtitle{font-size:12px;color:var(--muted);margin-left:6px}
+
+/* Top nav */
+.topnav{display:flex;gap:10px;margin-left:8px}
+.nav-btn{color:var(--muted);padding:6px 10px;border-radius:8px;text-decoration:none;border:1px solid transparent}
+.nav-btn:hover{color:var(--text);background:var(--glass)}
+
+/* Main layout */
+.layout{max-width:1400px;margin:18px auto;padding:0 18px;display:grid;grid-template-columns:300px 1fr 320px;gap:18px}
+
+/* Panels */
+.panel{background:linear-gradient(180deg,var(--panel),var(--panel-2));border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid rgba(255,255,255,0.03);overflow:hidden;display:flex;flex-direction:column}
+.panel-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.02)}
+.panel-header h3{margin:0;font-family:"Cinzel",serif;font-size:16px}
+.panel-actions{display:flex;gap:8px;align-items:center}
+.muted{color:var(--muted);font-size:13px}
+
+/* Scrollable utility */
+.scrollable{overflow:auto;scrollbar-width:thin}
+.scrollable::-webkit-scrollbar{width:9px}
+.scrollable::-webkit-scrollbar-thumb{background:#3b3654;border-radius:8px}
+.scrollable::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+
+/* Roster */
+.roster-list{padding:12px;display:flex;flex-direction:column;gap:10px}
+.card{display:flex;align-items:center;gap:10px;padding:10px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.02);cursor:pointer;transition:all .18s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(139,92,246,0.06);border-color:rgba(139,92,246,0.12)}
+.card.active{outline:2px solid rgba(139,92,246,0.16)}
+.token{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;font-weight:800;background:linear-gradient(135deg,var(--accent),#412a82);color:white;box-shadow:0 8px 30px rgba(110,80,240,0.12)}
+
+/* Inputs */
+input, textarea, select{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);color:var(--text);padding:8px;border-radius:8px;font-size:13px}
+input:focus,textarea:focus,select:focus{outline:none;box-shadow:0 6px 30px rgba(139,92,246,0.08);border-color:var(--accent)}
+
+/* Detail sheet area */
+.sheet-area{padding:14px;display:flex;flex-direction:column;gap:12px;min-height:420px}
+.placeholder{padding:28px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);text-align:center;color:var(--muted);font-style:italic}
+
+/* Character view */
+.char-view{display:flex;flex-direction:column;gap:12px}
+.char-header{display:flex;gap:14px;align-items:center}
+.char-name{font-family:"Cinzel",serif;font-size:20px;font-weight:700}
+.char-meta{color:var(--muted);font-size:13px}
+.char-stats{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.stat{background:rgba(255,255,255,0.02);padding:6px 8px;border-radius:8px;border:1px solid rgba(255,255,255,0.02)}
+
+/* Abilities grid */
+.abilities{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.ability{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:10px;border-radius:8px;text-align:center}
+.ability strong{display:block;font-size:18px}
+
+/* Quickref (right) */
+.quick-body{padding:14px;display:flex;flex-direction:column;gap:10px}
+
+/* Buttons */
+.btn{padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:rgba(255,255,255,0.02);color:var(--text);cursor:pointer}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:white;box-shadow:0 8px 30px rgba(139,92,246,0.18)}
+.btn.subtle{background:transparent;border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
+
+/* Modal sheet */
+.modal-overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(0deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6));backdrop-filter:blur(6px);z-index:120}
+.sheet-form{width:980px;max-width:95vw;background:linear-gradient(180deg,var(--panel-2),var(--panel));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:14px}
+.sheet-header{display:flex;flex-direction:column;gap:6px}
+.sheet-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.box{background:rgba(255,255,255,0.01);padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+.box.large{grid-column:span 2}
+.abilities{grid-column:span 2;display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.sheet-actions{display:flex;justify-content:flex-end;gap:8px}
+
+/* Chat widget */
+.chat-widget{position:fixed;right:20px;bottom:20px;width:320px;background:var(--panel-2);border-radius:12px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 18px 40px rgba(0,0,0,0.6);overflow:hidden;display:flex;flex-direction:column;z-index:140}
+.chat-header{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.02)}
+.chat-body{padding:10px;height:260px;display:flex;flex-direction:column;gap:8px;overflow:auto}
+.chat-form{display:flex;padding:10px;border-top:1px solid rgba(255,255,255,0.02);gap:8px}
+.chat-form input{flex:1}
+
+/* Responsive */
+@media (max-width:1100px){
+  .layout{grid-template-columns:1fr;padding:12px}
+  .sheet-form{width:92vw}
+  .sheet-grid{grid-template-columns:repeat(2,1fr)}
+  .box.large{grid-column:span 2}
+}
+@media print{
+  body{background:white;color:black}
+  .topbar,.roster,.quickref,.btn,.chat-widget{display:none!important}
+  .char-view{box-shadow:none;border:none}
+}
