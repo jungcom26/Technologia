@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dungeon Scribe — Characters</title>
+
+  <!-- Fonts (heading + body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- local CSS (standalone, does not import other css) -->
+  <link rel="stylesheet" href="css/characters.css" />
+
+  <!-- PDF export libs (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- TOP NAV (Home / Inventory / Journal) -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="logo">⚝</div>
+        <div class="title">Dungeon Scribe</div>
+        <div class="subtitle">Characters</div>
+      </div>
+
+      <nav class="topnav">
+        <a class="nav-btn" href="main.html">Home</a>
+        <a class="nav-btn" href="inventory.html">Inventory</a>
+        <a class="nav-btn" href="journal.html">Journal</a>
+      </nav>
+
+      <div class="right-actions">
+        <button id="btn-new" class="btn primary">New Character</button>
+        <button id="btn-chat-open" class="btn subtle">Chat</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN LAYOUT -->
+  <main class="layout">
+
+    <!-- ROSTER -->
+    <aside class="panel roster">
+      <div class="panel-header">
+        <div>
+          <h3>Roster</h3>
+          <div class="muted">Your party & NPC cards</div>
+        </div>
+        <div class="panel-actions">
+          <input id="search" placeholder="Search by name, class, or tag..." />
+        </div>
+      </div>
+      <div id="roster" class="roster-list scrollable"></div>
+      <div class="panel-footer muted">
+        Tip: Ctrl / ⌘ + click to select multiple for AoE.
+      </div>
+    </aside>
+
+    <!-- DETAIL / SHEET -->
+    <section class="panel detail">
+      <div class="panel-header">
+        <div>
+          <h3>Character Sheet</h3>
+          <div class="muted">Complete & printable — built for D&D 5e</div>
+        </div>
+        <div class="panel-actions">
+          <button id="btn-export-plain" class="btn subtle">Export PDF</button>
+          <button id="btn-export-card" class="btn subtle">Export Card (PNG)</button>
+        </div>
+      </div>
+
+      <div class="sheet-area scrollable">
+
+        <!-- Placeholder -->
+        <div id="placeholder" class="placeholder">
+          Create or select a character to view their full sheet here.
+        </div>
+
+        <!-- Character main view (filled by JS) -->
+        <div id="char-view" class="char-view" style="display:none"></div>
+
+      </div>
+    </section>
+
+    <!-- QUICK REFERENCE -->
+    <aside class="panel quickref">
+      <div class="panel-header">
+        <h3>Quick Reference</h3>
+        <div class="muted">Rules & tips — concise</div>
+      </div>
+
+      <div class="quick-body scrollable">
+        <h4>Short Rest</h4>
+        <p class="muted">A short rest is at least 1 hour. Spend Hit Dice to regain HP: roll each Hit Die and add your CON modifier to each die roll.</p>
+
+        <h4>Long Rest</h4>
+        <p class="muted">A long rest is 8 hours. You regain all HP, and recover spent Hit Dice up to half your total (rounded up).</p>
+
+        <h4>Concentration</h4>
+        <p class="muted">When you take damage while concentrating, you must make a CON save with DC = max(10, damage/2). On fail, you lose concentration.</p>
+
+        <h4>Combat Basics</h4>
+        <p class="muted">Advantage: roll 2d20 take higher. Disadvantage: roll 2d20 take lower.</p>
+      </div>
+
+      <div class="panel-footer">
+        <button id="btn-aoe" class="btn danger">AoE Damage</button>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- CHARACTER SHEET MODAL (very comprehensive) -->
+  <div id="modal" class="modal-overlay" style="display:none">
+    <form id="form" class="sheet-form scrollable">
+      <header class="sheet-header">
+        <h2 id="form-title">Create Character</h2>
+        <div class="muted">Fill as many fields as you like — all data is saved locally</div>
+      </header>
+
+      <section class="sheet-grid">
+
+        <!-- top basic block -->
+        <div class="box">
+          <label>Name<input name="name" required /></label>
+          <label>Race<input name="race" placeholder="e.g. Human, Elf" /></label>
+          <label>Background<input name="background" /></label>
+          <label>Class<input name="cls" placeholder="Fighter / Wizard" required /></label>
+          <label>Subclass<input name="subclass" placeholder="Optional" /></label>
+          <label>Level<input name="level" type="number" min="1" value="1" /></label>
+          <label>Experience<input name="xp" type="number" min="0" value="0" /></label>
+          <label>Alignment<input name="alignment" placeholder="e.g. Chaotic Good" /></label>
+        </div>
+
+        <!-- defensive stats -->
+        <div class="box">
+          <label>Max HP<input name="maxHp" type="number" value="10" /></label>
+          <label>Current HP<input name="hp" type="number" value="10" /></label>
+          <label>Temporary HP<input name="tempHp" type="number" value="0" /></label>
+          <label>AC<input name="ac" type="number" value="10" /></label>
+          <label>Initiative<input name="initiative" type="number" value="0" /></label>
+          <label>Speed<input name="speed" type="number" value="30" /></label>
+          <label>Hit Die (type)<input name="hitDie" placeholder="e.g. d8" /></label>
+          <label>Hit Dice (total)<input name="hitDice" type="number" value="1" /></label>
+        </div>
+
+        <!-- ability scores -->
+        <div class="box abilities">
+          <div><label>STR<input name="str" type="number" value="10" /></label></div>
+          <div><label>DEX<input name="dex" type="number" value="10" /></label></div>
+          <div><label>CON<input name="con" type="number" value="10" /></label></div>
+          <div><label>INT<input name="int" type="number" value="10" /></label></div>
+          <div><label>WIS<input name="wis" type="number" value="10" /></label></div>
+          <div><label>CHA<input name="cha" type="number" value="10" /></label></div>
+        </div>
+
+        <!-- proficiencies, saves, skills -->
+        <div class="box large">
+          <h4>Proficiencies & Skills</h4>
+          <label>Proficiency Bonus<input name="prof" type="number" value="2" /></label>
+          <label>Saving Throws (comma separated)<input name="savingThrows" placeholder="STR, DEX..." /></label>
+          <label>Skills (comma separated)<input name="skills" placeholder="Stealth, Perception..." /></label>
+          <label>Languages<input name="languages" placeholder="Common, Elvish..." /></label>
+        </div>
+
+        <!-- spells & slots -->
+        <div class="box large">
+          <h4>Spells & Spell Slots</h4>
+          <label>Spellcasting Ability<input name="spellcastingAbility" placeholder="e.g. INT" /></label>
+          <label>Spellcasting DC<input name="spellDC" type="number" /></label>
+          <label>Spell Attack Bonus<input name="spellAttack" type="number" /></label>
+          <label>Known Spells (comma separated)<textarea name="spells" placeholder="e.g. Fire Bolt, Cure Wounds"></textarea></label>
+          <label>Spell Slots (json or CSV)<textarea name="spellSlots" placeholder='e.g. 1:4,2:3'></textarea></label>
+        </div>
+
+        <!-- equipment / currency / features -->
+        <div class="box large">
+          <h4>Equipment & Currency</h4>
+          <label>Armor / Weapons<textarea name="equipment" placeholder="List equipment"></textarea></label>
+          <label>Gold / Silver / Copper<input name="gp" placeholder="gp / sp / cp, e.g. 12 / 3 / 7" /></label>
+          <label>Features & Traits<textarea name="features" placeholder="Special features / trait text"></textarea></label>
+        </div>
+
+        <!-- personality and notes -->
+        <div class="box large">
+          <h4>Personality & Backstory</h4>
+          <label>Personality Traits<textarea name="personality" placeholder="Short traits"/></label>
+          <label>Ideals<textarea name="ideals" placeholder="Ideals"/></label>
+          <label>Bonds<textarea name="bonds" placeholder="Bonds"/></label>
+          <label>Flaws<textarea name="flaws" placeholder="Flaws"/></label>
+          <label>Backstory<textarea name="backstory" placeholder="Longer backstory (visible on print)"></textarea></label>
+        </div>
+
+        <!-- notes -->
+        <div class="box large">
+          <h4>Notes & DM Info</h4>
+          <label>Notes<textarea name="notes" placeholder="Anything else the DM should know"></textarea></label>
+        </div>
+
+      </section>
+
+      <footer class="sheet-actions">
+        <button type="submit" class="btn primary">Save Character</button>
+        <button type="button" id="cancel" class="btn">Cancel</button>
+      </footer>
+    </form>
+  </div>
+
+  <!-- Chatbot (small UI) -->
+  <div id="chat" class="chat-widget" style="display:none">
+    <div class="chat-header">
+      <strong>Helper</strong>
+      <button id="chat-close" class="btn subtle">✕</button>
+    </div>
+    <div id="chat-body" class="chat-body scrollable"></div>
+    <form id="chat-form" class="chat-form">
+      <input id="chat-input" placeholder="Ask about rules or your characters…" />
+      <button class="btn primary">Ask</button>
+    </form>
+  </div>
+
+  <!-- audio (dice roll) -->
+  <audio id="dice-sound" src="https://cdn.jsdelivr.net/gh/naptha/tonejs-examples/audio/dice.mp3"></audio>
+
+  <!-- necessary scripts -->
+  <script src="js/characters.js"></script>
+</body>
+</html>
