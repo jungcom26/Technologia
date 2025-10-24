@@ -328,8 +328,7 @@ Follow these steps to install and run DungeonScribe on your computer.
 
 ```bash
 # If using Git
-git clone https://github.com/your-username/DungeonScribe.git
-cd DungeonScribe
+git clone https://github.com/jungcom26/Technologia.git
 
 # Or download and extract the ZIP file, then navigate to the folder
 ```
