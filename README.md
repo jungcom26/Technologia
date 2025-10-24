@@ -280,13 +280,14 @@ Your data is safe, secure, and always accessible.
 
 ### Perfect For:
 
-✅ **Busy DMs** who want less prep and more play
-✅ **Story-focused groups** who value narrative continuity
-✅ **Long campaigns** that need detailed archives
-✅ **Remote groups** playing over video chat
-✅ **Content creators** who want session records for podcasts/streams
-✅ **New DMs** who need character management help
+✅ **Busy DMs** who want less prep and more play  
+✅ **Story-focused groups** who value narrative continuity  
+✅ **Long campaigns** that need detailed archives  
+✅ **Remote groups** playing over video chat  
+✅ **Content creators** who want session records for podcasts/streams  
+✅ **New DMs** who need character management help  
 ✅ **Organized groups** who want professional-grade tools
+
 
 ### Great For These Play Styles:
 
