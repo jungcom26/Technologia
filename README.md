@@ -336,7 +336,7 @@ git clone https://github.com/jungcom26/Technologia.git
 **2. Navigate to the backend directory:**
 
 ```bash
-cd DungeonScribe_Integrated_v3
+cd DungeonScribe_Integrated_v4
 ```
 
 **3. Install Python dependencies from requirements.txt:**
