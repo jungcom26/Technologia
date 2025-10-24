@@ -1,18 +1,18 @@
-# 🏰 Dungeon Scribe 📜
+# Dungeon Scribe
 
 *“Where stories are written by hand and forged in imagination.”*
 
 **Developed by Team Technologia **
 
-Transform your D&D sessions with AI-powered transcription, intelligent character tracking, and a beautiful medieval interface that makes every game night feel epic.
+Transform your D&D sessions with AI-powered transcription, character tracking, and several beautiful medieval themes that enhance every game night feel epic.
 
 ---
 
-## 🎯 What is DungeonScribe?
+## What is DungeonScribe?
 
-DungeonScribe is your ultimate D&D companion that **listens to your game, remembers everything, and organizes it automatically**. No more scrambling to take notes while you're trying to roleplay, you just have to focus on the story, and let DungeonScribe handle all the complex details.
+DungeonScribe is your ultimate D&D companion that **listens to your game, remembers everything, and organizes it automatically**. No more scrambling to take notes while you are trying to roleplay, you just have to focus on the story, and let DungeonScribe handle all the complex details.
 
-### The Problem We Solve
+### The Problem We Aim to Solve
 
 **As a Dungeon Master, you're juggling:**
 -  Taking notes while describing scenes
@@ -25,9 +25,9 @@ DungeonScribe is your ultimate D&D companion that **listens to your game, rememb
 
 ---
 
-## ✨ Key Features
+## Key Features
 
-### 🎤 **Live Transcription** — Never Miss a Moment
+### **Live Transcription** — Never Miss a Moment
 
 Just **speak naturally** during your game. DungeonScribe:
 - Records everything said at the table
@@ -44,9 +44,9 @@ Just **speak naturally** during your game. DungeonScribe:
 > - Logs the combat outcome
 > - Timestamps the event
 
-### 🧙‍♂️ **Smart Character Management** — A editable Character Sheet
+### **Smart Character Management** — A editable Character Sheet
 
-Create **full character sheets** with everything you need:
+Create **Full Character Sheets** with everything Dungeon Masters need:
 
 **Combat Stats** 
 - HP, AC, Initiative, Speed
@@ -79,7 +79,7 @@ Create **full character sheets** with everything you need:
 
 > **Note:** For now, all these things can be manually added, but improvements in the pipeline can automate this process in future updates!
 
-### 📦 **Inventory System** — Track Every Item
+### **Inventory System** — Track Every Item
 
 Never lose track of loot again:
 
@@ -94,7 +94,7 @@ Never lose track of loot again:
 - "Did we already find the Staff of Fire?"
 - "Let me check what healing items we have"
 
-### 🤖 **AI-Powered Intelligence** — Your Silent Assistant
+### **AI-Powered Intelligence** — Your Silent Assistant
 
 DungeonScribe uses cutting-edge AI to understand your game:
 
@@ -121,7 +121,7 @@ DungeonScribe uses cutting-edge AI to understand your game:
 - No internet required for basic features
 - Privacy-focused: all processing happens locally, even the LLM processing!
 
-💬 Ask Archive — Talk to Your Campaign History
+Ask Archive — Talk to Your Campaign History
 
 Have a question about your campaign? Just ask in natural language!
 
@@ -131,7 +131,7 @@ How It Works:
 - Get answers in easy-to-understand natural language
 - No need to remember exact keywords or dates
 
-### 🎨 **Beautiful Medieval Interface** — Immerse Your Players
+### **Beautiful Medieval Interface** — Immerse Your Players
 
 Every screen is designed to feel like you're in a medieval library:
 
@@ -155,7 +155,7 @@ Every screen is designed to feel like you're in a medieval library:
 - Add images and artwork
 - Add important quests and plot points
 
-### 🖼️ **AI Art Generation** — Bring Your World to Life *(Optional)*
+### **AI Art Generation** — Bring Your World to Life *(Optional)*
 
 Generate campaign artwork on the fly:
 - Character portraits
@@ -165,7 +165,7 @@ Generate campaign artwork on the fly:
 
 Just click on the transcription and AI creates that scene instantly!
 
-### 💾 **Everything is Saved** — Never Lose Progress
+### **Everything is Saved** — You Never Lose Progress
 
 **Triple Backup System**:
 1. **SQLite Database** — Fast, searchable, relational
@@ -240,7 +240,7 @@ Your data is safe, secure, and always accessible.
 
 ---
 
-## Why DungeonScribe is Different
+## Why DungeonScribe is Different?
 
 ### Compared to Manual Note-Taking
 
@@ -276,11 +276,11 @@ Your data is safe, secure, and always accessible.
 
 ---
 
-## 🎯 Who Is This For?
+## Who Is This For?
 
 ### Perfect For:
 
-✅ **Busy DMs** who want less prep and more play  
+✅ **Busy Dungeon Masters** who want less preparation and focus on more play  
 ✅ **Story-focused groups** who value narrative continuity  
 ✅ **Long campaigns** that need detailed archives  
 ✅ **Remote groups** playing over video chat  
@@ -682,7 +682,7 @@ export WHISPER_NUM_WORKERS=1
 
 ---
 
-## 🤝 Join the Community
+## Join the Community
 
 **DungeonScribe is open source and community-driven!**
 
