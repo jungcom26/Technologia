@@ -254,7 +254,7 @@ Your data is safe, secure, and always accessible.
 
 ### Compared to Other Tools
 
-**D&D Beyond / Roll20:**
+**D&D Beyond / Roll20**
 - ✅ Great for character sheets and events
 - ❌ Don't record your actual game
 - ❌ Don't transcribe conversations
@@ -706,13 +706,13 @@ export WHISPER_NUM_WORKERS=1
 
 **Special Thanks:**
 - Ella (Our Tutor) — For guiding us throughout the semester with invaluable feedback and support
-- Professor Mashhuda Glencross & Jason Weigel — For inspiring us to build meaningful projects
+- Professor Mashhuda Glencross & Jason Weigel — For giving us a chace to build this project
 - Whisper AI Team at OpenAI — For making speech recognition accessible to everyone
 - Ollama Project & Community — For enabling local AI inference with privacy in mind
 - FastAPI Framework Developers — For creating an incredible web framework
 - Stable Diffusion Community — For democratizing AI art generation
-- D&D 5e & TTRPG Community — For decades of inspiration and creativity
-- All Our Beta Testers & DMs We Interviewed — For honest feedback that shaped DungeonScribe into what it is today
+- D&D 5e & TTRPG Community — For inspiration and creativity
+- All Our Beta Testers & DMs We Interviewed — For honest feedback that shaped DungeonScribe into what it is built
 ---
 
 ## 🎲 Final Words
