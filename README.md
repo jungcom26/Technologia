@@ -508,27 +508,6 @@ You should see the Stable Diffusion interface.
 
 ---
 
-**Option B: Alternative Stable Diffusion Methods**
-
-If AUTOMATIC1111 doesn't work for you, try:
-
-**ComfyUI** (More efficient, steeper learning curve):
-```bash
-git clone https://github.com/comfyanonymous/ComfyUI.git
-cd ComfyUI
-pip install -r requirements.txt
-python main.py --listen 127.0.0.1 --port 7860
-```
-
-**InvokeAI** (User-friendly, good for beginners):
-```bash
-pip install invokeai
-invokeai-configure  # Follow the prompts
-invokeai --web --host 127.0.0.1 --port 7860
-```
-
----
-
 ### Step 4: Launch DungeonScribe
 
 **1. Start all services in separate terminal windows:**
