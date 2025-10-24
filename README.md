@@ -599,21 +599,20 @@ When prompted, click "Allow" to let DungeonScribe access your microphone.
 
 ---
 
-## 🎁 What You Get
-
 ### Included Features (100% Free)
 
-✅ Unlimited transcription
-✅ Unlimited characters
-✅ Unlimited campaigns
-✅ Full D&D 5e based character sheets
-✅ Inventory system
-✅ Auto-save and backup
-✅ Export to PDF/PNG
-✅ Local storage (your data stays on your computer)
-✅ No account required
-✅ No internet needed (except for optional AI features)
+✅ Unlimited transcription  
+✅ Unlimited characters  
+✅ Unlimited campaigns  
+✅ Full D&D 5e based character sheets  
+✅ Inventory system  
+✅ Auto-save and backup  
+✅ Export to PDF/PNG  
+✅ Local storage (your data stays on your computer)  
+✅ No account required  
+✅ No internet needed (except for optional AI features)  
 ✅ Regular updates
+
 
 ---
 
@@ -719,12 +718,12 @@ export WHISPER_NUM_WORKERS=1
 
 ### 🧠 Developed by **Team Technologia** team members:
 
-Mukul — Audio Processing, Transcription Pipeline & Inventory System
-Divyansh — Backend Architecture, Full-Stack Development & AI Integration
-Akshat — Database Design & Schema Architecture
-Eddie — Frontend Design, User Experience & Interface
-Com — Frontend Development & Documentation
-Adil — Character Sheet Management                                
+- Mukul — Audio Processing, Transcription Pipeline & Inventory System
+- Divyansh — Backend Architecture, Full-Stack Development & AI Integration
+- Akshat — Database Design & Schema Architecture
+- Eddie — Frontend Design, User Experience & Interface
+- Com — Frontend Development & Documentation
+- Adil — Character Sheet Management                                
 
 **Special Thanks:**
 - Ella (Our Tutor) — For guiding us throughout the semester with invaluable feedback and support
