@@ -2,7 +2,7 @@
 
 *“Where stories are written by hand and forged in imagination.”*
 
-**Developed by Team Technologia 💡**
+**Developed by Team Technologia **
 
 Transform your D&D sessions with AI-powered transcription, intelligent character tracking, and a beautiful medieval interface that makes every game night feel epic.
 
@@ -15,11 +15,11 @@ DungeonScribe is your ultimate D&D companion that **listens to your game, rememb
 ### The Problem We Solve
 
 **As a Dungeon Master, you're juggling:**
-- 📝 Taking notes while describing scenes
-- 🧙 Tracking multiple characters and inventories
-- 📖 Remembering what happened in the last session
-- 🎲 Managing quests, NPCs, and plot threads
-- ⏰ Keeping the game flowing smoothly
+-  Taking notes while describing scenes
+-  Tracking multiple characters and inventories
+-  Remembering what happened in the last session
+-  Managing quests, NPCs, and plot threads
+-  Keeping the game flowing smoothly
 
 **DungeonScribe handles all of this automatically** so you can focus on what matters and that is telling amazing stories.
 
@@ -36,9 +36,9 @@ Just **speak naturally** during your game. DungeonScribe:
 - Remove mundane chats to keep conversations private.
 
 **Example:**
-> 🎙️ *"Alex casts Fireball at the orc horde, dealing 48 damage!"*
+> *"Alex casts Fireball at the orc horde, dealing 48 damage!"*
 > 
-> 📝 DungeonScribe automatically:
+> DungeonScribe automatically:
 > - Records the action in Alex's character history
 > - Tracks that a Fireball was cast
 > - Logs the combat outcome
@@ -48,29 +48,29 @@ Just **speak naturally** during your game. DungeonScribe:
 
 Create **full character sheets** with everything you need:
 
-**Combat Stats** ⚔️
+**Combat Stats** 
 - HP, AC, Initiative, Speed
 - Hit Dice tracking
 - Temporary HP
 
-**Abilities & Skills** 🎯
+**Abilities & Skills** 
 - All six ability scores (STR, DEX, CON, INT, WIS, CHA)
 - Proficiency bonus
 - Saving throws and skills
 - Languages known
 
-**Spellcasting** ✨
+**Spellcasting** 
 - Spell slots by level
 - Known spells list
 - Spell DC and attack bonus
 - Spellcasting ability
 
-**Equipment & Wealth** 💰
+**Equipment & Wealth** 
 - Complete inventory
 - Currency tracking (GP, SP, CP)
 - Magical items and features
 
-**Personality** 🎭
+**Personality** 
 - Traits, ideals, bonds, flaws
 - Full backstory section
 - Session notes
@@ -83,11 +83,11 @@ Create **full character sheets** with everything you need:
 
 Never lose track of loot again:
 
-- 🗡️ **Item Database**: Every weapon, potion, and magical artifact
-- 🎒 **Character Inventories**: See who's carrying what
-- 🔄 **Transfer History**: "Who gave the healing potions to the rogue?"
-- 📊 **Categories**: Weapons, armor, potions, quest items, etc.
-- 🔍 **Search**: Find any item instantly
+-  **Item Database**: Every weapon, potion, and magical artifact
+-  **Character Inventories**: See who's carrying what
+-  **Transfer History**: "Who gave the healing potions to the rogue?"
+-  **Categories**: Weapons, armor, potions, quest items, etc.
+-  **Search**: Find any item instantly
 
 **Example Use Cases:**
 - "Wait, who has the key to the tomb?"
@@ -98,25 +98,25 @@ Never lose track of loot again:
 
 DungeonScribe uses cutting-edge AI to understand your game:
 
-**Automatic Event Detection** 🎯
+**Automatic Event Detection** 
 - Who did what, when, and where
 - Combat actions and outcomes
 - Item discoveries and transfers
 - Quest progress updates
 - Location changes
 
-**Smart Summarization** 📊
+**Smart Summarization** 
 - Converts chaotic speech into organized data
 - Identifies key story moments
 - Tracks quest objectives
 - Monitors world state changes
 
-**Character Recognition** 👥
+**Character Recognition** 
 - Automatically identifies character names
 - Links actions to the right character
 - Builds character timelines
 
-**Rule-Based Fallback** 🛡️
+**Rule-Based Fallback** 
 - Works even without AI (uses pattern matching)
 - No internet required for basic features
 - Privacy-focused: all processing happens locally, even the LLM processing!
@@ -135,20 +135,20 @@ How It Works:
 
 Every screen is designed to feel like you're in a medieval library:
 
-**Visual Design** 🖼️
+**Visual Design** 
 - Dark parchment backgrounds
 - Warm candlelight effects
 - Gold accents and medieval fonts
 - Cursor-tracked lighting (light follows your mouse!)
 
-**Campaign Selection** 📚
+**Campaign Selection**
 - Gorgeous card carousel with pre-made settings
 - **Whispers of the Grove**: Druidic forest adventure
 - **Sands of the Sunken Crown**: Desert ruins exploration
 - **Echoes in the Halls**: Dwarven underground mystery
 - **Tideglass Covenant**: Coastal storm saga
 
-**Journal & Notes** 📖
+**Journal & Notes** 
 - Chronicle your campaign story
 - Session-by-session organization
 - Search across all sessions
@@ -176,7 +176,7 @@ Your data is safe, secure, and always accessible.
 
 ---
 
-## 🚀 How It Works
+## How It Works
 
 ### For Dungeon Masters
 
@@ -203,7 +203,7 @@ Your data is safe, secure, and always accessible.
 
 ---
 
-## 🎮 Real-World Example
+## Real-World Example
 
 **Session Scenario:**
 
@@ -226,12 +226,12 @@ Your data is safe, secure, and always accessible.
 ```
 
 ✅ **World State UpdateEvents Detected:**
-- 📍 Location → Ancient Tomb (new)   
-- ⚔️ Combat → Started with skeleton warriors
+-  Location → Ancient Tomb (new)   
+-  Combat → Started with skeleton warriors
 
 ✅ **Character Stats Updated:**
-- Gandalf: Spell slot used (Level 0 cantrip)
-- Legolas: Position noted (entrance guard)
+-  Gandalf: Spell slot used (Level 0 cantrip)
+-  Legolas: Position noted (entrance guard)
 
 ✅ **Quest Log:**
 - "Explore the ancient tomb" — In Progress
@@ -240,7 +240,7 @@ Your data is safe, secure, and always accessible.
 
 ---
 
-## 🌟 Why DungeonScribe is Different
+## Why DungeonScribe is Different
 
 ### Compared to Manual Note-Taking
 
@@ -291,15 +291,15 @@ Your data is safe, secure, and always accessible.
 
 ### Great For These Play Styles:
 
-- 🎭 **Roleplay-Heavy**: Captures dialogue and character moments
-- ⚔️ **Combat-Focused**: Tracks actions, damage, and turns
-- 🗺️ **Exploration**: Logs locations and discoveries
-- 📖 **Story-Driven**: Chronicles plot developments
-- 🏰 **Sandbox**: Maintains continuity in open-world games
+-  **Roleplay-Heavy**: Captures dialogue and character moments
+-  **Combat-Focused**: Tracks actions, damage, and turns
+-  **Exploration**: Logs locations and discoveries
+-  **Story-Driven**: Chronicles plot developments
+-  **Sandbox**: Maintains continuity in open-world games
 
 ---
 
-## 🛠️ What You Need
+##  What You Need
 
 ### Minimum Requirements
 
@@ -318,7 +318,7 @@ Your data is safe, secure, and always accessible.
 
 ---
 
-## 🚦 Getting Started
+## Getting Started
 
 Follow these steps to install and run DungeonScribe on your computer.
 
@@ -599,19 +599,19 @@ When prompted, click "Allow" to let DungeonScribe access your microphone.
 
 ### For Getting the Best Transcription
 
-**Microphone Setup** 🎤
+**Microphone Setup**
 - Use a good quality microphone (USB mic recommended)
 - Position mic 6-12 inches from speakers
 - Reduce background noise when possible
 - Test audio levels before starting
 
-**Speaking Tips** 🗣️
+**Speaking Tips** 
 - Speak clearly and at a moderate pace
 - Pause briefly between major actions
 - Say character names clearly
 - State dice results explicitly
 
-**Environment** 🏠
+**Environment** 
 - Choose a quiet room if possible
 - Turn off fans or AC during important moments
 - Use push-to-talk for Discord if playing online
@@ -619,19 +619,19 @@ When prompted, click "Allow" to let DungeonScribe access your microphone.
 
 ### For Organizing Your Campaign
 
-**Session Preparation** 📝
+**Session Preparation**
 - Review last session's journal before playing
 - Update character HP/resources at session start
 - Add quest notes as you remember them
 - Export important NPCs to character sheets
 
-**During Sessions** 🎲
+**During Sessions** 
 - Let DungeonScribe run continuously
 - Manually add critical quest updates in real-time
 - Tag important moments in the journal
 - Update character inventories after loot distribution
 
-**Post-Session Workflow** ✅
+**Post-Session Workflow** 
 - Review transcript for missed details
 - Update experience points and levels
 - Export updated character sheets
@@ -695,7 +695,7 @@ export WHISPER_NUM_WORKERS=1
 
 ## 👥 Credits
 
-### 🧠 Developed by **Team Technologia** team members:
+### Developed by **Team Technologia** team members:
 
 - Mukul — Audio Processing, Transcription Pipeline & Inventory System
 - Divyansh — Backend Architecture, Full-Stack Development & AI Integration
@@ -715,7 +715,7 @@ export WHISPER_NUM_WORKERS=1
 - All Our Beta Testers & DMs We Interviewed — For honest feedback that shaped DungeonScribe into what it is built
 ---
 
-## 🎲 Final Words
+## Final Words
 
 **Every great campaign deserves to be remembered.**
 
@@ -723,7 +723,7 @@ DungeonScribe is our love letter to tabletop gaming, which is a tool that respec
 
 Whether you're running a weekly game with friends, streaming to thousands, or just trying to remember what happened last month, DungeonScribe has your back.
 
-**Download now and never forget another epic moment.** 🏰✨
+**Download now and never forget another epic moment.** 
 
 ---
 
