@@ -1,6 +1,6 @@
 # 🏰 Dungeon Scribe 📜
 
-> **Where stories are written by hand — and forged in imagination.**
+*“Where stories are written by hand and forged in imagination.”*
 
 **Developed by Team Technologia 💡**
 
