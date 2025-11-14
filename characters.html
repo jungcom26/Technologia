@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dungeon Scribe — Characters</title>
+    <link rel="stylesheet" href="characters.css" />
+  </head>
+  <body>
+    <header class="topbar" role="banner">
+      <div class="topbar-inner">
+        <div class="brand">
+          <span class="gem">◆</span>
+          <span>Dungeon Scribe AI</span>
+        </div>
+
+        <nav class="main" aria-label="Primary">
+          <a href="main.html" aria-current="page">Home</a>
+          <a href="inventory.html">Inventory</a>
+          <a href="quests.html">Quests</a>
+          <a href="characters.html" aria-current="page">Characters</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Left: roster -->
+      <aside class="timeline panel" aria-label="Roster">
+        <h2>Roster</h2>
+        <div id="roster" style="padding:1rem;display:flex;flex-direction:column;gap:.5rem"></div>
+        <div style="padding:1rem;border-top:1px solid var(--border)">
+          <button id="btn-new-char">New Character</button>
+        </div>
+      </aside>
+
+      <!-- Center: detail + actions -->
+      <section class="log panel" aria-label="Character detail">
+        <div class="log-toolbar">
+          <div style="flex:1">
+            <strong>Character</strong>
+            <div class="meta">Manage HP, rests, conditions and rolls.</div>
+          </div>
+          <div>
+            <button id="btn-import-chars">Import</button>
+            <button id="btn-export-chars">Export</button>
+          </div>
+        </div>
+
+        <div style="padding:1rem;display:flex;flex-direction:column;height:100%">
+          <div id="char-empty" class="placeholder">Select a character</div>
+
+          <div id="char-panel" style="display:none">
+            <div style="display:flex;gap:1rem">
+              <div style="width:320px">
+                <div class="card">
+                  <div class="top">
+                    <div class="token" id="ch-token">C</div>
+                    <div>
+                      <div><strong id="ch-name">Name</strong> <span class="pill" id="ch-class">Class L1</span></div>
+                      <div class="stats" style="margin-top:.5rem">
+                        <span class="pill hp" id="ch-hp">HP 0/0</span>
+                        <span class="pill ac" id="ch-ac">AC 0</span>
+                        <span class="pill speed" id="ch-speed">Speed 30</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="margin-top:.75rem;display:flex;gap:.5rem;flex-wrap:wrap">
+                    <button id="btn-damage">Damage</button>
+                    <button id="btn-heal">Heal</button>
+                    <button id="btn-short-rest">Short Rest</button>
+                    <button id="btn-long-rest">Long Rest</button>
+                  </div>
+
+                  <hr style="margin: .75rem 0; border-top:1px solid var(--border)">
+
+                  <div>
+                    <div class="meta">Conditions</div>
+                    <div id="ch-conditions" style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.5rem"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="flex:1">
+                <div class="panel" style="padding:1rem;background:var(--panel-alt);border-radius:12px">
+                  <div class="meta">Rolls & Saves</div>
+                  <div style="display:flex;gap:.5rem;margin-top:.5rem">
+                    <select id="roll-type">
+                      <option value="ability">Ability check</option>
+                      <option value="save">Saving throw</option>
+                      <option value="attack">Attack roll</option>
+                    </select>
+                    <select id="ability">
+                      <option value="str">STR</option><option value="dex">DEX</option><option value="con">CON</option>
+                      <option value="int">INT</option><option value="wis">WIS</option><option value="cha">CHA</option>
+                    </select>
+                    <select id="adv">
+                      <option value="none">Normal</option>
+                      <option value="adv">Advantage</option>
+                      <option value="dis">Disadvantage</option>
+                    </select>
+                    <button id="btn-roll">Roll</button>
+                  </div>
+
+                  <div id="roll-result" style="margin-top:.75rem"></div>
+                </div>
+
+                <div style="margin-top:1rem" class="panel">
+                  <div style="padding:1rem">
+                    <div class="meta">Spells & Concentration</div>
+                    <div id="ch-spells" style="margin-top:.5rem"></div>
+                    <div style="margin-top:.5rem">
+                      <label><input type="checkbox" id="ch-concentrating" /> Concentrating on a spell</label>
+                      <button id="btn-concentration-check" style="margin-left:.5rem">Resolve damage -> Check</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:auto;display:flex;justify-content:space-between">
+              <div class="meta">Proficiency bonus: <span id="ch-prof">+2</span></div>
+              <div>
+                <button id="btn-edit-char">Edit</button>
+                <button id="btn-delete-char" style="background:var(--danger)">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right: quick reference -->
+      <aside class="map-panel panel" aria-label="Quick reference">
+        <h3 class="map-title">Quick Reference</h3>
+        <div style="padding:1rem">
+          <div class="meta">Short rest</div>
+          <div class="placeholder" style="margin-top:.5rem">A short rest is typically at least 1 hour; characters can spend Hit Dice to recover HP. (See rules)</div>
+
+          <hr style="margin:.75rem 0;border-top:1px solid var(--border)">
+
+          <div class="meta">Advantage / Disadvantage</div>
+          <div class="placeholder" style="margin-top:.5rem">Roll two d20s and use the higher (advantage) or lower (disadvantage).</div>
+        </div>
+      </aside>
+    </main>
+
+    <script src="characters.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+@import 'styles.css';
+
+/* page-specific tweaks */
+.container { gap: 14px; }
+.timeline.panel { padding-bottom: 0; }
+#items .msg { cursor:pointer; padding:.6rem; border-radius:10px; border:1px solid var(--border); background:linear-gradient(180deg, var(--panel-alt), transparent) }
+#items .msg:hover { transform:translateY(-3px) }
+#items .msg .avatar { width:40px; height:40px; border-radius:8px; font-size:16px; }
+#detail-panel input, #detail-panel textarea, #add-form input { background:#0f0b15; border:1px solid var(--border); color:var(--text); padding:.5rem; border-radius:8px }
+#add-form button { margin-top:.25rem }
+.active-filter { background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-color: rgba(255,255,255,.06) }
