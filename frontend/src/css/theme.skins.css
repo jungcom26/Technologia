@@ -23,17 +23,14 @@
   src: url("../fonts/p3r/FOT-Rodin Pro B.otf") format("opentype");
   font-weight: 600;
   font-style: normal;
-  font-display: swap;
-  /* DemiBold */
+  font-display: swap; /* DemiBold */
 }
-
 @font-face {
   font-family: "RodinPro";
   src: url("../fonts/p3r/FOT-Rodin Pro EB.otf") format("opentype");
   font-weight: 800;
   font-style: normal;
-  font-display: swap;
-  /* ExtraBold */
+  font-display: swap; /* ExtraBold */
 }
 
 @font-face {
@@ -43,7 +40,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: "NewRodinPro";
   src: url("../fonts/p3r/FOT-NewRodin Pro EB.otf") format("opentype");
@@ -167,15 +163,12 @@ select {
 .font-body {
   font-family: var(--font-body) !important;
 }
-
 .font-heading {
   font-family: var(--font-heading) !important;
 }
-
 .font-command {
   font-family: var(--font-command) !important;
 }
-
 .font-logo {
   font-family: var(--font-logo) !important;
 }
@@ -183,14 +176,10 @@ select {
 /* Weight helpers that match our font files */
 .w-600 {
   font-weight: 600 !important;
-}
-
-/* DB */
+} /* DB */
 .w-800 {
   font-weight: 800 !important;
-}
-
-/* EB */
+} /* EB */
 
 /* Optional: make numbers align nicely in stat pills */
 .pill,
@@ -224,17 +213,13 @@ select {
 
   /* stat palettes */
   --hp1: #00f0a8;
-  --hp2: #00c2a3;
-  /* HP cyan-green */
+  --hp2: #00c2a3; /* HP cyan-green */
   --sp1: #ffe36e;
-  --sp2: #ffb84d;
-  /* SP yellow/orange */
+  --sp2: #ffb84d; /* SP yellow/orange */
   --ac1: #7fd0ff;
-  --ac2: #56b5ff;
-  /* AC blue */
+  --ac2: #56b5ff; /* AC blue */
   --spd1: #9df4bb;
-  --spd2: #66e39a;
-  /* Speed green */
+  --spd2: #66e39a; /* Speed green */
 }
 
 /* base typography */
@@ -242,14 +227,12 @@ html,
 body {
   height: 100%;
 }
-
 body {
   margin: 0;
   color: var(--text);
   font-family: var(--font-body);
   background: var(--app-bg);
 }
-
 h1,
 h2,
 h3,
@@ -287,7 +270,6 @@ footer.characters .card {
     rgba(255, 255, 255, 0.02)
   );
 }
-
 .topbar .brand {
   font-family: var(--font-logo);
   letter-spacing: 0.5px;
@@ -308,7 +290,6 @@ footer.characters .card {
   padding: 0.45rem 0.75rem;
   position: relative;
 }
-
 .topbar .main a:hover,
 .topbar .main a:focus-visible {
   outline: none;
@@ -317,7 +298,6 @@ footer.characters .card {
   box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 28%, transparent)
     inset;
 }
-
 .topbar .main a::after {
   content: "";
   position: absolute;
@@ -330,7 +310,6 @@ footer.characters .card {
   transform: skewX(-12deg) translateY(2px);
   transition: transform 0.2s ease, opacity 0.2s ease;
 }
-
 .topbar .main a:hover::after {
   opacity: 1;
   transform: skewX(-12deg) translateY(0);
@@ -353,12 +332,10 @@ footer.characters .card {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   border-radius: 16px;
 }
-
 .bubble {
   background: var(--panel-alt);
   border: 1px solid var(--border);
 }
-
 .bubble:hover {
   border-color: color-mix(in oklab, var(--accent) 40%, var(--border));
   box-shadow: 0 0 0 2px color-mix(in oklab, var(--accent) 22%, transparent)
@@ -374,14 +351,12 @@ button {
   padding: 0.5rem 0.75rem;
   font-weight: 600;
 }
-
 button:hover {
   transform: translateY(-1px) skewX(-4deg);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 0 1px var(--accent) inset,
     0 8px 26px color-mix(in oklab, var(--accent) 22%, transparent);
 }
-
 button:active {
   transform: scale(0.985) skewX(-2deg);
 }
@@ -390,15 +365,12 @@ button:active {
 #log-search:hover {
   box-shadow: 0 0 0 1px var(--accent) inset;
 }
-
 #log-search:focus {
   box-shadow: 0 0 0 2px var(--accent) inset, 0 0 24px -6px var(--accent);
 }
-
 .search-dropdown .dropdown-option:hover {
   background: color-mix(in oklab, var(--accent) 16%, transparent);
 }
-
 .search-dropdown .dropdown-option.active {
   background: color-mix(in oklab, var(--accent) 28%, transparent);
   color: var(--text);
@@ -412,13 +384,11 @@ button:active {
   background: var(--panel-alt);
   position: relative;
 }
-
 .t-item:hover {
   transform: translateX(3px) skewX(-4deg);
   border-color: var(--accent);
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--accent) inset;
 }
-
 .t-item .timeline-circle {
   position: absolute;
   left: -1rem;
@@ -430,7 +400,6 @@ button:active {
   border: 2px solid var(--accent);
   box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 30%, transparent);
 }
-
 .t-item:hover .timeline-circle {
   background: var(--accent);
 }
@@ -439,17 +408,14 @@ button:active {
   border: 1px solid rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.04);
 }
-
 .tl2-chip:hover {
   transform: translateY(-1px);
 }
-
 .tl2-chip.is-on {
   border-color: var(--accent);
   box-shadow: 0 0 28px rgba(255, 255, 255, 0.22),
     inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
-
 .tl2-node {
   background: linear-gradient(
       180deg,
@@ -461,7 +427,6 @@ button:active {
   box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35),
     inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
-
 .tl2-node:hover {
   transform: translateX(4px) skewX(-6deg);
   background: linear-gradient(
@@ -488,7 +453,6 @@ button:active {
   transform: skewX(-8deg);
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
-
 .pill.hp {
   color: #061016;
   background: linear-gradient(180deg, var(--hp1), var(--hp2));
@@ -496,7 +460,6 @@ button:active {
   box-shadow: inset 0 10px 20px rgba(0, 227, 255, 0.18),
     0 0 8px rgba(0, 227, 255, 0.08);
 }
-
 .pill.sp {
   color: #1b1200;
   background: linear-gradient(180deg, var(--sp1), var(--sp2));
@@ -504,30 +467,25 @@ button:active {
   box-shadow: inset 0 10px 20px rgba(255, 195, 61, 0.18),
     0 0 8px rgba(255, 195, 61, 0.08);
 }
-
 .pill.ac {
   color: #07101a;
   background: linear-gradient(180deg, var(--ac1), var(--ac2));
   border-color: rgba(86, 181, 255, 0.35);
   box-shadow: inset 0 10px 20px rgba(86, 181, 255, 0.18);
 }
-
 .pill.speed {
   color: #07140e;
   background: linear-gradient(180deg, var(--spd1), var(--spd2));
   border-color: rgba(102, 227, 154, 0.35);
   box-shadow: inset 0 10px 20px rgba(102, 227, 154, 0.18);
 }
-
 /* legacy text-color helpers (ถ้าเดิมใช้ .hp .ac .speed บนข้อความเฉย ๆ) */
 .hp {
   color: #00d4aa;
 }
-
 .ac {
   color: #56b5ff;
 }
-
 .speed {
   color: #66e39a;
 }
@@ -548,7 +506,6 @@ button:active {
 footer.characters .card {
   border: 1px solid var(--border);
 }
-
 footer.characters .card:hover,
 footer.characters .card:focus-within {
   border-color: var(--accent);
@@ -557,11 +514,9 @@ footer.characters .card:focus-within {
   outline: 2px solid color-mix(in oklab, var(--accent) 45%, transparent);
   outline-offset: 2px;
 }
-
 .token {
   position: relative;
 }
-
 footer.characters .card:hover .token::after {
   content: "";
   position: absolute;
@@ -587,7 +542,6 @@ footer.characters .card:hover .token::after {
   gap: 10px;
   pointer-events: none;
 }
-
 .toast {
   pointer-events: auto;
   min-width: 280px;
@@ -607,11 +561,9 @@ footer.characters .card:hover .token::after {
   opacity: 0;
   animation: toast-in 0.22s ease forwards;
 }
-
 .toast.quest {
   border-left: 6px solid var(--accent);
 }
-
 @keyframes toast-in {
   to {
     transform: translateY(0);
@@ -638,7 +590,6 @@ footer.characters .card:hover .token::after {
   border-radius: 6px;
   isolation: isolate;
 }
-
 .p3r-title::before {
   content: "";
   position: absolute;
@@ -654,13 +605,11 @@ footer.characters .card:hover .token::after {
   opacity: 0;
   transition: transform 0.18s ease, opacity 0.18s ease;
 }
-
 .p3r-title:hover::before,
 .p3r-title.is-active::before {
   opacity: 1;
   transform: skewX(-14deg) translateY(0);
 }
-
 .p3r-title--xl {
   font-size: 42px;
   line-height: 1;
@@ -671,7 +620,6 @@ footer.characters .card:hover .token::after {
   background: transparent;
   box-shadow: none;
 }
-
 .topbar .main.nav-p3r a:hover,
 .topbar .main.nav-p3r a:focus-visible {
   background: transparent;
@@ -694,14 +642,12 @@ nav.main.nav-p3r a {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   transition: transform 0.18s ease, box-shadow 0.18s ease, color 0.18s ease;
 }
-
 nav.main.nav-p3r a::before,
 nav.main.nav-p3r a::after {
   content: "";
   position: absolute;
   pointer-events: none;
 }
-
 nav.main.nav-p3r a::before {
   inset: -2px;
   border-radius: 16px;
@@ -709,7 +655,6 @@ nav.main.nav-p3r a::before {
   opacity: 0;
   transition: opacity 0.18s ease;
 }
-
 nav.main.nav-p3r a::after {
   left: 16px;
   right: 16px;
@@ -721,7 +666,6 @@ nav.main.nav-p3r a::after {
   opacity: 0;
   transition: transform 0.18s ease, opacity 0.18s ease;
 }
-
 nav.main.nav-p3r a:hover,
 nav.main.nav-p3r a[aria-current="page"] {
   color: var(--accent);
@@ -729,12 +673,10 @@ nav.main.nav-p3r a[aria-current="page"] {
   box-shadow: 0 10px 26px rgba(0, 227, 255, 0.18),
     inset 0 0 0 1px rgba(255, 255, 255, 0.06);
 }
-
 nav.main.nav-p3r a:hover::before,
 nav.main.nav-p3r a[aria-current="page"]::before {
   opacity: 0.7;
 }
-
 nav.main.nav-p3r a:hover::after,
 nav.main.nav-p3r a[aria-current="page"]::after {
   opacity: 1;
@@ -815,7 +757,6 @@ html[data-theme="p3reload-bright"] {
     ),
     linear-gradient(180deg, #eef6ff 0%, #f7fbff 35%, #cfeeff 72%, #9ddfff 100%);
 }
-
 /* Light theme surface polish */
 html[data-theme="p3reload-bright"] .panel,
 html[data-theme="p3reload-bright"] .placeholder,
@@ -830,7 +771,6 @@ html[data-theme="p3reload-bright"] .bubble {
   box-shadow: 0 10px 28px rgba(0, 40, 90, 0.06);
   color: var(--text);
 }
-
 html[data-theme="p3reload-bright"] .topbar {
   background: linear-gradient(
     180deg,
@@ -840,11 +780,9 @@ html[data-theme="p3reload-bright"] .topbar {
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(8px);
 }
-
 html[data-theme="p3reload-bright"] .map-viewport {
   background: radial-gradient(800px 500px at 60% 30%, #f3f8ff, #e8f1ff);
 }
-
 /* Pills on bright bg */
 html[data-theme="p3reload-bright"] .pill.hp,
 html[data-theme="p3reload-bright"] .pill.sp,
@@ -866,7 +804,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
 .messages {
   position: relative;
 }
-
 .messages::before {
   content: "";
   position: absolute;
@@ -887,7 +824,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   padding: 10px 16px;
   position: relative;
 }
-
 .msg .avatar {
   width: 40px;
   height: 40px;
@@ -900,7 +836,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   box-shadow: 0 8px 26px rgba(0, 0, 0, 0.45),
     inset 0 0 0 2px rgba(255, 255, 255, 0.06);
 }
-
 .msg .bubble {
   position: relative;
   flex: 1;
@@ -911,7 +846,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45),
     inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
-
 .msg.left .bubble::before {
   content: "";
   position: absolute;
@@ -923,7 +857,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   background: linear-gradient(180deg, var(--p3r-blue-2), var(--p3r-blue-3));
   border-left: 1px solid rgba(200, 230, 255, 0.12);
 }
-
 .msg.right .bubble {
   background: linear-gradient(180deg, #1a233a, #231a39);
 }
@@ -935,13 +868,11 @@ html[data-theme="p3reload-bright"] .pill.speed {
   color: var(--muted);
   margin-bottom: 6px;
 }
-
 .msg .bubble .line {
   font-size: 18px;
   line-height: 1.6;
   color: var(--text);
 }
-
 .msg .bubble .who {
   display: inline-block;
   margin-right: 0.4ch;
@@ -950,7 +881,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   color: var(--p3r-cyan);
   text-shadow: 0 0 14px rgba(0, 227, 255, 0.25);
 }
-
 .msg .bubble:hover {
   box-shadow: 0 0 0 1px var(--accent) inset, 0 12px 34px rgba(0, 227, 255, 0.16);
   transform: translateX(2px);
@@ -978,7 +908,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
-
 .map-panel .map-title::before {
   content: "";
   position: absolute;
@@ -987,7 +916,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
   z-index: -1;
 }
-
 .map-panel .map-title::after {
   content: "";
   position: absolute;
@@ -1036,7 +964,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   padding-top: 14px;
   border-top: 1px solid rgba(200, 230, 255, 0.12);
 }
-
 .context-query-header h3 {
   font-family: var(--font-heading);
   font-weight: 800;
@@ -1045,7 +972,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   text-transform: uppercase;
   margin: 16px 0 4px;
 }
-
 .context-query-header p {
   color: var(--muted);
   opacity: 0.9;
@@ -1059,7 +985,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   background: linear-gradient(180deg, #0f172b, #0d1526);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
-
 #context-query-input:focus {
   outline: none;
   box-shadow: inset 0 0 0 2px #00e3ff, 0 0 24px -6px #00e3ff;
@@ -1072,7 +997,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   border: 1px solid rgba(200, 230, 255, 0.16);
   background: linear-gradient(180deg, #0e1730, #0b1326);
 }
-
 .context-query-actions button:hover {
   transform: translateY(-1px) skewX(-3deg);
   box-shadow: 0 0 0 1px var(--accent) inset, 0 10px 26px rgba(0, 227, 255, 0.16);
@@ -1086,7 +1010,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   color: var(--muted);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
 }
-
 .query-chunk {
   margin-top: 12px;
   padding: 12px 14px;
@@ -1094,7 +1017,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
   border: 1px solid rgba(200, 230, 255, 0.12);
   background: linear-gradient(180deg, #0e1730, #0b1226);
 }
-
 .query-chunk-title {
   font-family: var(--font-heading);
   font-weight: 800;
@@ -1105,7 +1027,6 @@ html[data-theme="p3reload-bright"] .pill.speed {
 .timeline {
   padding: 12px;
 }
-
 .timeline h2 {
   margin: 4px 4px 10px;
 }
@@ -1133,13 +1054,11 @@ aside.timeline.panel h2 {
 aside.timeline.panel .timeline-body {
   padding: 6px 10px 12px 18px;
 }
-
 aside.timeline.panel .t-item {
   margin: 8px 8px 10px 8px;
   padding: 10px 12px 10px 16px;
   border-radius: 12px;
 }
-
 aside.timeline.panel .t-item .timeline-circle {
   left: -12px;
   top: 1.1rem;
@@ -1161,11 +1080,9 @@ aside.timeline.panel .t-item .badge {
 aside.timeline.panel .quests {
   padding: 12px;
 }
-
 aside.timeline.panel .quests h3 {
   margin: 0 0 8px;
 }
-
 aside.timeline.panel .quests #quest-list .quest {
   margin-top: 10px;
   padding: 10px 12px;
@@ -1189,8 +1106,7 @@ nav.main.nav-p3r a::before {
   z-index: -1;
   background: linear-gradient(180deg, #fff, #f3f6ff);
   clip-path: polygon(0 0, 100% 0, 92% 100%, 0 100%);
-  transform: translateY(110%) skewX(-8deg);
-  /* ซ่อนก่อน */
+  transform: translateY(110%) skewX(-8deg); /* ซ่อนก่อน */
   transition: transform 0.24s cubic-bezier(0.2, 0.8, 0.2, 1);
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
@@ -1245,691 +1161,4 @@ nav.main.nav-p3r a[aria-current="page"]::after {
   nav.main.nav-p3r a::after {
     transition: none;
   }
-}
-
-:root[data-theme="oak"] {
-  --panel: #2b2016;
-  --panel-alt: #1c140e;
-  --text: #f3e9dd;
-  --muted: #c3a689;
-  --accent: #a47c48;
-  --accent-2: #c29b6f;
-  --border: rgba(255, 255, 255, 0.08);
-}
-
-:root[data-theme="parchment"] {
-  --panel: #efe6cf;
-  --panel-alt: #e6dcc2;
-  --text: #2b2114;
-  --muted: #5b4636;
-  --accent: #9a6b34;
-  --accent-2: #b98a56;
-  --border: rgba(0, 0, 0, 0.12);
-}
-
-:root[data-theme="ember"] {
-  --panel: #2a140d;
-  --panel-alt: #1c0f0a;
-  --text: #fbe9d8;
-  --muted: #f2b081;
-  --accent: #b45309;
-  --accent-2: #ea580c;
-  --border: rgba(255, 255, 255, 0.08);
-}
-
-/* ==== NPCs (drop-in replacement) =================================== */
-#npcs-panel {
-  --tile: 72px;
-  --tile-r: 12px;
-  --card-r: 12px;
-}
-
-/* Header + mini preview (ขวาบนของแถบซ้าย) */
-#npcs-panel .npcs-header {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  letter-spacing: var(--trk-heading);
-}
-#npcs-panel .npc-preview {
-  display: grid;
-  grid-template-columns: 72px 1fr;
-  gap: 12px;
-  align-items: center;
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
-  min-width: 0;
-}
-#npcs-panel .npc-portrait-frame {
-  width: 72px;
-  aspect-ratio: 1/1;
-  border-radius: 12px;
-  overflow: hidden;
-  background: linear-gradient(180deg, #1a1f2e, #121726);
-  border: 1px solid var(--border);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  flex-shrink: 0;
-}
-#npcs-panel #npc-portrait {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-#npcs-panel #npc-preview-name {
-  font: 800 1rem/1.2 var(--font-heading);
-}
-#npcs-panel #npc-preview-role {
-  margin-top: 4px;
-  color: var(--muted);
-  font: 600 0.9rem/1 var(--font-command);
-}
-
-/* Scroll list */
-#npcs-panel .npcs-list {
-  overflow: auto;
-  min-height: 0;
-  padding: 6px 10px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* === Card: [name row] on top, [portrait|info] row, [HP|info] row ==== */
-#npcs-panel #npcs-list .npc {
-  display: grid;
-  grid-template-columns: var(--tile) 1fr;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    "info  info"
-    "thumb info"
-    "hp    info";
-  gap: 10px;
-  align-items: center;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: var(--card-r);
-  background: var(--panel-alt);
-}
-
-/* Info (name + race/meta) */
-#npcs-panel .npc-info {
-  grid-area: info;
-  min-width: 0;
-}
-#npcs-panel .npc-name {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1rem;
-  line-height: 1.1;
-}
-#npcs-panel .npc-race,           /* use either .npc-race or .npc-meta */
-#npcs-panel .npc-meta {
-  color: var(--muted);
-  font: 600 0.9rem/1 var(--font-command);
-  margin-top: 2px;
-}
-/* inline edit */
-#npcs-panel .npc-name[contenteditable],
-#npcs-panel .npc-race[contenteditable],
-#npcs-panel .npc-meta[contenteditable] {
-  outline: none;
-  border-radius: 6px;
-  padding: 1px 3px;
-}
-#npcs-panel .npc-name[contenteditable]:focus,
-#npcs-panel .npc-race[contenteditable]:focus,
-#npcs-panel .npc-meta[contenteditable]:focus {
-  box-shadow: 0 0 0 1px var(--accent) inset;
-  background: rgba(255, 255, 255, 0.04);
-}
-
-/* Portrait (fixed square) */
-#npcs-panel .npc-thumb {
-  grid-area: thumb;
-  width: var(--tile);
-  aspect-ratio: 1/1;
-  border-radius: var(--tile-r);
-  overflow: hidden;
-  position: relative;
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, #1a1f2e, #121726);
-}
-#npcs-panel .npc-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-/* small buttons on portrait */
-#npcs-panel .thumb-actions {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  pointer-events: none;
-}
-#npcs-panel .thumb-actions button {
-  pointer-events: auto;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.06);
-  display: grid;
-  place-items: center;
-  font: 700 14px/1 var(--font-command);
-}
-
-/* HP (left, under portrait) */
-#npcs-panel .npc-hp {
-  grid-area: hp;
-  width: var(--tile);
-  margin-top: 2px;
-}
-#npcs-panel .npc-hp-bar {
-  width: 100%;
-  height: 8px;
-  border-radius: 999px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--border);
-  position: relative;
-}
-#npcs-panel .npc-hp-fill {
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: calc(var(--hpPct, 1) * 100%);
-  background: linear-gradient(
-    180deg,
-    var(--spd1, #9df4bb),
-    var(--spd2, #66e39a)
-  );
-}
-#npcs-panel .npc-hp-text {
-  margin-top: 4px;
-  text-align: left;
-  font: 700 0.8rem/1 var(--font-command);
-  color: var(--muted);
-}
-
-/* States */
-#npcs-panel #npcs-list .npc.is-active {
-  outline: 2px solid color-mix(in oklab, var(--accent) 45%, transparent);
-  outline-offset: 2px;
-}
-#npcs-panel #npcs-list .npc:hover .npc-thumb {
-  box-shadow: 0 0 0 1px var(--accent) inset,
-    0 8px 20px color-mix(in oklab, var(--accent) 22%, transparent);
-}
-
-/* Actions (Add NPC) */
-#npcs-panel .npcs-actions {
-  order: 3;
-  padding: 10px 12px;
-  border: 0;
-  background: transparent;
-}
-#npcs-panel #add-npc {
-  width: 100%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.7rem 0.9rem;
-  border-radius: 14px;
-  border: 1px solid color-mix(in oklab, var(--accent) 30%, transparent);
-  background: rgba(255, 255, 255, 0.03);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-  font-family: var(--font-command);
-  font-weight: 800;
-  letter-spacing: var(--trk-command);
-}
-#npcs-panel #add-npc::before {
-  content: "＋";
-  font-weight: 800;
-}
-
-/* ================= NPC list — back to classic layout =================
-   Left: square portrait  |  Right: name + race
-   Bottom (full width): HP bar
-   ==================================================================== */
-
-#npcs-panel {
-  --tile: 72px;
-  --tile-r: 12px;
-} /* portrait size */
-
-#npcs-panel .npcs-list {
-  overflow: auto;
-  min-height: 0;
-  padding: 6px 10px 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Card */
-#npcs-panel #npcs-list .npc {
-  display: grid;
-  grid-template-columns: var(--tile) 1fr; /* [thumb][info] */
-  grid-template-rows: auto auto; /* info | hp */
-  grid-template-areas:
-    "thumb info"
-    "hp    hp";
-  align-items: center;
-  gap: 10px;
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--panel-alt);
-}
-
-/* ---- info (right) -------------------------------------------------- */
-#npcs-panel #npcs-list .npc .npc-info {
-  grid-area: info;
-  min-width: 0;
-}
-#npcs-panel #npcs-list .npc .npc-name {
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 1rem;
-  line-height: 1.1;
-}
-#npcs-panel #npcs-list .npc .npc-meta,
-#npcs-panel #npcs-list .npc .npc-race {
-  color: var(--muted);
-  font: 600 0.9rem/1 var(--font-command);
-  margin-top: 2px;
-}
-/* inline-edit polish */
-#npcs-panel #npcs-list .npc .npc-name[contenteditable],
-#npcs-panel #npcs-list .npc .npc-race[contenteditable] {
-  outline: none;
-  border-radius: 6px;
-  padding: 1px 3px;
-}
-#npcs-panel #npcs-list .npc .npc-name[contenteditable]:focus,
-#npcs-panel #npcs-list .npc .npc-race[contenteditable]:focus {
-  box-shadow: 0 0 0 1px var(--accent) inset;
-  background: rgba(255, 255, 255, 0.04);
-}
-
-/* ---- portrait (left) ----------------------------------------------- */
-#npcs-panel #npcs-list .npc .npc-thumb {
-  grid-area: thumb;
-  width: var(--tile);
-  aspect-ratio: 1/1;
-  border-radius: var(--tile-r);
-  overflow: hidden;
-  position: relative;
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, #1a1f2e, #121726);
-}
-#npcs-panel #npcs-list .npc .npc-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* overlay buttons stay visible */
-#npcs-panel #npcs-list .npc .thumb-actions {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  pointer-events: none;
-}
-#npcs-panel #npcs-list .npc .thumb-actions button {
-  pointer-events: auto;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.06);
-  display: grid;
-  place-items: center;
-  font: 700 14px/1 var(--font-command);
-}
-#npcs-panel #npcs-list .npc .upload-input {
-  display: none;
-}
-
-/* ---- HP (full width at bottom) ------------------------------------ */
-#npcs-panel #npcs-list .npc .npc-hp {
-  grid-area: hp;
-  margin-top: 2px;
-}
-#npcs-panel #npcs-list .npc .npc-hp-bar {
-  position: relative;
-  width: 100%;
-  height: 8px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--border);
-}
-#npcs-panel #npcs-list .npc .npc-hp-fill {
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: calc(var(--hpPct, 1) * 100%);
-  background: linear-gradient(
-    180deg,
-    var(--spd1, #9df4bb),
-    var(--spd2, #66e39a)
-  );
-}
-#npcs-panel #npcs-list .npc .npc-hp-text {
-  margin-top: 4px;
-  font: 700 0.8rem/1 var(--font-command);
-  color: var(--muted);
-}
-
-/* ---- states -------------------------------------------------------- */
-#npcs-panel #npcs-list .npc.is-active {
-  outline: 2px solid color-mix(in oklab, var(--accent) 45%, transparent);
-  outline-offset: 2px;
-}
-#npcs-panel #npcs-list .npc:hover .npc-thumb {
-  box-shadow: 0 0 0 1px var(--accent) inset,
-    0 8px 20px color-mix(in oklab, var(--accent) 22%, transparent);
-}
-
-/* === NPC card: move name+race to the TOP ============================ */
-/* Keep portrait on the left; HP spans full width at the bottom.      */
-
-#npcs-panel {
-  --tile: 72px;
-  --tile-r: 12px;
-} /* adjust as you like */
-
-#npcs-panel #npcs-list .npc {
-  display: grid;
-  grid-template-columns: var(--tile) 1fr; /* [thumb][(empty/right)] */
-  grid-template-rows: auto auto auto; /* top info | body | hp   */
-  grid-template-areas:
-    "info  info" /* name + race on top, span both columns */
-    "thumb ." /* portrait left, nothing on the right    */
-    "hp    hp"; /* HP bar full width at the bottom        */
-  gap: 10px;
-}
-
-/* top row */
-#npcs-panel #npcs-list .npc .npc-info {
-  grid-area: info;
-  min-width: 0;
-}
-
-/* portrait (unchanged, fixed square) */
-#npcs-panel #npcs-list .npc .npc-thumb {
-  grid-area: thumb;
-  width: var(--tile);
-  aspect-ratio: 1/1;
-  border-radius: var(--tile-r);
-  overflow: hidden;
-  position: relative;
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, #1a1f2e, #121726);
-}
-#npcs-panel #npcs-list .npc .npc-thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* HP full width at the bottom */
-#npcs-panel #npcs-list .npc .npc-hp {
-  grid-area: hp;
-  margin-top: 2px;
-}
-#npcs-panel #npcs-list .npc .npc-hp-bar {
-  position: relative;
-  width: 100%;
-  height: 8px;
-  overflow: hidden;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--border);
-}
-#npcs-panel #npcs-list .npc .npc-hp-fill {
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: calc(var(--hpPct, 1) * 100%);
-  background: linear-gradient(
-    180deg,
-    var(--spd1, #9df4bb),
-    var(--spd2, #66e39a)
-  );
-}
-#npcs-panel #npcs-list .npc .npc-hp-text {
-  margin-top: 4px;
-  font: 700 0.8rem/1 var(--font-command);
-  color: var(--muted);
-}
-
-/* keep overlay buttons on the portrait */
-#npcs-panel #npcs-list .npc .thumb-actions {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  pointer-events: none;
-}
-#npcs-panel #npcs-list .npc .thumb-actions button {
-  pointer-events: auto;
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.06);
-  display: grid;
-  place-items: center;
-  font: 700 14px/1 var(--font-command);
-}
-
-/* === NPC card: full-width square portrait + actions under image ====== */
-#npcs-panel {
-  --tile-r: 12px;
-}
-
-/* Card layout: info (top) → image (middle) → HP (bottom) */
-#npcs-panel #npcs-list .npc {
-  display: grid !important;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    "info"
-    "thumb"
-    "hp";
-  gap: 10px;
-}
-
-/* Info row (name + race) */
-#npcs-panel #npcs-list .npc .npc-info {
-  grid-area: info;
-}
-
-/* Portrait: fill card width, keep square */
-#npcs-panel #npcs-list .npc .npc-thumb {
-  grid-area: thumb;
-  width: 100% !important; /* full card width */
-  border: 1px solid var(--border);
-  border-radius: var(--tile-r);
-  background: linear-gradient(180deg, #1a1f2e, #121726);
-  overflow: hidden;
-  display: block; /* so actions can sit below */
-}
-#npcs-panel #npcs-list .npc .npc-thumb img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1; /* keep it square */
-  object-fit: cover;
-  display: block;
-  border-radius: var(--tile-r);
-}
-
-/* Actions: move below the image (horizontal) */
-#npcs-panel #npcs-list .npc .thumb-actions {
-  position: static; /* no absolute overlay */
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 8px;
-  padding-top: 8px;
-  pointer-events: auto;
-}
-#npcs-panel #npcs-list .npc .thumb-actions button {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.06);
-  display: grid;
-  place-items: center;
-  font: 700 14px/1 var(--font-command);
-}
-#npcs-panel #npcs-list .npc .thumb-actions input.upload-input {
-  display: none;
-}
-
-/* HP under image, full width */
-#npcs-panel #npcs-list .npc .npc-hp {
-  grid-area: hp;
-  margin-top: 2px;
-}
-#npcs-panel #npcs-list .npc .npc-hp-bar {
-  position: relative;
-  width: 100%;
-  height: 8px;
-  border-radius: 999px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--border);
-}
-#npcs-panel #npcs-list .npc .npc-hp-fill {
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: calc(var(--hpPct, 1) * 100%);
-  background: linear-gradient(
-    180deg,
-    var(--spd1, #9df4bb),
-    var(--spd2, #66e39a)
-  );
-}
-#npcs-panel #npcs-list .npc .npc-hp-text {
-  margin-top: 4px;
-  font: 700 0.8rem/1 var(--font-command);
-  color: var(--muted);
-}
-
-/* === NPC card: full-width square image, actions under it, scroll fixed === */
-
-/* keep the list scrollable */
-#npcs-panel .npcs-body {
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
-  min-height: 0;
-}
-#npcs-panel .npcs-list {
-  overflow: auto;
-  min-height: 0;
-}
-
-/* card layout = info (top) → image (middle) → HP (bottom) */
-#npcs-panel #npcs-list .npc {
-  display: grid !important;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto auto;
-  grid-template-areas:
-    "info"
-    "thumb"
-    "hp";
-  gap: 10px;
-}
-
-/* info row (name + race) */
-#npcs-panel #npcs-list .npc .npc-info {
-  grid-area: info;
-  min-width: 0;
-}
-
-/* portrait: fill card width, remain square */
-#npcs-panel #npcs-list .npc .npc-thumb {
-  grid-area: thumb;
-  width: 100% !important;
-  border-radius: var(--tile-r, 12px);
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, #1a1f2e, #121726);
-  overflow: visible !important; /* <-- allow the row of buttons to show */
-}
-#npcs-panel #npcs-list .npc .npc-thumb img {
-  width: 100%;
-  aspect-ratio: 1/1;
-  height: auto;
-  object-fit: cover;
-  display: block;
-  border-radius: inherit;
-}
-
-/* actions: under the image (horizontal), clickable */
-#npcs-panel #npcs-list .npc .thumb-actions {
-  position: static !important; /* no overlay */
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-  padding-top: 8px;
-  pointer-events: auto; /* clickable */
-}
-#npcs-panel #npcs-list .npc .thumb-actions input.upload-input {
-  display: none;
-}
-#npcs-panel #npcs-list .npc .thumb-actions button {
-  width: 28px;
-  height: 28px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.06);
-  display: grid;
-  place-items: center;
-  font: 700 14px/1 var(--font-command);
-}
-
-/* HP: below image, full width */
-#npcs-panel #npcs-list .npc .npc-hp {
-  grid-area: hp;
-  margin-top: 2px;
-}
-#npcs-panel #npcs-list .npc .npc-hp-bar {
-  position: relative;
-  width: 100%;
-  height: 8px;
-  border-radius: 999px;
-  overflow: hidden;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--border);
-}
-#npcs-panel #npcs-list .npc .npc-hp-fill {
-  position: absolute;
-  inset: 0 0 0 auto;
-  width: calc(var(--hpPct, 1) * 100%);
-  background: linear-gradient(
-    180deg,
-    var(--spd1, #9df4bb),
-    var(--spd2, #66e39a)
-  );
-}
-#npcs-panel #npcs-list .npc .npc-hp-text {
-  margin-top: 4px;
-  font: 700 0.8rem/1 var(--font-command);
-  color: var(--muted);
 }
